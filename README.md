@@ -27,6 +27,7 @@ python tools/make_dmz.py                    # OpenStreetMap 군사분계선 -> a
 python tools/make_glow.py                   # 계절 변동 지도(숲 대비) -> app/data/glow/, glow.json
 python tools/hls_cloud.py                   # HLS 광학 구름량(NASA CMR) -> data/hls_clouds.json
 python tools/make_facts.py                  # 화면·발표 공통 숫자 -> app/data/facts.json
+python tools/make_opening.py                # 7월 철원 HLS 광학(구름) + 같은 달 NISAR -> app/data/opening/, opening.json
 ```
 
 Earthdata Login 토큰을 `.env` 의 `EARTHDATA_TOKEN` 에 넣어야 한다(`.env.example` 참고). `.env` 는 저장소에 올리지 않는다.
