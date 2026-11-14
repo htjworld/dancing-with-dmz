@@ -8,6 +8,7 @@
 | 파일 | 내용 |
 |---|---|
 | `00_challenge_dancing_with_the_sars.md` | 우리 챌린지 원문 (수정 금지) |
+| `03_nasa_seoul_guide.md` | **공식 D-Day 안내 요약**: 마감(11/15 23:59 KST), 제출 항목, AI 사용 공개, 라이선스, 출석, 심사 기준과 서울 특별상 (원본 `2026- NASA_D-Day.pdf`) |
 | `01_organizer_feedback.md` | 운영진 피드백 4가지(필요성·데이터 신뢰성·차별성·48시간 구현) + 함께 받은 HLS(광학) 자료 원문 |
 | `2025_winners/01~10_*.md` | 2025 Global Winner 10팀 프로젝트 원문 |
 | `2025_sar_finalist_tengrispacers.md` | 직전 SAR 챌린지(2025)의 유일한 Global Finalist 원문 |
