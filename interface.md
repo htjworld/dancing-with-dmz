@@ -61,7 +61,7 @@ fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 ```json
 {
   "region": "cheorwon",
-  "optical": { "date": "2026-07-26", "cloud_pct": 95.0, "granule": "HLS.L30.T52SCH.2026207T021023.v2.0",
+  "optical": { "date": "2026-07-26", "cloud_pct": 95.0, "window_cloud_pct": 65.9, "granule": "HLS.L30.T52SCH.2026207T021023.v2.0",
                "file": "opening/hls_cheorwon.jpg", "corners": [[127.143139, 38.419917], "..."] },
   "radar":   { "date": "2026-07-17", "file": "opening/nisar_cheorwon.webp", "corners": "optical과 같음" },
   "clouds":  { "cheorwon": { "2026-06": [2, 7], "2026-07": [0, 3], "2026-08": [0, 7], "2026-09": [0, 10], "2026-10": [7, 10], "2026-11": [1, 1] },
@@ -70,7 +70,8 @@ fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 ```
 
 - 두 영상은 **같은 격자, 같은 `corners`**다. 겹쳐 놓고 위의 광학 영상을 지우면 아래 레이더가 그 자리에 드러난다(맑은 10월 장면으로 위치가 맞는지 검증함).
-- `clouds[지역][월] = [맑은 날, 관측일]`. 맑음 = 구름 20% 이하.
+- `cloud_pct`는 HLS 타일(약 110 km) 전체의 구름량, **`window_cloud_pct`는 철원 창 안에서 잰 구름 비율**이다. 화면에는 `window_cloud_pct`를 쓴다.
+- `clouds[지역][월] = [창 안이 맑았던 관측, 전체 관측]`(Landsat L30, `tools/hls_window.py`). 맑음 = 창 안 구름 20% 이하.
 - 광학(7/26)과 레이더(7/17) 날짜가 9일 다르다. 화면에는 "같은 7월"로 쓰고, 날짜를 보여 줄 때는 두 날짜를 다 쓴다.
 
 ### 2-3. `data/facts.json` — 화면과 발표의 숫자
@@ -79,9 +80,10 @@ fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 
 | 키 | 지금 값 | 뜻 |
 |---|---|---|
-| `july_clear_optical` | 0 장 | 2026년 7월, 다섯 지역의 맑은 광학 관측일 합 |
+| `july_clear_optical` | 0 장 | 2026년 7월, 다섯 지역 **창 안이** 맑았던(구름 20% 이하) Landsat 관측 수 |
+| `july_optical_looks` | 19 번 | 같은 기간 다섯 지역 창을 찍은 Landsat 관측 수. "19번 찍었는데 맑은 날 0번"으로 쓴다 |
 | `july_regions` | 5 곳 | 위에서 센 지역 수 |
-| `cheorwon_summer_clear` / `cheorwon_summer_days` | 0 / 20 일 | 철원 7~9월 맑은 광학 관측일 / 전체 관측일 |
+| `cheorwon_july_min_cloud` | 41 % | 7월 철원 창 안 구름이 가장 적었던 날의 값 |
 | `cheorwon_paddy_db` | 2.1 dB | 철원 민통선 논, 숲 대비 계절 변동 폭 |
 | `cheorwon_dmz_db` | 0.7 dB | 철원 DMZ 안 저지대 |
 | `cheorwon_north_db` | 2.0 dB | 철원 분계선 북쪽 경작지로 보이는 곳 |
@@ -207,12 +209,14 @@ const e = evidence(data.zones, 'cheorwon');
 | `zone_unverified` | 구역은 영상에서 고른 사각형이고 토지피복 검증이 없다 |
 | `north_wording` | 북쪽 땅은 "경작지로 보이는 곳"으로만 부른다 |
 | `missing_pass` | 7/29 통과는 자료가 없다 |
-| `cloud_tile` | 구름량은 HLS 타일(약 110 km) 단위 값이다 |
+| `cloud_tile` | `cloud_pct`는 HLS 타일(약 110 km) 단위 값이다 |
+| `cloud_window` | 창 안 구름은 Landsat 미리보기 영상의 흰 화소를 센 값이다. 옅은 구름은 못 세서 실제보다 적게 나온다 |
 
 ## 6. 다시 만들기 (htj)
 
 ```bash
-python3 tools/hls_cloud.py && python3 tools/make_facts.py      # 표준 라이브러리만
+python3 tools/hls_cloud.py                                      # 표준 라이브러리만
+python tools/hls_window.py && python3 tools/make_facts.py       # 창 안 구름 -> facts
 python tools/make_glow.py && python tools/make_opening.py       # numpy, scipy, Pillow, pyproj (requirements.txt)
 npm test
 ```
