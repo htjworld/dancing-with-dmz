@@ -37,6 +37,11 @@ function chart() {
 }
 
 // 사진 한 장: 그날 레이더 영상에서 논 구역(둘레를 조금 포함)만 잘라 보여 준다
+// 지도 위 날짜 손잡이(screens/gamemap.js)가 쓰는 것: 넘겨 볼 날짜들, 넘길 때의 음높이(논이 밝을수록 높다). 파주는 손잡이로 답을 고르지 않는다
+export const cycles = () => { const d = data.layers.regions.paju.dates; return data.passes.filter(x => !x.rest && d.includes(x.date)).map(x => x.cycle); };
+export const tone = c => { const z = zone(ZONE), all = cycles().map(k => level(z, k)).filter(v => v != null), lo = Math.min(...all), hi = Math.max(...all), v = level(z, c); return v == null ? 0 : (v - lo) / ((hi - lo) || 1); };
+export const askReady = () => false;
+
 function frames(ready) {
   const L = data.layers.regions.paju, b = zone(ZONE).bounds;   // [서, 남, 동, 북]
   const look = { contrast: 1.7, bright: .82 }, pic = c => crop('paju', pass(c).date, b, .12, 'hh', look);

@@ -6,12 +6,13 @@ import { change } from '../calc.js';
 import { missionReady, canTake, betterEye, rangeOf } from '../missions.js';
 import { t, dateText } from '../i18n.js';
 import { foundCard } from './found.js';
+import { curtainShare } from '../screens/gamemap.js';
 import { blip } from '../sound.js';
 
 const ID = 'hwacheon', A = 'hwacheon-dmz', B = 'hwacheon-north';
 const NAME = { hh: 'hwacheon.eyeHH', hv: 'hwacheon.eyeHV' };   // 눈 이름의 문구 키
 // 커튼 왼쪽이 HH 다. 커튼을 오른쪽으로 밀수록 HH 가 넓어진다
-const wide = () => (state.curtain >= .5 ? 'hh' : 'hv');
+const wide = () => (curtainShare() >= .5 ? 'hh' : 'hv');
 
 function result() {
   const e = betterEye(data.zones, A, B), mine = state.eyePick, right = mine === e.pol;
@@ -27,12 +28,9 @@ function result() {
 
 export function render() {
   const ready = missionReady(ID, state.seen[ID]), got = state.fragments.includes(ID), allowed = canTake(ID, state.fragments, STOPS.map(s => s.id));
-  const eye = p => `<button type="button" data-act="see" data-pol="${p}" aria-pressed="${state.pol === p}">${t('hwacheon.see', { pol: p.toUpperCase() })}</button>`;
-  const share = Math.round(state.curtain * 100);
+  const share = Math.round(curtainShare() * 100);
   return `
-    ${ready ? `<div class="acts toggle">${eye('hh')}${eye('hv')}</div>
-      <p class="today">${t('hwacheon.now')} <b>${t(NAME[state.pol])}</b></p>`
-    : `<div class="eyes" aria-hidden="true"><span class="${wide() === 'hh' ? 'on' : ''}" style="flex:${share}">HH</span><span class="${wide() === 'hv' ? 'on' : ''}" style="flex:${100 - share}">HV</span></div>
+    ${ready ? '' : `<div class="eyes" aria-hidden="true"><span class="${wide() === 'hh' ? 'on' : ''}" style="flex:${share}">HH</span><span class="${wide() === 'hv' ? 'on' : ''}" style="flex:${100 - share}">HV</span></div>
       <p class="hint">${t('hwacheon.hint')}</p>
       <p class="today">${t('hwacheon.wide')} <b>${t(NAME[wide()])}</b></p>
       <button type="button" class="primary" data-act="pick">${t('hwacheon.pick', { pol: wide().toUpperCase() })}</button>`}
@@ -44,8 +42,7 @@ export function render() {
 }
 
 export function act(name, el) {
-  if (name === 'see') set({ pol: el.dataset.pol });
-  else if (name === 'pick') { blip(784, .18, .3); set({ eyePick: wide(), pol: wide(), seen: addKey(ID, 'eye') }); }   // 고른 눈으로 지도를 보여 준다
+  if (name === 'pick') { blip(784, .18, .3); set({ eyePick: wide(), pol: wide(), seen: addKey(ID, 'eye') }); }   // 고른 눈으로 지도를 보여 준다
   else if (name === 'take' && missionReady(ID, state.seen[ID]) && canTake(ID, state.fragments, STOPS.map(s => s.id))) set({ fragments: [...state.fragments, ID] });
   else if (name === 'next') set({ stop: 'yanggu' });
 }

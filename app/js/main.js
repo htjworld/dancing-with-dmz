@@ -12,6 +12,7 @@ import { initLand } from './screens/land.js';
 import { initProof } from './screens/proof.js';
 import { initDateSlider } from './screens/dateslider.js';
 import { initGameMap } from './screens/gamemap.js';
+import { initZones } from './screens/zones.js';
 import { t } from './i18n.js';
 import { lineSvg } from './views/line.js';
 import * as paju from './views/paju.js';
@@ -90,10 +91,16 @@ function pieceToast(id) {
   el.dataset.stop = id;
   el.innerHTML = `<p class="n">${t('common.piece', { n, total: STOPS.length })}</p><p class="word">${word}</p><p class="saw">${t(`${id}.saw`)}</p>
     ${lineSvg({ current: n - 1, draw: n - 1 })}
-    <p class="to">${t(n === STOPS.length ? 'common.pieceAll' : 'common.pieceTo', { name: label(STOPS.find(x => x.id === id), 'name').split(' ')[0] })}</p>`;
+    <p class="to">${t(n === STOPS.length ? 'common.pieceAll' : 'common.pieceTo', { name: label(STOPS.find(x => x.id === id), 'name').split(' ')[0] })}</p>
+    <button type="button" data-close aria-label="${t('common.close')}" title="${t('common.close')}">×</button>`;
   el.hidden = false; el.classList.remove('out'); void el.offsetWidth; el.classList.add('in');
+  // 저절로 사라지지 않는다. 닫기를 눌러야 닫힌다(다음 지역으로 넘어가면 함께 걷힌다)
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.classList.add('out'); setTimeout(() => { el.hidden = true; el.classList.remove('in', 'out'); }, 400); }, 3200);
+  el.onclick = e => {
+    if (!e.target.closest('[data-close]')) return;
+    el.classList.add('out'); toastTimer = setTimeout(() => { el.hidden = true; el.classList.remove('in', 'out'); }, 400);
+  };
+  el.querySelector('[data-close]').focus({ preventScroll: true });
 }
 
 // ---- 소리와 춤
@@ -152,6 +159,7 @@ async function start() {
   initProof();
   initDateSlider();
   initGameMap(map);
+  initZones(map);
   // 끌다가 뗀 것은 누르기로 치지 않는다: 강을 긋던 손이 새로 뜬 카드의 넓은 단추 위에서 긋기를 이어 가면, 그 단추 안에서 누르고 뗀 것이 되어 눌려 버린다
   let downAt = null, dragged = false;
   document.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; dragged = false; }, true);

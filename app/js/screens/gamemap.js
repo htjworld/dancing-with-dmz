@@ -4,12 +4,19 @@
 // 판정과 문구는 각 미션 화면(views/)이 맡는다.
 import { state, set, subscribe, data, pass, zone } from '../state.js';
 import { missionReady } from '../missions.js';
+import * as pajuView from '../views/paju.js';
 import * as cheorwonView from '../views/cheorwon.js';
 import * as yangguView from '../views/yanggu.js';
 import { t, dateText } from '../i18n.js';
 import { blip } from '../sound.js';
+import { loopSvg, PENCIL } from './zones.js';
 
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+
+// 화천: 커튼이 레이더 영상의 어디쯤에 있는지(0 = 영상의 왼쪽 끝, 1 = 오른쪽 끝). 창의 게이지는 이 값을 쓴다.
+// 커튼의 자리는 화면 전체 너비로 재지만, 영상은 화면 한가운데에 있지 않으므로 영상을 기준으로 다시 잰다
+let share = .5;
+export const curtainShare = () => share;
 
 export function initGameMap(map) {
   const host = map.getContainer();
@@ -21,36 +28,40 @@ export function initGameMap(map) {
   const cur = document.createElement('div');
   cur.id = 'curtain'; cur.hidden = true;
   cur.innerHTML = `<div class="hv"><img alt=""></div>
-    <svg class="zones" aria-hidden="true"><polygon class="a"/><polygon class="b"/></svg>
     <div class="bar" role="slider" tabindex="0" aria-label="HH | HV" aria-valuemin="0" aria-valuemax="100"><b class="l">HH</b><b class="r">HV</b><i></i></div>`;
   host.append(cur);
   const img = cur.querySelector('img'), hv = cur.querySelector('.hv'), bar = cur.querySelector('.bar');
-  let shown = null;
+  let shown = null, centred = false;
   // HV 영상을 지도 위 그 자리에 포갠다. 창의 세 모서리(좌상·우상·좌하)를 화면 좌표로 옮겨 그대로 기울인다
   const place = () => {
     if (cur.hidden) return;
     const [w, h] = L.size, p0 = map.project(L.corners[0]), p1 = map.project(L.corners[1]), p3 = map.project(L.corners[3]);
     img.style.width = `${w}px`; img.style.height = `${h}px`;
     img.style.transform = `matrix(${(p1.x - p0.x) / w},${(p1.y - p0.y) / w},${(p3.x - p0.x) / h},${(p3.y - p0.y) / h},${p0.x},${p0.y})`;
-    // 견줄 두 구역의 테두리는 커튼 위에도 그린다(HV 영상이 지도의 테두리를 가리므로)
-    [['a', 'hwacheon-dmz'], ['b', 'hwacheon-north']].forEach(([cls, id]) => {
-      const b = zone(id)?.bounds; if (!b) return;
-      cur.querySelector(`.zones .${cls}`).setAttribute('points', [[b[0], b[3]], [b[2], b[3]], [b[2], b[1]], [b[0], b[1]]].map(c => { const q = map.project(c); return `${q.x.toFixed(1)},${q.y.toFixed(1)}`; }).join(' '));
-    });
+    // 구역의 고리와 이름은 screens/zones.js 가 커튼보다 위에 그린다(HV 영상이 덮지 않게)
     const x = state.curtain * host.clientWidth;
+    const xs = L.corners.map(c => map.project(c).x), left = Math.min(...xs), right = Math.max(...xs);
+    share = Math.max(0, Math.min(1, (x - left) / ((right - left) || 1)));
     hv.style.clipPath = `inset(0 0 0 ${x}px)`;   // 커튼 오른쪽만 HV
     bar.style.left = `${x}px`;
     bar.setAttribute('aria-valuenow', Math.round(state.curtain * 100));
   };
   const syncCurtain = () => {
     const on = !!L?.pols.includes('hv') && inGame('hwacheon');
+    if (on && cur.hidden) centred = false;   // 다시 나타날 때마다 영상 한가운데에서 시작한다
     cur.hidden = !on;
     if (!on) return;
+    if (!centred && !map.isMoving()) {   // 지도가 자리를 잡은 뒤, 커튼을 영상의 한가운데로 옮긴다
+      centred = true;
+      const xs = L.corners.map(c => map.project(c).x), mid = (Math.min(...xs) + Math.max(...xs)) / 2 / host.clientWidth;
+      if (Math.abs(mid - state.curtain) > .005) queueMicrotask(() => set({ curtain: Math.max(.06, Math.min(.94, mid)) }));
+    }
     const p = pass(state.cycle), url = p && !p.rest && L.dates.includes(p.date) ? `data/layers/hwacheon/${p.date}_hv.webp` : BLANK;
     if (url !== shown) { shown = url; img.src = url; }
     place();
   };
   map.on('move', place); map.on('resize', place);
+  map.on('moveend', () => { if (!cur.hidden && !centred) syncCurtain(); });
   const LO = .06, HI = .94;
   // 끝을 넘겨 끌면 넘긴 만큼 덜 따라온다(딱 멈추지 않는다)
   const band = over => (over * .55) / (1 + .55 * Math.abs(over) / .12);
@@ -120,11 +131,11 @@ export function initGameMap(map) {
     }
   };
 
-  // ---- 시간 돌리기(철원, 양구): 지도 아래의 손잡이를 끌어 날짜를 넘긴다. 철원에서는 이름을 가린 두 땅(가, 나)의 테두리도 지도 위에 그린다
-  const SCRUB = { cheorwon: cheorwonView, yanggu: yangguView }, LANDS = cheorwonView.LANDS;
+  // ---- 시간 돌리기(파주, 철원, 양구): 지도 아래의 손잡이를 끌어 날짜를 넘긴다. 철원에서는 이름을 가린 두 땅(가, 나)의 테두리도 지도 위에 그린다
+  const SCRUB = { paju: pajuView, cheorwon: cheorwonView, yanggu: yangguView }, LANDS = cheorwonView.LANDS;
   const scrub = document.createElement('div');
   scrub.id = 'scrub'; scrub.hidden = true;
-  scrub.innerHTML = `<svg class="lands" aria-hidden="true">${LANDS.map(l => `<g class="${l.key}" data-land="${l.key}"><polygon/><text></text></g>`).join('')}</svg>
+  scrub.innerHTML = `<svg class="lands" aria-hidden="true">${PENCIL}${LANDS.map(l => `<g class="${l.key}" data-land="${l.key}"><ellipse/><g class="loop" filter="url(#pencil)"></g><text></text></g>`).join('')}</svg>
     <div class="time"><b class="day"></b>
       <div class="rail" role="slider" tabindex="0" aria-valuemin="0"><i class="fill"></i><span class="dots"></span><b class="knob"></b></div>
       <div class="ends"><span></span><span></span></div></div>`;
@@ -137,8 +148,11 @@ export function initGameMap(map) {
     for (const l of LANDS) {
       const b = zone(l.id)?.bounds; if (!b) continue;
       const g = scrub.querySelector(`.lands .${l.key}`), q = [[b[0], b[3]], [b[2], b[3]], [b[2], b[1]], [b[0], b[1]]].map(c => map.project(c));
-      g.querySelector('polygon').setAttribute('points', q.map(v => `${v.x.toFixed(1)},${v.y.toFixed(1)}`).join(' '));
-      const tx = g.querySelector('text'); tx.setAttribute('x', (q[0].x + 8).toFixed(1)); tx.setAttribute('y', (q[0].y - 8).toFixed(1));
+      const L = loopSvg(q, l.id, '#fff');
+      g.querySelector('.loop').innerHTML = L.html;
+      // 고리 안쪽은 눌리는 자리(보이지 않는 타원)
+      const el = g.querySelector('ellipse'); el.setAttribute('cx', L.cx.toFixed(1)); el.setAttribute('cy', L.cy.toFixed(1)); el.setAttribute('rx', L.rx.toFixed(1)); el.setAttribute('ry', L.ry.toFixed(1));
+      const tx = g.querySelector('text'); tx.setAttribute('x', (L.cx + L.rx * .62).toFixed(1)); tx.setAttribute('y', (L.cy - L.ry - 6).toFixed(1));
     }
   };
   const syncScrub = () => {
@@ -148,6 +162,9 @@ export function initGameMap(map) {
     if (now !== who) {   // 지역이 바뀌면 그 지역의 날짜들로 다시 만든다
       who = now; cyc = SCRUB[who].cycles(); scrub.dataset.stop = who;
       scrub.querySelector('.dots').innerHTML = cyc.map(() => '<i></i>').join(''); rail.setAttribute('aria-valuemax', cyc.length - 1);
+      // 손잡이는 늘 첫 날짜에서 시작한다(앞 지역에서 보던 날짜가 남아 중간부터 시작하지 않게). 이미 넘겨 보던 중이면 그대로 둔다
+      const seenHere = cyc.filter(c => state.visited.includes(c)).length;
+      if (seenHere <= 1 && state.cycle !== cyc[0]) { const stop = who; queueMicrotask(() => { if (state.stop === stop) set({ cycle: cyc[0], visited: [cyc[0]] }); }); }
       if (!loaded.has(who)) { loaded.add(who); for (const c of cyc) { const im = new Image(); im.src = `data/layers/${who}/${pass(c).date}_hh.webp`; } }   // 날짜를 넘길 때 영상이 바로 바뀌도록 미리 불러 둔다
     }
     const i = Math.max(0, cyc.indexOf(state.cycle)), f = cyc.length > 1 ? i / (cyc.length - 1) : 0;

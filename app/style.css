@@ -674,3 +674,46 @@ body[data-stop=cheorwon][data-beat=play] .zone-tag{display:none}
 #panel .skychips span{height:38px;border-radius:5px;display:grid;place-items:end center;border:1px solid rgba(255,255,255,.12)}
 #panel .skychips b{font-size:9.5px;font-weight:400;color:#fff;text-shadow:0 1px 3px #000;padding-bottom:2px}
 @media (prefers-reduced-motion:reduce){#panel .sky .sun,#panel .sky .stars{transition:none}}
+
+/* ---- 구역 표시: 색연필로 둘러 그린 고리와 손글씨 이름 */
+#ink{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.ink{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
+.ink.thin{stroke-width:1.5;opacity:.6}
+.ink.draw{stroke-dasharray:1;animation:ink-draw .9s cubic-bezier(.3,.6,.2,1) backwards}
+.ink.thin.draw{animation-delay:.25s}
+@keyframes ink-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+#ink text,#scrub .lands text{font-family:"Nanum Pen Script","Gaegu",var(--serif);font-size:25px;font-weight:400;paint-order:stroke;stroke:rgba(4,9,14,.8);stroke-width:4px;stroke-linejoin:round}
+#ink text.draw{animation:ink-name .5s .7s backwards}
+@keyframes ink-name{from{opacity:0}}
+body[data-screen=mission] .zone-tag{display:none}
+#curtain .zones .ink{stroke-width:3.2}
+#scrub .lands ellipse{fill:transparent;stroke:none}
+#scrub .lands text{fill:#fff}
+#scrub.ask .lands .ink{stroke:var(--gold) !important}
+#scrub.ask .lands text{fill:var(--gold)}
+#scrub.ask .lands ellipse{fill:rgba(255,225,162,.12);animation:land-ask 1.6s ease-in-out infinite}
+#scrub.ask .lands g:hover > ellipse{fill:rgba(255,225,162,.3)}
+@media (prefers-reduced-motion:reduce){.ink.draw,#ink text.draw,#scrub.ask .lands ellipse{animation:none}}
+
+/* ---- 구역 이름은 작게, 미션을 푸는 동안에는 지도 위의 번호 핀을 숨긴다 */
+#ink text{font-size:19px;stroke-width:3.5px}
+#scrub .lands text{font-size:21px}
+body[data-beat=play] .pin{display:none}
+
+/* ---- 레이더의 특징 카드: 닫기를 눌러야 닫힌다 */
+#piece-toast{pointer-events:auto}
+#piece-toast [data-close]{margin-top:14px;padding:9px 30px;border-radius:999px;border:1px solid rgba(255,225,162,.6);background:transparent;color:var(--gold);font-size:14px;font-weight:700;transition:transform .1s ease-out,background-color .15s}
+#piece-toast [data-close]:hover{background:rgba(255,225,162,.12)}
+#piece-toast [data-close]:active{transform:scale(.96)}
+
+/* ---- 파주도 지도 위의 날짜 손잡이를 쓴다: 아래 띠의 날짜 줄은 빼고, 그만큼 오른쪽 창을 키운다 */
+body[data-screen=mission] #date-slider,body[data-screen=mission][data-stop=paju] #date-slider{display:none}
+#scrub[data-stop=paju] .lands{display:none}
+#panel{max-height:calc(100% - 72px)}
+
+/* ---- 레이더의 특징 카드: 닫기는 오른쪽 위의 × */
+#piece-toast [data-close]{position:absolute;top:10px;right:10px;width:32px;height:32px;margin:0;padding:0;display:grid;place-items:center;border-radius:50%;
+  border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:var(--ink);font-size:20px;font-weight:400;line-height:1}
+#piece-toast [data-close]:hover{background:rgba(255,255,255,.16)}
+#piece-toast .n{padding:0 30px}
+#piece-toast [data-close]{width:22px;height:22px;font-size:14px;top:9px;right:9px}
