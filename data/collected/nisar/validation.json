@@ -1,0 +1,5016 @@
+{
+  "status": "all_values_agree_within_tolerance",
+  "region_observations": 200,
+  "polarization_comparisons": 400,
+  "within_0_05_db": 400,
+  "within_rounding_0_005_db": 400,
+  "max_abs_difference_db": 0.004964370154665332,
+  "mean_abs_difference_db": 0.002451918051713112,
+  "quality_policy": "GCOV subswath mask 1..254 AND finite positive gamma0; 3x3 native block means, equal spatial mean, then dB",
+  "mask_semantics_source": "Original HDF5 frequencyA/mask descriptions and grid attributes are excerpted in nisar/metadata/mask-evidence.json.",
+  "terrain_shadow_layover_validated": false,
+  "comparisons": [
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -6.42,
+      "raw_validity_filtered_db": -6.4164108601352705,
+      "difference_db": 0.003589139864729418,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -15.97,
+      "raw_validity_filtered_db": -15.9726991105893,
+      "difference_db": -0.0026991105892992806,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -6.32,
+      "raw_validity_filtered_db": -6.317427695411921,
+      "difference_db": 0.0025723045880789996,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -15.57,
+      "raw_validity_filtered_db": -15.56825822126872,
+      "difference_db": 0.001741778731279453,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.5,
+      "raw_validity_filtered_db": -5.503542292169459,
+      "difference_db": -0.0035422921694587828,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -15.66,
+      "raw_validity_filtered_db": -15.65788949206681,
+      "difference_db": 0.002110507933190675,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -5.89,
+      "raw_validity_filtered_db": -5.8855943921395735,
+      "difference_db": 0.004405607860426208,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -15.8,
+      "raw_validity_filtered_db": -15.79845040960813,
+      "difference_db": 0.0015495903918711917,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -4.99,
+      "raw_validity_filtered_db": -4.988392284911539,
+      "difference_db": 0.0016077150884612479,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -14.11,
+      "raw_validity_filtered_db": -14.113175202835501,
+      "difference_db": -0.003175202835501878,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -5.81,
+      "raw_validity_filtered_db": -5.809579511452396,
+      "difference_db": 0.0004204885476033482,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -14.2,
+      "raw_validity_filtered_db": -14.200427680567664,
+      "difference_db": -0.00042768056766462337,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -7.49,
+      "raw_validity_filtered_db": -7.4895541777087224,
+      "difference_db": 0.0004458222912777643,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -15.14,
+      "raw_validity_filtered_db": -15.139797483620136,
+      "difference_db": 0.00020251637986490323,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -8.25,
+      "raw_validity_filtered_db": -8.25130729331919,
+      "difference_db": -0.001307293319189995,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -15.91,
+      "raw_validity_filtered_db": -15.911094658124647,
+      "difference_db": -0.001094658124646486,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -8.4,
+      "raw_validity_filtered_db": -8.404106266201682,
+      "difference_db": -0.004106266201681308,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -16.31,
+      "raw_validity_filtered_db": -16.30922665248984,
+      "difference_db": 0.0007733475101581178,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -6.89,
+      "raw_validity_filtered_db": -6.885786250063281,
+      "difference_db": 0.004213749936718969,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-paddy",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -15.17,
+      "raw_validity_filtered_db": -15.171988464805981,
+      "difference_db": -0.0019884648059811383,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -6.68,
+      "raw_validity_filtered_db": -6.683817519022109,
+      "difference_db": -0.0038175190221094724,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -11.94,
+      "raw_validity_filtered_db": -11.94381518613671,
+      "difference_db": -0.0038151861367108353,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -6.69,
+      "raw_validity_filtered_db": -6.691877291035675,
+      "difference_db": -0.0018772910356750216,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -11.76,
+      "raw_validity_filtered_db": -11.755300240038842,
+      "difference_db": 0.004699759961157568,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.97,
+      "raw_validity_filtered_db": -5.968327227394843,
+      "difference_db": 0.001672772605156858,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -11.55,
+      "raw_validity_filtered_db": -11.545505696983927,
+      "difference_db": 0.004494303016073786,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -6.37,
+      "raw_validity_filtered_db": -6.369716209465405,
+      "difference_db": 0.0002837905345947078,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -11.84,
+      "raw_validity_filtered_db": -11.836565218677883,
+      "difference_db": 0.00343478132211672,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -5.72,
+      "raw_validity_filtered_db": -5.722515101011895,
+      "difference_db": -0.0025151010118955597,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -10.76,
+      "raw_validity_filtered_db": -10.755035629845334,
+      "difference_db": 0.004964370154665332,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -5.98,
+      "raw_validity_filtered_db": -5.98143536729705,
+      "difference_db": -0.0014353672970495168,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -11.36,
+      "raw_validity_filtered_db": -11.359815310862132,
+      "difference_db": 0.00018468913786762187,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -6.78,
+      "raw_validity_filtered_db": -6.778014318455449,
+      "difference_db": 0.0019856815445509213,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -12.09,
+      "raw_validity_filtered_db": -12.090835638376081,
+      "difference_db": -0.0008356383760812491,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -7.08,
+      "raw_validity_filtered_db": -7.083123378718631,
+      "difference_db": -0.003123378718631109,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -12.23,
+      "raw_validity_filtered_db": -12.226135991645972,
+      "difference_db": 0.0038640083540286696,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -7.32,
+      "raw_validity_filtered_db": -7.3220423637731535,
+      "difference_db": -0.002042363773153255,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -12.54,
+      "raw_validity_filtered_db": -12.541375775685776,
+      "difference_db": -0.0013757756857764036,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -6.0,
+      "raw_validity_filtered_db": -5.998398950200024,
+      "difference_db": 0.0016010497999756623,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_flat",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -11.69,
+      "raw_validity_filtered_db": -11.68850066691445,
+      "difference_db": 0.0014993330855492815,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -5.83,
+      "raw_validity_filtered_db": -5.832216378894777,
+      "difference_db": -0.0022163788947766605,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -10.96,
+      "raw_validity_filtered_db": -10.957465801378394,
+      "difference_db": 0.0025341986216069756,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -5.66,
+      "raw_validity_filtered_db": -5.664710489484288,
+      "difference_db": -0.004710489484287983,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -10.74,
+      "raw_validity_filtered_db": -10.740242438487062,
+      "difference_db": -0.00024243848706184679,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.39,
+      "raw_validity_filtered_db": -5.3926684041046595,
+      "difference_db": -0.0026684041046598495,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -10.71,
+      "raw_validity_filtered_db": -10.710349482590956,
+      "difference_db": -0.0003494825909555743,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -5.7,
+      "raw_validity_filtered_db": -5.695605158948206,
+      "difference_db": 0.004394841051793996,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -10.93,
+      "raw_validity_filtered_db": -10.92571540453787,
+      "difference_db": 0.004284595462129559,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -4.92,
+      "raw_validity_filtered_db": -4.922488451657613,
+      "difference_db": -0.0024884516576131332,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -9.85,
+      "raw_validity_filtered_db": -9.84859897825885,
+      "difference_db": 0.0014010217411488668,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -5.24,
+      "raw_validity_filtered_db": -5.236825080263143,
+      "difference_db": 0.003174919736856907,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -10.46,
+      "raw_validity_filtered_db": -10.46161456330662,
+      "difference_db": -0.0016145633066191323,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -5.87,
+      "raw_validity_filtered_db": -5.8692546460953485,
+      "difference_db": 0.00074535390465158,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -11.05,
+      "raw_validity_filtered_db": -11.049417745745721,
+      "difference_db": 0.0005822542542794906,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -6.06,
+      "raw_validity_filtered_db": -6.063879658666242,
+      "difference_db": -0.0038796586662419585,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -11.24,
+      "raw_validity_filtered_db": -11.244817429170944,
+      "difference_db": -0.004817429170943299,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -6.26,
+      "raw_validity_filtered_db": -6.264656326794858,
+      "difference_db": -0.004656326794858501,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -11.45,
+      "raw_validity_filtered_db": -11.44856755561234,
+      "difference_db": 0.001432444387658549,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -5.17,
+      "raw_validity_filtered_db": -5.168469268699582,
+      "difference_db": 0.0015307313004182532,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-dmz_hill",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -10.77,
+      "raw_validity_filtered_db": -10.768249422888314,
+      "difference_db": 0.0017505771116859137,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -4.47,
+      "raw_validity_filtered_db": -4.468543424056969,
+      "difference_db": 0.0014565759430311687,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -9.65,
+      "raw_validity_filtered_db": -9.646385906228469,
+      "difference_db": 0.003614093771531657,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -4.8,
+      "raw_validity_filtered_db": -4.801568191380666,
+      "difference_db": -0.0015681913806657732,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -9.84,
+      "raw_validity_filtered_db": -9.842746220365266,
+      "difference_db": -0.002746220365265728,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -3.96,
+      "raw_validity_filtered_db": -3.9557392859883365,
+      "difference_db": 0.004260714011663502,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -9.46,
+      "raw_validity_filtered_db": -9.455357953155525,
+      "difference_db": 0.004642046844475445,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -4.82,
+      "raw_validity_filtered_db": -4.820249348600369,
+      "difference_db": -0.0002493486003682932,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -9.96,
+      "raw_validity_filtered_db": -9.95912795139496,
+      "difference_db": 0.0008720486050410869,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -3.41,
+      "raw_validity_filtered_db": -3.4059258082870607,
+      "difference_db": 0.0040741917129394345,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -8.65,
+      "raw_validity_filtered_db": -8.648828760120631,
+      "difference_db": 0.0011712398793690681,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -4.02,
+      "raw_validity_filtered_db": -4.016102994749434,
+      "difference_db": 0.0038970052505655772,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -9.36,
+      "raw_validity_filtered_db": -9.35820589488758,
+      "difference_db": 0.0017941051124186203,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -4.81,
+      "raw_validity_filtered_db": -4.814661724375883,
+      "difference_db": -0.004661724375883303,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -9.98,
+      "raw_validity_filtered_db": -9.979088066738258,
+      "difference_db": 0.0009119332617419929,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -5.1,
+      "raw_validity_filtered_db": -5.09955062191434,
+      "difference_db": 0.00044937808565936876,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -10.21,
+      "raw_validity_filtered_db": -10.213181446392012,
+      "difference_db": -0.0031814463920110114,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -5.32,
+      "raw_validity_filtered_db": -5.320853554589444,
+      "difference_db": -0.0008535545894439167,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -10.35,
+      "raw_validity_filtered_db": -10.351044095296682,
+      "difference_db": -0.001044095296682812,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -3.92,
+      "raw_validity_filtered_db": -3.9156800113222663,
+      "difference_db": 0.004319988677733644,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-forest",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -9.57,
+      "raw_validity_filtered_db": -9.57123949902907,
+      "difference_db": -0.001239499029070501,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -9.31,
+      "raw_validity_filtered_db": -9.31320597192409,
+      "difference_db": -0.0032059719240891127,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -17.9,
+      "raw_validity_filtered_db": -17.8973521471273,
+      "difference_db": 0.0026478528726983086,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -7.69,
+      "raw_validity_filtered_db": -7.694086857481935,
+      "difference_db": -0.004086857481934381,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -16.61,
+      "raw_validity_filtered_db": -16.614833706711735,
+      "difference_db": -0.004833706711735886,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -7.44,
+      "raw_validity_filtered_db": -7.4354043990082825,
+      "difference_db": 0.004595600991717852,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -16.51,
+      "raw_validity_filtered_db": -16.509665142898385,
+      "difference_db": 0.0003348571016168478,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -8.58,
+      "raw_validity_filtered_db": -8.5847819381461,
+      "difference_db": -0.004781938146100728,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -17.14,
+      "raw_validity_filtered_db": -17.13699120191887,
+      "difference_db": 0.0030087980811295267,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -6.83,
+      "raw_validity_filtered_db": -6.827813099855502,
+      "difference_db": 0.0021869001444976277,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -15.09,
+      "raw_validity_filtered_db": -15.092957664374538,
+      "difference_db": -0.002957664374537927,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -7.58,
+      "raw_validity_filtered_db": -7.582161603696923,
+      "difference_db": -0.0021616036969227537,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -15.89,
+      "raw_validity_filtered_db": -15.88909821652396,
+      "difference_db": 0.0009017834760403076,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -8.59,
+      "raw_validity_filtered_db": -8.594480595828824,
+      "difference_db": -0.0044805958288236525,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -16.8,
+      "raw_validity_filtered_db": -16.798922118219107,
+      "difference_db": 0.0010778817808940744,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -8.92,
+      "raw_validity_filtered_db": -8.918642527836106,
+      "difference_db": 0.0013574721638942577,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -17.06,
+      "raw_validity_filtered_db": -17.05534548249586,
+      "difference_db": 0.004654517504139477,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -9.43,
+      "raw_validity_filtered_db": -9.429477192661578,
+      "difference_db": 0.0005228073384220266,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -17.8,
+      "raw_validity_filtered_db": -17.798786833661953,
+      "difference_db": 0.0012131663380472446,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -7.7,
+      "raw_validity_filtered_db": -7.697627712633991,
+      "difference_db": 0.0023722873660094734,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "cheorwon-north",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -17.02,
+      "raw_validity_filtered_db": -17.018924753081965,
+      "difference_db": 0.0010752469180346225,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -7.64,
+      "raw_validity_filtered_db": -7.642971621929799,
+      "difference_db": -0.002971621929799717,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -13.52,
+      "raw_validity_filtered_db": -13.51904447008027,
+      "difference_db": 0.0009555299197288036,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -6.78,
+      "raw_validity_filtered_db": -6.77898398565297,
+      "difference_db": 0.0010160143470301364,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -13.33,
+      "raw_validity_filtered_db": -13.333365843204053,
+      "difference_db": -0.003365843204052865,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.95,
+      "raw_validity_filtered_db": -5.954025815592087,
+      "difference_db": -0.004025815592086701,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -13.26,
+      "raw_validity_filtered_db": -13.258053621682675,
+      "difference_db": 0.0019463783173243598,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -5.29,
+      "raw_validity_filtered_db": -5.287786103237737,
+      "difference_db": 0.0022138967622629124,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -13.16,
+      "raw_validity_filtered_db": -13.155552840548474,
+      "difference_db": 0.004447159451526517,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -4.87,
+      "raw_validity_filtered_db": -4.87198299510692,
+      "difference_db": -0.0019829951069194607,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -11.97,
+      "raw_validity_filtered_db": -11.969010855076895,
+      "difference_db": 0.0009891449231052007,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -5.38,
+      "raw_validity_filtered_db": -5.383528780855443,
+      "difference_db": -0.003528780855442726,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -12.55,
+      "raw_validity_filtered_db": -12.549234362483714,
+      "difference_db": 0.0007656375162863327,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -6.59,
+      "raw_validity_filtered_db": -6.589695448424803,
+      "difference_db": 0.0003045515751969319,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -13.02,
+      "raw_validity_filtered_db": -13.018187670408352,
+      "difference_db": 0.0018123295916474547,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -7.04,
+      "raw_validity_filtered_db": -7.044765155291621,
+      "difference_db": -0.004765155291621248,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -12.99,
+      "raw_validity_filtered_db": -12.987506544392568,
+      "difference_db": 0.0024934556074320824,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -7.61,
+      "raw_validity_filtered_db": -7.605165157811875,
+      "difference_db": 0.0048348421881252435,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -13.28,
+      "raw_validity_filtered_db": -13.276237144729608,
+      "difference_db": 0.003762855270391441,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -6.73,
+      "raw_validity_filtered_db": -6.727725086410993,
+      "difference_db": 0.0022749135890069994,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_farm",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -12.8,
+      "raw_validity_filtered_db": -12.797389105865676,
+      "difference_db": 0.0026108941343245817,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -6.08,
+      "raw_validity_filtered_db": -6.077940771764224,
+      "difference_db": 0.0020592282357760894,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -11.22,
+      "raw_validity_filtered_db": -11.21901789853604,
+      "difference_db": 0.0009821014639612713,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -6.45,
+      "raw_validity_filtered_db": -6.449273921773485,
+      "difference_db": 0.0007260782265152699,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -11.53,
+      "raw_validity_filtered_db": -11.52726653470287,
+      "difference_db": 0.0027334652971298112,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.68,
+      "raw_validity_filtered_db": -5.67515045991832,
+      "difference_db": 0.004849540081679926,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -11.04,
+      "raw_validity_filtered_db": -11.044804796001326,
+      "difference_db": -0.004804796001327105,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -6.06,
+      "raw_validity_filtered_db": -6.063588518485874,
+      "difference_db": -0.0035885184858743813,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -11.2,
+      "raw_validity_filtered_db": -11.204781768458096,
+      "difference_db": -0.004781768458096636,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -4.96,
+      "raw_validity_filtered_db": -4.963142095277934,
+      "difference_db": -0.003142095277934409,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -10.1,
+      "raw_validity_filtered_db": -10.10235368559577,
+      "difference_db": -0.002353685595769761,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -5.43,
+      "raw_validity_filtered_db": -5.429762770181328,
+      "difference_db": 0.0002372298186719135,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -10.71,
+      "raw_validity_filtered_db": -10.712474056555942,
+      "difference_db": -0.002474056555941573,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -6.14,
+      "raw_validity_filtered_db": -6.14163527096352,
+      "difference_db": -0.001635270963520341,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -11.35,
+      "raw_validity_filtered_db": -11.347631078474073,
+      "difference_db": 0.002368921525926382,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -6.24,
+      "raw_validity_filtered_db": -6.237204663438003,
+      "difference_db": 0.0027953365619968196,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -11.31,
+      "raw_validity_filtered_db": -11.31057161074798,
+      "difference_db": -0.0005716107479791788,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -6.2,
+      "raw_validity_filtered_db": -6.1975383513208335,
+      "difference_db": 0.0024616486791666503,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -11.38,
+      "raw_validity_filtered_db": -11.379802311265056,
+      "difference_db": 0.00019768873494463435,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -5.65,
+      "raw_validity_filtered_db": -5.6497237746133635,
+      "difference_db": 0.0002762253866368525,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-dmz_wild",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -11.01,
+      "raw_validity_filtered_db": -11.010840682358138,
+      "difference_db": -0.0008406823581381673,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -4.91,
+      "raw_validity_filtered_db": -4.912158390001664,
+      "difference_db": -0.0021583900016635127,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -11.97,
+      "raw_validity_filtered_db": -11.971390157681673,
+      "difference_db": -0.0013901576816728323,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -4.68,
+      "raw_validity_filtered_db": -4.681631062358868,
+      "difference_db": -0.0016310623588680073,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -11.84,
+      "raw_validity_filtered_db": -11.841641452700554,
+      "difference_db": -0.0016414527005537138,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -4.42,
+      "raw_validity_filtered_db": -4.4169861960747605,
+      "difference_db": 0.003013803925239422,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -11.73,
+      "raw_validity_filtered_db": -11.728021115549634,
+      "difference_db": 0.001978884450366536,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -4.73,
+      "raw_validity_filtered_db": -4.727599269925521,
+      "difference_db": 0.0024007300744797178,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -11.84,
+      "raw_validity_filtered_db": -11.841762065587114,
+      "difference_db": -0.0017620655871137814,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -3.55,
+      "raw_validity_filtered_db": -3.55199561542661,
+      "difference_db": -0.0019956154266100867,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -10.69,
+      "raw_validity_filtered_db": -10.687069044503355,
+      "difference_db": 0.0029309554966445717,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -4.05,
+      "raw_validity_filtered_db": -4.0542903200686755,
+      "difference_db": -0.00429032006867569,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -11.29,
+      "raw_validity_filtered_db": -11.293926134617267,
+      "difference_db": -0.003926134617268318,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -4.43,
+      "raw_validity_filtered_db": -4.433412201557135,
+      "difference_db": -0.003412201557135397,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -11.63,
+      "raw_validity_filtered_db": -11.633915036111697,
+      "difference_db": -0.003915036111695969,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -4.79,
+      "raw_validity_filtered_db": -4.785168998391343,
+      "difference_db": 0.004831001608657459,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -11.73,
+      "raw_validity_filtered_db": -11.729827480987655,
+      "difference_db": 0.00017251901234516254,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -4.74,
+      "raw_validity_filtered_db": -4.737678550478661,
+      "difference_db": 0.0023214495213395026,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -11.8,
+      "raw_validity_filtered_db": -11.796185281930358,
+      "difference_db": 0.003814718069643064,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -4.01,
+      "raw_validity_filtered_db": -4.007606767053707,
+      "difference_db": 0.0023932329462930113,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-south",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -11.29,
+      "raw_validity_filtered_db": -11.293959985924225,
+      "difference_db": -0.003959985924225862,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -9.11,
+      "raw_validity_filtered_db": -9.111275328659024,
+      "difference_db": -0.0012753286590250212,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -17.09,
+      "raw_validity_filtered_db": -17.090923636953747,
+      "difference_db": -0.0009236369537468647,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -9.77,
+      "raw_validity_filtered_db": -9.769186421587632,
+      "difference_db": 0.0008135784123677325,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -17.25,
+      "raw_validity_filtered_db": -17.251372973854423,
+      "difference_db": -0.0013729738544228098,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -7.62,
+      "raw_validity_filtered_db": -7.621598578372748,
+      "difference_db": -0.0015985783727474612,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -15.79,
+      "raw_validity_filtered_db": -15.793284183040019,
+      "difference_db": -0.0032841830400194283,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -8.76,
+      "raw_validity_filtered_db": -8.760188728426472,
+      "difference_db": -0.00018872842647255084,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -16.63,
+      "raw_validity_filtered_db": -16.6310651164796,
+      "difference_db": -0.0010651164796016133,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -6.41,
+      "raw_validity_filtered_db": -6.413791071648812,
+      "difference_db": -0.0037910716488118723,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -14.33,
+      "raw_validity_filtered_db": -14.327733788771335,
+      "difference_db": 0.002266211228665327,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -7.51,
+      "raw_validity_filtered_db": -7.514677468929919,
+      "difference_db": -0.004677468929918938,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -15.61,
+      "raw_validity_filtered_db": -15.605978156151997,
+      "difference_db": 0.0040218438480028595,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -9.16,
+      "raw_validity_filtered_db": -9.15833614685641,
+      "difference_db": 0.0016638531435901882,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -16.68,
+      "raw_validity_filtered_db": -16.682102383661867,
+      "difference_db": -0.002102383661867435,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -9.26,
+      "raw_validity_filtered_db": -9.258714996230655,
+      "difference_db": 0.001285003769345039,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -16.89,
+      "raw_validity_filtered_db": -16.88877540129734,
+      "difference_db": 0.0012245987026595628,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -8.79,
+      "raw_validity_filtered_db": -8.79476275401133,
+      "difference_db": -0.004762754011331083,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -16.92,
+      "raw_validity_filtered_db": -16.92056038823585,
+      "difference_db": -0.0005603882358471424,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -7.67,
+      "raw_validity_filtered_db": -7.668902224687775,
+      "difference_db": 0.001097775312224769,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "paju-north",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -16.36,
+      "raw_validity_filtered_db": -16.362714458653677,
+      "difference_db": -0.0027144586536778093,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -7.1,
+      "raw_validity_filtered_db": -7.097897829088447,
+      "difference_db": 0.0021021709115522924,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -12.62,
+      "raw_validity_filtered_db": -12.616219100354545,
+      "difference_db": 0.003780899645454028,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -7.29,
+      "raw_validity_filtered_db": -7.2862917421275295,
+      "difference_db": 0.003708257872470533,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -12.68,
+      "raw_validity_filtered_db": -12.678427389664941,
+      "difference_db": 0.0015726103350583998,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -6.41,
+      "raw_validity_filtered_db": -6.411189683374897,
+      "difference_db": -0.0011896833748972213,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -12.15,
+      "raw_validity_filtered_db": -12.148406756451834,
+      "difference_db": 0.0015932435481662566,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -6.96,
+      "raw_validity_filtered_db": -6.96073628975145,
+      "difference_db": -0.0007362897514502365,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -12.41,
+      "raw_validity_filtered_db": -12.407384598462913,
+      "difference_db": 0.0026154015370867256,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -5.98,
+      "raw_validity_filtered_db": -5.981172232327588,
+      "difference_db": -0.0011722323275877855,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -11.2,
+      "raw_validity_filtered_db": -11.198230383466427,
+      "difference_db": 0.0017696165335721048,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -6.47,
+      "raw_validity_filtered_db": -6.474787227964503,
+      "difference_db": -0.004787227964503593,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -11.89,
+      "raw_validity_filtered_db": -11.887370684845699,
+      "difference_db": 0.002629315154301537,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -7.0,
+      "raw_validity_filtered_db": -7.001793780213031,
+      "difference_db": -0.0017937802130312264,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -12.37,
+      "raw_validity_filtered_db": -12.374095023408245,
+      "difference_db": -0.004095023408245524,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -7.34,
+      "raw_validity_filtered_db": -7.343337329973135,
+      "difference_db": -0.0033373299731351835,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -12.57,
+      "raw_validity_filtered_db": -12.571469166977531,
+      "difference_db": -0.0014691669775306337,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -7.42,
+      "raw_validity_filtered_db": -7.421342608110313,
+      "difference_db": -0.0013426081103133924,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -12.81,
+      "raw_validity_filtered_db": -12.807029507897251,
+      "difference_db": 0.0029704921027491338,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -6.26,
+      "raw_validity_filtered_db": -6.262996066031125,
+      "difference_db": -0.002996066031125011,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-dmz",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -12.12,
+      "raw_validity_filtered_db": -12.115480844645248,
+      "difference_db": 0.004519155354751447,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -4.4,
+      "raw_validity_filtered_db": -4.39688330742308,
+      "difference_db": 0.003116692576920599,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -12.94,
+      "raw_validity_filtered_db": -12.940226131220898,
+      "difference_db": -0.000226131220898651,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -3.35,
+      "raw_validity_filtered_db": -3.3478729813884534,
+      "difference_db": 0.002127018611546738,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -12.26,
+      "raw_validity_filtered_db": -12.257681302331182,
+      "difference_db": 0.0023186976688176486,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -3.8,
+      "raw_validity_filtered_db": -3.80227549176888,
+      "difference_db": -0.002275491768880311,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -12.95,
+      "raw_validity_filtered_db": -12.947901427275724,
+      "difference_db": 0.0020985727242752716,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -3.99,
+      "raw_validity_filtered_db": -3.9929078436820395,
+      "difference_db": -0.002907843682039335,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -13.21,
+      "raw_validity_filtered_db": -13.206082303899134,
+      "difference_db": 0.0039176961008671185,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -3.03,
+      "raw_validity_filtered_db": -3.0335871868379916,
+      "difference_db": -0.0035871868379917515,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -11.43,
+      "raw_validity_filtered_db": -11.429187652238056,
+      "difference_db": 0.0008123477619434993,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -3.66,
+      "raw_validity_filtered_db": -3.655058282432922,
+      "difference_db": 0.004941717567078285,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -12.44,
+      "raw_validity_filtered_db": -12.43816505984096,
+      "difference_db": 0.0018349401590391778,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -4.45,
+      "raw_validity_filtered_db": -4.449051808963696,
+      "difference_db": 0.00094819103630428,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -12.8,
+      "raw_validity_filtered_db": -12.802749394416955,
+      "difference_db": -0.0027493944169538764,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -4.91,
+      "raw_validity_filtered_db": -4.911367605108386,
+      "difference_db": -0.0013676051083857388,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -13.05,
+      "raw_validity_filtered_db": -13.051364511592249,
+      "difference_db": -0.0013645115922482631,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -4.81,
+      "raw_validity_filtered_db": -4.806720738577706,
+      "difference_db": 0.0032792614222936223,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -12.96,
+      "raw_validity_filtered_db": -12.963190622595029,
+      "difference_db": -0.003190622595028003,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -4.05,
+      "raw_validity_filtered_db": -4.047872306364145,
+      "difference_db": 0.002127693635855188,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-farm",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -12.46,
+      "raw_validity_filtered_db": -12.462740419316257,
+      "difference_db": -0.0027404193162556822,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -6.07,
+      "raw_validity_filtered_db": -6.071447265451155,
+      "difference_db": -0.0014472654511550331,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -11.24,
+      "raw_validity_filtered_db": -11.239038283125218,
+      "difference_db": 0.0009617168747819704,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -5.65,
+      "raw_validity_filtered_db": -5.651061664874346,
+      "difference_db": -0.0010616648743457802,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -11.0,
+      "raw_validity_filtered_db": -10.999187264820122,
+      "difference_db": 0.0008127351798776772,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.73,
+      "raw_validity_filtered_db": -5.733966690342605,
+      "difference_db": -0.003966690342604551,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -11.11,
+      "raw_validity_filtered_db": -11.106105083740932,
+      "difference_db": 0.0038949162590675712,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -6.18,
+      "raw_validity_filtered_db": -6.179001080253334,
+      "difference_db": 0.0009989197466655497,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -11.32,
+      "raw_validity_filtered_db": -11.31966805913724,
+      "difference_db": 0.00033194086276111534,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -4.93,
+      "raw_validity_filtered_db": -4.926009209484576,
+      "difference_db": 0.0039907905154237255,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -10.03,
+      "raw_validity_filtered_db": -10.029861947735979,
+      "difference_db": 0.00013805226402041626,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -5.56,
+      "raw_validity_filtered_db": -5.562787462831691,
+      "difference_db": -0.002787462831691734,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -10.8,
+      "raw_validity_filtered_db": -10.800251246932106,
+      "difference_db": -0.00025124693210543114,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -5.99,
+      "raw_validity_filtered_db": -5.992129062734791,
+      "difference_db": -0.002129062734790743,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -11.14,
+      "raw_validity_filtered_db": -11.13989556293457,
+      "difference_db": 0.00010443706543128428,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -6.22,
+      "raw_validity_filtered_db": -6.224217946778036,
+      "difference_db": -0.004217946778036108,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -11.3,
+      "raw_validity_filtered_db": -11.298473920151377,
+      "difference_db": 0.0015260798486238514,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -6.35,
+      "raw_validity_filtered_db": -6.3480991365644535,
+      "difference_db": 0.001900863435546185,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -11.46,
+      "raw_validity_filtered_db": -11.462641416120057,
+      "difference_db": -0.0026414161200563058,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -5.32,
+      "raw_validity_filtered_db": -5.316601524336441,
+      "difference_db": 0.0033984756635589974,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-forest",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -10.77,
+      "raw_validity_filtered_db": -10.765296424733544,
+      "difference_db": 0.004703575266455928,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -6.69,
+      "raw_validity_filtered_db": -6.694871174107545,
+      "difference_db": -0.0048711741075448955,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -14.62,
+      "raw_validity_filtered_db": -14.62022384943767,
+      "difference_db": -0.00022384943767050913,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -6.58,
+      "raw_validity_filtered_db": -6.57977947404512,
+      "difference_db": 0.00022052595488020188,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -14.25,
+      "raw_validity_filtered_db": -14.252022449172326,
+      "difference_db": -0.0020224491723261906,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.91,
+      "raw_validity_filtered_db": -5.910439097243562,
+      "difference_db": -0.00043909724356172575,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -13.81,
+      "raw_validity_filtered_db": -13.811320138617605,
+      "difference_db": -0.0013201386176042718,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -7.61,
+      "raw_validity_filtered_db": -7.614715453667182,
+      "difference_db": -0.004715453667182068,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -14.64,
+      "raw_validity_filtered_db": -14.644414186454553,
+      "difference_db": -0.004414186454551938,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -5.8,
+      "raw_validity_filtered_db": -5.800706925843824,
+      "difference_db": -0.0007069258438239245,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -13.07,
+      "raw_validity_filtered_db": -13.070579320859053,
+      "difference_db": -0.0005793208590532117,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -6.18,
+      "raw_validity_filtered_db": -6.1830526547013225,
+      "difference_db": -0.0030526547013227656,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -13.85,
+      "raw_validity_filtered_db": -13.847212832023189,
+      "difference_db": 0.002787167976810778,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -7.58,
+      "raw_validity_filtered_db": -7.578823755892575,
+      "difference_db": 0.0011762441074250063,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -14.8,
+      "raw_validity_filtered_db": -14.804235473860267,
+      "difference_db": -0.004235473860266126,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -8.19,
+      "raw_validity_filtered_db": -8.192803924809427,
+      "difference_db": -0.0028039248094273717,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -15.15,
+      "raw_validity_filtered_db": -15.151576818913066,
+      "difference_db": -0.001576818913065381,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -8.64,
+      "raw_validity_filtered_db": -8.6425445297826,
+      "difference_db": -0.002544529782598559,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -15.65,
+      "raw_validity_filtered_db": -15.649942689105238,
+      "difference_db": 5.7310894762352405e-05,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -6.15,
+      "raw_validity_filtered_db": -6.146186680973309,
+      "difference_db": 0.003813319026691353,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yeoncheon-north",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -14.82,
+      "raw_validity_filtered_db": -14.824828606916547,
+      "difference_db": -0.0048286069165470735,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -4.52,
+      "raw_validity_filtered_db": -4.524599171943274,
+      "difference_db": -0.004599171943274527,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -9.82,
+      "raw_validity_filtered_db": -9.816518962401439,
+      "difference_db": 0.003481037598561443,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -4.74,
+      "raw_validity_filtered_db": -4.736727525647192,
+      "difference_db": 0.00327247435280853,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -9.98,
+      "raw_validity_filtered_db": -9.979451141179837,
+      "difference_db": 0.0005488588201636446,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -4.01,
+      "raw_validity_filtered_db": -4.010343171697847,
+      "difference_db": -0.0003431716978470334,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -9.62,
+      "raw_validity_filtered_db": -9.617202608786954,
+      "difference_db": 0.0027973912130452305,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -4.61,
+      "raw_validity_filtered_db": -4.613891669233058,
+      "difference_db": -0.0038916692330577263,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -9.91,
+      "raw_validity_filtered_db": -9.914459314078908,
+      "difference_db": -0.004459314078907539,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -3.68,
+      "raw_validity_filtered_db": -3.682279440749814,
+      "difference_db": -0.002279440749813677,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -9.11,
+      "raw_validity_filtered_db": -9.107457141703735,
+      "difference_db": 0.0025428582962643276,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -3.87,
+      "raw_validity_filtered_db": -3.874567055243732,
+      "difference_db": -0.004567055243732021,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -9.36,
+      "raw_validity_filtered_db": -9.361558384103901,
+      "difference_db": -0.0015583841039017443,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -4.33,
+      "raw_validity_filtered_db": -4.325431939514791,
+      "difference_db": 0.004568060485208747,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -9.77,
+      "raw_validity_filtered_db": -9.771696071095036,
+      "difference_db": -0.0016960710950364444,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -4.81,
+      "raw_validity_filtered_db": -4.8071404107940445,
+      "difference_db": 0.002859589205955082,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -10.07,
+      "raw_validity_filtered_db": -10.073987839698548,
+      "difference_db": -0.003987839698547546,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -5.02,
+      "raw_validity_filtered_db": -5.018178909833827,
+      "difference_db": 0.001821090166172823,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -10.21,
+      "raw_validity_filtered_db": -10.214306207544666,
+      "difference_db": -0.004306207544665597,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -3.84,
+      "raw_validity_filtered_db": -3.837215333121331,
+      "difference_db": 0.002784666878668851,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-dmz",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -9.38,
+      "raw_validity_filtered_db": -9.384340587337267,
+      "difference_db": -0.004340587337265944,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -3.98,
+      "raw_validity_filtered_db": -3.982970484456155,
+      "difference_db": -0.002970484456155109,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -9.58,
+      "raw_validity_filtered_db": -9.580667730471875,
+      "difference_db": -0.000667730471874961,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -4.23,
+      "raw_validity_filtered_db": -4.225190685752629,
+      "difference_db": 0.004809314247371077,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -9.81,
+      "raw_validity_filtered_db": -9.81210325267958,
+      "difference_db": -0.0021032526795803363,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -3.4,
+      "raw_validity_filtered_db": -3.3990948371654977,
+      "difference_db": 0.00090516283450226,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -9.41,
+      "raw_validity_filtered_db": -9.407316015596269,
+      "difference_db": 0.0026839844037311877,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -4.25,
+      "raw_validity_filtered_db": -4.248334105084074,
+      "difference_db": 0.0016658949159262804,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -9.83,
+      "raw_validity_filtered_db": -9.831807392579071,
+      "difference_db": -0.001807392579070921,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -3.07,
+      "raw_validity_filtered_db": -3.0731279221245944,
+      "difference_db": -0.003127922124594562,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -8.8,
+      "raw_validity_filtered_db": -8.798202385652342,
+      "difference_db": 0.0017976143476587936,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -3.34,
+      "raw_validity_filtered_db": -3.344231527563446,
+      "difference_db": -0.004231527563446136,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -9.13,
+      "raw_validity_filtered_db": -9.133561778152151,
+      "difference_db": -0.0035617781521501968,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -4.09,
+      "raw_validity_filtered_db": -4.091783892774369,
+      "difference_db": -0.001783892774368745,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -9.69,
+      "raw_validity_filtered_db": -9.690922742743597,
+      "difference_db": -0.0009227427435973823,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -4.56,
+      "raw_validity_filtered_db": -4.555152909879276,
+      "difference_db": 0.00484709012072404,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -10.0,
+      "raw_validity_filtered_db": -10.000719654172144,
+      "difference_db": -0.0007196541721441463,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -4.69,
+      "raw_validity_filtered_db": -4.689458478444371,
+      "difference_db": 0.000541521555629032,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -10.06,
+      "raw_validity_filtered_db": -10.063280534013623,
+      "difference_db": -0.0032805340136228267,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -3.12,
+      "raw_validity_filtered_db": -3.1190284548851386,
+      "difference_db": 0.0009715451148615273,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-forest",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -9.04,
+      "raw_validity_filtered_db": -9.043672335313513,
+      "difference_db": -0.0036723353135137415,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -7.74,
+      "raw_validity_filtered_db": -7.744689729459184,
+      "difference_db": -0.004689729459183667,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -15.55,
+      "raw_validity_filtered_db": -15.55251812430868,
+      "difference_db": -0.0025181243086791483,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -8.05,
+      "raw_validity_filtered_db": -8.047424841335282,
+      "difference_db": 0.002575158664718913,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -15.57,
+      "raw_validity_filtered_db": -15.572672635203087,
+      "difference_db": -0.002672635203087026,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -6.44,
+      "raw_validity_filtered_db": -6.441271914639783,
+      "difference_db": -0.0012719146397826009,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -14.4,
+      "raw_validity_filtered_db": -14.396962606032728,
+      "difference_db": 0.003037393967272095,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -7.87,
+      "raw_validity_filtered_db": -7.8687743860793935,
+      "difference_db": 0.0012256139206066052,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -14.88,
+      "raw_validity_filtered_db": -14.879203837513053,
+      "difference_db": 0.0007961624869476935,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -6.06,
+      "raw_validity_filtered_db": -6.063486809290214,
+      "difference_db": -0.0034868092902140546,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -13.31,
+      "raw_validity_filtered_db": -13.310499665796396,
+      "difference_db": -0.0004996657963953766,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -6.22,
+      "raw_validity_filtered_db": -6.223240898681679,
+      "difference_db": -0.003240898681679205,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -13.71,
+      "raw_validity_filtered_db": -13.711842146530028,
+      "difference_db": -0.0018421465300271223,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -7.12,
+      "raw_validity_filtered_db": -7.116566931540068,
+      "difference_db": 0.003433068459932187,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -14.59,
+      "raw_validity_filtered_db": -14.589771654464874,
+      "difference_db": 0.00022834553512574018,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -7.84,
+      "raw_validity_filtered_db": -7.838371540300515,
+      "difference_db": 0.0016284596994848854,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -15.33,
+      "raw_validity_filtered_db": -15.329928655092331,
+      "difference_db": 7.13449076688022e-05,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -8.29,
+      "raw_validity_filtered_db": -8.28765296336864,
+      "difference_db": 0.0023470366313596003,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -15.51,
+      "raw_validity_filtered_db": -15.512580788351222,
+      "difference_db": -0.0025807883512225516,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -6.11,
+      "raw_validity_filtered_db": -6.111190316543142,
+      "difference_db": -0.0011903165431412788,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "hwacheon-north",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -14.7,
+      "raw_validity_filtered_db": -14.701252994815446,
+      "difference_db": -0.0012529948154469395,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -5.49,
+      "raw_validity_filtered_db": -5.490352239369878,
+      "difference_db": -0.00035223936987804905,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -12.41,
+      "raw_validity_filtered_db": -12.410887429046957,
+      "difference_db": -0.0008874290469567114,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -5.77,
+      "raw_validity_filtered_db": -5.766883131187064,
+      "difference_db": 0.0031168688129357136,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -12.56,
+      "raw_validity_filtered_db": -12.555366130747732,
+      "difference_db": 0.0046338692522684966,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.18,
+      "raw_validity_filtered_db": -5.175098677927452,
+      "difference_db": 0.004901322072547565,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -12.34,
+      "raw_validity_filtered_db": -12.343745981090153,
+      "difference_db": -0.0037459810901534496,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -5.31,
+      "raw_validity_filtered_db": -5.311350483434886,
+      "difference_db": -0.001350483434886307,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -12.28,
+      "raw_validity_filtered_db": -12.277962693944097,
+      "difference_db": 0.0020373060559020217,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -4.4,
+      "raw_validity_filtered_db": -4.404897208115678,
+      "difference_db": -0.004897208115677287,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -11.38,
+      "raw_validity_filtered_db": -11.377965224142537,
+      "difference_db": 0.0020347758574637,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -4.52,
+      "raw_validity_filtered_db": -4.521102376557132,
+      "difference_db": -0.0011023765571325228,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -11.58,
+      "raw_validity_filtered_db": -11.577817792845092,
+      "difference_db": 0.0021822071549078004,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -5.23,
+      "raw_validity_filtered_db": -5.232506577050672,
+      "difference_db": -0.002506577050671588,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -12.13,
+      "raw_validity_filtered_db": -12.129775218400066,
+      "difference_db": 0.00022478159993433167,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -5.37,
+      "raw_validity_filtered_db": -5.371651192145501,
+      "difference_db": -0.0016511921455011347,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -12.22,
+      "raw_validity_filtered_db": -12.215060241639232,
+      "difference_db": 0.004939758360768209,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -5.34,
+      "raw_validity_filtered_db": -5.335691325245589,
+      "difference_db": 0.004308674754410546,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -12.3,
+      "raw_validity_filtered_db": -12.3002624444545,
+      "difference_db": -0.00026244445449918885,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -4.62,
+      "raw_validity_filtered_db": -4.621098210725319,
+      "difference_db": -0.0010982107253187934,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-basin",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -11.74,
+      "raw_validity_filtered_db": -11.73934851828072,
+      "difference_db": 0.0006514817192808664,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -5.51,
+      "raw_validity_filtered_db": -5.514753276262576,
+      "difference_db": -0.004753276262576378,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -9.86,
+      "raw_validity_filtered_db": -9.85559022973153,
+      "difference_db": 0.004409770268470226,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -5.65,
+      "raw_validity_filtered_db": -5.651828923777939,
+      "difference_db": -0.0018289237779383072,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -10.03,
+      "raw_validity_filtered_db": -10.032743218627678,
+      "difference_db": -0.0027432186276783455,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -5.26,
+      "raw_validity_filtered_db": -5.2582098677818525,
+      "difference_db": 0.0017901322181472779,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -9.79,
+      "raw_validity_filtered_db": -9.78938074578537,
+      "difference_db": 0.0006192542146283841,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -5.51,
+      "raw_validity_filtered_db": -5.5106732796355224,
+      "difference_db": -0.0006732796355226611,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -9.93,
+      "raw_validity_filtered_db": -9.931186896256241,
+      "difference_db": -0.0011868962562413543,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -4.49,
+      "raw_validity_filtered_db": -4.49334765317173,
+      "difference_db": -0.003347653171729803,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -8.99,
+      "raw_validity_filtered_db": -8.98556726727803,
+      "difference_db": 0.0044327327219697565,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -4.81,
+      "raw_validity_filtered_db": -4.805209057283907,
+      "difference_db": 0.004790942716092594,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -9.19,
+      "raw_validity_filtered_db": -9.188449591853985,
+      "difference_db": 0.0015504081460147034,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -5.29,
+      "raw_validity_filtered_db": -5.292700063963004,
+      "difference_db": -0.002700063963003707,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -9.71,
+      "raw_validity_filtered_db": -9.71270223170672,
+      "difference_db": -0.002702231706718905,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -5.48,
+      "raw_validity_filtered_db": -5.477627633523248,
+      "difference_db": 0.002372366476752319,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -9.8,
+      "raw_validity_filtered_db": -9.80226623675057,
+      "difference_db": -0.0022662367505699166,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -5.48,
+      "raw_validity_filtered_db": -5.475222580898195,
+      "difference_db": 0.0047774191018055134,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -9.84,
+      "raw_validity_filtered_db": -9.836783718144163,
+      "difference_db": 0.003216281855836556,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -4.63,
+      "raw_validity_filtered_db": -4.631870123536178,
+      "difference_db": -0.0018701235361779922,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-dmz",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -9.12,
+      "raw_validity_filtered_db": -9.119219036143294,
+      "difference_db": 0.0007809638567053412,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -4.86,
+      "raw_validity_filtered_db": -4.859794459357529,
+      "difference_db": 0.00020554064247146897,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -9.48,
+      "raw_validity_filtered_db": -9.477235366063756,
+      "difference_db": 0.0027646339362448202,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -4.95,
+      "raw_validity_filtered_db": -4.9503917540905436,
+      "difference_db": -0.0003917540905433725,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -9.61,
+      "raw_validity_filtered_db": -9.606880369317917,
+      "difference_db": 0.0031196306820824304,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -4.47,
+      "raw_validity_filtered_db": -4.465510959173611,
+      "difference_db": 0.0044890408263889015,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -9.32,
+      "raw_validity_filtered_db": -9.315611981402242,
+      "difference_db": 0.004388018597758503,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -4.84,
+      "raw_validity_filtered_db": -4.8448027455364056,
+      "difference_db": -0.004802745536405695,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -9.46,
+      "raw_validity_filtered_db": -9.462307752807572,
+      "difference_db": -0.0023077528075710063,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -3.89,
+      "raw_validity_filtered_db": -3.890734717097983,
+      "difference_db": -0.0007347170979827844,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -8.59,
+      "raw_validity_filtered_db": -8.594925476737895,
+      "difference_db": -0.004925476737895451,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -4.15,
+      "raw_validity_filtered_db": -4.154760438023443,
+      "difference_db": -0.004760438023442504,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -8.78,
+      "raw_validity_filtered_db": -8.782377470226493,
+      "difference_db": -0.0023774702264933723,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -4.63,
+      "raw_validity_filtered_db": -4.628875017878134,
+      "difference_db": 0.0011249821218655143,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -9.3,
+      "raw_validity_filtered_db": -9.3025210424861,
+      "difference_db": -0.002521042486099745,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -4.93,
+      "raw_validity_filtered_db": -4.934372788210445,
+      "difference_db": -0.0043727882104454,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -9.51,
+      "raw_validity_filtered_db": -9.51040484926423,
+      "difference_db": -0.0004048492642301227,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -4.83,
+      "raw_validity_filtered_db": -4.832435689130387,
+      "difference_db": -0.00243568913038672,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -9.43,
+      "raw_validity_filtered_db": -9.433059984435952,
+      "difference_db": -0.0030599844359517903,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -3.85,
+      "raw_validity_filtered_db": -3.8485662168760144,
+      "difference_db": 0.0014337831239856769,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-forest",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -8.63,
+      "raw_validity_filtered_db": -8.633386397416315,
+      "difference_db": -0.0033863974163139687,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-06-23",
+      "pol": "hh",
+      "prototype_db": -6.66,
+      "raw_validity_filtered_db": -6.663106758270192,
+      "difference_db": -0.0031067582701922447,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-06-23",
+      "pol": "hv",
+      "prototype_db": -10.75,
+      "raw_validity_filtered_db": -10.747372747997312,
+      "difference_db": 0.0026272520026875412,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-07-05",
+      "pol": "hh",
+      "prototype_db": -6.64,
+      "raw_validity_filtered_db": -6.63742306046291,
+      "difference_db": 0.0025769395370893733,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-07-05",
+      "pol": "hv",
+      "prototype_db": -10.74,
+      "raw_validity_filtered_db": -10.741327880843404,
+      "difference_db": -0.0013278808434034062,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-07-17",
+      "pol": "hh",
+      "prototype_db": -6.35,
+      "raw_validity_filtered_db": -6.35358665021462,
+      "difference_db": -0.003586650214620235,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-07-17",
+      "pol": "hv",
+      "prototype_db": -10.6,
+      "raw_validity_filtered_db": -10.59606759073499,
+      "difference_db": 0.0039324092650101505,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-08-10",
+      "pol": "hh",
+      "prototype_db": -6.63,
+      "raw_validity_filtered_db": -6.625627822948355,
+      "difference_db": 0.004372177051644499,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-08-10",
+      "pol": "hv",
+      "prototype_db": -10.66,
+      "raw_validity_filtered_db": -10.658540930180916,
+      "difference_db": 0.001459069819084391,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-08-22",
+      "pol": "hh",
+      "prototype_db": -5.74,
+      "raw_validity_filtered_db": -5.736094364472867,
+      "difference_db": 0.003905635527133633,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-08-22",
+      "pol": "hv",
+      "prototype_db": -9.89,
+      "raw_validity_filtered_db": -9.887888927122393,
+      "difference_db": 0.0021110728776072563,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-09-03",
+      "pol": "hh",
+      "prototype_db": -5.86,
+      "raw_validity_filtered_db": -5.86369251847802,
+      "difference_db": -0.0036925184780196574,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-09-03",
+      "pol": "hv",
+      "prototype_db": -9.96,
+      "raw_validity_filtered_db": -9.963385103167665,
+      "difference_db": -0.003385103167664383,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-09-15",
+      "pol": "hh",
+      "prototype_db": -6.18,
+      "raw_validity_filtered_db": -6.182420586946947,
+      "difference_db": -0.002420586946946912,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-09-15",
+      "pol": "hv",
+      "prototype_db": -10.33,
+      "raw_validity_filtered_db": -10.32633876575834,
+      "difference_db": 0.003661234241659983,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-09-27",
+      "pol": "hh",
+      "prototype_db": -6.4,
+      "raw_validity_filtered_db": -6.39610907828855,
+      "difference_db": 0.0038909217114504457,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-09-27",
+      "pol": "hv",
+      "prototype_db": -10.43,
+      "raw_validity_filtered_db": -10.429506861287747,
+      "difference_db": 0.0004931387122528719,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-10-09",
+      "pol": "hh",
+      "prototype_db": -6.2,
+      "raw_validity_filtered_db": -6.204209691237698,
+      "difference_db": -0.004209691237697655,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-10-09",
+      "pol": "hv",
+      "prototype_db": -10.28,
+      "raw_validity_filtered_db": -10.284926916089494,
+      "difference_db": -0.004926916089495137,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-10-21",
+      "pol": "hh",
+      "prototype_db": -5.59,
+      "raw_validity_filtered_db": -5.587686038640315,
+      "difference_db": 0.0023139613596852016,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    },
+    {
+      "region_id": "yanggu-north",
+      "date": "2026-10-21",
+      "pol": "hv",
+      "prototype_db": -9.81,
+      "raw_validity_filtered_db": -9.805081342084588,
+      "difference_db": 0.004918657915412794,
+      "within_0_05_db": true,
+      "within_rounding_0_005_db": true
+    }
+  ],
+  "subsets": [
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-06-23.npz",
+      "sha256": "2594a9e69c661b3a247e7a13061b8ccdfbd6cf897d9880154b0a40c8c2adc698",
+      "bytes": 648174
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-07-05.npz",
+      "sha256": "2c1904852d089ab2200278185c03041fdc82a7fcaeb942fd8dede32b3bef316f",
+      "bytes": 647199
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-07-17.npz",
+      "sha256": "c7b3f98b1f611da38213e9fdcf81687c9949f4ec34c607844499c9b2c85d3701",
+      "bytes": 646868
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-08-10.npz",
+      "sha256": "a6dfc4462beca454d3ca1edfd449679d69838a1fcf6e6d08a4d1746cafe48cb8",
+      "bytes": 646363
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-08-22.npz",
+      "sha256": "44e7d1e828b7499d144edf887d3ca83149ff1f84682613b18b6c4556b4898581",
+      "bytes": 643406
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-09-03.npz",
+      "sha256": "ca17de99561cd97feeca307be24d4558cb14681bb0d44ba4ac9224f61e57b368",
+      "bytes": 644768
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-09-15.npz",
+      "sha256": "06c365e071fcdf4c763372794f7d662783f2c6fe337adffe97bda648b66d5a80",
+      "bytes": 644200
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-09-27.npz",
+      "sha256": "58e9fab725a8c6ae1d40a633bc07adf96020170597ed10b7e4b38e834e6561b6",
+      "bytes": 646166
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-10-09.npz",
+      "sha256": "3a139d16c6060dd5885b4127ffa3eac07a9fb9341e647ca2af82b4d54c6c41d4",
+      "bytes": 646978
+    },
+    {
+      "path": "nisar/subsets/cheorwon-paddy/2026-10-21.npz",
+      "sha256": "4760ee9cd312add1b190cc1545c9ba1004e90bbdd17ade7e571e741d23695234",
+      "bytes": 647542
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-06-23.npz",
+      "sha256": "1d21ab985a995b534137f796a7d90949e3e6f3c748ddf29a5d8eeeb9ad859b63",
+      "bytes": 95333
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-07-05.npz",
+      "sha256": "c96468853dc09d5945d869a306965bbb2dad28cd5fd48405c219ae7e6b427e99",
+      "bytes": 95324
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-07-17.npz",
+      "sha256": "2ff2b35eecd643bcc3469333ecf2e97d0d1dbd45cc525cf8a63af97cd2f05d10",
+      "bytes": 95423
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-08-10.npz",
+      "sha256": "fc1de20e103cf115e3ec3bc6f5d566610621ddeefd669a92f7df79d7f0472255",
+      "bytes": 95383
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-08-22.npz",
+      "sha256": "3b9c200f0b991eb32f1be01f93aa767cc32f5a0ba5482528d28cec99d6dfcb2c",
+      "bytes": 95297
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-09-03.npz",
+      "sha256": "4c60ecc0c6d8c54e3e8efccf00d4eb648b29b50293b46e2e5de4f5723b420b36",
+      "bytes": 95418
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-09-15.npz",
+      "sha256": "f8b5b5ced170331c6c55b929b764bda7a1cbc23161418ae2ed099659243f425c",
+      "bytes": 95221
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-09-27.npz",
+      "sha256": "f2ea18d6a0290423e03895c3d363b2c7b2e6277d9ee04fdd9b62e8dbc7f3e25f",
+      "bytes": 95312
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-10-09.npz",
+      "sha256": "b1eac2833f3caa16003b24162cc6c013e2852560e627523302413336a72901bf",
+      "bytes": 95275
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_flat/2026-10-21.npz",
+      "sha256": "a1aba458dbca426a7adfd461709fc53348f3372c89ab1b17796b766a7fd29315",
+      "bytes": 95543
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-06-23.npz",
+      "sha256": "9d3a6bd1e3140a8062f800b99fc7b370a8e06cedc433ba3bf06099fcfc14c7e9",
+      "bytes": 217346
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-07-05.npz",
+      "sha256": "de549dddf34de5328862f815d53b78fc11f61381603f0fce289f8dcc8a462a8c",
+      "bytes": 217176
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-07-17.npz",
+      "sha256": "d9fca7b569ead955f466beeca459b8f54fa46daaa1a111d33480286947d16715",
+      "bytes": 217315
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-08-10.npz",
+      "sha256": "750eef6bbc8e7eb6da00895616e7b37fcf80c3512669cb34430343cfb68c7922",
+      "bytes": 217542
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-08-22.npz",
+      "sha256": "95546038ea460f630cf0660b4401c2e6c79c91500b92bb1dbc9ef100232d9f05",
+      "bytes": 216721
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-09-03.npz",
+      "sha256": "b18502768f67c7b219acaa803199c571867a4e09b4fede51a6a6c429e1f4d3bb",
+      "bytes": 217032
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-09-15.npz",
+      "sha256": "f9a17aacff40d0602d981370f2a50616ff71d0dbadd90d488fa569b96b64055a",
+      "bytes": 216820
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-09-27.npz",
+      "sha256": "b5e339b80bd4eb5f40b625ca617c46fe5e9e23aac27421d14ccb57eba9008bb0",
+      "bytes": 217518
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-10-09.npz",
+      "sha256": "484d5079f6fa4c77784250817e40bb2e795c207232bf2e09a533f8cab0bb0aac",
+      "bytes": 217456
+    },
+    {
+      "path": "nisar/subsets/cheorwon-dmz_hill/2026-10-21.npz",
+      "sha256": "d174a7af3d5dd1fc141ae4e1d580eb805fce0757ab0d31ccc3530db3d216eb50",
+      "bytes": 217171
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-06-23.npz",
+      "sha256": "4b8f7357ee90cf6cd4eb71fd5a52fdbd382d7b82630f53abfc409991987f105f",
+      "bytes": 514675
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-07-05.npz",
+      "sha256": "f9ef27dc14d3d625c392f1d20eacc25892a5af43eb5fd1486964b3fca88f36ce",
+      "bytes": 514269
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-07-17.npz",
+      "sha256": "6043ae5e5df37b189ab1d09c4ed2300ec8f8628c19f4840154e4c2d2381b867f",
+      "bytes": 514881
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-08-10.npz",
+      "sha256": "7d49b4daac58ee355dc5a64ef0bd4ad10b25546d47e8aa26197457dde65e5f08",
+      "bytes": 513731
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-08-22.npz",
+      "sha256": "0b9b3a2108541be2d84e10593745ae5caa67b050cba7a8e8c0cd90735d1cd0b7",
+      "bytes": 514197
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-09-03.npz",
+      "sha256": "1b0fc0c90f3a669377cc2d5f61d78e8f1cacd2bd137ae48679d0c2fe8da62402",
+      "bytes": 513711
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-09-15.npz",
+      "sha256": "7372b457b43f32f53f19dd8fac32caba0e9d1b15252314a73747476d386616fc",
+      "bytes": 513356
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-09-27.npz",
+      "sha256": "ca4527b1c333df67ac8b7dc6f48ad95e62a1c6712018e939901c3ae229ded18f",
+      "bytes": 513585
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-10-09.npz",
+      "sha256": "6f6184adc3142edcd77f53c3caaa67fccd4618a68ea0083fee7699d1b253ce94",
+      "bytes": 513428
+    },
+    {
+      "path": "nisar/subsets/cheorwon-forest/2026-10-21.npz",
+      "sha256": "4e58d6ef1614c55a6df6344ad81a24877aedf774f6ce3a7a829817a26a44ef85",
+      "bytes": 514459
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-06-23.npz",
+      "sha256": "48806f09bc69e1e8118ab08856b4786d85b7a8988733aed916c6ced6fc425f31",
+      "bytes": 264319
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-07-05.npz",
+      "sha256": "1660cc5e0cc3d5f28c546c31dc85c75c3fc646ee7a2e96e6722d3186fd97bbf2",
+      "bytes": 264862
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-07-17.npz",
+      "sha256": "51c5f599754317ec48dc69a5f17673b4ccd93c6a772f62af2da1e7a96514e564",
+      "bytes": 265559
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-08-10.npz",
+      "sha256": "0d291727be69e4da8d2dc465a369f54091715c31640d5261271f51c680a2bd84",
+      "bytes": 263683
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-08-22.npz",
+      "sha256": "2b26ab66791dae48c83f6208cb4c46ed12ad045e2a01c0e012d0fff1fa62a511",
+      "bytes": 264430
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-09-03.npz",
+      "sha256": "83a670e142e748c1cf4c274fb8822e43ebbac21f21eff5a993adc58d4125402a",
+      "bytes": 264210
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-09-15.npz",
+      "sha256": "259d066bac9f75aed346e9d656007280e7f3dd445abfb4f646a1fdf9677ab3d2",
+      "bytes": 262388
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-09-27.npz",
+      "sha256": "624cfbd3d64c70a4d72729491461e212e3608084f2ea6c291b13229785b9cd06",
+      "bytes": 262176
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-10-09.npz",
+      "sha256": "e3cb37ce232ff01ff111b387fb30d1433d4073d5608ecff2166f75921229dc00",
+      "bytes": 262481
+    },
+    {
+      "path": "nisar/subsets/cheorwon-north/2026-10-21.npz",
+      "sha256": "07c0916f3a79d9cff4a3d443bb80cabd03db58dd5fb0372e214f0b04bcafaac4",
+      "bytes": 262548
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-06-23.npz",
+      "sha256": "aae29a31485fcff60f3014efe8320e5ff39fe008c4a208efa69763a9254a45d0",
+      "bytes": 197622
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-07-05.npz",
+      "sha256": "7c5078b11e529746df8966f3890f496f91a38d4341caf0de90495b7df4d8051d",
+      "bytes": 196737
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-07-17.npz",
+      "sha256": "47e11d9e67a00d4501c442266ae89db34489b0af56072b135d496a2196f86134",
+      "bytes": 197179
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-08-10.npz",
+      "sha256": "09767e893745095317e6612453682fb3686be465c1e2b26610d7f75b3584e675",
+      "bytes": 196808
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-08-22.npz",
+      "sha256": "71db31a92e8527ba3603d72a8d1f085ffdd3931298f387dc2a19467c1ae42d19",
+      "bytes": 196186
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-09-03.npz",
+      "sha256": "1c484897e26f72a78336255ebe566844feb88c81e5d234a9036e16997f6e1492",
+      "bytes": 196319
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-09-15.npz",
+      "sha256": "68b43fddc21a10368952e0202d737922c53160eb8ac6db97182e2a459794313d",
+      "bytes": 195874
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-09-27.npz",
+      "sha256": "11be1dfbaf4d2a177e3a2c95fca8f942815a873e442fc2ed3bbc6212d6d5647c",
+      "bytes": 196512
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-10-09.npz",
+      "sha256": "cb189c8eabb0db158b3aa28b324107aea9fa627c8472fdb7261280d3753a6ec4",
+      "bytes": 196714
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_farm/2026-10-21.npz",
+      "sha256": "f2286468c0153e4efa6ef083613fa01395e837abe584bec1b598a7d1b2166e7b",
+      "bytes": 196114
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-06-23.npz",
+      "sha256": "4e724919198903d2699a0e5bd9cee059e5de7372d92be0636721bbf4a320579a",
+      "bytes": 256498
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-07-05.npz",
+      "sha256": "b7789348558fb5736165376f91fd89a6bd06d3c221fcb077e1201d9d4d1cb1e5",
+      "bytes": 256201
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-07-17.npz",
+      "sha256": "f4f691588725b73d953800341df6b1362a7be9b09b82523d935607c646a7ca31",
+      "bytes": 256363
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-08-10.npz",
+      "sha256": "ec490193be83611a0863e8d1fee4034c02bc81d8c24c17e869ad182ab8bb2879",
+      "bytes": 256125
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-08-22.npz",
+      "sha256": "6171a0c525ffe05b70c6d6ad0f84438a9b23fc67de3c231cec8cc2c61acfc506",
+      "bytes": 255976
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-09-03.npz",
+      "sha256": "e31592d732131f7260488ab370068252a5c3ee9e2ddc2420142ee1921c629e81",
+      "bytes": 256163
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-09-15.npz",
+      "sha256": "cb0e42f7001ddddc4298be426d1980d3fefa70c12cfc92aa058f2d51fe36d0a5",
+      "bytes": 255837
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-09-27.npz",
+      "sha256": "88f8915437c685e4af37a9dc6d36c74801756f33d14171d90836397f0b22f654",
+      "bytes": 256137
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-10-09.npz",
+      "sha256": "6de1d353cc53fc55ce0e25b6ea26742c9a2f2c13c9c8429cfa0cf325dc54b534",
+      "bytes": 256250
+    },
+    {
+      "path": "nisar/subsets/paju-dmz_wild/2026-10-21.npz",
+      "sha256": "22b612ace9a801b2c6b2502347aa2a327ff7c7e379e1df16a4beb36f4b9a0052",
+      "bytes": 256134
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-06-23.npz",
+      "sha256": "292954b4dde58bf075f85811edec8c574a30c10ee5d103f949fa959a6721b5d5",
+      "bytes": 304708
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-07-05.npz",
+      "sha256": "01cbc50e1c5b38093b0c8e0a941fc2c8f8c20bc7e8b42837bc6543d1eae5d407",
+      "bytes": 303793
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-07-17.npz",
+      "sha256": "55234fe00e4921307c27f99c4da6dda550d89bcbf0c4b7c8d9132981ea40b297",
+      "bytes": 303859
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-08-10.npz",
+      "sha256": "2c30a16f6600f0aa9eed33c5f561b85e6319fe9788170d1487d76347c85faa16",
+      "bytes": 303328
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-08-22.npz",
+      "sha256": "7003f1e04d39289332cdb0b7fc30322e9d8c4d4dd196e9942bb26934042f4d79",
+      "bytes": 302769
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-09-03.npz",
+      "sha256": "9ebe4344919f79de6401c9143d801ee4e2e83ad65756b72093c2913696d86262",
+      "bytes": 302638
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-09-15.npz",
+      "sha256": "69183bf8343a5e932bb86f2115d12e6cfa187b90c952febecaeb181a437d9673",
+      "bytes": 302102
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-09-27.npz",
+      "sha256": "b0c14f2362af89983455ccfeaf6ff628c348e9a61d93198b17e66db783c3c985",
+      "bytes": 302635
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-10-09.npz",
+      "sha256": "00529cf584821ff362cc3819ef1d7d127f746e24fbbae2850a61e2ed94317c0c",
+      "bytes": 302641
+    },
+    {
+      "path": "nisar/subsets/paju-south/2026-10-21.npz",
+      "sha256": "695d495f8c11935ce4220628b2bcf7950f683d6547a0a34829a509ceb69c7a48",
+      "bytes": 302495
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-06-23.npz",
+      "sha256": "f377fec8bfc5eec1847f8e6c5accb454ab6e139fc6e28e1c3f914cddf0788474",
+      "bytes": 244018
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-07-05.npz",
+      "sha256": "eedf85d401b04908c299f3950eda3d6e4e723d6c3ea721293fe3a7e7c5f94b6c",
+      "bytes": 242524
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-07-17.npz",
+      "sha256": "d7bd63bd58a7413eb3c4b9770da90abb6d3eead9c8cf7939d708f849156ff7f9",
+      "bytes": 244337
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-08-10.npz",
+      "sha256": "6c8d2766a1469f997968619a11b784625ff0197d8d3570a3b3056c444199e9ba",
+      "bytes": 242657
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-08-22.npz",
+      "sha256": "20424ebeb8a381fcc8a665441edb8745d763ab681561c862b2eb2d1cbba9db39",
+      "bytes": 242739
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-09-03.npz",
+      "sha256": "48ad5079b7be15c8771992afb6e4cdfd80256f395ec29e7c796b87cda01b77f4",
+      "bytes": 241614
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-09-15.npz",
+      "sha256": "dea8cd9b6db6ab81ff3c74650369ae1a337a33291de6742fa7eea39b014f3aec",
+      "bytes": 241104
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-09-27.npz",
+      "sha256": "f3b0fb998fa63a6b963c7424205d737d948dca62dc86c9671e42bd49046db668",
+      "bytes": 241650
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-10-09.npz",
+      "sha256": "492810065e923aea41ce676e321fe5b23a3f6885084fe3e209bf732d741e26a5",
+      "bytes": 242361
+    },
+    {
+      "path": "nisar/subsets/paju-north/2026-10-21.npz",
+      "sha256": "376560738bb07586aa698255dcedcd5581865978bd57e395278ef77a044e09c8",
+      "bytes": 242181
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-06-23.npz",
+      "sha256": "77dcb32dc5f6ac0ecb3c65c6b06695f0409ea6bc491c7297ba470efabed73cbb",
+      "bytes": 129273
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-07-05.npz",
+      "sha256": "22b3d8a813482956febc64f48fdce64dba5cc0d9965523847c4627046cc7bff4",
+      "bytes": 129023
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-07-17.npz",
+      "sha256": "96291d9550badb8cd6fba495e59cdd591d3d9be65e625a99cbc7745fd78f6592",
+      "bytes": 129292
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-08-10.npz",
+      "sha256": "f3e2e896ac80bca36fe4de2b21cdb77d96886bda934a5b50b66b818af8c5b86c",
+      "bytes": 129112
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-08-22.npz",
+      "sha256": "ad98df26ab1853c958bf550a6d1ae4cbf0eb5dc4c54c431642d737410eb34d66",
+      "bytes": 129099
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-09-03.npz",
+      "sha256": "f6cca9d6ba47bb8f20b8afc9d4b65afea91e0f84cd7ee8e846d57ebc7d07c118",
+      "bytes": 129084
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-09-15.npz",
+      "sha256": "1697941dae46a15981bf2b550de15f97af9c40871c121e7f68d105847c5076a6",
+      "bytes": 128902
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-09-27.npz",
+      "sha256": "e2fc867b51398af015b27083a399a2bf2186b586a1bc87faa1cb840d36e8f7b0",
+      "bytes": 129050
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-10-09.npz",
+      "sha256": "16cf84a8bd64a2e39fdbe452162efd49acc8e596fa4ad291f730957669932f04",
+      "bytes": 129153
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-dmz/2026-10-21.npz",
+      "sha256": "e12c3e6f48639baefe7c1e2b2c9d14b674adf9c48df07d3ecb2c56e3f95c9cec",
+      "bytes": 129529
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-06-23.npz",
+      "sha256": "533afa7b24eaeab4b5baa627965382002fa28d77add6b45a21bc76e631375d22",
+      "bytes": 219510
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-07-05.npz",
+      "sha256": "2821f9418eab097019c0674ddae7bdd339c1a57f97e9d7912c0829c6818d07c0",
+      "bytes": 218854
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-07-17.npz",
+      "sha256": "f074cabf0a04b74e8f7f83db45667bc680a2c94691da325b3f18f1054f060e0d",
+      "bytes": 218350
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-08-10.npz",
+      "sha256": "efdab9b79bc3a2972e31e46052a74efe229624beecd8a82e2ea10ca5c79397dc",
+      "bytes": 218240
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-08-22.npz",
+      "sha256": "84afc1628f67bab75ee4ca72584b9410f4702add105aa67483026395881988b5",
+      "bytes": 217170
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-09-03.npz",
+      "sha256": "5d46bc0f71ba930de5f5362c005a474cb7dcc5066284b5831379ecc1f1185c91",
+      "bytes": 217817
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-09-15.npz",
+      "sha256": "44680ac5a4f3e70c634f9ca9d0c0ac1794fc30685ffdba94f02cc137b92849d3",
+      "bytes": 217077
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-09-27.npz",
+      "sha256": "988d090d3899fe1062965f85f8e70d8f5efa4d8bbef01666e41710707840d083",
+      "bytes": 217795
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-10-09.npz",
+      "sha256": "a00324cf14e8418b4245425570628aada61ba4a031a979632bffd3f6660eff9f",
+      "bytes": 217938
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-farm/2026-10-21.npz",
+      "sha256": "31333d439ac860643053e415a91b00db701886d51d18449ad599f5bb5fd94c24",
+      "bytes": 217759
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-06-23.npz",
+      "sha256": "afae8ee9b06d97e3b361ea3cc1e7a5b52df095914dc54cacc66a700e514ec8f2",
+      "bytes": 431298
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-07-05.npz",
+      "sha256": "e70f84c3669c74ee1a385ab8e216e06623f8ebb8f37b5f45d09aae82dcb6721f",
+      "bytes": 429542
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-07-17.npz",
+      "sha256": "14381d2023120f456eb05542254b2a4c7dbb3cfaadce6e9e3f3183c4983753b4",
+      "bytes": 430194
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-08-10.npz",
+      "sha256": "39e5702a058c688b3aa87a3ced473a014eaa7bc7fb343a5fd5468d42a530aa23",
+      "bytes": 429640
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-08-22.npz",
+      "sha256": "8c74031a46960681394d79c98746722e85269366ab7809693aedf65a7cbb0e00",
+      "bytes": 428094
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-09-03.npz",
+      "sha256": "c8d16df3e6d78799e83ff9a171f1cf6204f5897b40cbcba513fb179139125b92",
+      "bytes": 428558
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-09-15.npz",
+      "sha256": "01210c8c690262ad9378c6a1d7e2dbca6e606af0233ef68f94d275dc42749a3d",
+      "bytes": 427760
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-09-27.npz",
+      "sha256": "f297deb32d54f70c4b6ae15de034479a3161175e23baf063e0fefe92177c5f36",
+      "bytes": 428485
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-10-09.npz",
+      "sha256": "b7d5d583d7624158a06c3bb969663f2544284e705e0b8c0a07dded7c40236621",
+      "bytes": 429097
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-forest/2026-10-21.npz",
+      "sha256": "a610f7b260b5605b6f20875b2a422eab027db41b21c9a5782412c223adb3a55a",
+      "bytes": 429571
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-06-23.npz",
+      "sha256": "2826e6096a91e44a596ad0e8ef5e9f1649f1fde5b9f93f28e2e241864c2cae26",
+      "bytes": 430818
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-07-05.npz",
+      "sha256": "efcbf397b77f2161ef50f71dcaa03f641570f0b00fe75a8e299341a1009e3689",
+      "bytes": 430133
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-07-17.npz",
+      "sha256": "29711cce0952d4fe6d3f2ad2eb2259fc5fe01958476ca19e547fd764c90b59da",
+      "bytes": 430951
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-08-10.npz",
+      "sha256": "d50b8bc7ba42b3ae6821b94b77ef1b1f2dd10137f4120ed0a8d66ece56f7dc00",
+      "bytes": 429617
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-08-22.npz",
+      "sha256": "ac2cf3e3763a1d9b22782b2e42bc2c3bce3e2582bee467943cef5a50a9f4a4e7",
+      "bytes": 429322
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-09-03.npz",
+      "sha256": "d9d90ec14966313a0dc647ccafb275f0af25e09b66806c32df7f0df90b6ade7a",
+      "bytes": 429063
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-09-15.npz",
+      "sha256": "e59ec68b17f13d64d250efab46ac9f8ad4e64a456043003e0f248012225d1d9c",
+      "bytes": 427974
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-09-27.npz",
+      "sha256": "f113f48527f6b757645a14bf3990deb53bda03d070a991591a4197b72f2b8648",
+      "bytes": 428877
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-10-09.npz",
+      "sha256": "5407ca956ccfaf015b4e34f0c4d8dc6c94f864745b9541ac6a2462f0d5138585",
+      "bytes": 430102
+    },
+    {
+      "path": "nisar/subsets/yeoncheon-north/2026-10-21.npz",
+      "sha256": "cb13ca88c00da3f37dc42e74edc615bda6f07e99b84a8a2d0bf3e8372db7776f",
+      "bytes": 430312
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-06-23.npz",
+      "sha256": "b7cb3be9f05e358b25c5cce0d8023be4012b9e5ae0910d2181f691d1f680e889",
+      "bytes": 387397
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-07-05.npz",
+      "sha256": "cb89612115391506c77a0f6e5484eafcf85c810c8f73284b87abf11c8a076528",
+      "bytes": 387366
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-07-17.npz",
+      "sha256": "958f1fe96283ac1406a9590900754d145c329dae5e8e6152c75d53c3d0fa34f1",
+      "bytes": 387638
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-08-10.npz",
+      "sha256": "0ec3213e7fee3a36f2e2cb397cd68e1079a5a3af147ebc9b4d23574d962ef479",
+      "bytes": 387147
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-08-22.npz",
+      "sha256": "2345d970df8b9473051ed80055435bbc28310939a4057f797ab71351863271c8",
+      "bytes": 387334
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-09-03.npz",
+      "sha256": "03235b413f318c627aeeefadd28f81d7a7224aff087d4a9c9976085ce11f1e53",
+      "bytes": 387192
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-09-15.npz",
+      "sha256": "2f67006967fca67f021f073933169404541c6d436d9d40b8203187276f098d86",
+      "bytes": 386878
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-09-27.npz",
+      "sha256": "2bf5b5aaa3883160f9c58a575aaf6961ac149572a857969f32b7267d19186394",
+      "bytes": 387247
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-10-09.npz",
+      "sha256": "ece8db7045830ab6f95c56fd23155c573df14a4b94384b4a087106002220864f",
+      "bytes": 387194
+    },
+    {
+      "path": "nisar/subsets/hwacheon-dmz/2026-10-21.npz",
+      "sha256": "df960390e7710b5df91d4ee1e9a2e7058959847083e78072c390f12fa47a1ebc",
+      "bytes": 387413
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-06-23.npz",
+      "sha256": "a181929db921df3f44c1f68e17be9c12369f2c4122c31224def9528e97d55394",
+      "bytes": 862291
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-07-05.npz",
+      "sha256": "432d077b6c4261cd2046268ba735210688709c59c9a49efc05034bc7642faeb7",
+      "bytes": 861392
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-07-17.npz",
+      "sha256": "b872b0cd62e7535cfed82acd9635faa75e8ecca5c53f05ce5c229d189bf90e4b",
+      "bytes": 862505
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-08-10.npz",
+      "sha256": "c6c5f3d798cc2e79f1c5580c3a9e6265fbec37804d79d599d38bb5eb0cb22145",
+      "bytes": 860834
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-08-22.npz",
+      "sha256": "1cebf6ddafc668f996d7c2e4e6f8130cc9865075cbf740a6c30b5596e2225347",
+      "bytes": 862053
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-09-03.npz",
+      "sha256": "fbaf65bd858d56897a14848a254a63d95486176727e47eb639a42f5f90f754c4",
+      "bytes": 861448
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-09-15.npz",
+      "sha256": "a3424246b55ea37e4724d1e09cb767c2dc440082ed06b226c901f25eebed89a5",
+      "bytes": 859364
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-09-27.npz",
+      "sha256": "7f80069f6f902c6e5abb6a088ad388634fca6de789614fe478c821d4bac2de2e",
+      "bytes": 860031
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-10-09.npz",
+      "sha256": "3b2086c00d7bff37e12cd574f454e0efc335bd65dfde60df034521bba67b7e1f",
+      "bytes": 859565
+    },
+    {
+      "path": "nisar/subsets/hwacheon-forest/2026-10-21.npz",
+      "sha256": "0bd531d65cd67af86ebdea083c92ed89e789cc83f09b1de1beb382bc6e6be7cc",
+      "bytes": 861125
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-06-23.npz",
+      "sha256": "95ea1ae1a59d7427cdc0c6120b2d8e7325a7d88a06ca39878bcc18e7bea2357c",
+      "bytes": 216686
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-07-05.npz",
+      "sha256": "26f0f0104d979bb6a8a0a98b8041eaae041bd432c37e72ef29996dda0a2207d1",
+      "bytes": 216039
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-07-17.npz",
+      "sha256": "ec451ed0ea3d9aa587f58492596228b5ed03562eec038ac6e35b9a79fc517553",
+      "bytes": 216999
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-08-10.npz",
+      "sha256": "7d2ceb11c266adeea6359aae24e8f6a2b4be3f87c89c0fbc340b53797f9a6489",
+      "bytes": 216203
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-08-22.npz",
+      "sha256": "902788e45f8b561c8a196666f896ed38bfce3650556eb345bafe750199e6c941",
+      "bytes": 216429
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-09-03.npz",
+      "sha256": "95dd87a2a065725487cff247b38f77231d870a33920c0cf4e50b9e5f14f038dc",
+      "bytes": 216379
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-09-15.npz",
+      "sha256": "c05b09d9314e9ef85e0f5be50904d6103753669c783040d7fc67c701a0bee67a",
+      "bytes": 215738
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-09-27.npz",
+      "sha256": "16a6e43ed439e49248e8b804df2980ab3dc9f4f90236007019f666960adf45d0",
+      "bytes": 215890
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-10-09.npz",
+      "sha256": "a2b3c53a8ee72f5162dd4888bae16e85670ce8c42242e4e1e189127fc5a4c855",
+      "bytes": 216299
+    },
+    {
+      "path": "nisar/subsets/hwacheon-north/2026-10-21.npz",
+      "sha256": "0003d57a4972b7f0e55eb45bff382e4480d9394d5ae160b419b3c08fabd1307a",
+      "bytes": 216691
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-06-23.npz",
+      "sha256": "4bc6a5db29da7fb5261d23f011526a83b75046f882e1a9d02d7a6dc061622a31",
+      "bytes": 968500
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-07-05.npz",
+      "sha256": "3b4851302a10e9df2e8c57f796f70a72adb65ac771a7050073d4ac98dc5b9b25",
+      "bytes": 967047
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-07-17.npz",
+      "sha256": "eee3daac3669e4eccfa9fd1431e5b92706c1eb55ec9ed3f795ea51df51284ba7",
+      "bytes": 966269
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-08-10.npz",
+      "sha256": "ac7527eb8e8b869990a8ab5ea0fbab96daea5151df5441735f081bcc9a57c194",
+      "bytes": 965948
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-08-22.npz",
+      "sha256": "4a76eb64e24de69b0c6082c7e81cb5f15907d28afae0963a9b42258d8c2dd5d6",
+      "bytes": 965924
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-09-03.npz",
+      "sha256": "a4be8021b79af486615f01404755a79de9ffd20a6dc72c995ea849b8b5c29757",
+      "bytes": 965669
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-09-15.npz",
+      "sha256": "8cd93e5dd227eb647d00b7c6634edfd591002c7545fa36f5754741a521af2ab5",
+      "bytes": 963736
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-09-27.npz",
+      "sha256": "d24e29c4bcc2b13d96acb33d7af60c5fd3a0f48fa721682d5f16418f3bfb9b15",
+      "bytes": 964780
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-10-09.npz",
+      "sha256": "2428331bc6f1497f3f5e4715f23e323fbf6abffd70213764637b6560aabf5fbd",
+      "bytes": 966504
+    },
+    {
+      "path": "nisar/subsets/yanggu-basin/2026-10-21.npz",
+      "sha256": "46cabcac95077881a0e4dc44370752ae9ad5c54bf4ad58902a50d4e47356d833",
+      "bytes": 966794
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-06-23.npz",
+      "sha256": "c95b6bc7caa95723b945b5215ab9c1e194dc7a73cb48500cb8392cfe4a18fcfe",
+      "bytes": 214308
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-07-05.npz",
+      "sha256": "c0bd125947a8de26f162a59c32a8f07b05c19c36b555a17affff0e3091cf369e",
+      "bytes": 214110
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-07-17.npz",
+      "sha256": "ac36d16aebe97da1a42752f94e7769f4a0328ac4ac331654d0ebce7f4e56a7a0",
+      "bytes": 214376
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-08-10.npz",
+      "sha256": "b5d64dd9e2e0179b7685e0798d764cf9356a96460bf6fb15d937bbbba6caf265",
+      "bytes": 214124
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-08-22.npz",
+      "sha256": "e39ea35115b6cf62e6f4eb9ae4758ea923a780399b43bb39651a939a0ada7a9b",
+      "bytes": 214060
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-09-03.npz",
+      "sha256": "2f87b6620a484fd1b8dcdd11f01ca6d0370a0d91a19d88f9878dc4be74f22b9b",
+      "bytes": 213971
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-09-15.npz",
+      "sha256": "34a7aa5eb8cf8ea5ec5cc646ab23424a5150556aeebb7f15f97c5af1850f55e0",
+      "bytes": 214027
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-09-27.npz",
+      "sha256": "ff396c83843c37810167ad3b056fc1b67136a3b3b05a9e4b2d8355c35d89631f",
+      "bytes": 214182
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-10-09.npz",
+      "sha256": "9db138f710433a6c6ec2aaecb1245f3cd0d0d53a0108d4f85f2a610faae5dd2b",
+      "bytes": 214202
+    },
+    {
+      "path": "nisar/subsets/yanggu-dmz/2026-10-21.npz",
+      "sha256": "e5233703afe37de108ba4558ace32fc3f11f4682d6f46b5ff6311f0d535854ad",
+      "bytes": 214326
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-06-23.npz",
+      "sha256": "f08fc039d59995f0a7a246de35dad74d5364338a13a9aea43eb9853648cfd7ea",
+      "bytes": 642886
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-07-05.npz",
+      "sha256": "a1efe26035695b83388d99d633c671be066b7d57d3a34eb1820d1632ace31a20",
+      "bytes": 641789
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-07-17.npz",
+      "sha256": "de41fcfe944c67304f9971a4506a6690184eebd8e440ee9f83149321d7f1ecfd",
+      "bytes": 643543
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-08-10.npz",
+      "sha256": "f2712c64fe186f692c6755483bb46f65d74666a8a088ce2e2968143afd4d90e3",
+      "bytes": 641757
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-08-22.npz",
+      "sha256": "8078e28cdfe77b87d7c15ccc3fa85128f6daaafbe275d1fe53d402cec9871648",
+      "bytes": 642616
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-09-03.npz",
+      "sha256": "adcb0c36fa410a9187e09d569542c6c6b8444da07e6cea7326ecc7b30b397263",
+      "bytes": 641894
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-09-15.npz",
+      "sha256": "51fc76a90251b2031d5c5ae1485e2987b7aa0d2d82bbcd16791d2f2bf272b6d3",
+      "bytes": 641851
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-09-27.npz",
+      "sha256": "d23d99459b3318a4f72bbdfdd3d17167753c00471866cf40d08e00513b7f248a",
+      "bytes": 641986
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-10-09.npz",
+      "sha256": "f9d46893c5042741da37335a95686051d0b229c41a6686e73f3ee5a29f7ca85b",
+      "bytes": 641852
+    },
+    {
+      "path": "nisar/subsets/yanggu-forest/2026-10-21.npz",
+      "sha256": "73f508023fd0131417660d19c43b67581d984d795ba7e55afc2e88b3d3cba98b",
+      "bytes": 643234
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-06-23.npz",
+      "sha256": "b7d481c898d3fd69e114d39d2b9fc3aabee3a96d8384cabf66553f9cb5cd37c9",
+      "bytes": 424700
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-07-05.npz",
+      "sha256": "075db34c49b598e8757cd2341e2f541d2bc4e14a7aac74012d644c6ec472692a",
+      "bytes": 424540
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-07-17.npz",
+      "sha256": "494b01d4d8b7b7bb27c4a360a2c82af7631a23e6ab23c8bacdf2a4664c62db81",
+      "bytes": 424726
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-08-10.npz",
+      "sha256": "504499dce8ffd056118b8ffd8e7dd4c207458343c66ad1a0e535201603ddce89",
+      "bytes": 424615
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-08-22.npz",
+      "sha256": "7ad604d130ac99977baac581acd300f3e7b31429013277851c5d71787b154596",
+      "bytes": 424064
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-09-03.npz",
+      "sha256": "bb51d6dcb45b8392bef4874be748d2bcdb1e94e7bbed8e815255c857c31218be",
+      "bytes": 424247
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-09-15.npz",
+      "sha256": "18ef609186fb00505cbc7a265d71af342aebad7ac979e636781eabc6c41149f3",
+      "bytes": 424626
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-09-27.npz",
+      "sha256": "db7a11ea675864bfd91b0058bccebfe04df9dc95dbbdebc62b704141f409d1f4",
+      "bytes": 425324
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-10-09.npz",
+      "sha256": "11f54925569f1be83f3421d5cdbe75306764cf571630a38da62821d5c83177b1",
+      "bytes": 425664
+    },
+    {
+      "path": "nisar/subsets/yanggu-north/2026-10-21.npz",
+      "sha256": "14cefe78536610dcf3c534e3bb8b1558ba76d47d9fc60741569cc85c92c78467",
+      "bytes": 425439
+    }
+  ]
+}

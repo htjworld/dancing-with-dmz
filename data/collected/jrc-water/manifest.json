@@ -1,0 +1,254 @@
+{
+  "dataset": "JRC Global Surface Water",
+  "version": "1.5",
+  "period": "1984-2024",
+  "layer": "occurrence",
+  "source": "https://s3.waw4-1.cloudferro.com/swift/v1/global-surface-water/download2024/Aggregated/VER1-5/occurrence/occurrence_120E_40N_v1_5_2024.tif",
+  "source_listing": "https://global-surface-water.appspot.com/download",
+  "collected_utc": "2026-11-14T07:08:06.772436+00:00",
+  "nodata": 255,
+  "units": "percent",
+  "attribution": "Source: EC JRC/Google",
+  "citation": "Pekel et al. (2016), Nature 540, 418-422, doi:10.1038/nature20584",
+  "limitations": [
+    "Not a 2026 flood or river ground-truth map. Reservoirs are included.",
+    "Collection 1/2 co-registration differences may reach/exceed one 30m pixel."
+  ],
+  "regions": [
+    {
+      "region": "cheorwon",
+      "bounds_wgs84": [
+        127.175779,
+        38.196475,
+        127.443478,
+        38.373779
+      ],
+      "valid_fraction": 1.0,
+      "value_min": 0,
+      "value_max": 97,
+      "aoi_stats": {
+        "cheorwon-paddy": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.000956
+        },
+        "cheorwon-dmz_flat": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.000381
+        },
+        "cheorwon-dmz_hill": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        },
+        "cheorwon-forest": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        },
+        "cheorwon-north": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.005491,
+          "any_historical_water_area_fraction": 0.010022
+        }
+      },
+      "files": [
+        {
+          "path": "jrc-water/cheorwon/occurrence_1984-2024.tif",
+          "bytes": 19987,
+          "sha256": "db656e9127bd7cc5b5dbe345aad0d5914238903d7598d600542becee1d39c653"
+        },
+        {
+          "path": "jrc-water/cheorwon/occurrence_1984-2024.png",
+          "bytes": 24255,
+          "sha256": "3b58edd42c96cab4127b58c6bf55891a4236cbec799356ccd8ff6359c07a411f"
+        }
+      ]
+    },
+    {
+      "region": "hwacheon",
+      "bounds_wgs84": [
+        127.616625,
+        38.197786,
+        127.84273,
+        38.382386
+      ],
+      "valid_fraction": 1.0,
+      "value_min": 0,
+      "value_max": 89,
+      "aoi_stats": {
+        "hwacheon-dmz": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.000843,
+          "any_historical_water_area_fraction": 0.002716
+        },
+        "hwacheon-forest": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        },
+        "hwacheon-north": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.008748,
+          "any_historical_water_area_fraction": 0.045087
+        }
+      },
+      "files": [
+        {
+          "path": "jrc-water/hwacheon/occurrence_1984-2024.tif",
+          "bytes": 15903,
+          "sha256": "0117adcd8a44c4730998f887265cb6e9c78d3d9001d17bbce8df8a6aab0d734a"
+        },
+        {
+          "path": "jrc-water/hwacheon/occurrence_1984-2024.png",
+          "bytes": 21183,
+          "sha256": "fdd605e537dc6c93f25fb293ca7f090f4241761e1d5e50ba10b832232d91ad0c"
+        }
+      ]
+    },
+    {
+      "region": "paju",
+      "bounds_wgs84": [
+        126.649886,
+        37.736975,
+        126.829227,
+        38.063096
+      ],
+      "valid_fraction": 1.0,
+      "value_min": 0,
+      "value_max": 100,
+      "aoi_stats": {
+        "paju-dmz_farm": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.037239,
+          "any_historical_water_area_fraction": 0.053226
+        },
+        "paju-dmz_wild": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.000706
+        },
+        "paju-south": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        },
+        "paju-north": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.000451
+        }
+      },
+      "files": [
+        {
+          "path": "jrc-water/paju/occurrence_1984-2024.tif",
+          "bytes": 48379,
+          "sha256": "c39545dfb55aa9991f6e34b7cd403d5bcf01d7028dd8b849f2ae7aa918e2e850"
+        },
+        {
+          "path": "jrc-water/paju/occurrence_1984-2024.png",
+          "bytes": 44622,
+          "sha256": "9660296d1263a34ca0fd61f789dbf2291454413177d5c952e5fc991dd266d513"
+        }
+      ]
+    },
+    {
+      "region": "yanggu",
+      "bounds_wgs84": [
+        128.01715,
+        38.198831,
+        128.20225,
+        38.411352
+      ],
+      "valid_fraction": 1.0,
+      "value_min": 0,
+      "value_max": 91,
+      "aoi_stats": {
+        "yanggu-basin": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.000599,
+          "any_historical_water_area_fraction": 0.002583
+        },
+        "yanggu-dmz": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        },
+        "yanggu-forest": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.002025
+        },
+        "yanggu-north": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        }
+      },
+      "files": [
+        {
+          "path": "jrc-water/yanggu/occurrence_1984-2024.tif",
+          "bytes": 5579,
+          "sha256": "10e38db00ea533b654d7213eddba331e15a6fa5f1bf36298b9a5a1763804751a"
+        },
+        {
+          "path": "jrc-water/yanggu/occurrence_1984-2024.png",
+          "bytes": 6422,
+          "sha256": "fade418f084c0fe3b18a6de62337c804e5a533ec40783f12edc66ae100bc86d8"
+        }
+      ]
+    },
+    {
+      "region": "yeoncheon",
+      "bounds_wgs84": [
+        126.931288,
+        38.017508,
+        127.107818,
+        38.332714
+      ],
+      "valid_fraction": 1.0,
+      "value_min": 0,
+      "value_max": 90,
+      "aoi_stats": {
+        "yeoncheon-dmz": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        },
+        "yeoncheon-farm": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.017594,
+          "any_historical_water_area_fraction": 0.031128
+        },
+        "yeoncheon-forest": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        },
+        "yeoncheon-north": {
+          "valid_fraction": 1.0,
+          "water_occurrence_ge_50_area_fraction": 0.0,
+          "any_historical_water_area_fraction": 0.0
+        }
+      },
+      "files": [
+        {
+          "path": "jrc-water/yeoncheon/occurrence_1984-2024.tif",
+          "bytes": 24475,
+          "sha256": "7c2c79da19a0fb2723a39c4478f419a6ecfe105cdd44d1110582fe66771f5a34"
+        },
+        {
+          "path": "jrc-water/yeoncheon/occurrence_1984-2024.png",
+          "bytes": 24498,
+          "sha256": "ec083765ec6f4521f31bde81d7daa234295e527a1ee7102b55c03c6c19362b4e"
+        }
+      ]
+    }
+  ],
+  "river_comparison": {
+    "path": "jrc-water/yeoncheon_river_comparison.json",
+    "bytes": 222602,
+    "sha256": "154cee33bec47ead3522da97b8992efa8f5b52bda76484829eecbe0abec5a731"
+  }
+}

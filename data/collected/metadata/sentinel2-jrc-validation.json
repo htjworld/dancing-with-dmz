@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "sentinel_region_period_sets": 15,
+  "jrc_region_rasters": 5,
+  "aoi_period_checks": 60,
+  "verified_file_hashes": 131,
+  "radiometrically_verified_source_tiles": 13,
+  "aoi_periods_below_80pct_valid": [
+    {
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-forest",
+      "valid_fraction": 0.679529
+    },
+    {
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-north",
+      "valid_fraction": 0.498524
+    }
+  ],
+  "checks": [
+    "File lengths and SHA256",
+    "CRS/grid/nodata agreement",
+    "SCL quality masking",
+    "NDVI numeric range and independent DN ratio recomputation",
+    "AOI statistics recomputation",
+    "Each used source cross-checked against the same ESA product in Collection 1",
+    "JRC 0..100/255 value semantics and spatial coverage"
+  ],
+  "limits": [
+    "PASS means consistency and stated quality verified; it does not make cloud-covered AOIs usable.",
+    "No ecological causality or ground-truth classification claimed."
+  ]
+}

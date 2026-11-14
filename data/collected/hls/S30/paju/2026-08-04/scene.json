@@ -1,0 +1,364 @@
+{
+  "product": "S30",
+  "collection": "hls2-s30",
+  "version": "2.0",
+  "region": "paju",
+  "period": "late_summer",
+  "selection_window": [
+    "2026-07-16",
+    "2026-08-31"
+  ],
+  "acquired_utc": "2026-08-04T02:27:17.200740Z",
+  "source_ids": [
+    "HLS.S30.T52SBG.2026216T021531.v2.0",
+    "HLS.S30.T52SBH.2026216T021531.v2.0",
+    "HLS.S30.T52SCG.2026216T021531.v2.0"
+  ],
+  "source_acquisitions_utc": [
+    "2026-08-04T02:27:17.200740Z",
+    "2026-08-04T02:27:02.769660Z",
+    "2026-08-04T02:27:13.439000Z"
+  ],
+  "platforms": [
+    "sentinel-2c"
+  ],
+  "source_processing_software": [
+    {
+      "Cloud Masking": "Fmask v5.0.1",
+      "Atmospheric Correction": "LaSRC v3.5.1.0"
+    },
+    {
+      "Cloud Masking": "Fmask v5.0.1",
+      "Atmospheric Correction": "LaSRC v3.5.1.0"
+    },
+    {
+      "Cloud Masking": "Fmask v5.0.1",
+      "Atmospheric Correction": "LaSRC v3.5.1.0"
+    }
+  ],
+  "doi": "10.5067/HLS/HLSS30.002",
+  "bounds_wgs84": [
+    126.649886,
+    37.736975,
+    126.829227,
+    38.063096
+  ],
+  "grid_bounds_utm": [
+    292890,
+    4178850,
+    309570,
+    4215450
+  ],
+  "crs": "EPSG:32652",
+  "resolution_m": 30,
+  "shape": [
+    1220,
+    556
+  ],
+  "band_order": {
+    "red": "B04",
+    "green": "B03",
+    "blue": "B02",
+    "nir_narrow": "B8A",
+    "swir1": "B11",
+    "swir2": "B12"
+  },
+  "scale": 0.0001,
+  "offset": 0,
+  "nodata": -9999,
+  "quality": {
+    "coverage_fraction": 1.0,
+    "clear_fraction": 0.5307539214530015,
+    "cloud_fraction": 0.12618085859181508,
+    "adjacent_cloud_shadow_fraction": 0.09365343790541338,
+    "shadow_fraction": 0.09780634508786414,
+    "high_aerosol_fraction": 0.3937625309588395,
+    "aoi_clear_fraction": {
+      "paju-dmz_farm": 0.850556,
+      "paju-dmz_wild": 0.398125,
+      "paju-south": 0.848571,
+      "paju-north": 0.862
+    }
+  },
+  "aoi_stats": {
+    "paju-dmz_farm": {
+      "total_pixels": 3600,
+      "qa_clear_fraction": 0.850556,
+      "ndvi": {
+        "valid_pixels": 3062,
+        "valid_fraction": 0.850556,
+        "mean": 0.823876,
+        "median": 0.857208,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 3062,
+        "valid_fraction": 0.850556,
+        "mean": 0.353175,
+        "median": 0.354257,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 3062,
+        "valid_fraction": 0.850556,
+        "mean": -0.541668,
+        "median": -0.557321,
+        "recommended_for_comparison": true
+      }
+    },
+    "paju-dmz_wild": {
+      "total_pixels": 4800,
+      "qa_clear_fraction": 0.398125,
+      "ndvi": {
+        "valid_pixels": 1911,
+        "valid_fraction": 0.398125,
+        "mean": 0.853704,
+        "median": 0.867893,
+        "recommended_for_comparison": false
+      },
+      "ndmi": {
+        "valid_pixels": 1911,
+        "valid_fraction": 0.398125,
+        "mean": 0.303996,
+        "median": 0.311463,
+        "recommended_for_comparison": false
+      },
+      "mndwi": {
+        "valid_pixels": 1911,
+        "valid_fraction": 0.398125,
+        "mean": -0.63453,
+        "median": -0.639788,
+        "recommended_for_comparison": false
+      }
+    },
+    "paju-south": {
+      "total_pixels": 5600,
+      "qa_clear_fraction": 0.848571,
+      "ndvi": {
+        "valid_pixels": 4752,
+        "valid_fraction": 0.848571,
+        "mean": 0.75134,
+        "median": 0.813733,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 4752,
+        "valid_fraction": 0.848571,
+        "mean": 0.266598,
+        "median": 0.293155,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 4752,
+        "valid_fraction": 0.848571,
+        "mean": -0.53567,
+        "median": -0.546665,
+        "recommended_for_comparison": true
+      }
+    },
+    "paju-north": {
+      "total_pixels": 4500,
+      "qa_clear_fraction": 0.862,
+      "ndvi": {
+        "valid_pixels": 3879,
+        "valid_fraction": 0.862,
+        "mean": 0.749633,
+        "median": 0.778621,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 3879,
+        "valid_fraction": 0.862,
+        "mean": 0.252256,
+        "median": 0.264269,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 3879,
+        "valid_fraction": 0.862,
+        "mean": -0.529812,
+        "median": -0.547517,
+        "recommended_for_comparison": true
+      }
+    }
+  },
+  "all_aoi_at_least_80pct_ndvi_valid": false,
+  "nearest_nisar_date": "2026-08-10",
+  "calendar_day_difference_from_nisar": -6,
+  "source_geotiff_tags": {
+    "HLS.S30.T52SBG.2026216T021531.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:17.200741Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:17.200741Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:17.200741Z"
+      },
+      "B8A": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:17.200741Z"
+      },
+      "B11": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:17.200741Z"
+      },
+      "B12": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:17.200741Z"
+      }
+    },
+    "HLS.S30.T52SBH.2026216T021531.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBH_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:02.769665Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBH_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:02.769665Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBH_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:02.769665Z"
+      },
+      "B8A": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBH_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:02.769665Z"
+      },
+      "B11": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBH_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:02.769665Z"
+      },
+      "B12": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SBH_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:02.769665Z"
+      }
+    },
+    "HLS.S30.T52SCG.2026216T021531.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SCG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:13.4392Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SCG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:13.4392Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SCG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:13.4392Z"
+      },
+      "B8A": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SCG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:13.4392Z"
+      },
+      "B11": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SCG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:13.4392Z"
+      },
+      "B12": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260804T021531_N0512_R003_T52SCG_20260804T040924.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-04T02:27:13.4392Z"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "hls/S30/paju/2026-08-04/Fmask_30m.tif",
+      "bytes": 88458,
+      "sha256": "774d778f654504ddc86c5421e0465fd06b4dab70afa5be41b707829e404ddda3"
+    },
+    {
+      "path": "hls/S30/paju/2026-08-04/indices_30m.tif",
+      "bytes": 3551806,
+      "sha256": "a9c872109e2b7ce546a9f10f9eb96cb799a0449ae6436d10eed1b4832cef7417"
+    },
+    {
+      "path": "hls/S30/paju/2026-08-04/ndvi.png",
+      "bytes": 272449,
+      "sha256": "9c4c937eafd4b6054f096d6ab97f04879e21b8b680de7927a8b1c7a5e0a36f45"
+    },
+    {
+      "path": "hls/S30/paju/2026-08-04/quality.png",
+      "bytes": 30408,
+      "sha256": "30596025812943c995674200c7024987b508889ee59b118dde4af048b00d02c6"
+    },
+    {
+      "path": "hls/S30/paju/2026-08-04/reflectance_dn_30m.tif",
+      "bytes": 6004270,
+      "sha256": "3a1555f44c89a593a3a712c7652ad7442400298318e6a9119fb095a5e94ce781"
+    },
+    {
+      "path": "hls/S30/paju/2026-08-04/rgb.webp",
+      "bytes": 92392,
+      "sha256": "f420921884b5351d9d1af99b15fe78e01195d6e7b3d58d90a817b0a1892964cb"
+    },
+    {
+      "path": "hls/S30/paju/2026-08-04/source_index_30m.tif",
+      "bytes": 3948,
+      "sha256": "f13fdfdb81c4b02534c5d364883f4e65d8cb487a8f1423119136bad270c139d2"
+    },
+    {
+      "path": "hls/S30/paju/2026-08-04/sources.stac.json",
+      "bytes": 39269,
+      "sha256": "62743b87b0046b942caf7eb98016a3c38c142515fe0290234b4150dfe63130bb"
+    }
+  ]
+}

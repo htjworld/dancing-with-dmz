@@ -1,0 +1,235 @@
+{
+  "product": "S30",
+  "collection": "hls2-s30",
+  "version": "2.0",
+  "region": "hwacheon",
+  "period": "early_summer",
+  "selection_window": [
+    "2026-06-01",
+    "2026-07-15"
+  ],
+  "acquired_utc": "2026-06-15T02:26:57.923310Z",
+  "source_ids": [
+    "HLS.S30.T52SCH.2026166T021531.v2.0"
+  ],
+  "source_acquisitions_utc": [
+    "2026-06-15T02:26:57.923310Z"
+  ],
+  "platforms": [
+    "sentinel-2c"
+  ],
+  "source_processing_software": [
+    {}
+  ],
+  "doi": "10.5067/HLS/HLSS30.002",
+  "bounds_wgs84": [
+    127.616625,
+    38.197786,
+    127.84273,
+    38.382386
+  ],
+  "grid_bounds_utm": [
+    378840,
+    4228380,
+    398940,
+    4249170
+  ],
+  "crs": "EPSG:32652",
+  "resolution_m": 30,
+  "shape": [
+    693,
+    670
+  ],
+  "band_order": {
+    "red": "B04",
+    "green": "B03",
+    "blue": "B02",
+    "nir_narrow": "B8A",
+    "swir1": "B11",
+    "swir2": "B12"
+  },
+  "scale": 0.0001,
+  "offset": 0,
+  "nodata": -9999,
+  "quality": {
+    "coverage_fraction": 1.0,
+    "clear_fraction": 0.9859275053304905,
+    "cloud_fraction": 0.0019792810837586956,
+    "adjacent_cloud_shadow_fraction": 0.007609140444961341,
+    "shadow_fraction": 0.0024466412526114017,
+    "high_aerosol_fraction": 0.0030884538347224913,
+    "aoi_clear_fraction": {
+      "hwacheon-dmz": 0.999722,
+      "hwacheon-forest": 1.0,
+      "hwacheon-north": 0.985
+    }
+  },
+  "aoi_stats": {
+    "hwacheon-dmz": {
+      "total_pixels": 7200,
+      "qa_clear_fraction": 0.999722,
+      "ndvi": {
+        "valid_pixels": 7198,
+        "valid_fraction": 0.999722,
+        "mean": 0.879225,
+        "median": 0.887465,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 7198,
+        "valid_fraction": 0.999722,
+        "mean": 0.412632,
+        "median": 0.417322,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 7198,
+        "valid_fraction": 0.999722,
+        "mean": -0.548967,
+        "median": -0.553218,
+        "recommended_for_comparison": true
+      }
+    },
+    "hwacheon-forest": {
+      "total_pixels": 16000,
+      "qa_clear_fraction": 1.0,
+      "ndvi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": 0.887811,
+        "median": 0.897308,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": 0.404073,
+        "median": 0.411327,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": -0.586507,
+        "median": -0.591257,
+        "recommended_for_comparison": true
+      }
+    },
+    "hwacheon-north": {
+      "total_pixels": 4000,
+      "qa_clear_fraction": 0.985,
+      "ndvi": {
+        "valid_pixels": 3940,
+        "valid_fraction": 0.985,
+        "mean": 0.622459,
+        "median": 0.616007,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 3940,
+        "valid_fraction": 0.985,
+        "mean": 0.197274,
+        "median": 0.184397,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 3940,
+        "valid_fraction": 0.985,
+        "mean": -0.476112,
+        "median": -0.495014,
+        "recommended_for_comparison": true
+      }
+    }
+  },
+  "all_aoi_at_least_80pct_ndvi_valid": true,
+  "nearest_nisar_date": "2026-06-23",
+  "calendar_day_difference_from_nisar": -8,
+  "source_geotiff_tags": {
+    "HLS.S30.T52SCH.2026166T021531.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SCH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:26:57.923317Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SCH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:26:57.923317Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SCH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:26:57.923317Z"
+      },
+      "B8A": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SCH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:26:57.923317Z"
+      },
+      "B11": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SCH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:26:57.923317Z"
+      },
+      "B12": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SCH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:26:57.923317Z"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "hls/S30/hwacheon/2026-06-15/Fmask_30m.tif",
+      "bytes": 17814,
+      "sha256": "47af021df7cd34501231ae2e61a6b81fc7f9305674a5e3c472b7c52072850ba5"
+    },
+    {
+      "path": "hls/S30/hwacheon/2026-06-15/indices_30m.tif",
+      "bytes": 4023200,
+      "sha256": "032fdfc3d204cefe5bc87eb270f8bcca57e2c513098b0a91b98a19ed24a7a592"
+    },
+    {
+      "path": "hls/S30/hwacheon/2026-06-15/ndvi.png",
+      "bytes": 385613,
+      "sha256": "01245c2a7bdddd5e0ae3e7f98dde6b3e6f6390f4748807c676f95339c695ad91"
+    },
+    {
+      "path": "hls/S30/hwacheon/2026-06-15/quality.png",
+      "bytes": 5198,
+      "sha256": "e834116f31d4950e1373741ae66ce4f228b79d2f200a95613b5319606208d47a"
+    },
+    {
+      "path": "hls/S30/hwacheon/2026-06-15/reflectance_dn_30m.tif",
+      "bytes": 3840828,
+      "sha256": "d766cdeb0ec95f5d6285c6f63b6786883ca26acd71d5083d3d15a35e7f2f9a47"
+    },
+    {
+      "path": "hls/S30/hwacheon/2026-06-15/rgb.webp",
+      "bytes": 42156,
+      "sha256": "62019811dea7f314916667258eebc44ff079d6b3f62bb974054d0042d84ccad4"
+    },
+    {
+      "path": "hls/S30/hwacheon/2026-06-15/source_index_30m.tif",
+      "bytes": 1830,
+      "sha256": "b6fb1655c4271ab6e7edd3b989373e3b50ece51375030b5ecf267f392a509466"
+    },
+    {
+      "path": "hls/S30/hwacheon/2026-06-15/sources.stac.json",
+      "bytes": 13170,
+      "sha256": "b273c0c6f2a124d486370a5b17aa9f2725de83ff431c2d1040037cab07bb5665"
+    }
+  ]
+}

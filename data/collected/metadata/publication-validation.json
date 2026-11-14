@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "Packaging integrity and stated numerical consistency; not ecological/causal ground truth.",
+  "checks": {
+    "json_files": 184,
+    "images": 335,
+    "geotiff_files": 185,
+    "published_file_hash_references": 931,
+    "npz_files": 200,
+    "nisar_polarization_values_recomputed": 400,
+    "power_daily_and_3day_values": 55
+  },
+  "source_hash_references_verified": 931,
+  "all_binary_payloads_byte_identical_to_sources": true,
+  "limitations": [
+    "Legacy 20-AOI set retained separately from current app zones.",
+    "Inherited display rasters are not quantitative substitutes for the arrays.",
+    "Resampled DEM display grid has suspect edge values; quantitative use is not recommended."
+  ]
+}

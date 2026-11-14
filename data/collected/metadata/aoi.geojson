@@ -1,0 +1,1072 @@
+{
+  "type": "FeatureCollection",
+  "provenance": {
+    "source_file": "Dancing_with_DMZ_prototype.html",
+    "source_sha256": "39555967f5e86f45bcc7f975116a86972efa33d5040b17f11bb5cdc4519e9883",
+    "origin": "recovered_from_user_supplied_prototype",
+    "original_h5_verified": false,
+    "note": "measured labels are inherited from the prototype, not independently verified measurements."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "cheorwon-paddy",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.198717,
+              38.275703
+            ],
+            [
+              127.239856,
+              38.276327
+            ],
+            [
+              127.239203,
+              38.303352
+            ],
+            [
+              127.198049,
+              38.302727
+            ],
+            [
+              127.198717,
+              38.275703
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "cheorwon-paddy",
+        "label": "민통선 논",
+        "land_cover": "논 · DMZ 남쪽",
+        "zone": true,
+        "group": "cheorwon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cheorwon-dmz_flat",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.197808,
+              38.312455
+            ],
+            [
+              127.225247,
+              38.312874
+            ],
+            [
+              127.225102,
+              38.318819
+            ],
+            [
+              127.197661,
+              38.318401
+            ],
+            [
+              127.197808,
+              38.312455
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "cheorwon-dmz_flat",
+        "label": "DMZ 안 평지",
+        "land_cover": "경작하지 않는 평지 · DMZ 안",
+        "zone": true,
+        "group": "cheorwon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cheorwon-dmz_hill",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.263177,
+              38.305061
+            ],
+            [
+              127.294044,
+              38.305514
+            ],
+            [
+              127.293759,
+              38.317675
+            ],
+            [
+              127.262887,
+              38.317222
+            ],
+            [
+              127.263177,
+              38.305061
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "cheorwon-dmz_hill",
+        "label": "DMZ 안 구릉",
+        "land_cover": "구릉 · DMZ 안",
+        "zone": true,
+        "group": "cheorwon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cheorwon-forest",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.370316,
+              38.270102
+            ],
+            [
+              127.411455,
+              38.270666
+            ],
+            [
+              127.410984,
+              38.292288
+            ],
+            [
+              127.369833,
+              38.291723
+            ],
+            [
+              127.370316,
+              38.270102
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "cheorwon-forest",
+        "label": "남쪽 숲",
+        "land_cover": "산림 · DMZ 남쪽",
+        "zone": true,
+        "group": "cheorwon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cheorwon-north",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.183185,
+              38.348455
+            ],
+            [
+              127.207206,
+              38.348825
+            ],
+            [
+              127.206739,
+              38.367742
+            ],
+            [
+              127.182712,
+              38.367372
+            ],
+            [
+              127.183185,
+              38.348455
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "cheorwon-north",
+        "label": "DMZ 북쪽 평지",
+        "land_cover": "경작지로 보임 · DMZ 북쪽",
+        "zone": true,
+        "group": "cheorwon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "paju-dmz_farm",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              126.677644,
+              37.938724
+            ],
+            [
+              126.704934,
+              37.93926
+            ],
+            [
+              126.704556,
+              37.951417
+            ],
+            [
+              126.677261,
+              37.950881
+            ],
+            [
+              126.677644,
+              37.938724
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "paju-dmz_farm",
+        "label": "파주 DMZ 안 경작지",
+        "land_cover": "논으로 보임 · DMZ 안",
+        "zone": true,
+        "group": "paju",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "paju-dmz_wild",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              126.741881,
+              37.958899
+            ],
+            [
+              126.769181,
+              37.95942
+            ],
+            [
+              126.76869,
+              37.975631
+            ],
+            [
+              126.741385,
+              37.975109
+            ],
+            [
+              126.741881,
+              37.958899
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "paju-dmz_wild",
+        "label": "파주 DMZ 안 미경작지",
+        "land_cover": "경작하지 않는 땅으로 보임 · DMZ 안",
+        "zone": true,
+        "group": "paju",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "paju-south",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              126.768383,
+              37.872896
+            ],
+            [
+              126.792243,
+              37.873346
+            ],
+            [
+              126.791597,
+              37.894961
+            ],
+            [
+              126.767731,
+              37.894511
+            ],
+            [
+              126.768383,
+              37.872896
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "paju-south",
+        "label": "파주 남쪽 구릉",
+        "land_cover": "구릉 · DMZ 남쪽",
+        "zone": true,
+        "group": "paju",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "paju-north",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              126.73177,
+              38.010068
+            ],
+            [
+              126.748844,
+              38.010396
+            ],
+            [
+              126.748099,
+              38.034712
+            ],
+            [
+              126.73102,
+              38.034383
+            ],
+            [
+              126.73177,
+              38.010068
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "paju-north",
+        "label": "파주 북쪽 평지",
+        "land_cover": "경작지로 보임 · DMZ 북쪽",
+        "zone": true,
+        "group": "paju",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yeoncheon-dmz",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.002413,
+              38.239182
+            ],
+            [
+              127.02297,
+              38.23953
+            ],
+            [
+              127.022677,
+              38.250339
+            ],
+            [
+              127.002117,
+              38.249991
+            ],
+            [
+              127.002413,
+              38.239182
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "yeoncheon-dmz",
+        "label": "연천 DMZ 안 구릉",
+        "land_cover": "구릉 · DMZ 안",
+        "zone": true,
+        "group": "yeoncheon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yeoncheon-farm",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.058826,
+              38.050889
+            ],
+            [
+              127.086165,
+              38.051337
+            ],
+            [
+              127.085813,
+              38.064849
+            ],
+            [
+              127.058468,
+              38.0644
+            ],
+            [
+              127.058826,
+              38.050889
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "yeoncheon-farm",
+        "label": "연천 남쪽 농경지",
+        "land_cover": "농경지로 보임 · DMZ 남쪽",
+        "zone": true,
+        "group": "yeoncheon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yeoncheon-forest",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.038561,
+              38.169504
+            ],
+            [
+              127.07279,
+              38.170071
+            ],
+            [
+              127.07222,
+              38.191689
+            ],
+            [
+              127.037981,
+              38.191121
+            ],
+            [
+              127.038561,
+              38.169504
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "yeoncheon-forest",
+        "label": "연천 남쪽 숲",
+        "land_cover": "산림 · DMZ 남쪽",
+        "zone": true,
+        "group": "yeoncheon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yeoncheon-north",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              126.939449,
+              38.28405
+            ],
+            [
+              126.973729,
+              38.284647
+            ],
+            [
+              126.973128,
+              38.306264
+            ],
+            [
+              126.938837,
+              38.305666
+            ],
+            [
+              126.939449,
+              38.28405
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "yeoncheon-north",
+        "label": "연천 북쪽 평지",
+        "land_cover": "경작지로 보임 · DMZ 북쪽",
+        "zone": true,
+        "group": "yeoncheon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hwacheon-dmz",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.700173,
+              38.317387
+            ],
+            [
+              127.755069,
+              38.317983
+            ],
+            [
+              127.754861,
+              38.330147
+            ],
+            [
+              127.699956,
+              38.329551
+            ],
+            [
+              127.700173,
+              38.317387
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "hwacheon-dmz",
+        "label": "화천 DMZ 안 숲",
+        "land_cover": "산림 · DMZ 안",
+        "zone": true,
+        "group": "hwacheon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hwacheon-forest",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.687643,
+              38.25101
+            ],
+            [
+              127.742488,
+              38.251611
+            ],
+            [
+              127.742022,
+              38.278642
+            ],
+            [
+              127.687156,
+              38.278041
+            ],
+            [
+              127.687643,
+              38.25101
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "hwacheon-forest",
+        "label": "화천 남쪽 숲",
+        "land_cover": "산림 · DMZ 남쪽",
+        "zone": true,
+        "group": "hwacheon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hwacheon-north",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.6238,
+              38.363828
+            ],
+            [
+              127.651264,
+              38.364147
+            ],
+            [
+              127.651013,
+              38.377662
+            ],
+            [
+              127.623544,
+              38.377342
+            ],
+            [
+              127.6238,
+              38.363828
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "hwacheon-north",
+        "label": "화천 북쪽 평지",
+        "land_cover": "경작지로 보임 · DMZ 북쪽",
+        "zone": true,
+        "group": "hwacheon",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yanggu-basin",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              128.108336,
+              38.259287
+            ],
+            [
+              128.14948,
+              38.259593
+            ],
+            [
+              128.149007,
+              38.300144
+            ],
+            [
+              128.10784,
+              38.299838
+            ],
+            [
+              128.108336,
+              38.259287
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "yanggu-basin",
+        "label": "양구 분지 경작지",
+        "land_cover": "분지 안 경작지로 보임 · DMZ 남쪽",
+        "zone": true,
+        "group": "yanggu",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yanggu-dmz",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              128.100612,
+              38.329523
+            ],
+            [
+              128.128067,
+              38.329731
+            ],
+            [
+              128.127905,
+              38.343248
+            ],
+            [
+              128.100445,
+              38.34304
+            ],
+            [
+              128.100612,
+              38.329523
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "yanggu-dmz",
+        "label": "양구 DMZ 안 숲",
+        "land_cover": "산림 · DMZ 안",
+        "zone": true,
+        "group": "yanggu",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yanggu-forest",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              128.039977,
+              38.242526
+            ],
+            [
+              128.081111,
+              38.242855
+            ],
+            [
+              128.080771,
+              38.269889
+            ],
+            [
+              128.039622,
+              38.26956
+            ],
+            [
+              128.039977,
+              38.242526
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "yanggu-forest",
+        "label": "양구 남쪽 숲",
+        "land_cover": "산림 · DMZ 남쪽",
+        "zone": true,
+        "group": "yanggu",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yanggu-north",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              128.052001,
+              38.372398
+            ],
+            [
+              128.086341,
+              38.372671
+            ],
+            [
+              128.086068,
+              38.394298
+            ],
+            [
+              128.051719,
+              38.394025
+            ],
+            [
+              128.052001,
+              38.372398
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+        "stack_id": "133_D_069_4005_A",
+        "track": 133,
+        "orbit_direction": "DESCENDING",
+        "frame": 69,
+        "mode": "4005",
+        "polarizations": [
+          "HH",
+          "HV"
+        ],
+        "processor_version": "1.0.11",
+        "source_url": "https://cmr.earthdata.nasa.gov/search/",
+        "region_id": "yanggu-north",
+        "label": "양구 북쪽 산지",
+        "land_cover": "산지 · DMZ 북쪽",
+        "zone": true,
+        "group": "yanggu",
+        "data_status": "measured",
+        "baseline_date": "2026-06-23",
+        "uncertainty_notes": "구역은 레이더 영상에서 눈으로 고른 사각형입니다. 값은 구역 안 유효 픽셀의 선형 평균(gamma0, 30 m 평균 후)을 dB로 바꾼 것입니다."
+      }
+    }
+  ]
+}

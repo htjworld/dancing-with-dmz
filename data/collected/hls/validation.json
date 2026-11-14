@@ -1,0 +1,372 @@
+{
+  "status": "PASS",
+  "representative_subsets": 30,
+  "subsets_by_product": {
+    "L30": 15,
+    "S30": 15
+  },
+  "aoi_date_product_checks": 120,
+  "file_hashes_checked": 240,
+  "nasa_catalog_granules_matched": 27,
+  "aoi_date_product_at_least_80pct_ndvi_valid": 77,
+  "limited_aoi_date_products": [
+    {
+      "product": "L30",
+      "region": "cheorwon",
+      "period": "early_summer",
+      "date": "2026-06-16",
+      "aoi": "cheorwon-paddy",
+      "ndvi_valid_fraction": 0.09075
+    },
+    {
+      "product": "L30",
+      "region": "cheorwon",
+      "period": "early_summer",
+      "date": "2026-06-16",
+      "aoi": "cheorwon-forest",
+      "ndvi_valid_fraction": 0.566146
+    },
+    {
+      "product": "L30",
+      "region": "cheorwon",
+      "period": "early_summer",
+      "date": "2026-06-16",
+      "aoi": "cheorwon-north",
+      "ndvi_valid_fraction": 0.158367
+    },
+    {
+      "product": "L30",
+      "region": "cheorwon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "cheorwon-paddy",
+      "ndvi_valid_fraction": 0.167583
+    },
+    {
+      "product": "L30",
+      "region": "cheorwon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "cheorwon-dmz_flat",
+      "ndvi_valid_fraction": 0.034659
+    },
+    {
+      "product": "L30",
+      "region": "cheorwon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "cheorwon-dmz_hill",
+      "ndvi_valid_fraction": 0.180247
+    },
+    {
+      "product": "L30",
+      "region": "cheorwon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "cheorwon-forest",
+      "ndvi_valid_fraction": 0.286146
+    },
+    {
+      "product": "L30",
+      "region": "cheorwon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "cheorwon-north",
+      "ndvi_valid_fraction": 0.390204
+    },
+    {
+      "product": "L30",
+      "region": "hwacheon",
+      "period": "early_summer",
+      "date": "2026-06-16",
+      "aoi": "hwacheon-forest",
+      "ndvi_valid_fraction": 0.546125
+    },
+    {
+      "product": "L30",
+      "region": "paju",
+      "period": "early_summer",
+      "date": "2026-06-08",
+      "aoi": "paju-dmz_farm",
+      "ndvi_valid_fraction": 0.0
+    },
+    {
+      "product": "L30",
+      "region": "paju",
+      "period": "early_summer",
+      "date": "2026-06-08",
+      "aoi": "paju-south",
+      "ndvi_valid_fraction": 0.024821
+    },
+    {
+      "product": "L30",
+      "region": "paju",
+      "period": "early_summer",
+      "date": "2026-06-08",
+      "aoi": "paju-north",
+      "ndvi_valid_fraction": 0.082667
+    },
+    {
+      "product": "L30",
+      "region": "yanggu",
+      "period": "early_summer",
+      "date": "2026-06-09",
+      "aoi": "yanggu-basin",
+      "ndvi_valid_fraction": 0.316167
+    },
+    {
+      "product": "L30",
+      "region": "yanggu",
+      "period": "early_summer",
+      "date": "2026-06-09",
+      "aoi": "yanggu-dmz",
+      "ndvi_valid_fraction": 0.042
+    },
+    {
+      "product": "L30",
+      "region": "yanggu",
+      "period": "early_summer",
+      "date": "2026-06-09",
+      "aoi": "yanggu-forest",
+      "ndvi_valid_fraction": 0.234417
+    },
+    {
+      "product": "L30",
+      "region": "yanggu",
+      "period": "early_summer",
+      "date": "2026-06-09",
+      "aoi": "yanggu-north",
+      "ndvi_valid_fraction": 0.10125
+    },
+    {
+      "product": "L30",
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-basin",
+      "ndvi_valid_fraction": 0.785556
+    },
+    {
+      "product": "L30",
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-dmz",
+      "ndvi_valid_fraction": 0.57625
+    },
+    {
+      "product": "L30",
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-forest",
+      "ndvi_valid_fraction": 0.458167
+    },
+    {
+      "product": "L30",
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-north",
+      "ndvi_valid_fraction": 0.192375
+    },
+    {
+      "product": "L30",
+      "region": "yeoncheon",
+      "period": "early_summer",
+      "date": "2026-06-16",
+      "aoi": "yeoncheon-dmz",
+      "ndvi_valid_fraction": 0.755833
+    },
+    {
+      "product": "L30",
+      "region": "yeoncheon",
+      "period": "early_summer",
+      "date": "2026-06-16",
+      "aoi": "yeoncheon-farm",
+      "ndvi_valid_fraction": 0.13725
+    },
+    {
+      "product": "L30",
+      "region": "yeoncheon",
+      "period": "early_summer",
+      "date": "2026-06-16",
+      "aoi": "yeoncheon-forest",
+      "ndvi_valid_fraction": 0.628125
+    },
+    {
+      "product": "L30",
+      "region": "yeoncheon",
+      "period": "early_summer",
+      "date": "2026-06-16",
+      "aoi": "yeoncheon-north",
+      "ndvi_valid_fraction": 0.035875
+    },
+    {
+      "product": "L30",
+      "region": "yeoncheon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "yeoncheon-dmz",
+      "ndvi_valid_fraction": 0.194583
+    },
+    {
+      "product": "L30",
+      "region": "yeoncheon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "yeoncheon-farm",
+      "ndvi_valid_fraction": 0.07625
+    },
+    {
+      "product": "L30",
+      "region": "yeoncheon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "yeoncheon-forest",
+      "ndvi_valid_fraction": 0.378
+    },
+    {
+      "product": "L30",
+      "region": "yeoncheon",
+      "period": "late_summer",
+      "date": "2026-08-03",
+      "aoi": "yeoncheon-north",
+      "ndvi_valid_fraction": 0.073625
+    },
+    {
+      "product": "S30",
+      "region": "cheorwon",
+      "period": "early_summer",
+      "date": "2026-06-15",
+      "aoi": "cheorwon-paddy",
+      "ndvi_valid_fraction": 0.296
+    },
+    {
+      "product": "S30",
+      "region": "cheorwon",
+      "period": "early_summer",
+      "date": "2026-06-15",
+      "aoi": "cheorwon-north",
+      "ndvi_valid_fraction": 0.25449
+    },
+    {
+      "product": "S30",
+      "region": "hwacheon",
+      "period": "late_summer",
+      "date": "2026-08-09",
+      "aoi": "hwacheon-dmz",
+      "ndvi_valid_fraction": 0.435694
+    },
+    {
+      "product": "S30",
+      "region": "hwacheon",
+      "period": "late_summer",
+      "date": "2026-08-09",
+      "aoi": "hwacheon-forest",
+      "ndvi_valid_fraction": 0.328375
+    },
+    {
+      "product": "S30",
+      "region": "paju",
+      "period": "early_summer",
+      "date": "2026-06-15",
+      "aoi": "paju-dmz_farm",
+      "ndvi_valid_fraction": 0.181667
+    },
+    {
+      "product": "S30",
+      "region": "paju",
+      "period": "early_summer",
+      "date": "2026-06-15",
+      "aoi": "paju-north",
+      "ndvi_valid_fraction": 0.708667
+    },
+    {
+      "product": "S30",
+      "region": "paju",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "paju-dmz_wild",
+      "ndvi_valid_fraction": 0.398125
+    },
+    {
+      "product": "S30",
+      "region": "yanggu",
+      "period": "early_summer",
+      "date": "2026-06-15",
+      "aoi": "yanggu-basin",
+      "ndvi_valid_fraction": 0.449778
+    },
+    {
+      "product": "S30",
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-basin",
+      "ndvi_valid_fraction": 0.404222
+    },
+    {
+      "product": "S30",
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-dmz",
+      "ndvi_valid_fraction": 0.59875
+    },
+    {
+      "product": "S30",
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-forest",
+      "ndvi_valid_fraction": 0.21625
+    },
+    {
+      "product": "S30",
+      "region": "yanggu",
+      "period": "late_summer",
+      "date": "2026-08-04",
+      "aoi": "yanggu-north",
+      "ndvi_valid_fraction": 0.186
+    },
+    {
+      "product": "S30",
+      "region": "yeoncheon",
+      "period": "early_summer",
+      "date": "2026-06-15",
+      "aoi": "yeoncheon-farm",
+      "ndvi_valid_fraction": 0.42025
+    },
+    {
+      "product": "S30",
+      "region": "yeoncheon",
+      "period": "early_summer",
+      "date": "2026-06-15",
+      "aoi": "yeoncheon-forest",
+      "ndvi_valid_fraction": 0.76925
+    },
+    {
+      "product": "S30",
+      "region": "yeoncheon",
+      "period": "early_summer",
+      "date": "2026-06-15",
+      "aoi": "yeoncheon-north",
+      "ndvi_valid_fraction": 0.581375
+    }
+  ],
+  "checks": [
+    "Exact NASA CMR product ID matches",
+    "Native 30m grids and band mapping",
+    "Reflectance scale 0.0001 / offset 0 / nodata -9999",
+    "Independent Fmask bit decoding",
+    "NDVI, NDMI, MNDWI recomputation",
+    "AOI statistics",
+    "SHA256 and file sizes"
+  ],
+  "limits": [
+    "30 representative subsets, not all observations from June-October.",
+    "Quality-screened data gaps are retained. PASS is artifact consistency, not every AOI being usable.",
+    "NASA metadata matches verify provenance, not a byte comparison of the full upstream raster."
+  ]
+}

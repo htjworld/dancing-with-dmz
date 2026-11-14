@@ -1,0 +1,290 @@
+{
+  "product": "L30",
+  "collection": "hls2-l30",
+  "version": "2.0",
+  "region": "cheorwon",
+  "period": "autumn",
+  "selection_window": [
+    "2026-09-01",
+    "2026-10-31"
+  ],
+  "acquired_utc": "2026-10-22T02:10:40.039616Z",
+  "source_ids": [
+    "HLS.L30.T52SCH.2026295T021040.v2.0"
+  ],
+  "source_acquisitions_utc": [
+    "2026-10-22T02:10:40.039616Z"
+  ],
+  "platforms": [
+    "landsat-8"
+  ],
+  "source_processing_software": [
+    {
+      "Cloud Masking": "Fmask v5.0.1",
+      "Atmospheric Correction": "LaSRC v3.5.1.0"
+    }
+  ],
+  "doi": "10.5067/HLS/HLSL30.002",
+  "bounds_wgs84": [
+    127.175779,
+    38.196475,
+    127.443478,
+    38.373779
+  ],
+  "grid_bounds_utm": [
+    340260,
+    4228740,
+    364050,
+    4248870
+  ],
+  "crs": "EPSG:32652",
+  "resolution_m": 30,
+  "shape": [
+    671,
+    793
+  ],
+  "band_order": {
+    "red": "B04",
+    "green": "B03",
+    "blue": "B02",
+    "nir_narrow": "B05",
+    "swir1": "B06",
+    "swir2": "B07"
+  },
+  "scale": 0.0001,
+  "offset": 0,
+  "nodata": -9999,
+  "quality": {
+    "coverage_fraction": 1.0,
+    "clear_fraction": 0.9840933052435337,
+    "cloud_fraction": 0.0,
+    "adjacent_cloud_shadow_fraction": 8.457009263244147e-05,
+    "shadow_fraction": 0.0,
+    "high_aerosol_fraction": 0.01582212466383388,
+    "aoi_clear_fraction": {
+      "cheorwon-paddy": 0.990583,
+      "cheorwon-dmz_flat": 1.0,
+      "cheorwon-dmz_hill": 1.0,
+      "cheorwon-forest": 0.997708,
+      "cheorwon-north": 1.0
+    }
+  },
+  "aoi_stats": {
+    "cheorwon-paddy": {
+      "total_pixels": 12000,
+      "qa_clear_fraction": 0.990583,
+      "ndvi": {
+        "valid_pixels": 11887,
+        "valid_fraction": 0.990583,
+        "mean": 0.313356,
+        "median": 0.277131,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 11883,
+        "valid_fraction": 0.99025,
+        "mean": -0.096935,
+        "median": -0.120088,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 11883,
+        "valid_fraction": 0.99025,
+        "mean": -0.486489,
+        "median": -0.495368,
+        "recommended_for_comparison": true
+      }
+    },
+    "cheorwon-dmz_flat": {
+      "total_pixels": 1760,
+      "qa_clear_fraction": 1.0,
+      "ndvi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": 0.556932,
+        "median": 0.549611,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": -0.084264,
+        "median": -0.10521,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": -0.656299,
+        "median": -0.662222,
+        "recommended_for_comparison": true
+      }
+    },
+    "cheorwon-dmz_hill": {
+      "total_pixels": 4050,
+      "qa_clear_fraction": 1.0,
+      "ndvi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.599176,
+        "median": 0.617625,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.001021,
+        "median": -0.006238,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": -0.623956,
+        "median": -0.633132,
+        "recommended_for_comparison": true
+      }
+    },
+    "cheorwon-forest": {
+      "total_pixels": 9600,
+      "qa_clear_fraction": 0.997708,
+      "ndvi": {
+        "valid_pixels": 9578,
+        "valid_fraction": 0.997708,
+        "mean": 0.640004,
+        "median": 0.648856,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 9578,
+        "valid_fraction": 0.997708,
+        "mean": 0.091576,
+        "median": 0.084113,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 9578,
+        "valid_fraction": 0.997708,
+        "mean": -0.587506,
+        "median": -0.595066,
+        "recommended_for_comparison": true
+      }
+    },
+    "cheorwon-north": {
+      "total_pixels": 4900,
+      "qa_clear_fraction": 1.0,
+      "ndvi": {
+        "valid_pixels": 4894,
+        "valid_fraction": 0.998776,
+        "mean": 0.37096,
+        "median": 0.362631,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 4891,
+        "valid_fraction": 0.998163,
+        "mean": -0.05358,
+        "median": -0.067186,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 4891,
+        "valid_fraction": 0.998163,
+        "mean": -0.512022,
+        "median": -0.520981,
+        "recommended_for_comparison": true
+      }
+    }
+  },
+  "all_aoi_at_least_80pct_ndvi_valid": true,
+  "nearest_nisar_date": "2026-10-21",
+  "calendar_day_difference_from_nisar": 1,
+  "source_geotiff_tags": {
+    "HLS.L30.T52SCH.2026295T021040.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC08_L1TP_116033_20261022_20261022_02_RT; LC08_L1TP_116034_20261022_20261022_02_RT",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-22T02:10:40.0396169Z; 2026-10-22T02:11:03.9221849Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC08_L1TP_116033_20261022_20261022_02_RT; LC08_L1TP_116034_20261022_20261022_02_RT",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-22T02:10:40.0396169Z; 2026-10-22T02:11:03.9221849Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC08_L1TP_116033_20261022_20261022_02_RT; LC08_L1TP_116034_20261022_20261022_02_RT",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-22T02:10:40.0396169Z; 2026-10-22T02:11:03.9221849Z"
+      },
+      "B05": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC08_L1TP_116033_20261022_20261022_02_RT; LC08_L1TP_116034_20261022_20261022_02_RT",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-22T02:10:40.0396169Z; 2026-10-22T02:11:03.9221849Z"
+      },
+      "B06": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC08_L1TP_116033_20261022_20261022_02_RT; LC08_L1TP_116034_20261022_20261022_02_RT",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-22T02:10:40.0396169Z; 2026-10-22T02:11:03.9221849Z"
+      },
+      "B07": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC08_L1TP_116033_20261022_20261022_02_RT; LC08_L1TP_116034_20261022_20261022_02_RT",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-22T02:10:40.0396169Z; 2026-10-22T02:11:03.9221849Z"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "hls/L30/cheorwon/2026-10-22/Fmask_30m.tif",
+      "bytes": 26196,
+      "sha256": "37576711006f278966f9a4c74b61dfff1064be401e3af960298d5ecb9f360193"
+    },
+    {
+      "path": "hls/L30/cheorwon/2026-10-22/indices_30m.tif",
+      "bytes": 5187932,
+      "sha256": "08bbf45e6fa55993a1975e9257c34c74cc0e20c76b8084be71707f059be70e8d"
+    },
+    {
+      "path": "hls/L30/cheorwon/2026-10-22/ndvi.png",
+      "bytes": 522355,
+      "sha256": "84f8c27d7435461c029f150bed1111beed666a3b97b4b0a08a0621c67f859017"
+    },
+    {
+      "path": "hls/L30/cheorwon/2026-10-22/quality.png",
+      "bytes": 7807,
+      "sha256": "525c87f4dd672e335c6f3ffd4864cbfd1d3fee6fe16218d5a6992b7162fb9845"
+    },
+    {
+      "path": "hls/L30/cheorwon/2026-10-22/reflectance_dn_30m.tif",
+      "bytes": 4703022,
+      "sha256": "eb375efe0294813e6aaa8a68eb23d069f440564e04469dbb14f33573d9e6de12"
+    },
+    {
+      "path": "hls/L30/cheorwon/2026-10-22/rgb.webp",
+      "bytes": 94408,
+      "sha256": "2ca36434b3e1159b31e61d6b56c2d7316e1b2b3c84b12af3086fb5137a2a481e"
+    },
+    {
+      "path": "hls/L30/cheorwon/2026-10-22/source_index_30m.tif",
+      "bytes": 2130,
+      "sha256": "50b1f0505533e8a3b2109a5f1f604e6579bc6f2bbd085e3e5e21c39dec597fbd"
+    },
+    {
+      "path": "hls/L30/cheorwon/2026-10-22/sources.stac.json",
+      "bytes": 11993,
+      "sha256": "32eefc7af7e92b0e2fad17c7c12cb68a12493a822e484717ba7f82e39d622cd0"
+    }
+  ]
+}

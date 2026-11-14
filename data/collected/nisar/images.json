@@ -1,0 +1,697 @@
+{
+  "path_base": "data/collected/",
+  "origin": "user_supplied_prototype_not_regenerated_from_current_processor",
+  "quantitative_raster": false,
+  "color_scale": {
+    "unit": "dB",
+    "min": -2.5,
+    "max": 2.5
+  },
+  "layer_scale": {
+    "unit": "dB",
+    "change": 4.0,
+    "backscatter": {
+      "hh": [
+        -18.0,
+        2.0
+      ],
+      "hv": [
+        -26.0,
+        -4.0
+      ]
+    }
+  },
+  "rasters": {
+    "cheorwon": {
+      "id": "cheorwon",
+      "coords": [
+        [
+          127.175779,
+          38.369967
+        ],
+        [
+          127.439767,
+          38.373779
+        ],
+        [
+          127.443478,
+          38.200263
+        ],
+        [
+          127.180117,
+          38.196475
+        ]
+      ],
+      "base_cycle": 0,
+      "frames": {
+        "0": {
+          "date": "2026-06-23",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-06-23/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-06-23/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-06-23/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-06-23/hv_change.webp"
+          }
+        },
+        "1": {
+          "date": "2026-07-05",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-07-05/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-07-05/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-07-05/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-07-05/hv_change.webp"
+          }
+        },
+        "2": {
+          "date": "2026-07-17",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-07-17/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-07-17/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-07-17/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-07-17/hv_change.webp"
+          }
+        },
+        "4": {
+          "date": "2026-08-10",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-08-10/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-08-10/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-08-10/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-08-10/hv_change.webp"
+          }
+        },
+        "5": {
+          "date": "2026-08-22",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-08-22/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-08-22/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-08-22/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-08-22/hv_change.webp"
+          }
+        },
+        "6": {
+          "date": "2026-09-03",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-09-03/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-09-03/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-09-03/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-09-03/hv_change.webp"
+          }
+        },
+        "7": {
+          "date": "2026-09-15",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-09-15/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-09-15/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-09-15/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-09-15/hv_change.webp"
+          }
+        },
+        "8": {
+          "date": "2026-09-27",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-09-27/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-09-27/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-09-27/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-09-27/hv_change.webp"
+          }
+        },
+        "9": {
+          "date": "2026-10-09",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-10-09/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-10-09/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-10-09/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-10-09/hv_change.webp"
+          }
+        },
+        "10": {
+          "date": "2026-10-21",
+          "hh": {
+            "backscatter": "nisar/images/cheorwon/2026-10-21/hh_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-10-21/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/cheorwon/2026-10-21/hv_backscatter.webp",
+            "change": "nisar/images/cheorwon/2026-10-21/hv_change.webp"
+          }
+        }
+      }
+    },
+    "hwacheon": {
+      "id": "hwacheon",
+      "coords": [
+        [
+          127.616625,
+          38.379965
+        ],
+        [
+          127.839833,
+          38.382386
+        ],
+        [
+          127.84273,
+          38.200192
+        ],
+        [
+          127.620079,
+          38.197786
+        ]
+      ],
+      "base_cycle": 0,
+      "frames": {
+        "0": {
+          "date": "2026-06-23",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-06-23/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-06-23/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-06-23/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-06-23/hv_change.webp"
+          }
+        },
+        "1": {
+          "date": "2026-07-05",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-07-05/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-07-05/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-07-05/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-07-05/hv_change.webp"
+          }
+        },
+        "2": {
+          "date": "2026-07-17",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-07-17/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-07-17/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-07-17/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-07-17/hv_change.webp"
+          }
+        },
+        "4": {
+          "date": "2026-08-10",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-08-10/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-08-10/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-08-10/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-08-10/hv_change.webp"
+          }
+        },
+        "5": {
+          "date": "2026-08-22",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-08-22/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-08-22/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-08-22/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-08-22/hv_change.webp"
+          }
+        },
+        "6": {
+          "date": "2026-09-03",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-09-03/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-09-03/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-09-03/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-09-03/hv_change.webp"
+          }
+        },
+        "7": {
+          "date": "2026-09-15",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-09-15/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-09-15/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-09-15/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-09-15/hv_change.webp"
+          }
+        },
+        "8": {
+          "date": "2026-09-27",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-09-27/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-09-27/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-09-27/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-09-27/hv_change.webp"
+          }
+        },
+        "9": {
+          "date": "2026-10-09",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-10-09/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-10-09/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-10-09/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-10-09/hv_change.webp"
+          }
+        },
+        "10": {
+          "date": "2026-10-21",
+          "hh": {
+            "backscatter": "nisar/images/hwacheon/2026-10-21/hh_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-10-21/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/hwacheon/2026-10-21/hv_backscatter.webp",
+            "change": "nisar/images/hwacheon/2026-10-21/hv_change.webp"
+          }
+        }
+      }
+    },
+    "paju": {
+      "id": "paju",
+      "coords": [
+        [
+          126.649886,
+          38.059822
+        ],
+        [
+          126.819718,
+          38.063096
+        ],
+        [
+          126.829227,
+          37.740212
+        ],
+        [
+          126.660135,
+          37.736975
+        ]
+      ],
+      "base_cycle": 0,
+      "frames": {
+        "0": {
+          "date": "2026-06-23",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-06-23/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-06-23/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-06-23/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-06-23/hv_change.webp"
+          }
+        },
+        "1": {
+          "date": "2026-07-05",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-07-05/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-07-05/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-07-05/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-07-05/hv_change.webp"
+          }
+        },
+        "2": {
+          "date": "2026-07-17",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-07-17/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-07-17/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-07-17/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-07-17/hv_change.webp"
+          }
+        },
+        "4": {
+          "date": "2026-08-10",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-08-10/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-08-10/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-08-10/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-08-10/hv_change.webp"
+          }
+        },
+        "5": {
+          "date": "2026-08-22",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-08-22/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-08-22/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-08-22/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-08-22/hv_change.webp"
+          }
+        },
+        "6": {
+          "date": "2026-09-03",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-09-03/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-09-03/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-09-03/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-09-03/hv_change.webp"
+          }
+        },
+        "7": {
+          "date": "2026-09-15",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-09-15/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-09-15/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-09-15/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-09-15/hv_change.webp"
+          }
+        },
+        "8": {
+          "date": "2026-09-27",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-09-27/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-09-27/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-09-27/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-09-27/hv_change.webp"
+          }
+        },
+        "9": {
+          "date": "2026-10-09",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-10-09/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-10-09/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-10-09/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-10-09/hv_change.webp"
+          }
+        },
+        "10": {
+          "date": "2026-10-21",
+          "hh": {
+            "backscatter": "nisar/images/paju/2026-10-21/hh_backscatter.webp",
+            "change": "nisar/images/paju/2026-10-21/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/paju/2026-10-21/hv_backscatter.webp",
+            "change": "nisar/images/paju/2026-10-21/hv_change.webp"
+          }
+        }
+      }
+    },
+    "yanggu": {
+      "id": "yanggu",
+      "coords": [
+        [
+          128.01715,
+          38.409962
+        ],
+        [
+          128.199934,
+          38.411352
+        ],
+        [
+          128.20225,
+          38.200211
+        ],
+        [
+          128.019995,
+          38.198831
+        ]
+      ],
+      "base_cycle": 0,
+      "frames": {
+        "0": {
+          "date": "2026-06-23",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-06-23/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-06-23/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-06-23/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-06-23/hv_change.webp"
+          }
+        },
+        "1": {
+          "date": "2026-07-05",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-07-05/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-07-05/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-07-05/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-07-05/hv_change.webp"
+          }
+        },
+        "2": {
+          "date": "2026-07-17",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-07-17/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-07-17/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-07-17/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-07-17/hv_change.webp"
+          }
+        },
+        "4": {
+          "date": "2026-08-10",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-08-10/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-08-10/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-08-10/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-08-10/hv_change.webp"
+          }
+        },
+        "5": {
+          "date": "2026-08-22",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-08-22/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-08-22/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-08-22/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-08-22/hv_change.webp"
+          }
+        },
+        "6": {
+          "date": "2026-09-03",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-09-03/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-09-03/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-09-03/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-09-03/hv_change.webp"
+          }
+        },
+        "7": {
+          "date": "2026-09-15",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-09-15/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-09-15/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-09-15/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-09-15/hv_change.webp"
+          }
+        },
+        "8": {
+          "date": "2026-09-27",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-09-27/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-09-27/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-09-27/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-09-27/hv_change.webp"
+          }
+        },
+        "9": {
+          "date": "2026-10-09",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-10-09/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-10-09/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-10-09/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-10-09/hv_change.webp"
+          }
+        },
+        "10": {
+          "date": "2026-10-21",
+          "hh": {
+            "backscatter": "nisar/images/yanggu/2026-10-21/hh_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-10-21/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yanggu/2026-10-21/hv_backscatter.webp",
+            "change": "nisar/images/yanggu/2026-10-21/hv_change.webp"
+          }
+        }
+      }
+    },
+    "yeoncheon": {
+      "id": "yeoncheon",
+      "coords": [
+        [
+          126.931288,
+          38.329863
+        ],
+        [
+          127.09972,
+          38.332714
+        ],
+        [
+          127.107818,
+          38.020328
+        ],
+        [
+          126.940102,
+          38.017508
+        ]
+      ],
+      "base_cycle": 0,
+      "frames": {
+        "0": {
+          "date": "2026-06-23",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-06-23/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-06-23/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-06-23/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-06-23/hv_change.webp"
+          }
+        },
+        "1": {
+          "date": "2026-07-05",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-07-05/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-07-05/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-07-05/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-07-05/hv_change.webp"
+          }
+        },
+        "2": {
+          "date": "2026-07-17",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-07-17/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-07-17/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-07-17/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-07-17/hv_change.webp"
+          }
+        },
+        "4": {
+          "date": "2026-08-10",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-08-10/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-08-10/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-08-10/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-08-10/hv_change.webp"
+          }
+        },
+        "5": {
+          "date": "2026-08-22",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-08-22/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-08-22/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-08-22/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-08-22/hv_change.webp"
+          }
+        },
+        "6": {
+          "date": "2026-09-03",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-09-03/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-09-03/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-09-03/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-09-03/hv_change.webp"
+          }
+        },
+        "7": {
+          "date": "2026-09-15",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-09-15/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-09-15/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-09-15/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-09-15/hv_change.webp"
+          }
+        },
+        "8": {
+          "date": "2026-09-27",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-09-27/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-09-27/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-09-27/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-09-27/hv_change.webp"
+          }
+        },
+        "9": {
+          "date": "2026-10-09",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-10-09/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-10-09/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-10-09/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-10-09/hv_change.webp"
+          }
+        },
+        "10": {
+          "date": "2026-10-21",
+          "hh": {
+            "backscatter": "nisar/images/yeoncheon/2026-10-21/hh_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-10-21/hh_change.webp"
+          },
+          "hv": {
+            "backscatter": "nisar/images/yeoncheon/2026-10-21/hv_backscatter.webp",
+            "change": "nisar/images/yeoncheon/2026-10-21/hv_change.webp"
+          }
+        }
+      }
+    }
+  },
+  "raster_main": "cheorwon"
+}

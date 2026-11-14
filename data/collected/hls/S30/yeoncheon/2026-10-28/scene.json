@@ -1,0 +1,264 @@
+{
+  "product": "S30",
+  "collection": "hls2-s30",
+  "version": "2.0",
+  "region": "yeoncheon",
+  "period": "autumn",
+  "selection_window": [
+    "2026-09-01",
+    "2026-10-31"
+  ],
+  "acquired_utc": "2026-10-28T02:26:58.705390Z",
+  "source_ids": [
+    "HLS.S30.T52SCH.2026301T021809.v2.0"
+  ],
+  "source_acquisitions_utc": [
+    "2026-10-28T02:26:58.705390Z"
+  ],
+  "platforms": [
+    "sentinel-2b"
+  ],
+  "source_processing_software": [
+    {
+      "Cloud Masking": "Fmask v5.0.1",
+      "Atmospheric Correction": "LaSRC v3.5.1.0"
+    }
+  ],
+  "doi": "10.5067/HLS/HLSS30.002",
+  "bounds_wgs84": [
+    126.931288,
+    38.017508,
+    127.107818,
+    38.332714
+  ],
+  "grid_bounds_utm": [
+    318390,
+    4209420,
+    334620,
+    4244760
+  ],
+  "crs": "EPSG:32652",
+  "resolution_m": 30,
+  "shape": [
+    1178,
+    541
+  ],
+  "band_order": {
+    "red": "B04",
+    "green": "B03",
+    "blue": "B02",
+    "nir_narrow": "B8A",
+    "swir1": "B11",
+    "swir2": "B12"
+  },
+  "scale": 0.0001,
+  "offset": 0,
+  "nodata": -9999,
+  "quality": {
+    "coverage_fraction": 1.0,
+    "clear_fraction": 0.991926853685403,
+    "cloud_fraction": 6.43341105730757e-05,
+    "adjacent_cloud_shadow_fraction": 0.0014122121833114178,
+    "shadow_fraction": 0.00038757378808657804,
+    "high_aerosol_fraction": 0.005978364909351669,
+    "aoi_clear_fraction": {
+      "yeoncheon-dmz": 1.0,
+      "yeoncheon-farm": 0.9985,
+      "yeoncheon-forest": 0.9985,
+      "yeoncheon-north": 0.99975
+    }
+  },
+  "aoi_stats": {
+    "yeoncheon-dmz": {
+      "total_pixels": 2400,
+      "qa_clear_fraction": 1.0,
+      "ndvi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": 0.509594,
+        "median": 0.515779,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": -0.093556,
+        "median": -0.099385,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": -0.650207,
+        "median": -0.657306,
+        "recommended_for_comparison": true
+      }
+    },
+    "yeoncheon-farm": {
+      "total_pixels": 4000,
+      "qa_clear_fraction": 0.9985,
+      "ndvi": {
+        "valid_pixels": 3994,
+        "valid_fraction": 0.9985,
+        "mean": 0.371071,
+        "median": 0.313962,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 3994,
+        "valid_fraction": 0.9985,
+        "mean": -0.071821,
+        "median": -0.102606,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 3994,
+        "valid_fraction": 0.9985,
+        "mean": -0.500748,
+        "median": -0.505338,
+        "recommended_for_comparison": true
+      }
+    },
+    "yeoncheon-forest": {
+      "total_pixels": 8000,
+      "qa_clear_fraction": 0.9985,
+      "ndvi": {
+        "valid_pixels": 7988,
+        "valid_fraction": 0.9985,
+        "mean": 0.580929,
+        "median": 0.614337,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 7988,
+        "valid_fraction": 0.9985,
+        "mean": 0.005733,
+        "median": -0.002725,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 7988,
+        "valid_fraction": 0.9985,
+        "mean": -0.610189,
+        "median": -0.611923,
+        "recommended_for_comparison": true
+      }
+    },
+    "yeoncheon-north": {
+      "total_pixels": 8000,
+      "qa_clear_fraction": 0.99975,
+      "ndvi": {
+        "valid_pixels": 7998,
+        "valid_fraction": 0.99975,
+        "mean": 0.41598,
+        "median": 0.415215,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 7998,
+        "valid_fraction": 0.99975,
+        "mean": -0.0687,
+        "median": -0.08983,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 7998,
+        "valid_fraction": 0.99975,
+        "mean": -0.576331,
+        "median": -0.58537,
+        "recommended_for_comparison": true
+      }
+    }
+  },
+  "all_aoi_at_least_80pct_ndvi_valid": true,
+  "nearest_nisar_date": "2026-10-21",
+  "calendar_day_difference_from_nisar": 7,
+  "source_geotiff_tags": {
+    "HLS.S30.T52SCH.2026301T021809.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2B_MSIL1C_20261028T021809_N0513_R003_T52SCH_20261028T040554.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-28T02:26:58.705394Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2B_MSIL1C_20261028T021809_N0513_R003_T52SCH_20261028T040554.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-28T02:26:58.705394Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2B_MSIL1C_20261028T021809_N0513_R003_T52SCH_20261028T040554.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-28T02:26:58.705394Z"
+      },
+      "B8A": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2B_MSIL1C_20261028T021809_N0513_R003_T52SCH_20261028T040554.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-28T02:26:58.705394Z"
+      },
+      "B11": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2B_MSIL1C_20261028T021809_N0513_R003_T52SCH_20261028T040554.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-28T02:26:58.705394Z"
+      },
+      "B12": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2B_MSIL1C_20261028T021809_N0513_R003_T52SCH_20261028T040554.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-10-28T02:26:58.705394Z"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "hls/S30/yeoncheon/2026-10-28/Fmask_30m.tif",
+      "bytes": 34810,
+      "sha256": "860eaec1f1dc2c1e58096d0ff70dd52fd3b42371ed1cb78cd9f76bddec54780d"
+    },
+    {
+      "path": "hls/S30/yeoncheon/2026-10-28/indices_30m.tif",
+      "bytes": 6275408,
+      "sha256": "4f6354892442265ebd60feb69f84bb49d72006d8d479140832ccd18cbbd988d5"
+    },
+    {
+      "path": "hls/S30/yeoncheon/2026-10-28/ndvi.png",
+      "bytes": 487962,
+      "sha256": "a102f08d41963c57fdd601c505e150140b1ea3f141142c0b61cb16c6fa0a3d0a"
+    },
+    {
+      "path": "hls/S30/yeoncheon/2026-10-28/quality.png",
+      "bytes": 5374,
+      "sha256": "c480ef380466a031688af068c170303788d7456d6ba9a595eafbee68d878cfe4"
+    },
+    {
+      "path": "hls/S30/yeoncheon/2026-10-28/reflectance_dn_30m.tif",
+      "bytes": 5739508,
+      "sha256": "97f137ceb4b2e8b27f210c83d943c70cc8f27934fc603f79615d941e28cbd127"
+    },
+    {
+      "path": "hls/S30/yeoncheon/2026-10-28/rgb.webp",
+      "bytes": 97656,
+      "sha256": "230715eace562c673e9ea0905e3b1995473436298f82393259012f840277f709"
+    },
+    {
+      "path": "hls/S30/yeoncheon/2026-10-28/source_index_30m.tif",
+      "bytes": 2430,
+      "sha256": "b2229f0033b0b3942f06330cc4d63d64363b1629ecf4092188293d694da54f05"
+    },
+    {
+      "path": "hls/S30/yeoncheon/2026-10-28/sources.stac.json",
+      "bytes": 13098,
+      "sha256": "ee1bbbf2ebf9c5dded170790b8a8026922c2509b0910156039b79231eee366c6"
+    }
+  ]
+}

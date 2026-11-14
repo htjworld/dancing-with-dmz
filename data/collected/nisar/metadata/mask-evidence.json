@@ -1,0 +1,3978 @@
+{
+  "source_package": "nisar-handoff",
+  "source_path": "reports/raw-comparison.json",
+  "source_sha256": "451e52bc8bdf886517bb94d920cc6cf2b832357780ef39b119196913e77fd741",
+  "scope": "Exact source HDF5 grid and mask attribute excerpts. Earlier exploratory statistics and processing logs are omitted.",
+  "terrain_shadow_layover_validated": false,
+  "granules": [
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_023_133_D_069_4005_DHDH_A_20260623T102537_20260623T102612_P05023_N_F_J_001",
+      "date": "2026-06-23",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 19,
+            "1": 64781
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 32,
+            "1": 143968
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 35999
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 6,
+            "1": 35994
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 2,
+            "1": 107998
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_024_133_D_069_4005_DHDH_A_20260705T102536_20260705T102611_P05023_N_F_J_001",
+      "date": "2026-07-05",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 18,
+            "1": 64782
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 31,
+            "1": 143969
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 2,
+            "1": 35998
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 8,
+            "1": 35992
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 3,
+            "1": 107997
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_025_133_D_069_4005_DHDH_A_20260717T102535_20260717T102610_P05023_N_F_J_001",
+      "date": "2026-07-17",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 17,
+            "1": 64783
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 28,
+            "1": 143972
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 35999
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 7,
+            "1": 35993
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 2,
+            "1": 107998
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_027_133_D_069_4005_DHDH_A_20260810T102534_20260810T102609_P05023_N_F_J_001",
+      "date": "2026-08-10",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 20,
+            "1": 64780
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 33,
+            "1": 143967
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 2,
+            "1": 35998
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 8,
+            "1": 35992
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 107999
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_028_133_D_069_4005_DHDH_A_20260822T102533_20260822T102608_P05023_N_F_J_001",
+      "date": "2026-08-22",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 18,
+            "1": 64782
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 33,
+            "1": 143967
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 35999
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 7,
+            "1": 35993
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 107999
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_029_133_D_069_4005_DHDH_A_20260903T102533_20260903T102608_P05023_N_F_J_001",
+      "date": "2026-09-03",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 19,
+            "1": 64781
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 30,
+            "1": 143970
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 35999
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 7,
+            "1": 35993
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 2,
+            "1": 107998
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_030_133_D_069_4005_DHDH_A_20260915T102533_20260915T102608_P05023_N_F_J_001",
+      "date": "2026-09-15",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 18,
+            "1": 64782
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 32,
+            "1": 143968
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 35999
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 6,
+            "1": 35994
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 107999
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_031_133_D_069_4005_DHDH_A_20260927T102533_20260927T102608_P05023_N_F_J_001",
+      "date": "2026-09-27",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 17,
+            "1": 64783
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 33,
+            "1": 143967
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 35999
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 7,
+            "1": 35993
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 2,
+            "1": 107998
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_032_133_D_069_4005_DHDH_A_20261009T102533_20261009T102608_P05023_N_F_J_001",
+      "date": "2026-10-09",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 19,
+            "1": 64781
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 30,
+            "1": 143970
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 1,
+            "1": 35999
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 8,
+            "1": 35992
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 2,
+            "1": 107998
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    },
+    {
+      "granule_id": "NISAR_L2_PR_GCOV_033_133_D_069_4005_DHDH_A_20261021T102533_20261021T102608_P05023_N_F_J_001",
+      "date": "2026-10-21",
+      "grid_keys": [
+        "HHHH",
+        "HVHV",
+        "inputDataExceptionMask",
+        "listOfCovarianceTerms",
+        "listOfPolarizations",
+        "mask",
+        "numberOfLooks",
+        "numberOfSubSwaths",
+        "projection",
+        "rtcGammaToSigmaFactor",
+        "xCoordinateSpacing",
+        "xCoordinates",
+        "yCoordinateSpacing",
+        "yCoordinates"
+      ],
+      "source_shapes": {
+        "hh": [
+          35208,
+          35712
+        ],
+        "hv": [
+          35208,
+          35712
+        ]
+      },
+      "regions": [
+        {
+          "region_id": "cheorwon-paddy",
+          "epsg": 32652,
+          "window_rc": [
+            20722,
+            21022,
+            16316,
+            16676
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 108000
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_flat",
+          "epsg": 32652,
+          "window_rc": [
+            20548,
+            20614,
+            16316,
+            16556
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 15840
+          }
+        },
+        {
+          "region_id": "cheorwon-dmz_hill",
+          "epsg": 32652,
+          "window_rc": [
+            20572,
+            20707,
+            16886,
+            17156
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36450
+          }
+        },
+        {
+          "region_id": "cheorwon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            20872,
+            21112,
+            17816,
+            18176
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 86400
+          }
+        },
+        {
+          "region_id": "cheorwon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20002,
+            20212,
+            16196,
+            16406
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 44100
+          }
+        },
+        {
+          "region_id": "paju-dmz_farm",
+          "epsg": 32652,
+          "window_rc": [
+            24525,
+            24660,
+            11664,
+            11904
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 32400
+          }
+        },
+        {
+          "region_id": "paju-dmz_wild",
+          "epsg": 32652,
+          "window_rc": [
+            24270,
+            24450,
+            12234,
+            12474
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 43200
+          }
+        },
+        {
+          "region_id": "paju-south",
+          "epsg": 32652,
+          "window_rc": [
+            25170,
+            25410,
+            12444,
+            12654
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 50400
+          }
+        },
+        {
+          "region_id": "paju-north",
+          "epsg": 32652,
+          "window_rc": [
+            23610,
+            23880,
+            12159,
+            12309
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 40500
+          }
+        },
+        {
+          "region_id": "yeoncheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            21272,
+            21392,
+            14590,
+            14770
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 21600
+          }
+        },
+        {
+          "region_id": "yeoncheon-farm",
+          "epsg": 32652,
+          "window_rc": [
+            23342,
+            23492,
+            15040,
+            15280
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yeoncheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21932,
+            22172,
+            14890,
+            15190
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "yeoncheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            20642,
+            20882,
+            14050,
+            14350
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        },
+        {
+          "region_id": "hwacheon-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20498,
+            20633,
+            20709,
+            21189
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 19,
+            "1": 64781
+          }
+        },
+        {
+          "region_id": "hwacheon-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21068,
+            21368,
+            20589,
+            21069
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 32,
+            "1": 143968
+          }
+        },
+        {
+          "region_id": "hwacheon-north",
+          "epsg": 32652,
+          "window_rc": [
+            19958,
+            20108,
+            20049,
+            20289
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 36000
+          }
+        },
+        {
+          "region_id": "yanggu-basin",
+          "epsg": 32652,
+          "window_rc": [
+            20870,
+            21320,
+            24271,
+            24631
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 162000
+          }
+        },
+        {
+          "region_id": "yanggu-dmz",
+          "epsg": 32652,
+          "window_rc": [
+            20390,
+            20540,
+            24211,
+            24451
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 9,
+            "1": 35991
+          }
+        },
+        {
+          "region_id": "yanggu-forest",
+          "epsg": 32652,
+          "window_rc": [
+            21200,
+            21500,
+            23671,
+            24031
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "0": 2,
+            "1": 107998
+          }
+        },
+        {
+          "region_id": "yanggu-north",
+          "epsg": 32652,
+          "window_rc": [
+            19820,
+            20060,
+            23791,
+            24091
+          ],
+          "pixel_spacing_m": [
+            10.0,
+            10.0
+          ],
+          "product_mask_description": "b'Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0. GCOV pixels outside of the radar acquisition extent are filled with the value 255'",
+          "product_mask_histogram": {
+            "1": 72000
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2796 @@
+{
+  "dataset": "Copernicus Sentinel-2 Level-2A",
+  "collection": "sentinel-2-l2a",
+  "catalog": "https://earth-search.aws.element84.com/v1",
+  "collected_utc": "2026-11-14T07:17:05.064547+00:00",
+  "attribution": "Contains modified Copernicus Sentinel data (2026)",
+  "license_url": "https://dataspace.copernicus.eu/terms-and-conditions",
+  "clear_scl_classes": [
+    4,
+    5,
+    6
+  ],
+  "selection": "3 seasonal periods, scene cloud shortlist then per-AOI SCL check",
+  "limitations": [
+    "20m delivered grid; native RGB/NIR 10m. SCL native 20m.",
+    "NDVI is a spectral index, not species, harvest date or forest health ground truth.",
+    "Acquisition dates differ from NISAR; no assumed same-day pairing."
+  ],
+  "scenes": [
+    {
+      "processing_version": 2,
+      "region": "cheorwon",
+      "period": "early_summer",
+      "scene_id": "S2C_52SCH_20260615_0_L2A",
+      "source_ids": [
+        "S2C_52SCH_20260615_0_L2A"
+      ],
+      "acquired_utc": "2026-06-15T02:26:57.923000Z",
+      "catalog_cloud_percent": 3.445098,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        127.175779,
+        38.196475,
+        127.443478,
+        38.373779
+      ],
+      "grid_bounds_projected": [
+        340260.0,
+        4228740.0,
+        364040.0,
+        4248880.0
+      ],
+      "shape": [
+        1007,
+        1189
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.986541,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 2.1e-05,
+        "region_shadow_fraction": 0.001257,
+        "aoi_clear_fraction": {
+          "cheorwon-paddy": 0.953926,
+          "cheorwon-dmz_flat": 0.999495,
+          "cheorwon-dmz_hill": 1.0,
+          "cheorwon-forest": 0.999861,
+          "cheorwon-north": 0.913832
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 1052,
+          "3": 453,
+          "4": 993802,
+          "5": 171562,
+          "6": 15844,
+          "7": 14585,
+          "8": 25,
+          "9": 0,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "cheorwon-paddy": {
+          "total_pixels": 27000,
+          "clear_pixels": 25756,
+          "ndvi_valid_pixels": 25756,
+          "ndvi_valid_fraction": 0.953926,
+          "ndvi_mean": 0.492582,
+          "ndvi_median": 0.477536,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-dmz_flat": {
+          "total_pixels": 3960,
+          "clear_pixels": 3958,
+          "ndvi_valid_pixels": 3958,
+          "ndvi_valid_fraction": 0.999495,
+          "ndvi_mean": 0.857802,
+          "ndvi_median": 0.879074,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-dmz_hill": {
+          "total_pixels": 9180,
+          "clear_pixels": 9180,
+          "ndvi_valid_pixels": 9180,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.841326,
+          "ndvi_median": 0.898772,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-forest": {
+          "total_pixels": 21600,
+          "clear_pixels": 21597,
+          "ndvi_valid_pixels": 21597,
+          "ndvi_valid_fraction": 0.999861,
+          "ndvi_mean": 0.851811,
+          "ndvi_median": 0.877778,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-north": {
+          "total_pixels": 11025,
+          "clear_pixels": 10075,
+          "ndvi_valid_pixels": 10075,
+          "ndvi_valid_fraction": 0.913832,
+          "ndvi_mean": 0.434232,
+          "ndvi_median": 0.418654,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/cheorwon/2026-06-15/ndvi.png",
+          "bytes": 539321,
+          "sha256": "8d1b65807033c97c7e8d73a11a5a9c3f2a57bf6413988a183296dd78ad2fadec"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-06-15/ndvi_20m.tif",
+          "bytes": 3648368,
+          "sha256": "53195947aa047b992ed8e3ae3a9b6d52ec12e87e7944524a86cfa1b027eb11c9"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-06-15/rgb.webp",
+          "bytes": 99320,
+          "sha256": "af92b00c61974a55f5c36e42a48d99c9095ce0c14ef818133e2cdc6a6b951300"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-06-15/rgbnir_dn_20m.tif",
+          "bytes": 7092094,
+          "sha256": "544771c7799c297af32f5fa28e7ea35e035c20acd50bf569eb59d2a55062653b"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-06-15/scl_20m.tif",
+          "bytes": 102379,
+          "sha256": "ada7d571a47ddb6d424850170dcfff3f9ac9e2b0046bf3a729c7d1e2685e305c"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-06-15/source.stac.json",
+          "bytes": 33601,
+          "sha256": "fcd7673c58fab38f66d905cea47b1e21b296f315954394f5d00bb380c930799b"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-06-15/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "0ee0b363e1572ffeec88bb8d2214ab9a46482d2aa6349fad3c94d711ea259ff7"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-06-15/sources.stac.json",
+          "bytes": 39492,
+          "sha256": "b78661b34c9f186f492b3443b85ad5bb83a7b8163edbbd36e8444a00c53994b6"
+        }
+      ],
+      "selection_window": [
+        "2026-06-01",
+        "2026-07-15"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "cheorwon",
+      "period": "late_summer",
+      "scene_id": "S2B_52SCH_20260809_0_L2A",
+      "source_ids": [
+        "S2B_52SCH_20260809_0_L2A"
+      ],
+      "acquired_utc": "2026-08-09T02:26:57.197000Z",
+      "catalog_cloud_percent": 23.915412,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        127.175779,
+        38.196475,
+        127.443478,
+        38.373779
+      ],
+      "grid_bounds_projected": [
+        340260.0,
+        4228740.0,
+        364040.0,
+        4248880.0
+      ],
+      "shape": [
+        1007,
+        1189
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2B_52SCH_20260809_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2B_52SCH_20260809_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2B_52SCH_20260809_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2B_52SCH_20260809_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.902149,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.04742,
+        "region_shadow_fraction": 0.025116,
+        "aoi_clear_fraction": {
+          "cheorwon-paddy": 0.999741,
+          "cheorwon-dmz_flat": 1.0,
+          "cheorwon-dmz_hill": 1.0,
+          "cheorwon-forest": 0.965648,
+          "cheorwon-north": 0.983311
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 1279,
+          "3": 28793,
+          "4": 1012714,
+          "5": 57175,
+          "6": 10275,
+          "7": 30310,
+          "8": 33335,
+          "9": 23442,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "cheorwon-paddy": {
+          "total_pixels": 27000,
+          "clear_pixels": 26993,
+          "ndvi_valid_pixels": 26993,
+          "ndvi_valid_fraction": 0.999741,
+          "ndvi_mean": 0.735233,
+          "ndvi_median": 0.778253,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-dmz_flat": {
+          "total_pixels": 3960,
+          "clear_pixels": 3960,
+          "ndvi_valid_pixels": 3960,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.853947,
+          "ndvi_median": 0.865456,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-dmz_hill": {
+          "total_pixels": 9180,
+          "clear_pixels": 9180,
+          "ndvi_valid_pixels": 9180,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.840121,
+          "ndvi_median": 0.879486,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-forest": {
+          "total_pixels": 21600,
+          "clear_pixels": 20858,
+          "ndvi_valid_pixels": 20858,
+          "ndvi_valid_fraction": 0.965648,
+          "ndvi_mean": 0.843572,
+          "ndvi_median": 0.861409,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-north": {
+          "total_pixels": 11025,
+          "clear_pixels": 10841,
+          "ndvi_valid_pixels": 10841,
+          "ndvi_valid_fraction": 0.983311,
+          "ndvi_mean": 0.701856,
+          "ndvi_median": 0.753271,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/cheorwon/2026-08-09/ndvi.png",
+          "bytes": 485997,
+          "sha256": "768f91808c5ed2a3b5076d690e0044e111eada558a2b8a48af2b3896d9e3d78b"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-08-09/ndvi_20m.tif",
+          "bytes": 3329720,
+          "sha256": "9b5ce65839c34ab977e08a54a0313b92b3c1203ccae739008e3ce142c938aa16"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-08-09/rgb.webp",
+          "bytes": 92096,
+          "sha256": "b55781486bee81f441d9072fc14862515fba85f2019a9024d167dbd81c9dbb6a"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-08-09/rgbnir_dn_20m.tif",
+          "bytes": 6951048,
+          "sha256": "75270329e21671b8b7d360e3eb193bc6c42cc2ff1a8e9e1c463935c917eeeabb"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-08-09/scl_20m.tif",
+          "bytes": 74971,
+          "sha256": "32019b8c9a555175ff4274938e7853d328dd617ed400fda6692aad9ece39d91c"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-08-09/source.stac.json",
+          "bytes": 33587,
+          "sha256": "92c9c91beb6a523affa28ec5c83d581da441b0dbf1c7fbaddbaaa25d4ae1cb4f"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-08-09/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "0ee0b363e1572ffeec88bb8d2214ab9a46482d2aa6349fad3c94d711ea259ff7"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-08-09/sources.stac.json",
+          "bytes": 39478,
+          "sha256": "37871dd7e9bf9e9fc7d255fb2118a203d684b379267aa34e036cdb190aafa9ff"
+        }
+      ],
+      "selection_window": [
+        "2026-07-16",
+        "2026-08-31"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "cheorwon",
+      "period": "autumn",
+      "scene_id": "S2B_52SCH_20261008_0_L2A",
+      "source_ids": [
+        "S2B_52SCH_20261008_0_L2A"
+      ],
+      "acquired_utc": "2026-10-08T02:26:57.662000Z",
+      "catalog_cloud_percent": 6.6e-05,
+      "processing_baseline": "05.13",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        127.175779,
+        38.196475,
+        127.443478,
+        38.373779
+      ],
+      "grid_bounds_projected": [
+        340260.0,
+        4228740.0,
+        364040.0,
+        4248880.0
+      ],
+      "shape": [
+        1007,
+        1189
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.999587,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.0,
+        "region_shadow_fraction": 0.000413,
+        "aoi_clear_fraction": {
+          "cheorwon-paddy": 1.0,
+          "cheorwon-dmz_flat": 1.0,
+          "cheorwon-dmz_hill": 1.0,
+          "cheorwon-forest": 1.0,
+          "cheorwon-north": 1.0
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 494,
+          "3": 0,
+          "4": 863894,
+          "5": 320760,
+          "6": 12175,
+          "7": 0,
+          "8": 0,
+          "9": 0,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "cheorwon-paddy": {
+          "total_pixels": 27000,
+          "clear_pixels": 27000,
+          "ndvi_valid_pixels": 27000,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.305687,
+          "ndvi_median": 0.225521,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-dmz_flat": {
+          "total_pixels": 3960,
+          "clear_pixels": 3960,
+          "ndvi_valid_pixels": 3960,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.728242,
+          "ndvi_median": 0.74784,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-dmz_hill": {
+          "total_pixels": 9180,
+          "clear_pixels": 9180,
+          "ndvi_valid_pixels": 9180,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.758368,
+          "ndvi_median": 0.803898,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-forest": {
+          "total_pixels": 21600,
+          "clear_pixels": 21600,
+          "ndvi_valid_pixels": 21600,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.775164,
+          "ndvi_median": 0.795007,
+          "recommended_for_comparison": true
+        },
+        "cheorwon-north": {
+          "total_pixels": 11025,
+          "clear_pixels": 11025,
+          "ndvi_valid_pixels": 11025,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.42173,
+          "ndvi_median": 0.427574,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/cheorwon/2026-10-08/ndvi.png",
+          "bytes": 537413,
+          "sha256": "b60b0318f729896c92ebe31b2a33b9cbead4c76750736628278d2882d177d4f4"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-10-08/ndvi_20m.tif",
+          "bytes": 3682226,
+          "sha256": "c0a5d7ea8bdb5fff2c69cb88d1c843f553897bfd310008a2befadf3e1aa7821d"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-10-08/rgb.webp",
+          "bytes": 103504,
+          "sha256": "b26c4fc10bf59a317890eb075609a3513d2299e94bd8ca5508a53e16c662eae2"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-10-08/rgbnir_dn_20m.tif",
+          "bytes": 7035972,
+          "sha256": "7c47ff847c9981d4828f1c51795d77d92eaafafd9fd91bb77ccdb32689ad07d1"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-10-08/scl_20m.tif",
+          "bytes": 83919,
+          "sha256": "f80fdb7e5ee059c6c57b80b4f0ed2b2834f2610e83c7bed1289d3e03258860ee"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-10-08/source.stac.json",
+          "bytes": 33601,
+          "sha256": "671d795148f6c6bf39fcab809c1e267f27c8c825779dbf7c561c42c3d48a017b"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-10-08/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "0ee0b363e1572ffeec88bb8d2214ab9a46482d2aa6349fad3c94d711ea259ff7"
+        },
+        {
+          "path": "sentinel2/cheorwon/2026-10-08/sources.stac.json",
+          "bytes": 39492,
+          "sha256": "b663c2895bc44f36cf10168efec9640b53272ca274c9141b58aa4d80fc7d9364"
+        }
+      ],
+      "selection_window": [
+        "2026-09-01",
+        "2026-10-31"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "hwacheon",
+      "period": "early_summer",
+      "scene_id": "S2C_52SCH_20260615_0_L2A",
+      "source_ids": [
+        "S2C_52SCH_20260615_0_L2A"
+      ],
+      "acquired_utc": "2026-06-15T02:26:57.923000Z",
+      "catalog_cloud_percent": 3.445098,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        127.616625,
+        38.197786,
+        127.84273,
+        38.382386
+      ],
+      "grid_bounds_projected": [
+        378860.0,
+        4228380.0,
+        398940.0,
+        4249160.0
+      ],
+      "shape": [
+        1039,
+        1004
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.99145,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.000864,
+        "region_shadow_fraction": 0.003939,
+        "aoi_clear_fraction": {
+          "hwacheon-dmz": 0.997311,
+          "hwacheon-forest": 1.0,
+          "hwacheon-north": 0.961345
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 2270,
+          "3": 1839,
+          "4": 1011556,
+          "5": 20822,
+          "6": 1859,
+          "7": 3909,
+          "8": 716,
+          "9": 185,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "hwacheon-dmz": {
+          "total_pixels": 16360,
+          "clear_pixels": 16316,
+          "ndvi_valid_pixels": 16316,
+          "ndvi_valid_fraction": 0.997311,
+          "ndvi_mean": 0.891587,
+          "ndvi_median": 0.903273,
+          "recommended_for_comparison": true
+        },
+        "hwacheon-forest": {
+          "total_pixels": 36029,
+          "clear_pixels": 36029,
+          "ndvi_valid_pixels": 36029,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.898985,
+          "ndvi_median": 0.913182,
+          "recommended_for_comparison": true
+        },
+        "hwacheon-north": {
+          "total_pixels": 8925,
+          "clear_pixels": 8580,
+          "ndvi_valid_pixels": 8580,
+          "ndvi_valid_fraction": 0.961345,
+          "ndvi_mean": 0.574763,
+          "ndvi_median": 0.567381,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/hwacheon/2026-06-15/ndvi.png",
+          "bytes": 429816,
+          "sha256": "0e1635056591ae5dc0c204b84d2ed04a3be03f64de679fff07f3d26aea6bee97"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-06-15/ndvi_20m.tif",
+          "bytes": 2960000,
+          "sha256": "3b31958ad0e472ae8cec131dd01e794df95ab9971b3216a6ae475c8f67c38035"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-06-15/rgb.webp",
+          "bytes": 56460,
+          "sha256": "18debe3aa3679c49a3f5fa7667cc79f7c98988d71cb053932b1cb99252fe69d5"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-06-15/rgbnir_dn_20m.tif",
+          "bytes": 5979310,
+          "sha256": "e9b9a53e631bcc821892b8c96ba475e6ebd73b76614d3f66a140dbd65df76e26"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-06-15/scl_20m.tif",
+          "bytes": 26785,
+          "sha256": "0004d56236768aa1c8133b06a723c22ede72dc7bc92229a1e0fb06db3e90437a"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-06-15/source.stac.json",
+          "bytes": 33601,
+          "sha256": "fcd7673c58fab38f66d905cea47b1e21b296f315954394f5d00bb380c930799b"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-06-15/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "0b5b78d42e82926c9e622880b0a3245f3f71dbbc9dfa71abdeaff70e5613a396"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-06-15/sources.stac.json",
+          "bytes": 39492,
+          "sha256": "b78661b34c9f186f492b3443b85ad5bb83a7b8163edbbd36e8444a00c53994b6"
+        }
+      ],
+      "selection_window": [
+        "2026-06-01",
+        "2026-07-15"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "hwacheon",
+      "period": "late_summer",
+      "scene_id": "S2B_52SCH_20260809_0_L2A",
+      "source_ids": [
+        "S2B_52SCH_20260809_0_L2A"
+      ],
+      "acquired_utc": "2026-08-09T02:26:57.197000Z",
+      "catalog_cloud_percent": 23.915412,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        127.616625,
+        38.197786,
+        127.84273,
+        38.382386
+      ],
+      "grid_bounds_projected": [
+        378860.0,
+        4228380.0,
+        398940.0,
+        4249160.0
+      ],
+      "shape": [
+        1039,
+        1004
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2B_52SCH_20260809_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2B_52SCH_20260809_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2B_52SCH_20260809_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2B_52SCH_20260809_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.89128,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.046085,
+        "region_shadow_fraction": 0.0521,
+        "aoi_clear_fraction": {
+          "hwacheon-dmz": 0.922188,
+          "hwacheon-forest": 0.814733,
+          "hwacheon-north": 0.956863
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 2863,
+          "3": 51485,
+          "4": 903392,
+          "5": 23738,
+          "6": 2614,
+          "7": 10990,
+          "8": 36105,
+          "9": 11969,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "hwacheon-dmz": {
+          "total_pixels": 16360,
+          "clear_pixels": 15087,
+          "ndvi_valid_pixels": 15087,
+          "ndvi_valid_fraction": 0.922188,
+          "ndvi_mean": 0.823572,
+          "ndvi_median": 0.872253,
+          "recommended_for_comparison": true
+        },
+        "hwacheon-forest": {
+          "total_pixels": 36029,
+          "clear_pixels": 29354,
+          "ndvi_valid_pixels": 29354,
+          "ndvi_valid_fraction": 0.814733,
+          "ndvi_mean": 0.831009,
+          "ndvi_median": 0.887083,
+          "recommended_for_comparison": true
+        },
+        "hwacheon-north": {
+          "total_pixels": 8925,
+          "clear_pixels": 8540,
+          "ndvi_valid_pixels": 8540,
+          "ndvi_valid_fraction": 0.956863,
+          "ndvi_mean": 0.741794,
+          "ndvi_median": 0.812091,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": false,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/hwacheon/2026-08-09/ndvi.png",
+          "bytes": 443226,
+          "sha256": "e30ed616ac141feec6510621fde7a3cbbaa85722b70f4570912b4780b46b8b57"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-08-09/ndvi_20m.tif",
+          "bytes": 2808788,
+          "sha256": "8f0f92a8581a9e6beb29e1a3551396a56fdf0392641237d2db0b30b047d6f7c5"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-08-09/rgb.webp",
+          "bytes": 85728,
+          "sha256": "011647758e3f08c28551c8a6513d29be9a288342f7815838691451b4045974d3"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-08-09/rgbnir_dn_20m.tif",
+          "bytes": 6093276,
+          "sha256": "feae846c000044134a08692ba33566758b2e7e5310e2226d9c8881264ca48cd9"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-08-09/scl_20m.tif",
+          "bytes": 56459,
+          "sha256": "9d416c5f308621f0db9506e40a70fba0ab098167303af846444580812a8e2583"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-08-09/source.stac.json",
+          "bytes": 33587,
+          "sha256": "92c9c91beb6a523affa28ec5c83d581da441b0dbf1c7fbaddbaaa25d4ae1cb4f"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-08-09/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "0b5b78d42e82926c9e622880b0a3245f3f71dbbc9dfa71abdeaff70e5613a396"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-08-09/sources.stac.json",
+          "bytes": 39478,
+          "sha256": "37871dd7e9bf9e9fc7d255fb2118a203d684b379267aa34e036cdb190aafa9ff"
+        }
+      ],
+      "selection_window": [
+        "2026-07-16",
+        "2026-08-31"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "hwacheon",
+      "period": "autumn",
+      "scene_id": "S2B_52SCH_20261008_0_L2A",
+      "source_ids": [
+        "S2B_52SCH_20261008_0_L2A"
+      ],
+      "acquired_utc": "2026-10-08T02:26:57.662000Z",
+      "catalog_cloud_percent": 6.6e-05,
+      "processing_baseline": "05.13",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        127.616625,
+        38.197786,
+        127.84273,
+        38.382386
+      ],
+      "grid_bounds_projected": [
+        378860.0,
+        4228380.0,
+        398940.0,
+        4249160.0
+      ],
+      "shape": [
+        1039,
+        1004
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.997241,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.0,
+        "region_shadow_fraction": 0.002759,
+        "aoi_clear_fraction": {
+          "hwacheon-dmz": 0.995049,
+          "hwacheon-forest": 0.999611,
+          "hwacheon-north": 0.992717
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 2878,
+          "3": 0,
+          "4": 1002935,
+          "5": 31426,
+          "6": 5917,
+          "7": 0,
+          "8": 0,
+          "9": 0,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "hwacheon-dmz": {
+          "total_pixels": 16360,
+          "clear_pixels": 16279,
+          "ndvi_valid_pixels": 16279,
+          "ndvi_valid_fraction": 0.995049,
+          "ndvi_mean": 0.818776,
+          "ndvi_median": 0.829388,
+          "recommended_for_comparison": true
+        },
+        "hwacheon-forest": {
+          "total_pixels": 36029,
+          "clear_pixels": 36015,
+          "ndvi_valid_pixels": 36015,
+          "ndvi_valid_fraction": 0.999611,
+          "ndvi_mean": 0.799541,
+          "ndvi_median": 0.817683,
+          "recommended_for_comparison": true
+        },
+        "hwacheon-north": {
+          "total_pixels": 8925,
+          "clear_pixels": 8860,
+          "ndvi_valid_pixels": 8860,
+          "ndvi_valid_fraction": 0.992717,
+          "ndvi_mean": 0.49988,
+          "ndvi_median": 0.491373,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/hwacheon/2026-10-08/ndvi.png",
+          "bytes": 498400,
+          "sha256": "a67abbd2a76bff1484bb588b6beb4c617154f29487cfa89737eaea933fd17305"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-10-08/ndvi_20m.tif",
+          "bytes": 3100166,
+          "sha256": "530393af39467114f0ba380b3ff1a0ae5b343e4ce286da234d720690c60e4a88"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-10-08/rgb.webp",
+          "bytes": 99520,
+          "sha256": "0f1ff89d830a92aee39a3633523c4915c0587171229a1a1e7d54c33969f7b56a"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-10-08/rgbnir_dn_20m.tif",
+          "bytes": 6151582,
+          "sha256": "8a82270ee89aedadf9a3d71619d9077b1d4148f10c814b085eedfc933610b7a6"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-10-08/scl_20m.tif",
+          "bytes": 32813,
+          "sha256": "e0189c089abe25ed1cd3a9bf786577179161b7447c78930cf3abff80edb5c68e"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-10-08/source.stac.json",
+          "bytes": 33601,
+          "sha256": "671d795148f6c6bf39fcab809c1e267f27c8c825779dbf7c561c42c3d48a017b"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-10-08/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "0b5b78d42e82926c9e622880b0a3245f3f71dbbc9dfa71abdeaff70e5613a396"
+        },
+        {
+          "path": "sentinel2/hwacheon/2026-10-08/sources.stac.json",
+          "bytes": 39492,
+          "sha256": "b663c2895bc44f36cf10168efec9640b53272ca274c9141b58aa4d80fc7d9364"
+        }
+      ],
+      "selection_window": [
+        "2026-09-01",
+        "2026-10-31"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "paju",
+      "period": "early_summer",
+      "scene_id": "S2C_52SBG_20260615_0_L2A",
+      "source_ids": [
+        "S2C_52SBG_20260615_0_L2A",
+        "S2C_52SBH_20260615_0_L2A",
+        "S2C_52SCG_20260615_0_L2A",
+        "S2C_52SCH_20260615_0_L2A"
+      ],
+      "acquired_utc": "2026-06-15T02:27:16.162000Z",
+      "catalog_cloud_percent": 2.815551,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        126.649886,
+        37.736975,
+        126.829227,
+        38.063096
+      ],
+      "grid_bounds_projected": [
+        292900,
+        4178840,
+        309580,
+        4215440
+      ],
+      "shape": [
+        1830,
+        834
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/6/S2C_52SBG_20260615_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/6/S2C_52SBH_20260615_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/6/S2C_52SCG_20260615_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/6/S2C_52SBG_20260615_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/6/S2C_52SBH_20260615_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/6/S2C_52SCG_20260615_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/6/S2C_52SBG_20260615_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/6/S2C_52SBH_20260615_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/6/S2C_52SCG_20260615_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/6/S2C_52SBG_20260615_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/6/S2C_52SBH_20260615_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/6/S2C_52SCG_20260615_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.970619,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.000183,
+        "region_shadow_fraction": 0.000619,
+        "aoi_clear_fraction": {
+          "paju-dmz_farm": 0.981468,
+          "paju-dmz_wild": 0.999444,
+          "paju-south": 0.986032,
+          "paju-north": 0.9723
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 659,
+          "3": 285,
+          "4": 1028001,
+          "5": 363779,
+          "6": 89598,
+          "7": 43618,
+          "8": 237,
+          "9": 42,
+          "10": 1,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "paju-dmz_farm": {
+          "total_pixels": 8040,
+          "clear_pixels": 7891,
+          "ndvi_valid_pixels": 7891,
+          "ndvi_valid_fraction": 0.981468,
+          "ndvi_mean": 0.629139,
+          "ndvi_median": 0.642387,
+          "recommended_for_comparison": true
+        },
+        "paju-dmz_wild": {
+          "total_pixels": 10800,
+          "clear_pixels": 10794,
+          "ndvi_valid_pixels": 10794,
+          "ndvi_valid_fraction": 0.999444,
+          "ndvi_mean": 0.867233,
+          "ndvi_median": 0.902987,
+          "recommended_for_comparison": true
+        },
+        "paju-south": {
+          "total_pixels": 12600,
+          "clear_pixels": 12424,
+          "ndvi_valid_pixels": 12424,
+          "ndvi_valid_fraction": 0.986032,
+          "ndvi_mean": 0.620373,
+          "ndvi_median": 0.68008,
+          "recommended_for_comparison": true
+        },
+        "paju-north": {
+          "total_pixels": 10036,
+          "clear_pixels": 9758,
+          "ndvi_valid_pixels": 9758,
+          "ndvi_valid_fraction": 0.9723,
+          "ndvi_mean": 0.502495,
+          "ndvi_median": 0.456403,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/paju/2026-06-15/ndvi.png",
+          "bytes": 548036,
+          "sha256": "8533d9c3eaafa4ce29ec21246ec625ee7e19191dc32eb98ba5fd2ac5099d80fa"
+        },
+        {
+          "path": "sentinel2/paju/2026-06-15/ndvi_20m.tif",
+          "bytes": 4849480,
+          "sha256": "02b139cbf841c045ab2502150808dfdaeb376bdf72c7666214ba9bbfc3920078"
+        },
+        {
+          "path": "sentinel2/paju/2026-06-15/rgb.webp",
+          "bytes": 128320,
+          "sha256": "022009f580da7f9a7f2ae61e3ac86a442f5bd05de1da84d6ab72d6388208c185"
+        },
+        {
+          "path": "sentinel2/paju/2026-06-15/rgbnir_dn_20m.tif",
+          "bytes": 9333492,
+          "sha256": "cc2be93169379372313056654d1001a7f60beadfb90a1bd6eac7e6cbe466dda7"
+        },
+        {
+          "path": "sentinel2/paju/2026-06-15/scl_20m.tif",
+          "bytes": 169963,
+          "sha256": "69588b9dbe34a0311201660314da385114b293bca3f06c088a27a7330f0cb944"
+        },
+        {
+          "path": "sentinel2/paju/2026-06-15/source.stac.json",
+          "bytes": 33687,
+          "sha256": "09d180204b6b00f527ab97a661fa2d48139f70ebf8b0bad2cd4b6e9aaa7d7374"
+        },
+        {
+          "path": "sentinel2/paju/2026-06-15/source_index_20m.tif",
+          "bytes": 7031,
+          "sha256": "bc6e84b6966e07a4f0b201c1e46f08adad57318ff7bd501c7df55b92b7e8cdbc"
+        },
+        {
+          "path": "sentinel2/paju/2026-06-15/sources.stac.json",
+          "bytes": 157918,
+          "sha256": "e4680527094b4dcc36812fe7220aa6693a86dbc885056ea5699bca2df69443ec"
+        }
+      ],
+      "selection_window": [
+        "2026-06-01",
+        "2026-07-15"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "paju",
+      "period": "late_summer",
+      "scene_id": "S2C_52SBG_20260804_0_L2A",
+      "source_ids": [
+        "S2C_52SBG_20260804_0_L2A",
+        "S2C_52SBH_20260804_0_L2A",
+        "S2C_52SCG_20260804_0_L2A",
+        "S2C_52SCH_20260804_0_L2A"
+      ],
+      "acquired_utc": "2026-08-04T02:27:17.200000Z",
+      "catalog_cloud_percent": 6.832108,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        126.649886,
+        37.736975,
+        126.829227,
+        38.063096
+      ],
+      "grid_bounds_projected": [
+        292900,
+        4178840,
+        309580,
+        4215440
+      ],
+      "shape": [
+        1830,
+        834
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/8/S2C_52SBG_20260804_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/8/S2C_52SBH_20260804_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/8/S2C_52SCG_20260804_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2C_52SCH_20260804_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/8/S2C_52SBG_20260804_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/8/S2C_52SBH_20260804_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/8/S2C_52SCG_20260804_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2C_52SCH_20260804_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/8/S2C_52SBG_20260804_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/8/S2C_52SBH_20260804_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/8/S2C_52SCG_20260804_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2C_52SCH_20260804_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/8/S2C_52SBG_20260804_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/8/S2C_52SBH_20260804_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/8/S2C_52SCG_20260804_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2C_52SCH_20260804_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.845305,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.113522,
+        "region_shadow_fraction": 0.031683,
+        "aoi_clear_fraction": {
+          "paju-dmz_farm": 0.993532,
+          "paju-dmz_wild": 0.872222,
+          "paju-south": 1.0,
+          "paju-north": 1.0
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 352,
+          "3": 48003,
+          "4": 1094633,
+          "5": 107393,
+          "6": 88095,
+          "7": 14485,
+          "8": 73727,
+          "9": 99532,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "paju-dmz_farm": {
+          "total_pixels": 8040,
+          "clear_pixels": 7988,
+          "ndvi_valid_pixels": 7988,
+          "ndvi_valid_fraction": 0.993532,
+          "ndvi_mean": 0.768579,
+          "ndvi_median": 0.829693,
+          "recommended_for_comparison": true
+        },
+        "paju-dmz_wild": {
+          "total_pixels": 10800,
+          "clear_pixels": 9420,
+          "ndvi_valid_pixels": 9420,
+          "ndvi_valid_fraction": 0.872222,
+          "ndvi_mean": 0.80452,
+          "ndvi_median": 0.844863,
+          "recommended_for_comparison": true
+        },
+        "paju-south": {
+          "total_pixels": 12600,
+          "clear_pixels": 12600,
+          "ndvi_valid_pixels": 12600,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.735871,
+          "ndvi_median": 0.845505,
+          "recommended_for_comparison": true
+        },
+        "paju-north": {
+          "total_pixels": 10036,
+          "clear_pixels": 10036,
+          "ndvi_valid_pixels": 10036,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.711797,
+          "ndvi_median": 0.757817,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": false,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/paju/2026-08-04/ndvi.png",
+          "bytes": 439629,
+          "sha256": "6dba01aea221a662b5f8fc8697d7ae972d46027415f1926d0eb998b57212c1a2"
+        },
+        {
+          "path": "sentinel2/paju/2026-08-04/ndvi_20m.tif",
+          "bytes": 4085168,
+          "sha256": "f2d9a09abdd3429e068550b3ab43cf909f5a6e572aa9a3e92802f4f2e351faf2"
+        },
+        {
+          "path": "sentinel2/paju/2026-08-04/rgb.webp",
+          "bytes": 111992,
+          "sha256": "038b48f6a62b533607e9441b4430c6822cf29b925b87901f960bae69538d9a66"
+        },
+        {
+          "path": "sentinel2/paju/2026-08-04/rgbnir_dn_20m.tif",
+          "bytes": 9192252,
+          "sha256": "94b84828535ed45db84c9a66eb6ce2b5663f37360d4c131f21daca4619f90a78"
+        },
+        {
+          "path": "sentinel2/paju/2026-08-04/scl_20m.tif",
+          "bytes": 113253,
+          "sha256": "56b2f15e978feb1c7e5b0d813e2640c30fedafbfb5c60c26f4827fc6f8a41c79"
+        },
+        {
+          "path": "sentinel2/paju/2026-08-04/source.stac.json",
+          "bytes": 33677,
+          "sha256": "6277818f1e53f20d5bab7d715ef7bab699a5dcec2448935ecab7beba5f924b36"
+        },
+        {
+          "path": "sentinel2/paju/2026-08-04/source_index_20m.tif",
+          "bytes": 7031,
+          "sha256": "bc6e84b6966e07a4f0b201c1e46f08adad57318ff7bd501c7df55b92b7e8cdbc"
+        },
+        {
+          "path": "sentinel2/paju/2026-08-04/sources.stac.json",
+          "bytes": 157828,
+          "sha256": "0c6c41983c6de8b91462e8efffade79385baafb3bb23899593a358989d0c463b"
+        }
+      ],
+      "selection_window": [
+        "2026-07-16",
+        "2026-08-31"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "paju",
+      "period": "autumn",
+      "scene_id": "S2B_52SBG_20261008_0_L2A",
+      "source_ids": [
+        "S2B_52SBG_20261008_0_L2A",
+        "S2B_52SBH_20261008_0_L2A",
+        "S2B_52SCG_20261008_0_L2A",
+        "S2B_52SCH_20261008_0_L2A"
+      ],
+      "acquired_utc": "2026-10-08T02:27:15.889000Z",
+      "catalog_cloud_percent": 0.010943,
+      "processing_baseline": "05.13",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        126.649886,
+        37.736975,
+        126.829227,
+        38.063096
+      ],
+      "grid_bounds_projected": [
+        292900,
+        4178840,
+        309580,
+        4215440
+      ],
+      "shape": [
+        1830,
+        834
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/10/S2B_52SBG_20261008_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/10/S2B_52SBH_20261008_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/10/S2B_52SCG_20261008_0_L2A/B04.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/10/S2B_52SBG_20261008_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/10/S2B_52SBH_20261008_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/10/S2B_52SCG_20261008_0_L2A/B03.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/10/S2B_52SBG_20261008_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/10/S2B_52SBH_20261008_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/10/S2B_52SCG_20261008_0_L2A/B02.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BG/2026/10/S2B_52SBG_20261008_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/BH/2026/10/S2B_52SBH_20261008_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CG/2026/10/S2B_52SCG_20261008_0_L2A/B08.tif",
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.999917,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.0,
+        "region_shadow_fraction": 3.5e-05,
+        "aoi_clear_fraction": {
+          "paju-dmz_farm": 1.0,
+          "paju-dmz_wild": 1.0,
+          "paju-south": 1.0,
+          "paju-north": 1.0
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 53,
+          "3": 0,
+          "4": 1114615,
+          "5": 321240,
+          "6": 90239,
+          "7": 46,
+          "8": 0,
+          "9": 0,
+          "10": 0,
+          "11": 27
+        }
+      },
+      "aoi_stats": {
+        "paju-dmz_farm": {
+          "total_pixels": 8040,
+          "clear_pixels": 8040,
+          "ndvi_valid_pixels": 8040,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.571745,
+          "ndvi_median": 0.609515,
+          "recommended_for_comparison": true
+        },
+        "paju-dmz_wild": {
+          "total_pixels": 10800,
+          "clear_pixels": 10800,
+          "ndvi_valid_pixels": 10800,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.80084,
+          "ndvi_median": 0.832682,
+          "recommended_for_comparison": true
+        },
+        "paju-south": {
+          "total_pixels": 12600,
+          "clear_pixels": 12600,
+          "ndvi_valid_pixels": 12600,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.659493,
+          "ndvi_median": 0.704691,
+          "recommended_for_comparison": true
+        },
+        "paju-north": {
+          "total_pixels": 10036,
+          "clear_pixels": 10036,
+          "ndvi_valid_pixels": 10036,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.504753,
+          "ndvi_median": 0.487185,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/paju/2026-10-08/ndvi.png",
+          "bytes": 532026,
+          "sha256": "6522229a318857bba00e291324bb80de9357b1971f97a8b79c16ede5ae2f153e"
+        },
+        {
+          "path": "sentinel2/paju/2026-10-08/ndvi_20m.tif",
+          "bytes": 4839542,
+          "sha256": "50ff35adeb485aadcb945a9e2743be3ee9e3cb075da1e44153ce60458a116145"
+        },
+        {
+          "path": "sentinel2/paju/2026-10-08/rgb.webp",
+          "bytes": 120970,
+          "sha256": "f7cf025d49c168011a5deee111adf66a7ae32ef7b3205b841b1b6063021245f0"
+        },
+        {
+          "path": "sentinel2/paju/2026-10-08/rgbnir_dn_20m.tif",
+          "bytes": 9143754,
+          "sha256": "a5c55878dc33f72eb0f6bcb57e8e01391ff7f1e6d41d67f3a9043caec2eefb53"
+        },
+        {
+          "path": "sentinel2/paju/2026-10-08/scl_20m.tif",
+          "bytes": 147025,
+          "sha256": "948f83baffc09b1ddcd4cb28d5553dcbeb2cd1de0101a57ae4be1b5e3308c155"
+        },
+        {
+          "path": "sentinel2/paju/2026-10-08/source.stac.json",
+          "bytes": 33721,
+          "sha256": "3b0616fa2125e6e9d142698ec69536c03124cad62d87017bb1da3e4a7519d90d"
+        },
+        {
+          "path": "sentinel2/paju/2026-10-08/source_index_20m.tif",
+          "bytes": 7031,
+          "sha256": "bc6e84b6966e07a4f0b201c1e46f08adad57318ff7bd501c7df55b92b7e8cdbc"
+        },
+        {
+          "path": "sentinel2/paju/2026-10-08/sources.stac.json",
+          "bytes": 157984,
+          "sha256": "9b00184415c5244efd000130a13189c97cbef83c860d69d8c918ef7a63298320"
+        }
+      ],
+      "selection_window": [
+        "2026-09-01",
+        "2026-10-31"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "yanggu",
+      "period": "early_summer",
+      "scene_id": "S2C_52SDH_20260615_0_L2A",
+      "source_ids": [
+        "S2C_52SDH_20260615_0_L2A"
+      ],
+      "acquired_utc": "2026-06-15T02:26:53.971000Z",
+      "catalog_cloud_percent": 53.105778,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        128.01715,
+        38.198831,
+        128.20225,
+        38.411352
+      ],
+      "grid_bounds_projected": [
+        413940,
+        4228160,
+        430360,
+        4251920
+      ],
+      "shape": [
+        1188,
+        821
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/6/S2C_52SDH_20260615_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/6/S2C_52SDH_20260615_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/6/S2C_52SDH_20260615_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/6/S2C_52SDH_20260615_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.965978,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.029674,
+        "region_shadow_fraction": 0.001936,
+        "aoi_clear_fraction": {
+          "yanggu-basin": 0.973383,
+          "yanggu-dmz": 1.0,
+          "yanggu-forest": 0.992327,
+          "yanggu-north": 1.0
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 1318,
+          "3": 570,
+          "4": 902747,
+          "5": 39179,
+          "6": 239,
+          "7": 2353,
+          "8": 2738,
+          "9": 602,
+          "10": 25602,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "yanggu-basin": {
+          "total_pixels": 40500,
+          "clear_pixels": 39422,
+          "ndvi_valid_pixels": 39422,
+          "ndvi_valid_fraction": 0.973383,
+          "ndvi_mean": 0.496012,
+          "ndvi_median": 0.46668,
+          "recommended_for_comparison": true
+        },
+        "yanggu-dmz": {
+          "total_pixels": 8925,
+          "clear_pixels": 8925,
+          "ndvi_valid_pixels": 8925,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.881523,
+          "ndvi_median": 0.902249,
+          "recommended_for_comparison": true
+        },
+        "yanggu-forest": {
+          "total_pixels": 26979,
+          "clear_pixels": 26772,
+          "ndvi_valid_pixels": 26772,
+          "ndvi_valid_fraction": 0.992327,
+          "ndvi_mean": 0.890526,
+          "ndvi_median": 0.910024,
+          "recommended_for_comparison": true
+        },
+        "yanggu-north": {
+          "total_pixels": 17951,
+          "clear_pixels": 17951,
+          "ndvi_valid_pixels": 17951,
+          "ndvi_valid_fraction": 1.0,
+          "ndvi_mean": 0.902178,
+          "ndvi_median": 0.913324,
+          "recommended_for_comparison": true
+        }
+      },
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/yanggu/2026-06-15/ndvi.png",
+          "bytes": 407385,
+          "sha256": "b4c6faa36808a9ddc53e88e8a385fcc87ec32caf523845126cc721935683d1fb"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-06-15/ndvi_20m.tif",
+          "bytes": 2700356,
+          "sha256": "8a6e26362e9eab7fc42de71fedcd9ad01f3218c6a1dfdb289c091b4e3c7a9b91"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-06-15/rgb.webp",
+          "bytes": 65698,
+          "sha256": "fd0e4f53872f88ee13d42a7b81de9f9c27fffdf8f2360750622325f101dbc6bd"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-06-15/rgbnir_dn_20m.tif",
+          "bytes": 5558380,
+          "sha256": "98fd5370869c41f659cd02b05b83f3408c8fc87a8ccf543386539f3460bf6d33"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-06-15/scl_20m.tif",
+          "bytes": 37105,
+          "sha256": "8efbfa593ff150f7a4c8cc103d1080f429ffe592566ce167476d70d1dca96f49"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-06-15/source.stac.json",
+          "bytes": 33599,
+          "sha256": "572a49a8470e79e1108f18671b6158eb558a670b841df076d7bb61f09aa54b19"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-06-15/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "d5ca4059f7c53919d46bd0314b462c03ab0d000a0f66fa07a9e59e8bc3ce8233"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-06-15/sources.stac.json",
+          "bytes": 39490,
+          "sha256": "5d969dd5492e76d35332b9811832748d7ff0fd065dbb0e0817122e017b106325"
+        }
+      ],
+      "selection_window": [
+        "2026-06-01",
+        "2026-07-15"
+      ],
+      "all_aoi_at_least_80pct_valid": true
+    },
+    {
+      "processing_version": 2,
+      "region": "yanggu",
+      "period": "late_summer",
+      "scene_id": "S2C_52SDH_20260804_0_L2A",
+      "selection_window": [
+        "2026-07-16",
+        "2026-08-31"
+      ],
+      "source_ids": [
+        "S2C_52SDH_20260804_0_L2A"
+      ],
+      "acquired_utc": "2026-08-04T02:26:55.015000Z",
+      "catalog_cloud_percent": 34.296983,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        128.01715,
+        38.198831,
+        128.20225,
+        38.411352
+      ],
+      "grid_bounds_projected": [
+        413940,
+        4228160,
+        430360,
+        4251920
+      ],
+      "shape": [
+        1188,
+        821
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/8/S2C_52SDH_20260804_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/8/S2C_52SDH_20260804_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/8/S2C_52SDH_20260804_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/8/S2C_52SDH_20260804_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.82201,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.168773,
+        "region_shadow_fraction": 0.003602,
+        "aoi_clear_fraction": {
+          "yanggu-basin": 0.916025,
+          "yanggu-dmz": 0.98902,
+          "yanggu-forest": 0.679529,
+          "yanggu-north": 0.498524
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 2735,
+          "3": 778,
+          "4": 763490,
+          "5": 37981,
+          "6": 275,
+          "7": 5477,
+          "8": 75292,
+          "9": 89320,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "yanggu-basin": {
+          "total_pixels": 40500,
+          "clear_pixels": 37099,
+          "ndvi_valid_pixels": 37099,
+          "ndvi_valid_fraction": 0.916025,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.58475,
+          "ndvi_median": 0.602934
+        },
+        "yanggu-dmz": {
+          "total_pixels": 8925,
+          "clear_pixels": 8827,
+          "ndvi_valid_pixels": 8827,
+          "ndvi_valid_fraction": 0.98902,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.857805,
+          "ndvi_median": 0.893943
+        },
+        "yanggu-forest": {
+          "total_pixels": 26979,
+          "clear_pixels": 18333,
+          "ndvi_valid_pixels": 18333,
+          "ndvi_valid_fraction": 0.679529,
+          "recommended_for_comparison": false,
+          "ndvi_mean": 0.827384,
+          "ndvi_median": 0.876124
+        },
+        "yanggu-north": {
+          "total_pixels": 17951,
+          "clear_pixels": 8949,
+          "ndvi_valid_pixels": 8949,
+          "ndvi_valid_fraction": 0.498524,
+          "recommended_for_comparison": false,
+          "ndvi_mean": 0.839339,
+          "ndvi_median": 0.880464
+        }
+      },
+      "all_aoi_at_least_80pct_valid": false,
+      "qualified_all_aoi_at_90pct": false,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/yanggu/2026-08-04/ndvi.png",
+          "bytes": 408957,
+          "sha256": "49f9cd3fb9720a1309286e2ba7392299af361bfce2b483c5a688f22d6fbc0afa"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-08-04/ndvi_20m.tif",
+          "bytes": 2440730,
+          "sha256": "549d83140f50bb97c02eddb77c2dcee5754910309c26a4e0bb6c403de7ef6120"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-08-04/rgb.webp",
+          "bytes": 93304,
+          "sha256": "604cf7ef8a2601be87fdc559944c67429f68ac88f327558d9097db627523c051"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-08-04/rgbnir_dn_20m.tif",
+          "bytes": 5804564,
+          "sha256": "7622897135813d274b6f288db8eed4d8c911411c1d1dc4e06f4811a780eff885"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-08-04/scl_20m.tif",
+          "bytes": 64467,
+          "sha256": "cf71af00fc363342270be31a7dda81575763f54d5761df80c950fcab048eb3ba"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-08-04/source.stac.json",
+          "bytes": 33581,
+          "sha256": "b353bf0acac948df8bd165e3ad9fef9193d271e8417478f4bcb5619ec17e6e3e"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-08-04/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "d5ca4059f7c53919d46bd0314b462c03ab0d000a0f66fa07a9e59e8bc3ce8233"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-08-04/sources.stac.json",
+          "bytes": 39472,
+          "sha256": "f0ddffd54e2e1634e7bf48e4737a76b805e9778ed131894838a883786a3bf0f3"
+        }
+      ]
+    },
+    {
+      "processing_version": 2,
+      "region": "yanggu",
+      "period": "autumn",
+      "scene_id": "S2B_52SDH_20261008_0_L2A",
+      "selection_window": [
+        "2026-09-01",
+        "2026-10-31"
+      ],
+      "source_ids": [
+        "S2B_52SDH_20261008_0_L2A"
+      ],
+      "acquired_utc": "2026-10-08T02:26:53.722000Z",
+      "catalog_cloud_percent": 0.00146,
+      "processing_baseline": "05.13",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        128.01715,
+        38.198831,
+        128.20225,
+        38.411352
+      ],
+      "grid_bounds_projected": [
+        413940,
+        4228160,
+        430360,
+        4251920
+      ],
+      "shape": [
+        1188,
+        821
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/10/S2B_52SDH_20261008_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/10/S2B_52SDH_20261008_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/10/S2B_52SDH_20261008_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/DH/2026/10/S2B_52SDH_20261008_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.999592,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.0,
+        "region_shadow_fraction": 0.000408,
+        "aoi_clear_fraction": {
+          "yanggu-basin": 1.0,
+          "yanggu-dmz": 1.0,
+          "yanggu-forest": 1.0,
+          "yanggu-north": 1.0
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 398,
+          "3": 0,
+          "4": 932249,
+          "5": 42219,
+          "6": 482,
+          "7": 0,
+          "8": 0,
+          "9": 0,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "yanggu-basin": {
+          "total_pixels": 40500,
+          "clear_pixels": 40500,
+          "ndvi_valid_pixels": 40500,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.560779,
+          "ndvi_median": 0.58564
+        },
+        "yanggu-dmz": {
+          "total_pixels": 8925,
+          "clear_pixels": 8925,
+          "ndvi_valid_pixels": 8925,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.79441,
+          "ndvi_median": 0.813041
+        },
+        "yanggu-forest": {
+          "total_pixels": 26979,
+          "clear_pixels": 26979,
+          "ndvi_valid_pixels": 26979,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.799521,
+          "ndvi_median": 0.820704
+        },
+        "yanggu-north": {
+          "total_pixels": 17951,
+          "clear_pixels": 17951,
+          "ndvi_valid_pixels": 17951,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.723267,
+          "ndvi_median": 0.734039
+        }
+      },
+      "all_aoi_at_least_80pct_valid": true,
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/yanggu/2026-10-08/ndvi.png",
+          "bytes": 492654,
+          "sha256": "bac0379b49720f7ddb5d3d3d31f3bdfddbc2368899362cc2a05305b6ad6f2ebb"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-10-08/ndvi_20m.tif",
+          "bytes": 2923628,
+          "sha256": "d85366e4daf0c57ef8b8babb3bae3cf1396e057a1c962f75ad3fd905a31f8e81"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-10-08/rgb.webp",
+          "bytes": 84542,
+          "sha256": "92cac0b5419508c289e50d8109b98395a2e2639624d5b845b8178e3e87e3054d"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-10-08/rgbnir_dn_20m.tif",
+          "bytes": 5699872,
+          "sha256": "ee81a4453effd2a843d3cfd75be1d38cb60bbce472aef8dba06aa26599e18f2e"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-10-08/scl_20m.tif",
+          "bytes": 39167,
+          "sha256": "23c72def8af33828e122721690d70a25f78a6dc80a4960c43ae4d25313be613b"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-10-08/source.stac.json",
+          "bytes": 33621,
+          "sha256": "a8bbe50cf29f8c5e94157d67a1a95f7823445511f9f747795745276382a429ed"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-10-08/source_index_20m.tif",
+          "bytes": 2937,
+          "sha256": "d5ca4059f7c53919d46bd0314b462c03ab0d000a0f66fa07a9e59e8bc3ce8233"
+        },
+        {
+          "path": "sentinel2/yanggu/2026-10-08/sources.stac.json",
+          "bytes": 39512,
+          "sha256": "be707e0e24c55c7606be8f5ab2b82a625c785b18f9b2b38c4be54b1b55972a53"
+        }
+      ]
+    },
+    {
+      "processing_version": 2,
+      "region": "yeoncheon",
+      "period": "early_summer",
+      "scene_id": "S2C_52SCH_20260615_0_L2A",
+      "selection_window": [
+        "2026-06-01",
+        "2026-07-15"
+      ],
+      "source_ids": [
+        "S2C_52SCH_20260615_0_L2A"
+      ],
+      "acquired_utc": "2026-06-15T02:26:57.923000Z",
+      "catalog_cloud_percent": 3.445098,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        126.931288,
+        38.017508,
+        127.107818,
+        38.332714
+      ],
+      "grid_bounds_projected": [
+        318400,
+        4209440,
+        334620,
+        4244760
+      ],
+      "shape": [
+        1766,
+        811
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/6/S2C_52SCH_20260615_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.984926,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.001507,
+        "region_shadow_fraction": 0.003237,
+        "aoi_clear_fraction": {
+          "yeoncheon-dmz": 1.0,
+          "yeoncheon-farm": 0.950778,
+          "yeoncheon-forest": 0.992167,
+          "yeoncheon-north": 0.999944
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 2513,
+          "3": 2123,
+          "4": 1198085,
+          "5": 197118,
+          "6": 15434,
+          "7": 14794,
+          "8": 1677,
+          "9": 481,
+          "10": 1,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "yeoncheon-dmz": {
+          "total_pixels": 5400,
+          "clear_pixels": 5400,
+          "ndvi_valid_pixels": 5400,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.832972,
+          "ndvi_median": 0.871914
+        },
+        "yeoncheon-farm": {
+          "total_pixels": 9000,
+          "clear_pixels": 8557,
+          "ndvi_valid_pixels": 8557,
+          "ndvi_valid_fraction": 0.950778,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.450192,
+          "ndvi_median": 0.377267
+        },
+        "yeoncheon-forest": {
+          "total_pixels": 18000,
+          "clear_pixels": 17859,
+          "ndvi_valid_pixels": 17859,
+          "ndvi_valid_fraction": 0.992167,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.771346,
+          "ndvi_median": 0.883796
+        },
+        "yeoncheon-north": {
+          "total_pixels": 18000,
+          "clear_pixels": 17999,
+          "ndvi_valid_pixels": 17999,
+          "ndvi_valid_fraction": 0.999944,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.593367,
+          "ndvi_median": 0.608533
+        }
+      },
+      "all_aoi_at_least_80pct_valid": true,
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/yeoncheon/2026-06-15/ndvi.png",
+          "bytes": 512349,
+          "sha256": "7cd20925530226ca76ab1049ff0f0359da75f1eb36945eceb5e314501b20f8cc"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-06-15/ndvi_20m.tif",
+          "bytes": 4401530,
+          "sha256": "61a5386a834a8e4740dc1c7db3bf16fffdb6a50942c0f1c8c2547f1dc96a58f9"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-06-15/rgb.webp",
+          "bytes": 114792,
+          "sha256": "51ef42b2ebbe1b35ad892738854a3a9aa29cb3f8bddb2119a2efae817f0391cc"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-06-15/rgbnir_dn_20m.tif",
+          "bytes": 8614962,
+          "sha256": "de03e35333f0a05b4f1f38a120b6506f9347c1f6a250e30055d236e6e3183969"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-06-15/scl_20m.tif",
+          "bytes": 124767,
+          "sha256": "498b34efc8c35132daed2241d58bc576acde53f70c3cf2075962429abccfe043"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-06-15/source.stac.json",
+          "bytes": 33601,
+          "sha256": "fcd7673c58fab38f66d905cea47b1e21b296f315954394f5d00bb380c930799b"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-06-15/source_index_20m.tif",
+          "bytes": 3737,
+          "sha256": "84a07aaed29ecf44803ef327522626c92ce98409bae16efdc085fd7fbd20af8f"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-06-15/sources.stac.json",
+          "bytes": 39492,
+          "sha256": "b78661b34c9f186f492b3443b85ad5bb83a7b8163edbbd36e8444a00c53994b6"
+        }
+      ]
+    },
+    {
+      "processing_version": 2,
+      "region": "yeoncheon",
+      "period": "late_summer",
+      "scene_id": "S2C_52SCH_20260804_0_L2A",
+      "selection_window": [
+        "2026-07-16",
+        "2026-08-31"
+      ],
+      "source_ids": [
+        "S2C_52SCH_20260804_0_L2A"
+      ],
+      "acquired_utc": "2026-08-04T02:26:58.967000Z",
+      "catalog_cloud_percent": 11.246393,
+      "processing_baseline": "05.12",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        126.931288,
+        38.017508,
+        127.107818,
+        38.332714
+      ],
+      "grid_bounds_projected": [
+        318400,
+        4209440,
+        334620,
+        4244760
+      ],
+      "shape": [
+        1766,
+        811
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2C_52SCH_20260804_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2C_52SCH_20260804_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2C_52SCH_20260804_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/8/S2C_52SCH_20260804_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.976304,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.012929,
+        "region_shadow_fraction": 0.004634,
+        "aoi_clear_fraction": {
+          "yeoncheon-dmz": 1.0,
+          "yeoncheon-farm": 0.967556,
+          "yeoncheon-forest": 0.995278,
+          "yeoncheon-north": 1.0
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 3461,
+          "3": 3176,
+          "4": 1321937,
+          "5": 62232,
+          "6": 14119,
+          "7": 8784,
+          "8": 13443,
+          "9": 5074,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "yeoncheon-dmz": {
+          "total_pixels": 5400,
+          "clear_pixels": 5400,
+          "ndvi_valid_pixels": 5400,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.833892,
+          "ndvi_median": 0.859174
+        },
+        "yeoncheon-farm": {
+          "total_pixels": 9000,
+          "clear_pixels": 8708,
+          "ndvi_valid_pixels": 8708,
+          "ndvi_valid_fraction": 0.967556,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.696679,
+          "ndvi_median": 0.791955
+        },
+        "yeoncheon-forest": {
+          "total_pixels": 18000,
+          "clear_pixels": 17915,
+          "ndvi_valid_pixels": 17915,
+          "ndvi_valid_fraction": 0.995278,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.822842,
+          "ndvi_median": 0.864638
+        },
+        "yeoncheon-north": {
+          "total_pixels": 18000,
+          "clear_pixels": 18000,
+          "ndvi_valid_pixels": 18000,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.749638,
+          "ndvi_median": 0.792821
+        }
+      },
+      "all_aoi_at_least_80pct_valid": true,
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/yeoncheon/2026-08-04/ndvi.png",
+          "bytes": 473588,
+          "sha256": "8a90e4829b228346528f1eca0d9e0ac200cfca9dc36769728f10440e585cf133"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-08-04/ndvi_20m.tif",
+          "bytes": 4249076,
+          "sha256": "f16b321e58f04ad6197a42438b4f63ea768199326e4c8e01c77bb4caf12d21b6"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-08-04/rgb.webp",
+          "bytes": 101012,
+          "sha256": "2907d09b1018d49b9172f99dd65454dbea01380f504a309ffd4d942174b431e9"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-08-04/rgbnir_dn_20m.tif",
+          "bytes": 8426908,
+          "sha256": "05490b6732f5543aaaeedfa11b50653cf2230c62a1c5a0880a87de7609b94cad"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-08-04/scl_20m.tif",
+          "bytes": 77359,
+          "sha256": "effc963c00b2780fb964528e0f44e68d279da1580892f32146a2557bc1fe0a30"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-08-04/source.stac.json",
+          "bytes": 33575,
+          "sha256": "ce9e3623a7b1fa7fbe429cc15ec1e1f6f5179fc6b7355c16ebe1309e27df10de"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-08-04/source_index_20m.tif",
+          "bytes": 3737,
+          "sha256": "84a07aaed29ecf44803ef327522626c92ce98409bae16efdc085fd7fbd20af8f"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-08-04/sources.stac.json",
+          "bytes": 39466,
+          "sha256": "f79b6f8501aa43f2f06d1d3afa97caf8eccc4e4ed85ea04e785e39c6252cc853"
+        }
+      ]
+    },
+    {
+      "processing_version": 2,
+      "region": "yeoncheon",
+      "period": "autumn",
+      "scene_id": "S2B_52SCH_20261008_0_L2A",
+      "selection_window": [
+        "2026-09-01",
+        "2026-10-31"
+      ],
+      "source_ids": [
+        "S2B_52SCH_20261008_0_L2A"
+      ],
+      "acquired_utc": "2026-10-08T02:26:57.662000Z",
+      "catalog_cloud_percent": 6.6e-05,
+      "processing_baseline": "05.13",
+      "crs": "EPSG:32652",
+      "grid_resolution_m": 20,
+      "original_spectral_resolution_m": 10,
+      "bounds_wgs84": [
+        126.931288,
+        38.017508,
+        127.107818,
+        38.332714
+      ],
+      "grid_bounds_projected": [
+        318400,
+        4209440,
+        334620,
+        4244760
+      ],
+      "shape": [
+        1766,
+        811
+      ],
+      "scaling": {
+        "red": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B04.tif"
+          ]
+        },
+        "green": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B03.tif"
+          ]
+        },
+        "blue": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B02.tif"
+          ]
+        },
+        "nir": {
+          "scale": 0.0001,
+          "offset": 0.0,
+          "catalog_offset": -0.1,
+          "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+          "sources": [
+            "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B08.tif"
+          ]
+        }
+      },
+      "quality": {
+        "region_clear_fraction": 0.999617,
+        "region_covered_fraction": 1.0,
+        "region_cloud_fraction": 0.0,
+        "region_shadow_fraction": 0.000383,
+        "aoi_clear_fraction": {
+          "yeoncheon-dmz": 1.0,
+          "yeoncheon-farm": 1.0,
+          "yeoncheon-forest": 1.0,
+          "yeoncheon-north": 1.0
+        },
+        "scl_histogram": {
+          "0": 0,
+          "1": 0,
+          "2": 549,
+          "3": 0,
+          "4": 1241087,
+          "5": 175939,
+          "6": 14651,
+          "7": 0,
+          "8": 0,
+          "9": 0,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "aoi_stats": {
+        "yeoncheon-dmz": {
+          "total_pixels": 5400,
+          "clear_pixels": 5400,
+          "ndvi_valid_pixels": 5400,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.758278,
+          "ndvi_median": 0.797984
+        },
+        "yeoncheon-farm": {
+          "total_pixels": 9000,
+          "clear_pixels": 9000,
+          "ndvi_valid_pixels": 9000,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.484862,
+          "ndvi_median": 0.485474
+        },
+        "yeoncheon-forest": {
+          "total_pixels": 18000,
+          "clear_pixels": 18000,
+          "ndvi_valid_pixels": 18000,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.757795,
+          "ndvi_median": 0.825448
+        },
+        "yeoncheon-north": {
+          "total_pixels": 18000,
+          "clear_pixels": 18000,
+          "ndvi_valid_pixels": 18000,
+          "ndvi_valid_fraction": 1.0,
+          "recommended_for_comparison": true,
+          "ndvi_mean": 0.547606,
+          "ndvi_median": 0.557225
+        }
+      },
+      "all_aoi_at_least_80pct_valid": true,
+      "qualified_all_aoi_at_90pct": true,
+      "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+      "files": [
+        {
+          "path": "sentinel2/yeoncheon/2026-10-08/ndvi.png",
+          "bytes": 515673,
+          "sha256": "f0c03b372522a26e9523a39e652c9accec007e07d6afe11fe8e76d65794b014a"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-10-08/ndvi_20m.tif",
+          "bytes": 4444532,
+          "sha256": "5c976ba00e4334a8cbecee1ce5e4f7eef34b750d7652d7a5f86ab5f10b6cc63a"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-10-08/rgb.webp",
+          "bytes": 110392,
+          "sha256": "b4b33b02c16740fec9ac391e97798207d7243d6f5357679f4fd65fde6d891f6c"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-10-08/rgbnir_dn_20m.tif",
+          "bytes": 8551678,
+          "sha256": "358e72b95333851ed60c55409b0872c1ec5ebac0dc7773656f3c9db15311d0ac"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-10-08/scl_20m.tif",
+          "bytes": 109621,
+          "sha256": "c352341116f699f8a8238fc60747aaf95d428375ff37cb06180f11f8f259fc60"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-10-08/source.stac.json",
+          "bytes": 33601,
+          "sha256": "671d795148f6c6bf39fcab809c1e267f27c8c825779dbf7c561c42c3d48a017b"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-10-08/source_index_20m.tif",
+          "bytes": 3737,
+          "sha256": "84a07aaed29ecf44803ef327522626c92ce98409bae16efdc085fd7fbd20af8f"
+        },
+        {
+          "path": "sentinel2/yeoncheon/2026-10-08/sources.stac.json",
+          "bytes": 39492,
+          "sha256": "b663c2895bc44f36cf10168efec9640b53272ca274c9141b58aa4d80fc7d9364"
+        }
+      ]
+    }
+  ]
+}

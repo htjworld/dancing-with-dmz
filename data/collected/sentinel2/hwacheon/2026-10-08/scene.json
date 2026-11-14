@@ -1,0 +1,172 @@
+{
+  "processing_version": 2,
+  "region": "hwacheon",
+  "period": "autumn",
+  "scene_id": "S2B_52SCH_20261008_0_L2A",
+  "source_ids": [
+    "S2B_52SCH_20261008_0_L2A"
+  ],
+  "acquired_utc": "2026-10-08T02:26:57.662000Z",
+  "catalog_cloud_percent": 6.6e-05,
+  "processing_baseline": "05.13",
+  "crs": "EPSG:32652",
+  "grid_resolution_m": 20,
+  "original_spectral_resolution_m": 10,
+  "bounds_wgs84": [
+    127.616625,
+    38.197786,
+    127.84273,
+    38.382386
+  ],
+  "grid_bounds_projected": [
+    378860.0,
+    4228380.0,
+    398940.0,
+    4249160.0
+  ],
+  "shape": [
+    1039,
+    1004
+  ],
+  "scaling": {
+    "red": {
+      "scale": 0.0001,
+      "offset": 0.0,
+      "catalog_offset": -0.1,
+      "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+      "sources": [
+        "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B04.tif"
+      ]
+    },
+    "green": {
+      "scale": 0.0001,
+      "offset": 0.0,
+      "catalog_offset": -0.1,
+      "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+      "sources": [
+        "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B03.tif"
+      ]
+    },
+    "blue": {
+      "scale": 0.0001,
+      "offset": 0.0,
+      "catalog_offset": -0.1,
+      "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+      "sources": [
+        "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B02.tif"
+      ]
+    },
+    "nir": {
+      "scale": 0.0001,
+      "offset": 0.0,
+      "catalog_offset": -0.1,
+      "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+      "sources": [
+        "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B08.tif"
+      ]
+    }
+  },
+  "quality": {
+    "region_clear_fraction": 0.997241,
+    "region_covered_fraction": 1.0,
+    "region_cloud_fraction": 0.0,
+    "region_shadow_fraction": 0.002759,
+    "aoi_clear_fraction": {
+      "hwacheon-dmz": 0.995049,
+      "hwacheon-forest": 0.999611,
+      "hwacheon-north": 0.992717
+    },
+    "scl_histogram": {
+      "0": 0,
+      "1": 0,
+      "2": 2878,
+      "3": 0,
+      "4": 1002935,
+      "5": 31426,
+      "6": 5917,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    }
+  },
+  "aoi_stats": {
+    "hwacheon-dmz": {
+      "total_pixels": 16360,
+      "clear_pixels": 16279,
+      "ndvi_valid_pixels": 16279,
+      "ndvi_valid_fraction": 0.995049,
+      "ndvi_mean": 0.818776,
+      "ndvi_median": 0.829388,
+      "recommended_for_comparison": true
+    },
+    "hwacheon-forest": {
+      "total_pixels": 36029,
+      "clear_pixels": 36015,
+      "ndvi_valid_pixels": 36015,
+      "ndvi_valid_fraction": 0.999611,
+      "ndvi_mean": 0.799541,
+      "ndvi_median": 0.817683,
+      "recommended_for_comparison": true
+    },
+    "hwacheon-north": {
+      "total_pixels": 8925,
+      "clear_pixels": 8860,
+      "ndvi_valid_pixels": 8860,
+      "ndvi_valid_fraction": 0.992717,
+      "ndvi_mean": 0.49988,
+      "ndvi_median": 0.491373,
+      "recommended_for_comparison": true
+    }
+  },
+  "qualified_all_aoi_at_90pct": true,
+  "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+  "files": [
+    {
+      "path": "sentinel2/hwacheon/2026-10-08/ndvi.png",
+      "bytes": 498400,
+      "sha256": "a67abbd2a76bff1484bb588b6beb4c617154f29487cfa89737eaea933fd17305"
+    },
+    {
+      "path": "sentinel2/hwacheon/2026-10-08/ndvi_20m.tif",
+      "bytes": 3100166,
+      "sha256": "530393af39467114f0ba380b3ff1a0ae5b343e4ce286da234d720690c60e4a88"
+    },
+    {
+      "path": "sentinel2/hwacheon/2026-10-08/rgb.webp",
+      "bytes": 99520,
+      "sha256": "0f1ff89d830a92aee39a3633523c4915c0587171229a1a1e7d54c33969f7b56a"
+    },
+    {
+      "path": "sentinel2/hwacheon/2026-10-08/rgbnir_dn_20m.tif",
+      "bytes": 6151582,
+      "sha256": "8a82270ee89aedadf9a3d71619d9077b1d4148f10c814b085eedfc933610b7a6"
+    },
+    {
+      "path": "sentinel2/hwacheon/2026-10-08/scl_20m.tif",
+      "bytes": 32813,
+      "sha256": "e0189c089abe25ed1cd3a9bf786577179161b7447c78930cf3abff80edb5c68e"
+    },
+    {
+      "path": "sentinel2/hwacheon/2026-10-08/source.stac.json",
+      "bytes": 33601,
+      "sha256": "671d795148f6c6bf39fcab809c1e267f27c8c825779dbf7c561c42c3d48a017b"
+    },
+    {
+      "path": "sentinel2/hwacheon/2026-10-08/source_index_20m.tif",
+      "bytes": 2937,
+      "sha256": "0b5b78d42e82926c9e622880b0a3245f3f71dbbc9dfa71abdeaff70e5613a396"
+    },
+    {
+      "path": "sentinel2/hwacheon/2026-10-08/sources.stac.json",
+      "bytes": 39492,
+      "sha256": "b663c2895bc44f36cf10168efec9640b53272ca274c9141b58aa4d80fc7d9364"
+    }
+  ],
+  "selection_window": [
+    "2026-09-01",
+    "2026-10-31"
+  ],
+  "all_aoi_at_least_80pct_valid": true
+}

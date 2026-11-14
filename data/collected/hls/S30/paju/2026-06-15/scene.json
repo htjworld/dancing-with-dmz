@@ -1,0 +1,308 @@
+{
+  "product": "S30",
+  "collection": "hls2-s30",
+  "version": "2.0",
+  "region": "paju",
+  "period": "early_summer",
+  "selection_window": [
+    "2026-06-01",
+    "2026-07-15"
+  ],
+  "acquired_utc": "2026-06-15T02:27:16.162320Z",
+  "source_ids": [
+    "HLS.S30.T52SBG.2026166T021531.v2.0",
+    "HLS.S30.T52SBH.2026166T021531.v2.0"
+  ],
+  "source_acquisitions_utc": [
+    "2026-06-15T02:27:16.162320Z",
+    "2026-06-15T02:27:01.726690Z"
+  ],
+  "platforms": [
+    "sentinel-2c"
+  ],
+  "source_processing_software": [
+    {},
+    {}
+  ],
+  "doi": "10.5067/HLS/HLSS30.002",
+  "bounds_wgs84": [
+    126.649886,
+    37.736975,
+    126.829227,
+    38.063096
+  ],
+  "grid_bounds_utm": [
+    292890,
+    4178850,
+    309570,
+    4215450
+  ],
+  "crs": "EPSG:32652",
+  "resolution_m": 30,
+  "shape": [
+    1220,
+    556
+  ],
+  "band_order": {
+    "red": "B04",
+    "green": "B03",
+    "blue": "B02",
+    "nir_narrow": "B8A",
+    "swir1": "B11",
+    "swir2": "B12"
+  },
+  "scale": 0.0001,
+  "offset": 0,
+  "nodata": -9999,
+  "quality": {
+    "coverage_fraction": 1.0,
+    "clear_fraction": 0.6723847151786767,
+    "cloud_fraction": 0.003810885717655384,
+    "adjacent_cloud_shadow_fraction": 0.01966033730392735,
+    "shadow_fraction": 0.0028084090104965207,
+    "high_aerosol_fraction": 0.3013415497110508,
+    "aoi_clear_fraction": {
+      "paju-dmz_farm": 0.181667,
+      "paju-dmz_wild": 0.992917,
+      "paju-south": 0.831607,
+      "paju-north": 0.708667
+    }
+  },
+  "aoi_stats": {
+    "paju-dmz_farm": {
+      "total_pixels": 3600,
+      "qa_clear_fraction": 0.181667,
+      "ndvi": {
+        "valid_pixels": 654,
+        "valid_fraction": 0.181667,
+        "mean": 0.744315,
+        "median": 0.807785,
+        "recommended_for_comparison": false
+      },
+      "ndmi": {
+        "valid_pixels": 654,
+        "valid_fraction": 0.181667,
+        "mean": 0.294279,
+        "median": 0.348509,
+        "recommended_for_comparison": false
+      },
+      "mndwi": {
+        "valid_pixels": 654,
+        "valid_fraction": 0.181667,
+        "mean": -0.523173,
+        "median": -0.56337,
+        "recommended_for_comparison": false
+      }
+    },
+    "paju-dmz_wild": {
+      "total_pixels": 4800,
+      "qa_clear_fraction": 0.992917,
+      "ndvi": {
+        "valid_pixels": 4766,
+        "valid_fraction": 0.992917,
+        "mean": 0.851016,
+        "median": 0.871145,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 4766,
+        "valid_fraction": 0.992917,
+        "mean": 0.35577,
+        "median": 0.37197,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 4766,
+        "valid_fraction": 0.992917,
+        "mean": -0.577627,
+        "median": -0.583747,
+        "recommended_for_comparison": true
+      }
+    },
+    "paju-south": {
+      "total_pixels": 5600,
+      "qa_clear_fraction": 0.831607,
+      "ndvi": {
+        "valid_pixels": 4657,
+        "valid_fraction": 0.831607,
+        "mean": 0.662306,
+        "median": 0.717897,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 4657,
+        "valid_fraction": 0.831607,
+        "mean": 0.236441,
+        "median": 0.268696,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 4657,
+        "valid_fraction": 0.831607,
+        "mean": -0.48247,
+        "median": -0.506265,
+        "recommended_for_comparison": true
+      }
+    },
+    "paju-north": {
+      "total_pixels": 4500,
+      "qa_clear_fraction": 0.708667,
+      "ndvi": {
+        "valid_pixels": 3189,
+        "valid_fraction": 0.708667,
+        "mean": 0.556438,
+        "median": 0.524393,
+        "recommended_for_comparison": false
+      },
+      "ndmi": {
+        "valid_pixels": 3189,
+        "valid_fraction": 0.708667,
+        "mean": 0.100838,
+        "median": 0.072518,
+        "recommended_for_comparison": false
+      },
+      "mndwi": {
+        "valid_pixels": 3189,
+        "valid_fraction": 0.708667,
+        "mean": -0.505991,
+        "median": -0.525025,
+        "recommended_for_comparison": false
+      }
+    }
+  },
+  "all_aoi_at_least_80pct_ndvi_valid": false,
+  "nearest_nisar_date": "2026-06-23",
+  "calendar_day_difference_from_nisar": -8,
+  "source_geotiff_tags": {
+    "HLS.S30.T52SBG.2026166T021531.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBG_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:16.162324Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBG_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:16.162324Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBG_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:16.162324Z"
+      },
+      "B8A": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBG_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:16.162324Z"
+      },
+      "B11": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBG_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:16.162324Z"
+      },
+      "B12": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBG_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:16.162324Z"
+      }
+    },
+    "HLS.S30.T52SBH.2026166T021531.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:01.726692Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:01.726692Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:01.726692Z"
+      },
+      "B8A": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:01.726692Z"
+      },
+      "B11": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:01.726692Z"
+      },
+      "B12": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "PRODUCT_URI": "S2C_MSIL1C_20260615T021531_N0512_R003_T52SBH_20260615T040933.SAFE",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-06-15T02:27:01.726692Z"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "hls/S30/paju/2026-06-15/Fmask_30m.tif",
+      "bytes": 99160,
+      "sha256": "d4e80c1cb719f519acde9496cce435f433697641f528aa40a9847dfc40eb2388"
+    },
+    {
+      "path": "hls/S30/paju/2026-06-15/indices_30m.tif",
+      "bytes": 4753864,
+      "sha256": "22e5ee48bddf0cb460a5b00f5c9fc450c9593cbacb302ff34827b1ebe9c29de0"
+    },
+    {
+      "path": "hls/S30/paju/2026-06-15/ndvi.png",
+      "bytes": 372607,
+      "sha256": "13867d59b09e4a878efe88e647cfa6f4ca7a71cca938d72fdde9c5dcd0ac6e74"
+    },
+    {
+      "path": "hls/S30/paju/2026-06-15/quality.png",
+      "bytes": 34100,
+      "sha256": "3cc4dbbe83ba4f23e0d91fc1e15fbdb986cffe012d0ed28fb2f5e98b7eb92ebe"
+    },
+    {
+      "path": "hls/S30/paju/2026-06-15/reflectance_dn_30m.tif",
+      "bytes": 6079512,
+      "sha256": "137172fefd1128c6351a6554a615be116c0312ccfb23bb63ae3088dcf0b6b45b"
+    },
+    {
+      "path": "hls/S30/paju/2026-06-15/rgb.webp",
+      "bytes": 100948,
+      "sha256": "6f37b00a78fc3b42c397e574f2fb592c24ebf3f9890d3a10dc2af96c16d9ce61"
+    },
+    {
+      "path": "hls/S30/paju/2026-06-15/source_index_30m.tif",
+      "bytes": 3932,
+      "sha256": "3cdb683fded4888785bed40919366c9b243a9bfbb13853d11156d3b160d93398"
+    },
+    {
+      "path": "hls/S30/paju/2026-06-15/sources.stac.json",
+      "bytes": 26368,
+      "sha256": "25b935e8288c67edb81ea58d2ad20b52064259ff660fcc9adcc04c57494ca7fa"
+    }
+  ]
+}

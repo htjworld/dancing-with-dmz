@@ -1,0 +1,375 @@
+{
+  "source": "NASA POWER daily PRECTOTCORR",
+  "unit": "mm",
+  "time_standard": "LST",
+  "note": "Requeried at documented raster centers, Local Solar Time. Sum of current and preceding two LST calendar days; not strictly before satellite acquisition.",
+  "regions": {
+    "cheorwon": [
+      {
+        "cycle": 0,
+        "date": "2026-06-23",
+        "mm_day": 0.46,
+        "mm_3day": 4.96
+      },
+      {
+        "cycle": 1,
+        "date": "2026-07-05",
+        "mm_day": 10.37,
+        "mm_3day": 11.52
+      },
+      {
+        "cycle": 2,
+        "date": "2026-07-17",
+        "mm_day": 7.52,
+        "mm_3day": 13.04
+      },
+      {
+        "cycle": 3,
+        "date": "2026-07-29",
+        "mm_day": 0.0,
+        "mm_3day": 11.64
+      },
+      {
+        "cycle": 4,
+        "date": "2026-08-10",
+        "mm_day": 1.42,
+        "mm_3day": 8.2
+      },
+      {
+        "cycle": 5,
+        "date": "2026-08-22",
+        "mm_day": 34.62,
+        "mm_3day": 39.02
+      },
+      {
+        "cycle": 6,
+        "date": "2026-09-03",
+        "mm_day": 0.56,
+        "mm_3day": 14.12
+      },
+      {
+        "cycle": 7,
+        "date": "2026-09-15",
+        "mm_day": 0.11,
+        "mm_3day": 0.17
+      },
+      {
+        "cycle": 8,
+        "date": "2026-09-27",
+        "mm_day": 0.76,
+        "mm_3day": 2.38
+      },
+      {
+        "cycle": 9,
+        "date": "2026-10-09",
+        "mm_day": 0.0,
+        "mm_3day": 0.0
+      },
+      {
+        "cycle": 10,
+        "date": "2026-10-21",
+        "mm_day": 0.13,
+        "mm_3day": 0.16
+      }
+    ],
+    "hwacheon": [
+      {
+        "cycle": 0,
+        "date": "2026-06-23",
+        "mm_day": 0.46,
+        "mm_3day": 4.96
+      },
+      {
+        "cycle": 1,
+        "date": "2026-07-05",
+        "mm_day": 10.37,
+        "mm_3day": 11.52
+      },
+      {
+        "cycle": 2,
+        "date": "2026-07-17",
+        "mm_day": 7.52,
+        "mm_3day": 13.04
+      },
+      {
+        "cycle": 3,
+        "date": "2026-07-29",
+        "mm_day": 0.0,
+        "mm_3day": 11.64
+      },
+      {
+        "cycle": 4,
+        "date": "2026-08-10",
+        "mm_day": 1.42,
+        "mm_3day": 8.2
+      },
+      {
+        "cycle": 5,
+        "date": "2026-08-22",
+        "mm_day": 34.62,
+        "mm_3day": 39.02
+      },
+      {
+        "cycle": 6,
+        "date": "2026-09-03",
+        "mm_day": 0.56,
+        "mm_3day": 14.12
+      },
+      {
+        "cycle": 7,
+        "date": "2026-09-15",
+        "mm_day": 0.11,
+        "mm_3day": 0.17
+      },
+      {
+        "cycle": 8,
+        "date": "2026-09-27",
+        "mm_day": 0.76,
+        "mm_3day": 2.38
+      },
+      {
+        "cycle": 9,
+        "date": "2026-10-09",
+        "mm_day": 0.0,
+        "mm_3day": 0.0
+      },
+      {
+        "cycle": 10,
+        "date": "2026-10-21",
+        "mm_day": 0.13,
+        "mm_3day": 0.16
+      }
+    ],
+    "paju": [
+      {
+        "cycle": 0,
+        "date": "2026-06-23",
+        "mm_day": 0.8,
+        "mm_3day": 1.76
+      },
+      {
+        "cycle": 1,
+        "date": "2026-07-05",
+        "mm_day": 9.32,
+        "mm_3day": 11.04
+      },
+      {
+        "cycle": 2,
+        "date": "2026-07-17",
+        "mm_day": 13.71,
+        "mm_3day": 19.39
+      },
+      {
+        "cycle": 3,
+        "date": "2026-07-29",
+        "mm_day": 0.01,
+        "mm_3day": 8.48
+      },
+      {
+        "cycle": 4,
+        "date": "2026-08-10",
+        "mm_day": 0.54,
+        "mm_3day": 11.05
+      },
+      {
+        "cycle": 5,
+        "date": "2026-08-22",
+        "mm_day": 61.34,
+        "mm_3day": 77.85
+      },
+      {
+        "cycle": 6,
+        "date": "2026-09-03",
+        "mm_day": 0.02,
+        "mm_3day": 8.98
+      },
+      {
+        "cycle": 7,
+        "date": "2026-09-15",
+        "mm_day": 0.02,
+        "mm_3day": 0.03
+      },
+      {
+        "cycle": 8,
+        "date": "2026-09-27",
+        "mm_day": 0.19,
+        "mm_3day": 4.75
+      },
+      {
+        "cycle": 9,
+        "date": "2026-10-09",
+        "mm_day": 0.0,
+        "mm_3day": 0.0
+      },
+      {
+        "cycle": 10,
+        "date": "2026-10-21",
+        "mm_day": 0.01,
+        "mm_3day": 0.02
+      }
+    ],
+    "yanggu": [
+      {
+        "cycle": 0,
+        "date": "2026-06-23",
+        "mm_day": 0.23,
+        "mm_3day": 6.05
+      },
+      {
+        "cycle": 1,
+        "date": "2026-07-05",
+        "mm_day": 8.91,
+        "mm_3day": 9.62
+      },
+      {
+        "cycle": 2,
+        "date": "2026-07-17",
+        "mm_day": 6.48,
+        "mm_3day": 16.28
+      },
+      {
+        "cycle": 3,
+        "date": "2026-07-29",
+        "mm_day": 0.0,
+        "mm_3day": 10.72
+      },
+      {
+        "cycle": 4,
+        "date": "2026-08-10",
+        "mm_day": 1.66,
+        "mm_3day": 8.62
+      },
+      {
+        "cycle": 5,
+        "date": "2026-08-22",
+        "mm_day": 31.19,
+        "mm_3day": 34.65
+      },
+      {
+        "cycle": 6,
+        "date": "2026-09-03",
+        "mm_day": 0.57,
+        "mm_3day": 21.06
+      },
+      {
+        "cycle": 7,
+        "date": "2026-09-15",
+        "mm_day": 0.12,
+        "mm_3day": 0.27
+      },
+      {
+        "cycle": 8,
+        "date": "2026-09-27",
+        "mm_day": 0.47,
+        "mm_3day": 1.99
+      },
+      {
+        "cycle": 9,
+        "date": "2026-10-09",
+        "mm_day": 0.0,
+        "mm_3day": 0.0
+      },
+      {
+        "cycle": 10,
+        "date": "2026-10-21",
+        "mm_day": 0.08,
+        "mm_3day": 0.09
+      }
+    ],
+    "yeoncheon": [
+      {
+        "cycle": 0,
+        "date": "2026-06-23",
+        "mm_day": 0.8,
+        "mm_3day": 1.76
+      },
+      {
+        "cycle": 1,
+        "date": "2026-07-05",
+        "mm_day": 9.32,
+        "mm_3day": 11.04
+      },
+      {
+        "cycle": 2,
+        "date": "2026-07-17",
+        "mm_day": 13.71,
+        "mm_3day": 19.39
+      },
+      {
+        "cycle": 3,
+        "date": "2026-07-29",
+        "mm_day": 0.01,
+        "mm_3day": 8.48
+      },
+      {
+        "cycle": 4,
+        "date": "2026-08-10",
+        "mm_day": 0.54,
+        "mm_3day": 11.05
+      },
+      {
+        "cycle": 5,
+        "date": "2026-08-22",
+        "mm_day": 61.34,
+        "mm_3day": 77.85
+      },
+      {
+        "cycle": 6,
+        "date": "2026-09-03",
+        "mm_day": 0.02,
+        "mm_3day": 8.98
+      },
+      {
+        "cycle": 7,
+        "date": "2026-09-15",
+        "mm_day": 0.02,
+        "mm_3day": 0.03
+      },
+      {
+        "cycle": 8,
+        "date": "2026-09-27",
+        "mm_day": 0.19,
+        "mm_3day": 4.75
+      },
+      {
+        "cycle": 9,
+        "date": "2026-10-09",
+        "mm_day": 0.0,
+        "mm_3day": 0.0
+      },
+      {
+        "cycle": 10,
+        "date": "2026-10-21",
+        "mm_day": 0.01,
+        "mm_3day": 0.02
+      }
+    ]
+  },
+  "queries": {
+    "cheorwon": {
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=127.309785&latitude=38.285121&start=20260621&end=20261021&format=JSON&time-standard=LST",
+      "longitude": 127.309785,
+      "latitude": 38.285121
+    },
+    "hwacheon": {
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=127.729817&latitude=38.290082&start=20260621&end=20261021&format=JSON&time-standard=LST",
+      "longitude": 127.729817,
+      "latitude": 38.290082
+    },
+    "paju": {
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=126.739741&latitude=37.900026&start=20260621&end=20261021&format=JSON&time-standard=LST",
+      "longitude": 126.739741,
+      "latitude": 37.900026
+    },
+    "yanggu": {
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=128.109832&latitude=38.305089&start=20260621&end=20261021&format=JSON&time-standard=LST",
+      "longitude": 128.109832,
+      "latitude": 38.305089
+    },
+    "yeoncheon": {
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=127.019732&latitude=38.175103&start=20260621&end=20261021&format=JSON&time-standard=LST",
+      "longitude": 127.019732,
+      "latitude": 38.175103
+    }
+  }
+}

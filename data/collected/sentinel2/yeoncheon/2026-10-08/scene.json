@@ -1,0 +1,182 @@
+{
+  "processing_version": 2,
+  "region": "yeoncheon",
+  "period": "autumn",
+  "scene_id": "S2B_52SCH_20261008_0_L2A",
+  "selection_window": [
+    "2026-09-01",
+    "2026-10-31"
+  ],
+  "source_ids": [
+    "S2B_52SCH_20261008_0_L2A"
+  ],
+  "acquired_utc": "2026-10-08T02:26:57.662000Z",
+  "catalog_cloud_percent": 6.6e-05,
+  "processing_baseline": "05.13",
+  "crs": "EPSG:32652",
+  "grid_resolution_m": 20,
+  "original_spectral_resolution_m": 10,
+  "bounds_wgs84": [
+    126.931288,
+    38.017508,
+    127.107818,
+    38.332714
+  ],
+  "grid_bounds_projected": [
+    318400,
+    4209440,
+    334620,
+    4244760
+  ],
+  "shape": [
+    1766,
+    811
+  ],
+  "scaling": {
+    "red": {
+      "scale": 0.0001,
+      "offset": 0.0,
+      "catalog_offset": -0.1,
+      "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+      "sources": [
+        "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B04.tif"
+      ]
+    },
+    "green": {
+      "scale": 0.0001,
+      "offset": 0.0,
+      "catalog_offset": -0.1,
+      "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+      "sources": [
+        "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B03.tif"
+      ]
+    },
+    "blue": {
+      "scale": 0.0001,
+      "offset": 0.0,
+      "catalog_offset": -0.1,
+      "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+      "sources": [
+        "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B02.tif"
+      ]
+    },
+    "nir": {
+      "scale": 0.0001,
+      "offset": 0.0,
+      "catalog_offset": -0.1,
+      "reason": "COG already harmonized; earthsearch:boa_offset_applied=true; Collection-1 comparison in sentinel2/metadata/radiometry-check.json",
+      "sources": [
+        "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/52/S/CH/2026/10/S2B_52SCH_20261008_0_L2A/B08.tif"
+      ]
+    }
+  },
+  "quality": {
+    "region_clear_fraction": 0.999617,
+    "region_covered_fraction": 1.0,
+    "region_cloud_fraction": 0.0,
+    "region_shadow_fraction": 0.000383,
+    "aoi_clear_fraction": {
+      "yeoncheon-dmz": 1.0,
+      "yeoncheon-farm": 1.0,
+      "yeoncheon-forest": 1.0,
+      "yeoncheon-north": 1.0
+    },
+    "scl_histogram": {
+      "0": 0,
+      "1": 0,
+      "2": 549,
+      "3": 0,
+      "4": 1241087,
+      "5": 175939,
+      "6": 14651,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    }
+  },
+  "aoi_stats": {
+    "yeoncheon-dmz": {
+      "total_pixels": 5400,
+      "clear_pixels": 5400,
+      "ndvi_valid_pixels": 5400,
+      "ndvi_valid_fraction": 1.0,
+      "recommended_for_comparison": true,
+      "ndvi_mean": 0.758278,
+      "ndvi_median": 0.797984
+    },
+    "yeoncheon-farm": {
+      "total_pixels": 9000,
+      "clear_pixels": 9000,
+      "ndvi_valid_pixels": 9000,
+      "ndvi_valid_fraction": 1.0,
+      "recommended_for_comparison": true,
+      "ndvi_mean": 0.484862,
+      "ndvi_median": 0.485474
+    },
+    "yeoncheon-forest": {
+      "total_pixels": 18000,
+      "clear_pixels": 18000,
+      "ndvi_valid_pixels": 18000,
+      "ndvi_valid_fraction": 1.0,
+      "recommended_for_comparison": true,
+      "ndvi_mean": 0.757795,
+      "ndvi_median": 0.825448
+    },
+    "yeoncheon-north": {
+      "total_pixels": 18000,
+      "clear_pixels": 18000,
+      "ndvi_valid_pixels": 18000,
+      "ndvi_valid_fraction": 1.0,
+      "recommended_for_comparison": true,
+      "ndvi_mean": 0.547606,
+      "ndvi_median": 0.557225
+    }
+  },
+  "all_aoi_at_least_80pct_valid": true,
+  "qualified_all_aoi_at_90pct": true,
+  "display_rgb": "All pixels, gamma 1/1.7, reflectance 0..0.3; clouds not painted out",
+  "files": [
+    {
+      "path": "sentinel2/yeoncheon/2026-10-08/ndvi.png",
+      "bytes": 515673,
+      "sha256": "f0c03b372522a26e9523a39e652c9accec007e07d6afe11fe8e76d65794b014a"
+    },
+    {
+      "path": "sentinel2/yeoncheon/2026-10-08/ndvi_20m.tif",
+      "bytes": 4444532,
+      "sha256": "5c976ba00e4334a8cbecee1ce5e4f7eef34b750d7652d7a5f86ab5f10b6cc63a"
+    },
+    {
+      "path": "sentinel2/yeoncheon/2026-10-08/rgb.webp",
+      "bytes": 110392,
+      "sha256": "b4b33b02c16740fec9ac391e97798207d7243d6f5357679f4fd65fde6d891f6c"
+    },
+    {
+      "path": "sentinel2/yeoncheon/2026-10-08/rgbnir_dn_20m.tif",
+      "bytes": 8551678,
+      "sha256": "358e72b95333851ed60c55409b0872c1ec5ebac0dc7773656f3c9db15311d0ac"
+    },
+    {
+      "path": "sentinel2/yeoncheon/2026-10-08/scl_20m.tif",
+      "bytes": 109621,
+      "sha256": "c352341116f699f8a8238fc60747aaf95d428375ff37cb06180f11f8f259fc60"
+    },
+    {
+      "path": "sentinel2/yeoncheon/2026-10-08/source.stac.json",
+      "bytes": 33601,
+      "sha256": "671d795148f6c6bf39fcab809c1e267f27c8c825779dbf7c561c42c3d48a017b"
+    },
+    {
+      "path": "sentinel2/yeoncheon/2026-10-08/source_index_20m.tif",
+      "bytes": 3737,
+      "sha256": "84a07aaed29ecf44803ef327522626c92ce98409bae16efdc085fd7fbd20af8f"
+    },
+    {
+      "path": "sentinel2/yeoncheon/2026-10-08/sources.stac.json",
+      "bytes": 39492,
+      "sha256": "b663c2895bc44f36cf10168efec9640b53272ca274c9141b58aa4d80fc7d9364"
+    }
+  ]
+}

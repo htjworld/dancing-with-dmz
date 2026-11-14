@@ -1,0 +1,4475 @@
+{
+  "resolution_m": 30,
+  "nodata": null,
+  "note": "Each *_for_comparison is null when index-valid pixels cover <80% of that AOI. Means remain in the nested record for audit. This is a review heuristic, not validated ground truth.",
+  "rows": [
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_flat",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": 0.853045,
+        "median": 0.868243,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.853045,
+      "ndmi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": 0.358275,
+        "median": 0.380666,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.358275,
+      "mndwi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": -0.516759,
+        "median": -0.514179,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.516759
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_flat",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.894886,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 1575,
+        "valid_fraction": 0.894886,
+        "mean": 0.853387,
+        "median": 0.86816,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.853387,
+      "ndmi": {
+        "valid_pixels": 1575,
+        "valid_fraction": 0.894886,
+        "mean": 0.381417,
+        "median": 0.406112,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.381417,
+      "mndwi": {
+        "valid_pixels": 1575,
+        "valid_fraction": 0.894886,
+        "mean": -0.512418,
+        "median": -0.511111,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.512418
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_flat",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.034659,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 61,
+        "valid_fraction": 0.034659,
+        "mean": 0.888002,
+        "median": 0.891878,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 61,
+        "valid_fraction": 0.034659,
+        "mean": 0.371339,
+        "median": 0.370646,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 61,
+        "valid_fraction": 0.034659,
+        "mean": -0.603428,
+        "median": -0.613577,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_flat",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": 0.860005,
+        "median": 0.869369,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.860005,
+      "ndmi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": 0.301049,
+        "median": 0.309731,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.301049,
+      "mndwi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": -0.59611,
+        "median": -0.596205,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.59611
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_flat",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": 0.556932,
+        "median": 0.549611,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.556932,
+      "ndmi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": -0.084264,
+        "median": -0.10521,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.084264,
+      "mndwi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": -0.656299,
+        "median": -0.662222,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.656299
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_flat",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": 0.462946,
+        "median": 0.45864,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.462946,
+      "ndmi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": -0.162613,
+        "median": -0.182101,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.162613,
+      "mndwi": {
+        "valid_pixels": 1760,
+        "valid_fraction": 1.0,
+        "mean": -0.668965,
+        "median": -0.677933,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.668965
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_hill",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.833573,
+        "median": 0.874111,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.833573,
+      "ndmi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.352748,
+        "median": 0.387621,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.352748,
+      "mndwi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": -0.536741,
+        "median": -0.542917,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.536741
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_hill",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.83679,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 3389,
+        "valid_fraction": 0.83679,
+        "mean": 0.832701,
+        "median": 0.876577,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.832701,
+      "ndmi": {
+        "valid_pixels": 3389,
+        "valid_fraction": 0.83679,
+        "mean": 0.372962,
+        "median": 0.414384,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.372962,
+      "mndwi": {
+        "valid_pixels": 3389,
+        "valid_fraction": 0.83679,
+        "mean": -0.528106,
+        "median": -0.53198,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.528106
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_hill",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.180247,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 730,
+        "valid_fraction": 0.180247,
+        "mean": 0.837016,
+        "median": 0.87382,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 730,
+        "valid_fraction": 0.180247,
+        "mean": 0.316701,
+        "median": 0.341483,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 730,
+        "valid_fraction": 0.180247,
+        "mean": -0.578648,
+        "median": -0.589944,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_hill",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.850067,
+        "median": 0.880226,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.850067,
+      "ndmi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.310194,
+        "median": 0.326467,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.310194,
+      "mndwi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": -0.599716,
+        "median": -0.614847,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.599716
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_hill",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.599176,
+        "median": 0.617625,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.599176,
+      "ndmi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.001021,
+        "median": -0.006238,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.001021,
+      "mndwi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": -0.623956,
+        "median": -0.633132,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.623956
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-dmz_hill",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": 0.495522,
+        "median": 0.503632,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.495522,
+      "ndmi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": -0.088437,
+        "median": -0.105789,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.088437,
+      "mndwi": {
+        "valid_pixels": 4050,
+        "valid_fraction": 1.0,
+        "mean": -0.636113,
+        "median": -0.646267,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.636113
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.968437,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 9297,
+        "valid_fraction": 0.968437,
+        "mean": 0.85212,
+        "median": 0.865747,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.85212,
+      "ndmi": {
+        "valid_pixels": 9297,
+        "valid_fraction": 0.968437,
+        "mean": 0.360083,
+        "median": 0.371459,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.360083,
+      "mndwi": {
+        "valid_pixels": 9297,
+        "valid_fraction": 0.968437,
+        "mean": -0.531186,
+        "median": -0.536383,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.531186
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.566146,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 5435,
+        "valid_fraction": 0.566146,
+        "mean": 0.842484,
+        "median": 0.860287,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 5435,
+        "valid_fraction": 0.566146,
+        "mean": 0.372595,
+        "median": 0.391507,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 5435,
+        "valid_fraction": 0.566146,
+        "mean": -0.519224,
+        "median": -0.52518,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.286146,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 2747,
+        "valid_fraction": 0.286146,
+        "mean": 0.856442,
+        "median": 0.866213,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 2747,
+        "valid_fraction": 0.286146,
+        "mean": 0.335661,
+        "median": 0.33774,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 2747,
+        "valid_fraction": 0.286146,
+        "mean": -0.569423,
+        "median": -0.578118,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.824271,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 7913,
+        "valid_fraction": 0.824271,
+        "mean": 0.856577,
+        "median": 0.866387,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.856577,
+      "ndmi": {
+        "valid_pixels": 7913,
+        "valid_fraction": 0.824271,
+        "mean": 0.31799,
+        "median": 0.316893,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.31799,
+      "mndwi": {
+        "valid_pixels": 7913,
+        "valid_fraction": 0.824271,
+        "mean": -0.588437,
+        "median": -0.598862,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.588437
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 0.997708,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 9578,
+        "valid_fraction": 0.997708,
+        "mean": 0.640004,
+        "median": 0.648856,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.640004,
+      "ndmi": {
+        "valid_pixels": 9578,
+        "valid_fraction": 0.997708,
+        "mean": 0.091576,
+        "median": 0.084113,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.091576,
+      "mndwi": {
+        "valid_pixels": 9578,
+        "valid_fraction": 0.997708,
+        "mean": -0.587506,
+        "median": -0.595066,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.587506
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 9600,
+        "valid_fraction": 1.0,
+        "mean": 0.557685,
+        "median": 0.556113,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.557685,
+      "ndmi": {
+        "valid_pixels": 9600,
+        "valid_fraction": 1.0,
+        "mean": 0.013659,
+        "median": 0.000652,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.013659,
+      "mndwi": {
+        "valid_pixels": 9600,
+        "valid_fraction": 1.0,
+        "mean": -0.604375,
+        "median": -0.609723,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.604375
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-north",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.25449,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 1247,
+        "valid_fraction": 0.25449,
+        "mean": 0.523795,
+        "median": 0.5258,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 1247,
+        "valid_fraction": 0.25449,
+        "mean": 0.112086,
+        "median": 0.108978,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 1247,
+        "valid_fraction": 0.25449,
+        "mean": -0.464413,
+        "median": -0.482904,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-north",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.158367,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 776,
+        "valid_fraction": 0.158367,
+        "mean": 0.450596,
+        "median": 0.438501,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 776,
+        "valid_fraction": 0.158367,
+        "mean": 0.063124,
+        "median": 0.051091,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 776,
+        "valid_fraction": 0.158367,
+        "mean": -0.441887,
+        "median": -0.452975,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-north",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.390204,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 1912,
+        "valid_fraction": 0.390204,
+        "mean": 0.749783,
+        "median": 0.773287,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 1911,
+        "valid_fraction": 0.39,
+        "mean": 0.276665,
+        "median": 0.282949,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 1911,
+        "valid_fraction": 0.39,
+        "mean": -0.482358,
+        "median": -0.495733,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-north",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.99449,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 4873,
+        "valid_fraction": 0.99449,
+        "mean": 0.738734,
+        "median": 0.78252,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.738734,
+      "ndmi": {
+        "valid_pixels": 4873,
+        "valid_fraction": 0.99449,
+        "mean": 0.289607,
+        "median": 0.301653,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.289607,
+      "mndwi": {
+        "valid_pixels": 4873,
+        "valid_fraction": 0.99449,
+        "mean": -0.45403,
+        "median": -0.465087,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.45403
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-north",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 4894,
+        "valid_fraction": 0.998776,
+        "mean": 0.37096,
+        "median": 0.362631,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.37096,
+      "ndmi": {
+        "valid_pixels": 4891,
+        "valid_fraction": 0.998163,
+        "mean": -0.05358,
+        "median": -0.067186,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.05358,
+      "mndwi": {
+        "valid_pixels": 4891,
+        "valid_fraction": 0.998163,
+        "mean": -0.512022,
+        "median": -0.520981,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.512022
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-north",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 4900,
+        "valid_fraction": 1.0,
+        "mean": 0.330018,
+        "median": 0.323663,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.330018,
+      "ndmi": {
+        "valid_pixels": 4900,
+        "valid_fraction": 1.0,
+        "mean": -0.120137,
+        "median": -0.133142,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.120137,
+      "mndwi": {
+        "valid_pixels": 4900,
+        "valid_fraction": 1.0,
+        "mean": -0.543754,
+        "median": -0.549916,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.543754
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-paddy",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.296,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 3552,
+        "valid_fraction": 0.296,
+        "mean": 0.618209,
+        "median": 0.609673,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 3552,
+        "valid_fraction": 0.296,
+        "mean": 0.206683,
+        "median": 0.198125,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 3552,
+        "valid_fraction": 0.296,
+        "mean": -0.444294,
+        "median": -0.469392,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-paddy",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.09075,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 1089,
+        "valid_fraction": 0.09075,
+        "mean": 0.565966,
+        "median": 0.556594,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 1089,
+        "valid_fraction": 0.09075,
+        "mean": 0.149885,
+        "median": 0.121549,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 1089,
+        "valid_fraction": 0.09075,
+        "mean": -0.45217,
+        "median": -0.45657,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-paddy",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.167583,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 2011,
+        "valid_fraction": 0.167583,
+        "mean": 0.773635,
+        "median": 0.797819,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 2011,
+        "valid_fraction": 0.167583,
+        "mean": 0.358097,
+        "median": 0.372102,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 2011,
+        "valid_fraction": 0.167583,
+        "mean": -0.453979,
+        "median": -0.446344,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-paddy",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.989583,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 11875,
+        "valid_fraction": 0.989583,
+        "mean": 0.775798,
+        "median": 0.807425,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.775798,
+      "ndmi": {
+        "valid_pixels": 11875,
+        "valid_fraction": 0.989583,
+        "mean": 0.385735,
+        "median": 0.40787,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.385735,
+      "mndwi": {
+        "valid_pixels": 11875,
+        "valid_fraction": 0.989583,
+        "mean": -0.430744,
+        "median": -0.417544,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.430744
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-paddy",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 0.990583,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 11887,
+        "valid_fraction": 0.990583,
+        "mean": 0.313356,
+        "median": 0.277131,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.313356,
+      "ndmi": {
+        "valid_pixels": 11883,
+        "valid_fraction": 0.99025,
+        "mean": -0.096935,
+        "median": -0.120088,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.096935,
+      "mndwi": {
+        "valid_pixels": 11883,
+        "valid_fraction": 0.99025,
+        "mean": -0.486489,
+        "median": -0.495368,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.486489
+    },
+    {
+      "region": "cheorwon",
+      "aoi": "cheorwon-paddy",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 0.998,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 11976,
+        "valid_fraction": 0.998,
+        "mean": 0.277584,
+        "median": 0.252197,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.277584,
+      "ndmi": {
+        "valid_pixels": 11976,
+        "valid_fraction": 0.998,
+        "mean": -0.165205,
+        "median": -0.182763,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.165205,
+      "mndwi": {
+        "valid_pixels": 11976,
+        "valid_fraction": 0.998,
+        "mean": -0.518226,
+        "median": -0.523672,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.518226
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.999722,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 7198,
+        "valid_fraction": 0.999722,
+        "mean": 0.879225,
+        "median": 0.887465,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.879225,
+      "ndmi": {
+        "valid_pixels": 7198,
+        "valid_fraction": 0.999722,
+        "mean": 0.412632,
+        "median": 0.417322,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.412632,
+      "mndwi": {
+        "valid_pixels": 7198,
+        "valid_fraction": 0.999722,
+        "mean": -0.548967,
+        "median": -0.553218,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.548967
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.997083,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 7179,
+        "valid_fraction": 0.997083,
+        "mean": 0.878793,
+        "median": 0.884524,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.878793,
+      "ndmi": {
+        "valid_pixels": 7179,
+        "valid_fraction": 0.997083,
+        "mean": 0.440154,
+        "median": 0.443979,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.440154,
+      "mndwi": {
+        "valid_pixels": 7179,
+        "valid_fraction": 0.997083,
+        "mean": -0.533927,
+        "median": -0.53742,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.533927
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.435694,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 3137,
+        "valid_fraction": 0.435694,
+        "mean": 0.868528,
+        "median": 0.886846,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 3137,
+        "valid_fraction": 0.435694,
+        "mean": 0.37013,
+        "median": 0.379462,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 3137,
+        "valid_fraction": 0.435694,
+        "mean": -0.58392,
+        "median": -0.59528,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-08-12T02:04:08.524173Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026224T020408.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": 2,
+      "ndvi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": 0.883317,
+        "median": 0.891892,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.883317,
+      "ndmi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": 0.375767,
+        "median": 0.381899,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.375767,
+      "mndwi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": -0.602026,
+        "median": -0.611136,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.602026
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": 0.540796,
+        "median": 0.534862,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.540796,
+      "ndmi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": 0.007843,
+        "median": 0.000381,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.007843,
+      "mndwi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": -0.624355,
+        "median": -0.630036,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.624355
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-10-31T02:04:35.393723Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026304T020435.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 10,
+      "ndvi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": 0.489817,
+        "median": 0.489375,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.489817,
+      "ndmi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": 0.008234,
+        "median": -0.002865,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.008234,
+      "mndwi": {
+        "valid_pixels": 7200,
+        "valid_fraction": 1.0,
+        "mean": -0.549203,
+        "median": -0.577605,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.549203
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": 0.887811,
+        "median": 0.897308,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.887811,
+      "ndmi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": 0.404073,
+        "median": 0.411327,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.404073,
+      "mndwi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": -0.586507,
+        "median": -0.591257,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.586507
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.546125,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 8738,
+        "valid_fraction": 0.546125,
+        "mean": 0.87378,
+        "median": 0.885394,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 8738,
+        "valid_fraction": 0.546125,
+        "mean": 0.433774,
+        "median": 0.44366,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 8738,
+        "valid_fraction": 0.546125,
+        "mean": -0.545988,
+        "median": -0.550186,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.328375,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 5254,
+        "valid_fraction": 0.328375,
+        "mean": 0.895359,
+        "median": 0.904172,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 5254,
+        "valid_fraction": 0.328375,
+        "mean": 0.395947,
+        "median": 0.40038,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 5254,
+        "valid_fraction": 0.328375,
+        "mean": -0.62342,
+        "median": -0.632698,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-08-12T02:04:08.524173Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026224T020408.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": 2,
+      "ndvi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": 0.891296,
+        "median": 0.901431,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.891296,
+      "ndmi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": 0.379639,
+        "median": 0.386401,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.379639,
+      "mndwi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": -0.632042,
+        "median": -0.642857,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.632042
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": 0.501546,
+        "median": 0.49733,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.501546,
+      "ndmi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": -0.064863,
+        "median": -0.07085,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.064863,
+      "mndwi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": -0.672336,
+        "median": -0.675176,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.672336
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-10-31T02:04:35.393723Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026304T020435.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 10,
+      "ndvi": {
+        "valid_pixels": 16000,
+        "valid_fraction": 1.0,
+        "mean": 0.462823,
+        "median": 0.459581,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.462823,
+      "ndmi": {
+        "valid_pixels": 15999,
+        "valid_fraction": 0.999938,
+        "mean": -0.055677,
+        "median": -0.065116,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.055677,
+      "mndwi": {
+        "valid_pixels": 15999,
+        "valid_fraction": 0.999938,
+        "mean": -0.597147,
+        "median": -0.615361,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.597147
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-north",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.985,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 3940,
+        "valid_fraction": 0.985,
+        "mean": 0.622459,
+        "median": 0.616007,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.622459,
+      "ndmi": {
+        "valid_pixels": 3940,
+        "valid_fraction": 0.985,
+        "mean": 0.197274,
+        "median": 0.184397,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.197274,
+      "mndwi": {
+        "valid_pixels": 3940,
+        "valid_fraction": 0.985,
+        "mean": -0.476112,
+        "median": -0.495014,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.476112
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-north",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.8915,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 3566,
+        "valid_fraction": 0.8915,
+        "mean": 0.615131,
+        "median": 0.602991,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.615131,
+      "ndmi": {
+        "valid_pixels": 3566,
+        "valid_fraction": 0.8915,
+        "mean": 0.213583,
+        "median": 0.197878,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.213583,
+      "mndwi": {
+        "valid_pixels": 3566,
+        "valid_fraction": 0.8915,
+        "mean": -0.454312,
+        "median": -0.467408,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.454312
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-north",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.98125,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 3925,
+        "valid_fraction": 0.98125,
+        "mean": 0.764928,
+        "median": 0.821999,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.764928,
+      "ndmi": {
+        "valid_pixels": 3925,
+        "valid_fraction": 0.98125,
+        "mean": 0.293037,
+        "median": 0.320829,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.293037,
+      "mndwi": {
+        "valid_pixels": 3925,
+        "valid_fraction": 0.98125,
+        "mean": -0.514177,
+        "median": -0.543491,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.514177
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-north",
+      "product": "L30",
+      "acquired_utc": "2026-08-12T02:04:08.524173Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026224T020408.v2.0"
+      ],
+      "qa_clear_fraction": 0.997,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": 2,
+      "ndvi": {
+        "valid_pixels": 3978,
+        "valid_fraction": 0.9945,
+        "mean": 0.732731,
+        "median": 0.794678,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.732731,
+      "ndmi": {
+        "valid_pixels": 3976,
+        "valid_fraction": 0.994,
+        "mean": 0.281849,
+        "median": 0.312669,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.281849,
+      "mndwi": {
+        "valid_pixels": 3981,
+        "valid_fraction": 0.99525,
+        "mean": -0.500091,
+        "median": -0.533043,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.500091
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-north",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 0.99925,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 3997,
+        "valid_fraction": 0.99925,
+        "mean": 0.361993,
+        "median": 0.364618,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.361993,
+      "ndmi": {
+        "valid_pixels": 3997,
+        "valid_fraction": 0.99925,
+        "mean": -0.138958,
+        "median": -0.150351,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.138958,
+      "mndwi": {
+        "valid_pixels": 3997,
+        "valid_fraction": 0.99925,
+        "mean": -0.578177,
+        "median": -0.590476,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.578177
+    },
+    {
+      "region": "hwacheon",
+      "aoi": "hwacheon-north",
+      "product": "L30",
+      "acquired_utc": "2026-10-31T02:04:35.393723Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026304T020435.v2.0"
+      ],
+      "qa_clear_fraction": 0.993,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 10,
+      "ndvi": {
+        "valid_pixels": 3970,
+        "valid_fraction": 0.9925,
+        "mean": 0.334091,
+        "median": 0.340885,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.334091,
+      "ndmi": {
+        "valid_pixels": 3968,
+        "valid_fraction": 0.992,
+        "mean": -0.126631,
+        "median": -0.14377,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.126631,
+      "mndwi": {
+        "valid_pixels": 3968,
+        "valid_fraction": 0.992,
+        "mean": -0.524804,
+        "median": -0.551345,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.524804
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_farm",
+      "product": "L30",
+      "acquired_utc": "2026-06-08T02:10:18.527910Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026159T021018.v2.0",
+        "HLS.L30.T52SBH.2026159T020954.v2.0"
+      ],
+      "qa_clear_fraction": 0.0,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -15,
+      "ndvi": {
+        "valid_pixels": 0,
+        "valid_fraction": 0.0,
+        "mean": null,
+        "median": null,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 0,
+        "valid_fraction": 0.0,
+        "mean": null,
+        "median": null,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 0,
+        "valid_fraction": 0.0,
+        "mean": null,
+        "median": null,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_farm",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:27:16.162320Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026166T021531.v2.0",
+        "HLS.S30.T52SBH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.181667,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 654,
+        "valid_fraction": 0.181667,
+        "mean": 0.744315,
+        "median": 0.807785,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 654,
+        "valid_fraction": 0.181667,
+        "mean": 0.294279,
+        "median": 0.348509,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 654,
+        "valid_fraction": 0.181667,
+        "mean": -0.523173,
+        "median": -0.56337,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_farm",
+      "product": "S30",
+      "acquired_utc": "2026-08-04T02:27:17.200740Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026216T021531.v2.0",
+        "HLS.S30.T52SBH.2026216T021531.v2.0",
+        "HLS.S30.T52SCG.2026216T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.850556,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 3062,
+        "valid_fraction": 0.850556,
+        "mean": 0.823876,
+        "median": 0.857208,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.823876,
+      "ndmi": {
+        "valid_pixels": 3062,
+        "valid_fraction": 0.850556,
+        "mean": 0.353175,
+        "median": 0.354257,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.353175,
+      "mndwi": {
+        "valid_pixels": 3062,
+        "valid_fraction": 0.850556,
+        "mean": -0.541668,
+        "median": -0.557321,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.541668
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_farm",
+      "product": "L30",
+      "acquired_utc": "2026-08-11T02:10:52.150075Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026223T021052.v2.0",
+        "HLS.L30.T52SBH.2026223T021028.v2.0"
+      ],
+      "qa_clear_fraction": 0.8975,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 3229,
+        "valid_fraction": 0.896944,
+        "mean": 0.785364,
+        "median": 0.825307,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.785364,
+      "ndmi": {
+        "valid_pixels": 3227,
+        "valid_fraction": 0.896389,
+        "mean": 0.370824,
+        "median": 0.375418,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.370824,
+      "mndwi": {
+        "valid_pixels": 3227,
+        "valid_fraction": 0.896389,
+        "mean": -0.483164,
+        "median": -0.501152,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.483164
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_farm",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:11:03.922184Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026295T021103.v2.0",
+        "HLS.L30.T52SBH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 0.979444,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 3514,
+        "valid_fraction": 0.976111,
+        "mean": 0.477419,
+        "median": 0.470971,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.477419,
+      "ndmi": {
+        "valid_pixels": 3500,
+        "valid_fraction": 0.972222,
+        "mean": 0.049098,
+        "median": 0.024329,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.049098,
+      "mndwi": {
+        "valid_pixels": 3501,
+        "valid_fraction": 0.9725,
+        "mean": -0.489444,
+        "median": -0.532231,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.489444
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_farm",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:27:16.932880Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026301T021809.v2.0",
+        "HLS.S30.T52SBH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 0.998889,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 3596,
+        "valid_fraction": 0.998889,
+        "mean": 0.415069,
+        "median": 0.398902,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.415069,
+      "ndmi": {
+        "valid_pixels": 3596,
+        "valid_fraction": 0.998889,
+        "mean": -0.041401,
+        "median": -0.072141,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.041401,
+      "mndwi": {
+        "valid_pixels": 3596,
+        "valid_fraction": 0.998889,
+        "mean": -0.509598,
+        "median": -0.548282,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.509598
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_wild",
+      "product": "L30",
+      "acquired_utc": "2026-06-08T02:10:18.527910Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026159T021018.v2.0",
+        "HLS.L30.T52SBH.2026159T020954.v2.0"
+      ],
+      "qa_clear_fraction": 0.852708,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -15,
+      "ndvi": {
+        "valid_pixels": 4093,
+        "valid_fraction": 0.852708,
+        "mean": 0.859437,
+        "median": 0.880435,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.859437,
+      "ndmi": {
+        "valid_pixels": 4092,
+        "valid_fraction": 0.8525,
+        "mean": 0.394352,
+        "median": 0.414122,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.394352,
+      "mndwi": {
+        "valid_pixels": 4092,
+        "valid_fraction": 0.8525,
+        "mean": -0.551127,
+        "median": -0.557912,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.551127
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_wild",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:27:16.162320Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026166T021531.v2.0",
+        "HLS.S30.T52SBH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.992917,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 4766,
+        "valid_fraction": 0.992917,
+        "mean": 0.851016,
+        "median": 0.871145,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.851016,
+      "ndmi": {
+        "valid_pixels": 4766,
+        "valid_fraction": 0.992917,
+        "mean": 0.35577,
+        "median": 0.37197,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.35577,
+      "mndwi": {
+        "valid_pixels": 4766,
+        "valid_fraction": 0.992917,
+        "mean": -0.577627,
+        "median": -0.583747,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.577627
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_wild",
+      "product": "S30",
+      "acquired_utc": "2026-08-04T02:27:17.200740Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026216T021531.v2.0",
+        "HLS.S30.T52SBH.2026216T021531.v2.0",
+        "HLS.S30.T52SCG.2026216T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.398125,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 1911,
+        "valid_fraction": 0.398125,
+        "mean": 0.853704,
+        "median": 0.867893,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 1911,
+        "valid_fraction": 0.398125,
+        "mean": 0.303996,
+        "median": 0.311463,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 1911,
+        "valid_fraction": 0.398125,
+        "mean": -0.63453,
+        "median": -0.639788,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_wild",
+      "product": "L30",
+      "acquired_utc": "2026-08-11T02:10:52.150075Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026223T021052.v2.0",
+        "HLS.L30.T52SBH.2026223T021028.v2.0"
+      ],
+      "qa_clear_fraction": 0.998333,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 4790,
+        "valid_fraction": 0.997917,
+        "mean": 0.841122,
+        "median": 0.858472,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.841122,
+      "ndmi": {
+        "valid_pixels": 4792,
+        "valid_fraction": 0.998333,
+        "mean": 0.346606,
+        "median": 0.354989,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.346606,
+      "mndwi": {
+        "valid_pixels": 4792,
+        "valid_fraction": 0.998333,
+        "mean": -0.58263,
+        "median": -0.588082,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.58263
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_wild",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:11:03.922184Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026295T021103.v2.0",
+        "HLS.L30.T52SBH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 0.998333,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 4792,
+        "valid_fraction": 0.998333,
+        "mean": 0.68331,
+        "median": 0.706522,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.68331,
+      "ndmi": {
+        "valid_pixels": 4792,
+        "valid_fraction": 0.998333,
+        "mean": 0.12456,
+        "median": 0.142364,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.12456,
+      "mndwi": {
+        "valid_pixels": 4792,
+        "valid_fraction": 0.998333,
+        "mean": -0.597227,
+        "median": -0.600915,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.597227
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-dmz_wild",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:27:16.932880Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026301T021809.v2.0",
+        "HLS.S30.T52SBH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 4800,
+        "valid_fraction": 1.0,
+        "mean": 0.588667,
+        "median": 0.603159,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.588667,
+      "ndmi": {
+        "valid_pixels": 4800,
+        "valid_fraction": 1.0,
+        "mean": 0.038191,
+        "median": 0.054094,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.038191,
+      "mndwi": {
+        "valid_pixels": 4800,
+        "valid_fraction": 1.0,
+        "mean": -0.611317,
+        "median": -0.612527,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.611317
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-north",
+      "product": "L30",
+      "acquired_utc": "2026-06-08T02:10:18.527910Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026159T021018.v2.0",
+        "HLS.L30.T52SBH.2026159T020954.v2.0"
+      ],
+      "qa_clear_fraction": 0.082667,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -15,
+      "ndvi": {
+        "valid_pixels": 372,
+        "valid_fraction": 0.082667,
+        "mean": 0.567498,
+        "median": 0.558323,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 372,
+        "valid_fraction": 0.082667,
+        "mean": 0.118263,
+        "median": 0.107592,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 372,
+        "valid_fraction": 0.082667,
+        "mean": -0.496311,
+        "median": -0.504651,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-north",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:27:16.162320Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026166T021531.v2.0",
+        "HLS.S30.T52SBH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.708667,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 3189,
+        "valid_fraction": 0.708667,
+        "mean": 0.556438,
+        "median": 0.524393,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 3189,
+        "valid_fraction": 0.708667,
+        "mean": 0.100838,
+        "median": 0.072518,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 3189,
+        "valid_fraction": 0.708667,
+        "mean": -0.505991,
+        "median": -0.525025,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-north",
+      "product": "S30",
+      "acquired_utc": "2026-08-04T02:27:17.200740Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026216T021531.v2.0",
+        "HLS.S30.T52SBH.2026216T021531.v2.0",
+        "HLS.S30.T52SCG.2026216T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.862,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 3879,
+        "valid_fraction": 0.862,
+        "mean": 0.749633,
+        "median": 0.778621,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.749633,
+      "ndmi": {
+        "valid_pixels": 3879,
+        "valid_fraction": 0.862,
+        "mean": 0.252256,
+        "median": 0.264269,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.252256,
+      "mndwi": {
+        "valid_pixels": 3879,
+        "valid_fraction": 0.862,
+        "mean": -0.529812,
+        "median": -0.547517,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.529812
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-north",
+      "product": "L30",
+      "acquired_utc": "2026-08-11T02:10:52.150075Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026223T021052.v2.0",
+        "HLS.L30.T52SBH.2026223T021028.v2.0"
+      ],
+      "qa_clear_fraction": 0.996889,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 4486,
+        "valid_fraction": 0.996889,
+        "mean": 0.725889,
+        "median": 0.753173,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.725889,
+      "ndmi": {
+        "valid_pixels": 4486,
+        "valid_fraction": 0.996889,
+        "mean": 0.271594,
+        "median": 0.276292,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.271594,
+      "mndwi": {
+        "valid_pixels": 4486,
+        "valid_fraction": 0.996889,
+        "mean": -0.496446,
+        "median": -0.513153,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.496446
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-north",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:11:03.922184Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026295T021103.v2.0",
+        "HLS.L30.T52SBH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 4500,
+        "valid_fraction": 1.0,
+        "mean": 0.444298,
+        "median": 0.410661,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.444298,
+      "ndmi": {
+        "valid_pixels": 4500,
+        "valid_fraction": 1.0,
+        "mean": -0.003255,
+        "median": -0.023256,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.003255,
+      "mndwi": {
+        "valid_pixels": 4500,
+        "valid_fraction": 1.0,
+        "mean": -0.521599,
+        "median": -0.535694,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.521599
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-north",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:27:16.932880Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026301T021809.v2.0",
+        "HLS.S30.T52SBH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 4500,
+        "valid_fraction": 1.0,
+        "mean": 0.387356,
+        "median": 0.356979,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.387356,
+      "ndmi": {
+        "valid_pixels": 4500,
+        "valid_fraction": 1.0,
+        "mean": -0.086471,
+        "median": -0.104479,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.086471,
+      "mndwi": {
+        "valid_pixels": 4500,
+        "valid_fraction": 1.0,
+        "mean": -0.552717,
+        "median": -0.553295,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.552717
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-south",
+      "product": "L30",
+      "acquired_utc": "2026-06-08T02:10:18.527910Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026159T021018.v2.0",
+        "HLS.L30.T52SBH.2026159T020954.v2.0"
+      ],
+      "qa_clear_fraction": 0.024821,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -15,
+      "ndvi": {
+        "valid_pixels": 139,
+        "valid_fraction": 0.024821,
+        "mean": 0.64114,
+        "median": 0.706688,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 139,
+        "valid_fraction": 0.024821,
+        "mean": 0.267361,
+        "median": 0.308496,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 139,
+        "valid_fraction": 0.024821,
+        "mean": -0.428467,
+        "median": -0.462113,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-south",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:27:16.162320Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026166T021531.v2.0",
+        "HLS.S30.T52SBH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.831607,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 4657,
+        "valid_fraction": 0.831607,
+        "mean": 0.662306,
+        "median": 0.717897,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.662306,
+      "ndmi": {
+        "valid_pixels": 4657,
+        "valid_fraction": 0.831607,
+        "mean": 0.236441,
+        "median": 0.268696,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.236441,
+      "mndwi": {
+        "valid_pixels": 4657,
+        "valid_fraction": 0.831607,
+        "mean": -0.48247,
+        "median": -0.506265,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.48247
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-south",
+      "product": "S30",
+      "acquired_utc": "2026-08-04T02:27:17.200740Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026216T021531.v2.0",
+        "HLS.S30.T52SBH.2026216T021531.v2.0",
+        "HLS.S30.T52SCG.2026216T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.848571,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 4752,
+        "valid_fraction": 0.848571,
+        "mean": 0.75134,
+        "median": 0.813733,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.75134,
+      "ndmi": {
+        "valid_pixels": 4752,
+        "valid_fraction": 0.848571,
+        "mean": 0.266598,
+        "median": 0.293155,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.266598,
+      "mndwi": {
+        "valid_pixels": 4752,
+        "valid_fraction": 0.848571,
+        "mean": -0.53567,
+        "median": -0.546665,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.53567
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-south",
+      "product": "L30",
+      "acquired_utc": "2026-08-11T02:10:52.150075Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026223T021052.v2.0",
+        "HLS.L30.T52SBH.2026223T021028.v2.0"
+      ],
+      "qa_clear_fraction": 0.978214,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 5473,
+        "valid_fraction": 0.977321,
+        "mean": 0.744583,
+        "median": 0.815563,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.744583,
+      "ndmi": {
+        "valid_pixels": 5478,
+        "valid_fraction": 0.978214,
+        "mean": 0.315035,
+        "median": 0.338887,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.315035,
+      "mndwi": {
+        "valid_pixels": 5478,
+        "valid_fraction": 0.978214,
+        "mean": -0.49731,
+        "median": -0.506905,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.49731
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-south",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:11:03.922184Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SBG.2026295T021103.v2.0",
+        "HLS.L30.T52SBH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 0.986429,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 5524,
+        "valid_fraction": 0.986429,
+        "mean": 0.577797,
+        "median": 0.601409,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.577797,
+      "ndmi": {
+        "valid_pixels": 5524,
+        "valid_fraction": 0.986429,
+        "mean": 0.121193,
+        "median": 0.104276,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.121193,
+      "mndwi": {
+        "valid_pixels": 5524,
+        "valid_fraction": 0.986429,
+        "mean": -0.503534,
+        "median": -0.5228,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.503534
+    },
+    {
+      "region": "paju",
+      "aoi": "paju-south",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:27:16.932880Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SBG.2026301T021809.v2.0",
+        "HLS.S30.T52SBH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 0.999464,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 5597,
+        "valid_fraction": 0.999464,
+        "mean": 0.520926,
+        "median": 0.533528,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.520926,
+      "ndmi": {
+        "valid_pixels": 5597,
+        "valid_fraction": 0.999464,
+        "mean": 0.044081,
+        "median": 0.011828,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.044081,
+      "mndwi": {
+        "valid_pixels": 5597,
+        "valid_fraction": 0.999464,
+        "mean": -0.525721,
+        "median": -0.541667,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.525721
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-basin",
+      "product": "L30",
+      "acquired_utc": "2026-06-09T02:03:33.805608Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026160T020333.v2.0"
+      ],
+      "qa_clear_fraction": 0.316278,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -14,
+      "ndvi": {
+        "valid_pixels": 5691,
+        "valid_fraction": 0.316167,
+        "mean": 0.542552,
+        "median": 0.54671,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 5691,
+        "valid_fraction": 0.316167,
+        "mean": 0.149912,
+        "median": 0.136704,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 5693,
+        "valid_fraction": 0.316278,
+        "mean": -0.443862,
+        "median": -0.451466,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-basin",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:53.971660Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.449778,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 8096,
+        "valid_fraction": 0.449778,
+        "mean": 0.575085,
+        "median": 0.573407,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 8096,
+        "valid_fraction": 0.449778,
+        "mean": 0.145452,
+        "median": 0.125683,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 8096,
+        "valid_fraction": 0.449778,
+        "mean": -0.498848,
+        "median": -0.503268,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-basin",
+      "product": "L30",
+      "acquired_utc": "2026-08-04T02:04:16.615895Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026216T020416.v2.0"
+      ],
+      "qa_clear_fraction": 0.785833,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 14140,
+        "valid_fraction": 0.785556,
+        "mean": 0.647278,
+        "median": 0.66607,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 14136,
+        "valid_fraction": 0.785333,
+        "mean": 0.216372,
+        "median": 0.221918,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 14137,
+        "valid_fraction": 0.785389,
+        "mean": -0.478372,
+        "median": -0.482573,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-basin",
+      "product": "S30",
+      "acquired_utc": "2026-08-04T02:26:55.015650Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026216T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.404222,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 7276,
+        "valid_fraction": 0.404222,
+        "mean": 0.657199,
+        "median": 0.674458,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 7276,
+        "valid_fraction": 0.404222,
+        "mean": 0.189718,
+        "median": 0.191134,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 7276,
+        "valid_fraction": 0.404222,
+        "mean": -0.52338,
+        "median": -0.524968,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-basin",
+      "product": "L30",
+      "acquired_utc": "2026-10-07T02:04:36.127002Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026280T020436.v2.0"
+      ],
+      "qa_clear_fraction": 0.896722,
+      "nearest_nisar_date": "2026-10-09",
+      "calendar_day_difference_from_nisar": -2,
+      "ndvi": {
+        "valid_pixels": 16130,
+        "valid_fraction": 0.896111,
+        "mean": 0.588564,
+        "median": 0.614536,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.588564,
+      "ndmi": {
+        "valid_pixels": 16132,
+        "valid_fraction": 0.896222,
+        "mean": 0.164845,
+        "median": 0.165741,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.164845,
+      "mndwi": {
+        "valid_pixels": 16132,
+        "valid_fraction": 0.896222,
+        "mean": -0.48786,
+        "median": -0.486044,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.48786
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-basin",
+      "product": "S30",
+      "acquired_utc": "2026-10-08T02:26:53.722200Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026281T021559.v2.0"
+      ],
+      "qa_clear_fraction": 0.917389,
+      "nearest_nisar_date": "2026-10-09",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 16513,
+        "valid_fraction": 0.917389,
+        "mean": 0.593785,
+        "median": 0.621307,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.593785,
+      "ndmi": {
+        "valid_pixels": 16513,
+        "valid_fraction": 0.917389,
+        "mean": 0.141562,
+        "median": 0.140354,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.141562,
+      "mndwi": {
+        "valid_pixels": 16513,
+        "valid_fraction": 0.917389,
+        "mean": -0.514335,
+        "median": -0.514181,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.514335
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-06-09T02:03:33.805608Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026160T020333.v2.0"
+      ],
+      "qa_clear_fraction": 0.042,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -14,
+      "ndvi": {
+        "valid_pixels": 168,
+        "valid_fraction": 0.042,
+        "mean": 0.903532,
+        "median": 0.904754,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 168,
+        "valid_fraction": 0.042,
+        "mean": 0.48293,
+        "median": 0.482334,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 168,
+        "valid_fraction": 0.042,
+        "mean": -0.539741,
+        "median": -0.541667,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:53.971660Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.91775,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 3671,
+        "valid_fraction": 0.91775,
+        "mean": 0.889606,
+        "median": 0.899863,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.889606,
+      "ndmi": {
+        "valid_pixels": 3671,
+        "valid_fraction": 0.91775,
+        "mean": 0.434924,
+        "median": 0.445104,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.434924,
+      "mndwi": {
+        "valid_pixels": 3671,
+        "valid_fraction": 0.91775,
+        "mean": -0.545067,
+        "median": -0.547196,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.545067
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-08-04T02:04:16.615895Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026216T020416.v2.0"
+      ],
+      "qa_clear_fraction": 0.57625,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 2305,
+        "valid_fraction": 0.57625,
+        "mean": 0.874928,
+        "median": 0.891386,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 2305,
+        "valid_fraction": 0.57625,
+        "mean": 0.389287,
+        "median": 0.403863,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 2305,
+        "valid_fraction": 0.57625,
+        "mean": -0.595312,
+        "median": -0.599391,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-08-04T02:26:55.015650Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026216T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.59875,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 2395,
+        "valid_fraction": 0.59875,
+        "mean": 0.892392,
+        "median": 0.900504,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 2395,
+        "valid_fraction": 0.59875,
+        "mean": 0.393503,
+        "median": 0.402645,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 2395,
+        "valid_fraction": 0.59875,
+        "mean": -0.615286,
+        "median": -0.618732,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-10-07T02:04:36.127002Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026280T020436.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-09",
+      "calendar_day_difference_from_nisar": -2,
+      "ndvi": {
+        "valid_pixels": 3999,
+        "valid_fraction": 0.99975,
+        "mean": 0.79453,
+        "median": 0.810412,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.79453,
+      "ndmi": {
+        "valid_pixels": 4000,
+        "valid_fraction": 1.0,
+        "mean": 0.263407,
+        "median": 0.278022,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.263407,
+      "mndwi": {
+        "valid_pixels": 4000,
+        "valid_fraction": 1.0,
+        "mean": -0.602634,
+        "median": -0.607457,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.602634
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-10-08T02:26:53.722200Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026281T021559.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-09",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 4000,
+        "valid_fraction": 1.0,
+        "mean": 0.787172,
+        "median": 0.802387,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.787172,
+      "ndmi": {
+        "valid_pixels": 4000,
+        "valid_fraction": 1.0,
+        "mean": 0.239658,
+        "median": 0.254003,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.239658,
+      "mndwi": {
+        "valid_pixels": 4000,
+        "valid_fraction": 1.0,
+        "mean": -0.598035,
+        "median": -0.6,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.598035
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-forest",
+      "product": "L30",
+      "acquired_utc": "2026-06-09T02:03:33.805608Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026160T020333.v2.0"
+      ],
+      "qa_clear_fraction": 0.234417,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -14,
+      "ndvi": {
+        "valid_pixels": 2813,
+        "valid_fraction": 0.234417,
+        "mean": 0.90246,
+        "median": 0.904238,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 2813,
+        "valid_fraction": 0.234417,
+        "mean": 0.463851,
+        "median": 0.46371,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 2813,
+        "valid_fraction": 0.234417,
+        "mean": -0.565378,
+        "median": -0.566578,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-forest",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:53.971660Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.996583,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 11959,
+        "valid_fraction": 0.996583,
+        "mean": 0.890331,
+        "median": 0.905459,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.890331,
+      "ndmi": {
+        "valid_pixels": 11959,
+        "valid_fraction": 0.996583,
+        "mean": 0.428008,
+        "median": 0.436568,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.428008,
+      "mndwi": {
+        "valid_pixels": 11959,
+        "valid_fraction": 0.996583,
+        "mean": -0.573295,
+        "median": -0.582623,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.573295
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-forest",
+      "product": "L30",
+      "acquired_utc": "2026-08-04T02:04:16.615895Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026216T020416.v2.0"
+      ],
+      "qa_clear_fraction": 0.45825,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 5498,
+        "valid_fraction": 0.458167,
+        "mean": 0.878366,
+        "median": 0.891258,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 5491,
+        "valid_fraction": 0.457583,
+        "mean": 0.384163,
+        "median": 0.389651,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 5491,
+        "valid_fraction": 0.457583,
+        "mean": -0.610444,
+        "median": -0.623902,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-forest",
+      "product": "S30",
+      "acquired_utc": "2026-08-04T02:26:55.015650Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026216T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.21625,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 2595,
+        "valid_fraction": 0.21625,
+        "mean": 0.887714,
+        "median": 0.898182,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 2595,
+        "valid_fraction": 0.21625,
+        "mean": 0.36547,
+        "median": 0.369892,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 2595,
+        "valid_fraction": 0.21625,
+        "mean": -0.644016,
+        "median": -0.652847,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-forest",
+      "product": "L30",
+      "acquired_utc": "2026-10-07T02:04:36.127002Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026280T020436.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-09",
+      "calendar_day_difference_from_nisar": -2,
+      "ndvi": {
+        "valid_pixels": 11973,
+        "valid_fraction": 0.99775,
+        "mean": 0.809933,
+        "median": 0.82478,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.809933,
+      "ndmi": {
+        "valid_pixels": 11966,
+        "valid_fraction": 0.997167,
+        "mean": 0.286064,
+        "median": 0.294204,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.286064,
+      "mndwi": {
+        "valid_pixels": 11969,
+        "valid_fraction": 0.997417,
+        "mean": -0.618705,
+        "median": -0.633188,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.618705
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-forest",
+      "product": "S30",
+      "acquired_utc": "2026-10-08T02:26:53.722200Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026281T021559.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-09",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 12000,
+        "valid_fraction": 1.0,
+        "mean": 0.806355,
+        "median": 0.819125,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.806355,
+      "ndmi": {
+        "valid_pixels": 12000,
+        "valid_fraction": 1.0,
+        "mean": 0.261805,
+        "median": 0.270598,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.261805,
+      "mndwi": {
+        "valid_pixels": 12000,
+        "valid_fraction": 1.0,
+        "mean": -0.62272,
+        "median": -0.631779,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.62272
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-north",
+      "product": "L30",
+      "acquired_utc": "2026-06-09T02:03:33.805608Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026160T020333.v2.0"
+      ],
+      "qa_clear_fraction": 0.10125,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -14,
+      "ndvi": {
+        "valid_pixels": 810,
+        "valid_fraction": 0.10125,
+        "mean": 0.900086,
+        "median": 0.914103,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 810,
+        "valid_fraction": 0.10125,
+        "mean": 0.465869,
+        "median": 0.482737,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 810,
+        "valid_fraction": 0.10125,
+        "mean": -0.56018,
+        "median": -0.563381,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-north",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:53.971660Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": 0.904039,
+        "median": 0.911667,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.904039,
+      "ndmi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": 0.448054,
+        "median": 0.457298,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.448054,
+      "mndwi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": -0.555711,
+        "median": -0.556732,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.555711
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-north",
+      "product": "L30",
+      "acquired_utc": "2026-08-04T02:04:16.615895Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026216T020416.v2.0"
+      ],
+      "qa_clear_fraction": 0.192375,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 1539,
+        "valid_fraction": 0.192375,
+        "mean": 0.898474,
+        "median": 0.901889,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 1539,
+        "valid_fraction": 0.192375,
+        "mean": 0.41575,
+        "median": 0.419489,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 1539,
+        "valid_fraction": 0.192375,
+        "mean": -0.619425,
+        "median": -0.6194,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-north",
+      "product": "S30",
+      "acquired_utc": "2026-08-04T02:26:55.015650Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026216T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.186,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -6,
+      "ndvi": {
+        "valid_pixels": 1488,
+        "valid_fraction": 0.186,
+        "mean": 0.905694,
+        "median": 0.908678,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 1488,
+        "valid_fraction": 0.186,
+        "mean": 0.409158,
+        "median": 0.412105,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 1488,
+        "valid_fraction": 0.186,
+        "mean": -0.634005,
+        "median": -0.635539,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-north",
+      "product": "L30",
+      "acquired_utc": "2026-10-07T02:04:36.127002Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SDH.2026280T020436.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-09",
+      "calendar_day_difference_from_nisar": -2,
+      "ndvi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": 0.748636,
+        "median": 0.756848,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.748636,
+      "ndmi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": 0.194716,
+        "median": 0.202571,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.194716,
+      "mndwi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": -0.667567,
+        "median": -0.66775,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.667567
+    },
+    {
+      "region": "yanggu",
+      "aoi": "yanggu-north",
+      "product": "S30",
+      "acquired_utc": "2026-10-08T02:26:53.722200Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SDH.2026281T021559.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-09",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": 0.733203,
+        "median": 0.742365,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.733203,
+      "ndmi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": 0.166613,
+        "median": 0.173825,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.166613,
+      "mndwi": {
+        "valid_pixels": 8000,
+        "valid_fraction": 1.0,
+        "mean": -0.67231,
+        "median": -0.671633,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.67231
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": 0.839668,
+        "median": 0.867673,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.839668,
+      "ndmi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": 0.347817,
+        "median": 0.370733,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.347817,
+      "mndwi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": -0.539188,
+        "median": -0.544475,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.539188
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.755833,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 1814,
+        "valid_fraction": 0.755833,
+        "mean": 0.842407,
+        "median": 0.867393,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 1814,
+        "valid_fraction": 0.755833,
+        "mean": 0.373935,
+        "median": 0.398741,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 1814,
+        "valid_fraction": 0.755833,
+        "mean": -0.529004,
+        "median": -0.532306,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.194583,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 467,
+        "valid_fraction": 0.194583,
+        "mean": 0.860202,
+        "median": 0.883096,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 467,
+        "valid_fraction": 0.194583,
+        "mean": 0.342619,
+        "median": 0.369192,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 467,
+        "valid_fraction": 0.194583,
+        "mean": -0.578597,
+        "median": -0.584795,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": 0.856891,
+        "median": 0.880823,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.856891,
+      "ndmi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": 0.333048,
+        "median": 0.348577,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.333048,
+      "mndwi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": -0.577839,
+        "median": -0.582446,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.577839
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-dmz",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": 0.627497,
+        "median": 0.640055,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.627497,
+      "ndmi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": 0.019931,
+        "median": 0.02648,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.019931,
+      "mndwi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": -0.630691,
+        "median": -0.632482,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.630691
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-dmz",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 1.0,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": 0.509594,
+        "median": 0.515779,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.509594,
+      "ndmi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": -0.093556,
+        "median": -0.099385,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.093556,
+      "mndwi": {
+        "valid_pixels": 2400,
+        "valid_fraction": 1.0,
+        "mean": -0.650207,
+        "median": -0.657306,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.650207
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-farm",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.42025,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 1681,
+        "valid_fraction": 0.42025,
+        "mean": 0.611273,
+        "median": 0.635966,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 1681,
+        "valid_fraction": 0.42025,
+        "mean": 0.215683,
+        "median": 0.242272,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 1681,
+        "valid_fraction": 0.42025,
+        "mean": -0.444621,
+        "median": -0.48023,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-farm",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.13725,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 549,
+        "valid_fraction": 0.13725,
+        "mean": 0.446857,
+        "median": 0.390733,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 548,
+        "valid_fraction": 0.137,
+        "mean": 0.099799,
+        "median": 0.067069,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 548,
+        "valid_fraction": 0.137,
+        "mean": -0.39241,
+        "median": -0.420108,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-farm",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.07625,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 305,
+        "valid_fraction": 0.07625,
+        "mean": 0.738981,
+        "median": 0.807741,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 305,
+        "valid_fraction": 0.07625,
+        "mean": 0.278508,
+        "median": 0.307578,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 305,
+        "valid_fraction": 0.07625,
+        "mean": -0.488256,
+        "median": -0.516199,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-farm",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.9835,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 3934,
+        "valid_fraction": 0.9835,
+        "mean": 0.729377,
+        "median": 0.804092,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.729377,
+      "ndmi": {
+        "valid_pixels": 3934,
+        "valid_fraction": 0.9835,
+        "mean": 0.30497,
+        "median": 0.331366,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.30497,
+      "mndwi": {
+        "valid_pixels": 3934,
+        "valid_fraction": 0.9835,
+        "mean": -0.475267,
+        "median": -0.487113,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.475267
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-farm",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 0.96775,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 3846,
+        "valid_fraction": 0.9615,
+        "mean": 0.41192,
+        "median": 0.359742,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.41192,
+      "ndmi": {
+        "valid_pixels": 3845,
+        "valid_fraction": 0.96125,
+        "mean": -0.004443,
+        "median": -0.038783,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.004443,
+      "mndwi": {
+        "valid_pixels": 3846,
+        "valid_fraction": 0.9615,
+        "mean": -0.468793,
+        "median": -0.473459,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.468793
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-farm",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 0.9985,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 3994,
+        "valid_fraction": 0.9985,
+        "mean": 0.371071,
+        "median": 0.313962,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.371071,
+      "ndmi": {
+        "valid_pixels": 3994,
+        "valid_fraction": 0.9985,
+        "mean": -0.071821,
+        "median": -0.102606,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.071821,
+      "mndwi": {
+        "valid_pixels": 3994,
+        "valid_fraction": 0.9985,
+        "mean": -0.500748,
+        "median": -0.505338,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.500748
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.76925,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 6154,
+        "valid_fraction": 0.76925,
+        "mean": 0.806406,
+        "median": 0.877639,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 6154,
+        "valid_fraction": 0.76925,
+        "mean": 0.322159,
+        "median": 0.385043,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 6154,
+        "valid_fraction": 0.76925,
+        "mean": -0.557856,
+        "median": -0.570981,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.628125,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 5025,
+        "valid_fraction": 0.628125,
+        "mean": 0.794993,
+        "median": 0.872713,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 5025,
+        "valid_fraction": 0.628125,
+        "mean": 0.331815,
+        "median": 0.408093,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 5025,
+        "valid_fraction": 0.628125,
+        "mean": -0.534244,
+        "median": -0.537198,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.378,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 3024,
+        "valid_fraction": 0.378,
+        "mean": 0.839448,
+        "median": 0.875922,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 3024,
+        "valid_fraction": 0.378,
+        "mean": 0.33318,
+        "median": 0.36108,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 3024,
+        "valid_fraction": 0.378,
+        "mean": -0.571193,
+        "median": -0.580881,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.998125,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 7985,
+        "valid_fraction": 0.998125,
+        "mean": 0.850187,
+        "median": 0.889,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.850187,
+      "ndmi": {
+        "valid_pixels": 7985,
+        "valid_fraction": 0.998125,
+        "mean": 0.335207,
+        "median": 0.364004,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.335207,
+      "mndwi": {
+        "valid_pixels": 7985,
+        "valid_fraction": 0.998125,
+        "mean": -0.599139,
+        "median": -0.614386,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.599139
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-forest",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 0.98775,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 7902,
+        "valid_fraction": 0.98775,
+        "mean": 0.659721,
+        "median": 0.712633,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.659721,
+      "ndmi": {
+        "valid_pixels": 7902,
+        "valid_fraction": 0.98775,
+        "mean": 0.101275,
+        "median": 0.108961,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.101275,
+      "mndwi": {
+        "valid_pixels": 7902,
+        "valid_fraction": 0.98775,
+        "mean": -0.582631,
+        "median": -0.592295,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.582631
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-forest",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 0.9985,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 7988,
+        "valid_fraction": 0.9985,
+        "mean": 0.580929,
+        "median": 0.614337,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.580929,
+      "ndmi": {
+        "valid_pixels": 7988,
+        "valid_fraction": 0.9985,
+        "mean": 0.005733,
+        "median": -0.002725,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.005733,
+      "mndwi": {
+        "valid_pixels": 7988,
+        "valid_fraction": 0.9985,
+        "mean": -0.610189,
+        "median": -0.611923,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.610189
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-north",
+      "product": "S30",
+      "acquired_utc": "2026-06-15T02:26:57.923310Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026166T021531.v2.0"
+      ],
+      "qa_clear_fraction": 0.581375,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -8,
+      "ndvi": {
+        "valid_pixels": 4651,
+        "valid_fraction": 0.581375,
+        "mean": 0.722769,
+        "median": 0.793027,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 4651,
+        "valid_fraction": 0.581375,
+        "mean": 0.247932,
+        "median": 0.281719,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 4651,
+        "valid_fraction": 0.581375,
+        "mean": -0.523497,
+        "median": -0.53722,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-north",
+      "product": "L30",
+      "acquired_utc": "2026-06-16T02:09:50.242968Z",
+      "period": "early_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026167T020950.v2.0"
+      ],
+      "qa_clear_fraction": 0.035875,
+      "nearest_nisar_date": "2026-06-23",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 287,
+        "valid_fraction": 0.035875,
+        "mean": 0.770307,
+        "median": 0.827421,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 287,
+        "valid_fraction": 0.035875,
+        "mean": 0.29471,
+        "median": 0.332595,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 287,
+        "valid_fraction": 0.035875,
+        "mean": -0.520886,
+        "median": -0.529375,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-north",
+      "product": "L30",
+      "acquired_utc": "2026-08-03T02:10:17.294287Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026215T021017.v2.0"
+      ],
+      "qa_clear_fraction": 0.073625,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -7,
+      "ndvi": {
+        "valid_pixels": 589,
+        "valid_fraction": 0.073625,
+        "mean": 0.838791,
+        "median": 0.850746,
+        "recommended_for_comparison": false
+      },
+      "ndvi_for_comparison": null,
+      "ndmi": {
+        "valid_pixels": 589,
+        "valid_fraction": 0.073625,
+        "mean": 0.328477,
+        "median": 0.334826,
+        "recommended_for_comparison": false
+      },
+      "ndmi_for_comparison": null,
+      "mndwi": {
+        "valid_pixels": 589,
+        "valid_fraction": 0.073625,
+        "mean": -0.545235,
+        "median": -0.543038,
+        "recommended_for_comparison": false
+      },
+      "mndwi_for_comparison": null
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-north",
+      "product": "S30",
+      "acquired_utc": "2026-08-09T02:26:57.197790Z",
+      "period": "late_summer",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026221T021529.v2.0"
+      ],
+      "qa_clear_fraction": 0.995,
+      "nearest_nisar_date": "2026-08-10",
+      "calendar_day_difference_from_nisar": -1,
+      "ndvi": {
+        "valid_pixels": 7960,
+        "valid_fraction": 0.995,
+        "mean": 0.786466,
+        "median": 0.816235,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.786466,
+      "ndmi": {
+        "valid_pixels": 7960,
+        "valid_fraction": 0.995,
+        "mean": 0.294196,
+        "median": 0.30617,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": 0.294196,
+      "mndwi": {
+        "valid_pixels": 7960,
+        "valid_fraction": 0.995,
+        "mean": -0.52699,
+        "median": -0.536221,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.52699
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-north",
+      "product": "L30",
+      "acquired_utc": "2026-10-22T02:10:40.039616Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.L30.T52SCH.2026295T021040.v2.0"
+      ],
+      "qa_clear_fraction": 0.99775,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 1,
+      "ndvi": {
+        "valid_pixels": 7982,
+        "valid_fraction": 0.99775,
+        "mean": 0.480781,
+        "median": 0.48318,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.480781,
+      "ndmi": {
+        "valid_pixels": 7982,
+        "valid_fraction": 0.99775,
+        "mean": -0.000543,
+        "median": -0.019248,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.000543,
+      "mndwi": {
+        "valid_pixels": 7982,
+        "valid_fraction": 0.99775,
+        "mean": -0.548909,
+        "median": -0.559317,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.548909
+    },
+    {
+      "region": "yeoncheon",
+      "aoi": "yeoncheon-north",
+      "product": "S30",
+      "acquired_utc": "2026-10-28T02:26:58.705390Z",
+      "period": "autumn",
+      "source_ids": [
+        "HLS.S30.T52SCH.2026301T021809.v2.0"
+      ],
+      "qa_clear_fraction": 0.99975,
+      "nearest_nisar_date": "2026-10-21",
+      "calendar_day_difference_from_nisar": 7,
+      "ndvi": {
+        "valid_pixels": 7998,
+        "valid_fraction": 0.99975,
+        "mean": 0.41598,
+        "median": 0.415215,
+        "recommended_for_comparison": true
+      },
+      "ndvi_for_comparison": 0.41598,
+      "ndmi": {
+        "valid_pixels": 7998,
+        "valid_fraction": 0.99975,
+        "mean": -0.0687,
+        "median": -0.08983,
+        "recommended_for_comparison": true
+      },
+      "ndmi_for_comparison": -0.0687,
+      "mndwi": {
+        "valid_pixels": 7998,
+        "valid_fraction": 0.99975,
+        "mean": -0.576331,
+        "median": -0.58537,
+        "recommended_for_comparison": true
+      },
+      "mndwi_for_comparison": -0.576331
+    }
+  ]
+}

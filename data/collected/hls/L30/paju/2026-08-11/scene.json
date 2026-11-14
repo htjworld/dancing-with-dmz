@@ -1,0 +1,314 @@
+{
+  "product": "L30",
+  "collection": "hls2-l30",
+  "version": "2.0",
+  "region": "paju",
+  "period": "late_summer",
+  "selection_window": [
+    "2026-07-16",
+    "2026-08-31"
+  ],
+  "acquired_utc": "2026-08-11T02:10:52.150075Z",
+  "source_ids": [
+    "HLS.L30.T52SBG.2026223T021052.v2.0",
+    "HLS.L30.T52SBH.2026223T021028.v2.0"
+  ],
+  "source_acquisitions_utc": [
+    "2026-08-11T02:10:52.150075Z",
+    "2026-08-11T02:10:28.267532Z"
+  ],
+  "platforms": [
+    "landsat-9"
+  ],
+  "source_processing_software": [
+    {
+      "Cloud Masking": "Fmask v5.0.1",
+      "Atmospheric Correction": "LaSRC v3.5.1.0"
+    },
+    {
+      "Cloud Masking": "Fmask v5.0.1",
+      "Atmospheric Correction": "LaSRC v3.5.1.0"
+    }
+  ],
+  "doi": "10.5067/HLS/HLSL30.002",
+  "bounds_wgs84": [
+    126.649886,
+    37.736975,
+    126.829227,
+    38.063096
+  ],
+  "grid_bounds_utm": [
+    292890,
+    4178850,
+    309570,
+    4215450
+  ],
+  "crs": "EPSG:32652",
+  "resolution_m": 30,
+  "shape": [
+    1220,
+    556
+  ],
+  "band_order": {
+    "red": "B04",
+    "green": "B03",
+    "blue": "B02",
+    "nir_narrow": "B05",
+    "swir1": "B06",
+    "swir2": "B07"
+  },
+  "scale": 0.0001,
+  "offset": 0,
+  "nodata": -9999,
+  "quality": {
+    "coverage_fraction": 0.9999189173251563,
+    "clear_fraction": 0.7297853520462318,
+    "cloud_fraction": 0.1305283641938908,
+    "adjacent_cloud_shadow_fraction": 0.030712643000353815,
+    "shadow_fraction": 0.07049622597004364,
+    "high_aerosol_fraction": 0.20425905177497347,
+    "aoi_clear_fraction": {
+      "paju-dmz_farm": 0.8975,
+      "paju-dmz_wild": 0.998333,
+      "paju-south": 0.978214,
+      "paju-north": 0.996889
+    }
+  },
+  "aoi_stats": {
+    "paju-dmz_farm": {
+      "total_pixels": 3600,
+      "qa_clear_fraction": 0.8975,
+      "ndvi": {
+        "valid_pixels": 3229,
+        "valid_fraction": 0.896944,
+        "mean": 0.785364,
+        "median": 0.825307,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 3227,
+        "valid_fraction": 0.896389,
+        "mean": 0.370824,
+        "median": 0.375418,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 3227,
+        "valid_fraction": 0.896389,
+        "mean": -0.483164,
+        "median": -0.501152,
+        "recommended_for_comparison": true
+      }
+    },
+    "paju-dmz_wild": {
+      "total_pixels": 4800,
+      "qa_clear_fraction": 0.998333,
+      "ndvi": {
+        "valid_pixels": 4790,
+        "valid_fraction": 0.997917,
+        "mean": 0.841122,
+        "median": 0.858472,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 4792,
+        "valid_fraction": 0.998333,
+        "mean": 0.346606,
+        "median": 0.354989,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 4792,
+        "valid_fraction": 0.998333,
+        "mean": -0.58263,
+        "median": -0.588082,
+        "recommended_for_comparison": true
+      }
+    },
+    "paju-south": {
+      "total_pixels": 5600,
+      "qa_clear_fraction": 0.978214,
+      "ndvi": {
+        "valid_pixels": 5473,
+        "valid_fraction": 0.977321,
+        "mean": 0.744583,
+        "median": 0.815563,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 5478,
+        "valid_fraction": 0.978214,
+        "mean": 0.315035,
+        "median": 0.338887,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 5478,
+        "valid_fraction": 0.978214,
+        "mean": -0.49731,
+        "median": -0.506905,
+        "recommended_for_comparison": true
+      }
+    },
+    "paju-north": {
+      "total_pixels": 4500,
+      "qa_clear_fraction": 0.996889,
+      "ndvi": {
+        "valid_pixels": 4486,
+        "valid_fraction": 0.996889,
+        "mean": 0.725889,
+        "median": 0.753173,
+        "recommended_for_comparison": true
+      },
+      "ndmi": {
+        "valid_pixels": 4486,
+        "valid_fraction": 0.996889,
+        "mean": 0.271594,
+        "median": 0.276292,
+        "recommended_for_comparison": true
+      },
+      "mndwi": {
+        "valid_pixels": 4486,
+        "valid_fraction": 0.996889,
+        "mean": -0.496446,
+        "median": -0.513153,
+        "recommended_for_comparison": true
+      }
+    }
+  },
+  "all_aoi_at_least_80pct_ndvi_valid": true,
+  "nearest_nisar_date": "2026-08-10",
+  "calendar_day_difference_from_nisar": 1,
+  "source_geotiff_tags": {
+    "HLS.L30.T52SBG.2026223T021052.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:52.1500750Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:52.1500750Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:52.1500750Z"
+      },
+      "B05": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:52.1500750Z"
+      },
+      "B06": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:52.1500750Z"
+      },
+      "B07": {
+        "ACCODE": "LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:52.1500750Z"
+      }
+    },
+    "HLS.L30.T52SBH.2026223T021028.v2.0": {
+      "B04": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116033_20260811_20260811_02_T1; LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:28.2675320Z; 2026-08-11T02:10:52.1500750Z"
+      },
+      "B03": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116033_20260811_20260811_02_T1; LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:28.2675320Z; 2026-08-11T02:10:52.1500750Z"
+      },
+      "B02": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116033_20260811_20260811_02_T1; LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:28.2675320Z; 2026-08-11T02:10:52.1500750Z"
+      },
+      "B05": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116033_20260811_20260811_02_T1; LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:28.2675320Z; 2026-08-11T02:10:52.1500750Z"
+      },
+      "B06": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116033_20260811_20260811_02_T1; LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:28.2675320Z; 2026-08-11T02:10:52.1500750Z"
+      },
+      "B07": {
+        "ACCODE": "LaSRC v3.5.1.0; LaSRC v3.5.1.0",
+        "add_offset": "0.0",
+        "LANDSAT_PRODUCT_ID": "LC09_L1TP_116033_20260811_20260811_02_T1; LC09_L1TP_116034_20260811_20260811_02_T1",
+        "scale_factor": "0.0001",
+        "SENSING_TIME": "2026-08-11T02:10:28.2675320Z; 2026-08-11T02:10:52.1500750Z"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "hls/L30/paju/2026-08-11/Fmask_30m.tif",
+      "bytes": 60412,
+      "sha256": "8ec9dfb3c286fdb583376fec2a600b459568b2db808bf9784cc798f68245680f"
+    },
+    {
+      "path": "hls/L30/paju/2026-08-11/indices_30m.tif",
+      "bytes": 4744652,
+      "sha256": "56d54807b0e11f6bd8704faf66420d9d0e8be6344987dd3b4677aa5feeaa5a82"
+    },
+    {
+      "path": "hls/L30/paju/2026-08-11/ndvi.png",
+      "bytes": 355103,
+      "sha256": "2b2e0248a455a8caaeece1968fdb91328c84f46e52fc6c7e260b4150070418ce"
+    },
+    {
+      "path": "hls/L30/paju/2026-08-11/quality.png",
+      "bytes": 16460,
+      "sha256": "9eb7f06acb6c8b58eeebbeecf18c338fe475ad1902d007740b081b3e8f98e132"
+    },
+    {
+      "path": "hls/L30/paju/2026-08-11/reflectance_dn_30m.tif",
+      "bytes": 6021120,
+      "sha256": "a746ca0c78254ee805ec3f80a78807d2706188e44609e95ba7e48b3011eb2476"
+    },
+    {
+      "path": "hls/L30/paju/2026-08-11/rgb.webp",
+      "bytes": 99152,
+      "sha256": "e35de07e3387dfa485eb4f4c67199cc680f93d0dc42f6583e2a9b869c5b06131"
+    },
+    {
+      "path": "hls/L30/paju/2026-08-11/source_index_30m.tif",
+      "bytes": 3990,
+      "sha256": "c3754059596dac026c2a08bd9c8c53270e9208311f184f6b1d49f0627fbe1bad"
+    },
+    {
+      "path": "hls/L30/paju/2026-08-11/sources.stac.json",
+      "bytes": 23838,
+      "sha256": "d3f719d79f231ab0bb9b2dbfe9bd75fff2dc9ad1e88f747ef17f3f16ba02e3a8"
+    }
+  ]
+}

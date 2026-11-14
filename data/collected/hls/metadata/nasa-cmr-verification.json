@@ -1,0 +1,411 @@
+{
+  "source": "https://cmr.earthdata.nasa.gov/search/granules.umm_json",
+  "check": "Exact GranuleUR match in the matching HLS v2.0 collection. This is provenance verification, not a byte-for-byte comparison with the NASA download.",
+  "granules": [
+    {
+      "id": "HLS.L30.T52SBG.2026159T021018.v2.0",
+      "product": "L30",
+      "concept_id": "G4212058075-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-06-08T02:10:18.527Z",
+          "EndingDateTime": "2026-06-08T02:10:18.527Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SBG.2026159T021018.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SBH.2026159T020954.v2.0",
+      "product": "L30",
+      "concept_id": "G4212688707-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-06-08T02:09:54.636Z",
+          "EndingDateTime": "2026-06-08T02:10:18.527Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SBH.2026159T020954.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SCH.2026167T020950.v2.0",
+      "product": "L30",
+      "concept_id": "G4220045768-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-06-16T02:09:50.242Z",
+          "EndingDateTime": "2026-06-16T02:10:14.134Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SCH.2026167T020950.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SCH.2026215T021017.v2.0",
+      "product": "L30",
+      "concept_id": "G4271236092-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-03T02:10:17.294Z",
+          "EndingDateTime": "2026-08-03T02:10:41.176Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SCH.2026215T021017.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SCH.2026224T020408.v2.0",
+      "product": "L30",
+      "concept_id": "G4278831862-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-12T02:04:08.524Z",
+          "EndingDateTime": "2026-08-12T02:04:32.415Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SCH.2026224T020408.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SCH.2026295T021040.v2.0",
+      "product": "L30",
+      "concept_id": "G4386384906-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-22T02:10:40.039Z",
+          "EndingDateTime": "2026-10-22T02:11:03.922Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SCH.2026295T021040.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SCH.2026304T020435.v2.0",
+      "product": "L30",
+      "concept_id": "G4397302135-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-31T02:04:35.393Z",
+          "EndingDateTime": "2026-10-31T02:04:59.280Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SCH.2026304T020435.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SBG.2026166T021531.v2.0",
+      "product": "S30",
+      "concept_id": "G4219077036-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-06-15T02:27:16.162Z",
+          "EndingDateTime": "2026-06-15T02:27:16.162Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SBG.2026166T021531.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SBH.2026166T021531.v2.0",
+      "product": "S30",
+      "concept_id": "G4219072126-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-06-15T02:27:01.726Z",
+          "EndingDateTime": "2026-06-15T02:27:01.726Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SBH.2026166T021531.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SCH.2026166T021531.v2.0",
+      "product": "S30",
+      "concept_id": "G4219077871-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-06-15T02:26:57.923Z",
+          "EndingDateTime": "2026-06-15T02:26:57.923Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SCH.2026166T021531.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SCH.2026221T021529.v2.0",
+      "product": "S30",
+      "concept_id": "G4276529862-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-09T02:26:57.197Z",
+          "EndingDateTime": "2026-08-09T02:26:57.197Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SCH.2026221T021529.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SCH.2026301T021809.v2.0",
+      "product": "S30",
+      "concept_id": "G4395912067-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-28T02:26:58.705Z",
+          "EndingDateTime": "2026-10-28T02:26:58.705Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SCH.2026301T021809.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SBG.2026223T021052.v2.0",
+      "product": "L30",
+      "concept_id": "G4278503366-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-11T02:10:52.150Z",
+          "EndingDateTime": "2026-08-11T02:10:52.150Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SBG.2026223T021052.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SBG.2026295T021103.v2.0",
+      "product": "L30",
+      "concept_id": "G4386344470-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-22T02:11:03.922Z",
+          "EndingDateTime": "2026-10-22T02:11:03.922Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SBG.2026295T021103.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SBH.2026223T021028.v2.0",
+      "product": "L30",
+      "concept_id": "G4278502524-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-11T02:10:28.267Z",
+          "EndingDateTime": "2026-08-11T02:10:52.150Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SBH.2026223T021028.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SBH.2026295T021040.v2.0",
+      "product": "L30",
+      "concept_id": "G4386383869-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-22T02:10:40.039Z",
+          "EndingDateTime": "2026-10-22T02:11:03.922Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SBH.2026295T021040.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SDH.2026160T020333.v2.0",
+      "product": "L30",
+      "concept_id": "G4212962837-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-06-09T02:03:33.805Z",
+          "EndingDateTime": "2026-06-09T02:03:57.692Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SDH.2026160T020333.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SDH.2026216T020416.v2.0",
+      "product": "L30",
+      "concept_id": "G4271639809-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-04T02:04:16.615Z",
+          "EndingDateTime": "2026-08-04T02:04:40.502Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SDH.2026216T020416.v2.0.json"
+    },
+    {
+      "id": "HLS.L30.T52SDH.2026280T020436.v2.0",
+      "product": "L30",
+      "concept_id": "G4351202025-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-07T02:04:36.127Z",
+          "EndingDateTime": "2026-10-07T02:05:00.013Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.L30.T52SDH.2026280T020436.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SBG.2026216T021531.v2.0",
+      "product": "S30",
+      "concept_id": "G4271692567-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-04T02:27:17.200Z",
+          "EndingDateTime": "2026-08-04T02:27:17.200Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SBG.2026216T021531.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SBG.2026301T021809.v2.0",
+      "product": "S30",
+      "concept_id": "G4395913076-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-28T02:27:16.932Z",
+          "EndingDateTime": "2026-10-28T02:27:16.932Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SBG.2026301T021809.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SBH.2026216T021531.v2.0",
+      "product": "S30",
+      "concept_id": "G4271814430-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-04T02:27:02.769Z",
+          "EndingDateTime": "2026-08-04T02:27:02.769Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SBH.2026216T021531.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SBH.2026301T021809.v2.0",
+      "product": "S30",
+      "concept_id": "G4395899270-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-28T02:27:02.492Z",
+          "EndingDateTime": "2026-10-28T02:27:02.492Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SBH.2026301T021809.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SCG.2026216T021531.v2.0",
+      "product": "S30",
+      "concept_id": "G4271651428-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-04T02:27:13.439Z",
+          "EndingDateTime": "2026-08-04T02:27:13.439Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SCG.2026216T021531.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SDH.2026166T021531.v2.0",
+      "product": "S30",
+      "concept_id": "G4219080476-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-06-15T02:26:53.971Z",
+          "EndingDateTime": "2026-06-15T02:26:53.971Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SDH.2026166T021531.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SDH.2026216T021531.v2.0",
+      "product": "S30",
+      "concept_id": "G4271705675-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-08-04T02:26:55.015Z",
+          "EndingDateTime": "2026-08-04T02:26:55.015Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SDH.2026216T021531.v2.0.json"
+    },
+    {
+      "id": "HLS.S30.T52SDH.2026281T021559.v2.0",
+      "product": "S30",
+      "concept_id": "G4353825023-LPCLOUD",
+      "collection_reference": {
+        "EntryTitle": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+      },
+      "temporal_extent": {
+        "RangeDateTime": {
+          "BeginningDateTime": "2026-10-08T02:26:53.722Z",
+          "EndingDateTime": "2026-10-08T02:26:53.722Z"
+        }
+      },
+      "metadata_file": "hls/metadata/nasa-cmr/HLS.S30.T52SDH.2026281T021559.v2.0.json"
+    }
+  ]
+}
