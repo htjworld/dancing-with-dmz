@@ -825,3 +825,100 @@ body.endcard #stage,body.endcard #panel{display:none}
 #panel > .primary[data-finale]{margin-top:12px}
 body.ending-stars .pin{opacity:0;transition:opacity .8s}
 .pin{transition:opacity .6s}
+/* ==== 밤하늘 둘러보기 3판(hdk): 카드 없이 지도 위에 글만(왼쪽 위), 조작은 영상과 같은 아래 줄, 게임 단추는 오른쪽 아래 ==== */
+body[data-screen=night][data-night=explore] #night{left:28px;top:88px;right:auto;bottom:auto;width:min(440px,calc(100% - 56px));max-height:none;overflow:visible;padding:0;
+  background:none;border:none;border-radius:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+#night .words h2{margin:0 0 12px;font:700 30px/1.25 "Pretendard","Noto Sans KR",sans-serif;letter-spacing:-.035em;color:#f6f3ea;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+#night .words .lead{margin:0 0 10px;font-size:15px;line-height:1.7;color:#c9d2e8;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+#night .words .lead b{color:#ffd27a;font-weight:600;font-variant-numeric:tabular-nums}
+/* 색 눈금과 자료·한계: 왼쪽 아래 작은 글자 */
+#night .legend{position:fixed;left:28px;bottom:40px;z-index:4;width:min(300px,calc(100% - 56px));display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:11px;color:#7f8bab}
+#night .legend .scale{grid-column:1/-1;height:3px;border-radius:2px;margin:0;background:linear-gradient(90deg,rgba(110,52,18,0),#d4842e 45%,#ffce76 70%,#fff7e0)}
+#night .legend .notes{grid-column:1/-1;margin-top:6px}
+#night .legend summary{cursor:pointer;list-style:none;color:#9aa7c3;font-size:12px;text-decoration:underline;text-decoration-color:rgba(154,167,195,.4);text-underline-offset:3px}
+#night .legend summary::-webkit-details-marker{display:none}
+#night .legend .notes[open]{position:relative}
+#night .legend .notes[open] p{font-size:12px;line-height:1.55;color:#9aa7c3;margin:6px 0 0;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+#night .legend .notes p b{color:#ffd27a}
+/* 아래 가운데 조작줄: 영상의 멈춤·장면 줄과 같은 모양 */
+#night .dock{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);z-index:4;text-align:center;width:max-content;max-width:calc(100% - 40px)}
+#night .dock-note{margin:0 0 10px;font-size:12.5px;color:#9aa7c3;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+#night .dock-note b{color:#eef1f8;font-weight:500}
+#night .dock .row{display:flex;align-items:center;justify-content:center;gap:2px;flex-wrap:wrap}
+#night .dock .ic{width:30px;height:30px;padding:0;margin:0 3px;border:none;border-radius:50%;display:grid;place-items:center;color:#c9d2e8;background:rgba(255,255,255,.07)}
+#night .dock .ic:hover{background:rgba(255,255,255,.14)}
+#night .dock .ic[aria-pressed=true]{color:#2a1e05;background:#ffd27a}
+#night .dock .ic svg{width:12px;height:12px}
+#night .dock .sep{width:1px;height:14px;background:rgba(160,190,225,.25);margin:0 10px}
+#night .dock .tab{position:relative;padding:6px 9px;border:none;background:none;color:#7884a3;font-size:13px}
+#night .dock .tab:hover{color:#eef1f8}
+#night .dock .tab[aria-pressed=true]{color:#ffd27a}
+#night .dock .tab[aria-pressed=true]::after{content:"";position:absolute;left:50%;bottom:0;width:3px;height:3px;margin-left:-1.5px;border-radius:50%;background:#ffd27a}
+/* 오른쪽 아래: 게임으로 */
+#night .exit{position:fixed;right:24px;bottom:36px;z-index:4;display:flex;align-items:center;gap:6px}
+#night .exit .next{padding:10px 18px;border-radius:999px;border:none;background:#f6f3ea;color:#0b1530;font-size:14px;font-weight:600}
+#night .exit .ghost{padding:8px 10px;border:none;background:none;color:#7f8bab;font-size:13px}
+#night .exit .ghost:hover{color:#eef1f8}
+body[data-screen=night][data-night=explore] .maplibregl-ctrl-bottom-right{display:none}
+@media (max-width:900px){
+  body[data-screen=night][data-night=explore] #night{left:16px;top:84px;width:calc(100% - 32px)}
+  #night .words h2{font-size:22px}
+  #night .words .lead{font-size:13.5px}
+  #night .legend{left:16px;bottom:128px}
+  #night .dock{bottom:76px}
+  #night .exit{left:16px;right:16px;bottom:30px;justify-content:space-between}
+  #night .exit .ghost{white-space:nowrap}
+  #night .exit .next{padding:9px 16px;font-size:13px}
+  #night .words .lead:first-of-type{display:none}   /* 좁은 화면에서는 숫자 문장만 남겨 지도를 덜 가린다 */
+  body[data-screen=night][data-night=explore] #credit{display:none}
+}
+#night .exit .ghost,#night .words .lead b{white-space:nowrap}
+#night .words{word-break:keep-all}
+#night .words .lead{text-wrap:balance}   /* 줄 길이를 고르게 해 마지막 줄에 한 낱말만 남지 않게 */
+/* 둘러보기: 왼쪽 위는 작은 영문 제목만 두고(부제는 숨긴다), 한글 제목은 그 아래 넉넉히 떨어뜨린다. 빛은 조금 더 밝게 */
+body[data-screen=night][data-night=explore] #top p{display:none}
+body[data-screen=night][data-night=explore] #top h1{font-size:18px;color:#9aa7c3;text-shadow:none}
+body[data-screen=night][data-night=explore] #night{top:104px}
+@media (max-width:900px){ body[data-screen=night][data-night=explore] #night{top:72px} }
+
+/* 밤하늘 둘러보기: 누른 자리의 값(hdk) */
+.glow-pick .maplibregl-popup-content{background:rgba(6,12,28,.92);color:#dfe5f2;border:1px solid rgba(255,214,140,.35);border-radius:10px;padding:9px 12px;box-shadow:0 6px 24px rgba(0,0,0,.45);font:13px/1.45 Pretendard,system-ui,sans-serif;display:flex;flex-direction:column;gap:2px}
+.glow-pick .maplibregl-popup-content b{color:#ffd68c;font-size:17px;font-weight:700}
+.glow-pick .maplibregl-popup-content span{color:#9aa7c3}
+.glow-pick .maplibregl-popup-tip{border-top-color:rgba(6,12,28,.92);border-bottom-color:rgba(6,12,28,.92)}
+body[data-screen=night][data-night=explore] .maplibregl-canvas{cursor:crosshair}
+.glow-pick .maplibregl-popup-content p{margin:0}
+.glow-pick svg.sec{display:block;width:264px;height:74px;margin:8px 0 2px}
+.glow-pick svg.sec rect{fill:#e9b866}
+.glow-pick svg.sec rect.near{fill:#7d8bb0}
+.glow-pick svg.sec .mdl{stroke:#fff;stroke-width:1.2;opacity:.9}
+.glow-pick svg.sec .here{fill:#ffd68c}
+.glow-pick .axis{display:flex;justify-content:space-between;font-size:11px;color:#8390ad;margin-bottom:6px!important}
+.glow-pick .fine{font-size:11.5px;line-height:1.5;color:#8f9bb8;word-break:keep-all}
+/* 밤하늘 둘러보기: 띠 전체 단면(왼쪽 본문 아래) */
+#night .whole{margin:16px 0 0;width:380px;max-width:100%}
+#night .whole svg.sec{display:block;max-width:100%;height:auto!important}
+#night .whole svg.sec rect{fill:#e9b866}
+#night .whole svg.sec rect.near{fill:#7d8bb0}
+#night .whole svg.sec .mdl{stroke:#fff;stroke-width:1.4}
+#night .whole .axis{display:flex;justify-content:space-between;margin:4px 0 8px;font-size:12px;color:#8390ad}
+#night .whole figcaption{font-size:14px;line-height:1.65;color:#c9d2e8;text-shadow:0 1px 10px rgba(0,0,0,.7);word-break:keep-all}
+#night .whole figcaption b{color:#ffd27a;font-weight:600}
+@media (max-width:900px){ #night .whole{width:260px} #night .whole figcaption{font-size:12.5px} }
+/* 밤하늘 둘러보기: 고요한 띠 안의 예외 표시(대성동) */
+.ex-mark{display:none;align-items:center;gap:6px;padding:0;border:0;background:none;cursor:pointer;font:600 12.5px Pretendard,system-ui,sans-serif;color:#f6f3ea;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+body[data-screen=night][data-night=explore] .ex-mark{display:flex}
+.ex-mark i{width:10px;height:10px;border-radius:50%;border:2px solid #ffd68c;background:rgba(6,12,28,.6);box-shadow:0 0 0 4px rgba(255,214,140,.18)}
+.ex-mark:hover span,.ex-mark:focus-visible span{text-decoration:underline}
+.glow-pick .body{font-size:13px;line-height:1.6;color:#dfe5f2;margin:6px 0 4px!important;word-break:keep-all}
+.glow-pick .body b{font-size:13px;color:#ffd68c}
+
+.glow-pick a{color:#ffd68c;text-decoration:underline;text-underline-offset:2px}
+/* 자료와 한계: 펼치면 왼쪽에 불투명한 패널로 띄워 본문·그래프와 겹치지 않게 한다(머리글을 다시 누르면 닫힌다) */
+#night .legend .notes[open]{position:fixed;left:16px;top:84px;bottom:24px;z-index:30;width:min(420px,calc(100vw - 32px));margin:0;padding:18px 20px 20px;overflow:auto;
+  background:rgba(8,14,32,.97);border:1px solid rgba(154,167,195,.22);border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+#night .legend .notes[open] summary{position:sticky;top:-18px;margin:-18px -20px 4px;padding:16px 20px 10px;background:rgba(8,14,32,.97);
+  display:flex;justify-content:space-between;align-items:center;text-decoration:none;font:700 15px Pretendard,system-ui,sans-serif;color:#f6f3ea}
+#night .legend .notes[open] summary::after{content:"닫기";font:500 12.5px Pretendard,system-ui,sans-serif;color:#9aa7c3;text-decoration:underline;text-underline-offset:3px}
+html[lang=en] #night .legend .notes[open] summary::after{content:"Close"}
+#night .legend .notes[open] p{font-size:13px;line-height:1.65;color:#c3cbe0;text-shadow:none;margin:10px 0 0;word-break:keep-all}

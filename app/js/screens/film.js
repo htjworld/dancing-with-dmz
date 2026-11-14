@@ -157,31 +157,39 @@ function drawWaves(s) {
   return st.slot;
 }
 
-let mapSaved = null;
-function nightMap(on) {
-  const m = mapOf(); if (!m) return;
-  let st = null; try { st = m.getStyle(); } catch { /* 아직 스타일 없음 */ }
-  if (!st || !st.layers || st.layers.length < 3) { if (on) m.once('styledata', () => { if (raf) nightMap(true); }); return; }   // 바탕 지도가 늦게 오면 그때 바꾼다
-  if (on && !mapSaved) {
-    mapSaved = [];
-    for (const l of m.getStyle().layers) {
-      const src = l['source-layer'] || '', id = l.id;
-      if (!l.source || l.source === 'radar' || id.startsWith('glow-') || ['dmz', 'zones', 'river'].includes(l.source)) continue;   // 앱이 얹은 층은 그대로
-      const keep = (l.type === 'fill' && src === 'water') || (l.type === 'line' && (src === 'waterway' || src === 'boundary'));
-      mapSaved.push([id, m.getLayoutProperty(id, 'visibility') ?? 'visible', l.type, keep ? m.getPaintProperty(id, `${l.type}-color`) : null, keep && l.type === 'line' ? m.getPaintProperty(id, 'line-opacity') : null]);
-      if (!keep) { m.setLayoutProperty(id, 'visibility', 'none'); continue; }
-      if (l.type === 'fill') m.setPaintProperty(id, 'fill-color', '#050a18');
-      else if (src === 'waterway') m.setPaintProperty(id, 'line-color', '#050a18');
-      else { m.setPaintProperty(id, 'line-color', '#3a4a7a'); m.setPaintProperty(id, 'line-opacity', 0.7); }
+let mapSaved = null, wantNight = false;
+// 바탕 지도를 밤하늘 톤으로(영상과 밤하늘 둘러보기에서 쓴다). 지명·도로·건물은 끄고 바다·강·경계만 남긴다
+let listening = false;
+function applyNight(m) {   // 아직 바꾸지 않은 바탕 층만 바꾼다(바탕 지도가 늦게, 여러 번 나눠 들어와도 매번 맞춘다)
+  let st = null; try { st = m.getStyle(); } catch { return; }
+  if (!st?.layers) return;
+  const done = new Set(mapSaved.map(x => x[0]));
+  for (const l of st.layers) {
+    const src = l['source-layer'] || '', id = l.id;
+    if (done.has(id)) continue;
+    if (l.type === 'background') {
+      mapSaved.push([id, 'visible', 'background', m.getPaintProperty(id, 'background-color'), null]); m.setPaintProperty(id, 'background-color', '#121d3f'); continue;
     }
-    const bg = m.getStyle().layers.find(l => l.type === 'background');
-    if (bg) { mapSaved.push([bg.id, 'visible', 'background', m.getPaintProperty(bg.id, 'background-color'), null]); m.setPaintProperty(bg.id, 'background-color', '#121d3f'); }
+    if (!l.source || l.source === 'radar' || id.startsWith('glow-') || ['dmz', 'zones', 'river'].includes(l.source) || !src) continue;   // 앱이 얹은 층은 그대로
+    const keep = (l.type === 'fill' && src === 'water') || (l.type === 'line' && (src === 'waterway' || src === 'boundary'));
+    mapSaved.push([id, m.getLayoutProperty(id, 'visibility') ?? 'visible', l.type, keep ? m.getPaintProperty(id, `${l.type}-color`) : null, keep && l.type === 'line' ? m.getPaintProperty(id, 'line-opacity') : null]);
+    if (!keep) { m.setLayoutProperty(id, 'visibility', 'none'); continue; }
+    if (l.type === 'fill') m.setPaintProperty(id, 'fill-color', '#050a18');
+    else if (src === 'waterway') m.setPaintProperty(id, 'line-color', '#050a18');
+    else { m.setPaintProperty(id, 'line-color', '#3a4a7a'); m.setPaintProperty(id, 'line-opacity', 0.7); }
+  }
+}
+export function nightMap(on) {
+  wantNight = on;
+  const m = mapOf(); if (!m) return;
+  if (!listening) { listening = true; m.on('styledata', () => { if (wantNight && mapSaved) applyNight(m); }); }
+  if (on) { mapSaved ??= []; applyNight(m);
   } else if (!on && mapSaved) {
     for (const [id, vis, type, col, op] of mapSaved) {
       if (!m.getLayer(id)) continue;
       m.setLayoutProperty(id, 'visibility', vis);
       if (col != null) m.setPaintProperty(id, `${type === 'background' ? 'background' : type}-color`, col);
-      if (op != null || type === 'line') m.setPaintProperty(id, 'line-opacity', op ?? 1);
+      if (col != null && type === 'line') m.setPaintProperty(id, 'line-opacity', op ?? 1);   // 바꿨던 선만 되돌린다
     }
     mapSaved = null;
   }
@@ -231,11 +239,16 @@ function setPaused(on) {
 }
 function jump(toT) {   // 장면 처음으로: 시계를 옮기고, 자막·카메라를 그 장면에서 다시 정한다
   const now = paused ? pausedAt : performance.now();
-  startedAt = now - toT * 1000; cue = -1; capKey = ''; jumped = true;
+  startedAt = now - toT * 1000; cue = -1; capKey = null; jumped = true;   // capKey null: 빈 자막('')으로 가도 앞 자막을 지운다
   titleAt = 0; titleEl.classList.remove('on'); left = -1; held = false;
   if (!paused) music(toT);
 }
 let jumped = false;
+const fitAll = ms => mapOf()?.fitBounds([[125.8, 37.15], [129.1, 39.0]], { padding: { top: 70, bottom: 190, left: 40, right: 40 }, duration: ms });   // 한반도 전체(마무리 장면)
+function skipToEnd() {   // 건너뛰기: 게임으로 바로 가지 않고 제목과 세 단추가 있는 마지막 장면에 멈춘다
+  jump(intro.LEN + CUES[CUES.length - 1].at); held = true;   // held: 저절로 게임으로 넘어가지 않는다
+  fitAll(700);
+}
 function chapters() {   // [이름, 영상 시각(초)]
   const L = intro.LEN, at = id => L + CUES.find(c => c.ch === id).at;
   return [['지구', 0.01], ['파주', at('paju')], ['연천', at('yeoncheon')], ['철원', at('cheorwon')], ['화천', at('hwacheon')], ['양구', at('yanggu')], ['전체', at('end')]];
@@ -267,7 +280,7 @@ function tick() {
   if (k !== cue) {
     const from = CUES[cue]?.cam; cue = k; const c = CUES[k];
     if (c.cam && (c.cam !== from || jumped)) {
-      if (c.ch === 'end' && mapOf()) mapOf().fitBounds([[125.8, 37.15], [129.1, 39.0]], { padding: { top: 70, bottom: 190, left: 40, right: 40 }, duration: jumped ? 700 : 3600 });
+      if (c.ch === 'end') fitAll(jumped ? 700 : 3600);
       else go(c.cam, jumped ? 700 : k === 0 ? 0 : 3200);
     }
     jumped = false;
@@ -307,7 +320,7 @@ export async function startFilm() {
 
 export function initFilm() {
   document.body.append(tint, cv, titleEl, skipEl);
-  skipEl.addEventListener('click', () => toGame());
+  skipEl.addEventListener('click', () => skipToEnd());
   ticks.innerHTML = LABELS.map(l => `<div class="t" title="${l}"><i></i></div>`).join('');   // 날짜 글자 없이 눈금만(통과 11번)
   document.body.append(ticks);
   resize(); addEventListener('resize', resize);

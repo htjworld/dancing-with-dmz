@@ -41,6 +41,8 @@ export function initMap() {
     : innerWidth > 900 ? { top: 60, bottom: 50, left: 420, right: state.evidenceAt ? 390 : 40 } : { top: 60, bottom: 300, left: 16, right: 16 });
   const places = data.glow?.regions || {};
   const glow = data.corridor?.regions || places;
+  // (hdk) 빛 지도 그림 주소: 밤하늘 둘러보기가 남색 위 금빛으로 다시 칠한 그림이 있으면 그것을 쓴다(screens/nightglow.js)
+  const glowUrl = f => window.__glowUrl?.(f) ?? `data/${f}`;
   let nightAt = data.corridor ? 'all' : 'cheorwon';   // 연속 관측 띠가 있으면 전체 범위부터 보여 준다
   const nightView = (duration = 900) => map.fitBounds(nightAt === 'all' || !places[nightAt]
     ? (state.nightMode === 'explore' ? data.corridor?.bounds || VIEW : VIEW)
@@ -78,7 +80,7 @@ export function initMap() {
     map.addLayer({ id: 'radar-frame-glow', type: 'line', source: 'radar-frame', layout: { visibility: r0 ? 'visible' : 'none', 'line-join': 'round' }, paint: { 'line-color': '#a9cdf5', 'line-width': 12, 'line-blur': 10, 'line-opacity': .32 } });
     map.addLayer({ id: 'radar-frame-line', type: 'line', source: 'radar-frame', layout: { visibility: r0 ? 'visible' : 'none', 'line-join': 'round' }, paint: { 'line-color': '#eaf3ff', 'line-width': 1.1, 'line-opacity': .7 } });
     for (const [id, g] of Object.entries(glow)) {
-      map.addSource(`glow-${id}`, { type: 'image', url: `data/${g.color}`, coordinates: g.corners });
+      map.addSource(`glow-${id}`, { type: 'image', url: glowUrl(g.color), coordinates: g.corners });
       map.addLayer({ id: `glow-${id}`, type: 'raster', source: `glow-${id}`, layout: { visibility: 'none' }, paint: { 'raster-fade-duration': 0 } });
     }
     map.addSource('river', { type: 'geojson', data: { type: 'MultiPoint', coordinates: data.river.points } });
@@ -129,7 +131,7 @@ export function initMap() {
     shownFrame = s.nightFrame;
     for (const [id, g] of Object.entries(glow)) {
       const file = shownFrame == null ? g.color : g.frames[Math.min(shownFrame, g.frames.length - 1)];
-      if (file) map.getSource(`glow-${id}`).updateImage({ url: `data/${file}`, coordinates: g.corners });
+      if (file) map.getSource(`glow-${id}`).updateImage({ url: glowUrl(file), coordinates: g.corners });
     }
   });
   // 밤사진 설명 창에서 지역을 고르면 그 지역의 변동 지도로 간다
