@@ -1,0 +1,12 @@
+# secrets
+.env
+.env.*
+!.env.example
+# raw downloads and caches (rebuilt by tools/)
+data/raw/
+data/cache/
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+.claude/
