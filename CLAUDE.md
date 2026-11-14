@@ -4,7 +4,6 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
 - [ ] 기획 확정: jmj 결정 초안 확인 (htj·jmj 동의함) → 최종 `decision.md` — hdk(황도경), khs(김현석) · `brainstorming/decision_jmj.md`
-- [ ] J6 영어: 전환 단추와 밤사진·오프닝·근거·지역 소개는 끝남. 다섯 미션 화면 안의 문구가 남음 ~11/15 13:00 — jmj · `plan.md` 4절
 - [ ] 토지피복 대조(ESA WorldCover), 함께 변한 날 원인(강수) — htj · `plan.md` 4절
 - [ ] 팀 전체 피드백 1회 (11/15 13:00~14:00) → 반영 → 18:00 동결 → J7 데모 → 23:00 제출 — 전원 · `plan.md` 진행 방식
 - [ ] 막힌 일(H7 토큰, 운영진 문의, 결정 확정) — 각 담당 · `todo.md`
@@ -15,6 +14,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] J6 한·영 전환: 모든 화면(오프닝, 밤사진, 땅 연주, 근거, 다섯 미션, 피날레 자막, 구역 이름표)이 영어로 나온다. `?lang=en` — jmj · `app/js/i18n.js`
 - [x] 요청 처리: 창 안 구름 측정(`hls_window.py`), 오프닝 `window_cloud_pct`, 7월 근거로 좁힘 — htj · `plan.md` 5절
 - [x] MVP3 프론트: J4 땅 연주(지도를 쓸면 소리, 고요한 땅은 쉼), J5 근거 패널(숲 대비 곡선, 변동 폭, 한계 문구, 미션 진입) — jmj · `plan.md` 4절
 - [x] MVP2 프론트: J2 구름 문지르기 오프닝, J3 밤사진 한 계절 재생(아리랑 반주) — jmj · `plan.md` 4절

@@ -69,7 +69,7 @@ function render() {
     </div>
     <p class="fine">${t('night.pairNote')}</p>
     <p class="fact">${t('night.fact', { n: fact('july_clear_optical'), looks: fact('july_optical_looks') })}</p>
-    <div class="scale" role="img" aria-label="${data.glow?.metric ?? ''}"></div>
+    <div class="scale" role="img" aria-label="${t('night.scaleAria')}"></div>
     <div class="ends"><span>${t('night.scaleLow', { lo })}</span><span>${t('night.scaleHigh', { hi })}</span></div>
     <div class="go" role="group">
       ${regions.map(id => `<button type="button" data-go="${id}" aria-pressed="${at === id}">${t('region.' + id)}</button>`).join('')}

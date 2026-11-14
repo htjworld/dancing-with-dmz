@@ -1,6 +1,7 @@
 // 지도: 어두운 배경 위에 군사분계선과 다섯 지역의 핀을 올린다.
 import { state, set, subscribe, data, pass } from './state.js';
 import { STOPS, centerOf, label } from './stops.js';
+import { zoneName } from './i18n.js';
 
 // 영상 네 귀퉁이를 감싸는 경위도 범위
 const boundsOf = corners => [[Math.min(...corners.map(c => c[0])), Math.min(...corners.map(c => c[1]))],
@@ -117,7 +118,8 @@ export function initMap() {
   // 구역 이름표: 배경 지도의 글꼴에 기대지 않게 HTML 로 붙인다. 고른 지역의 것만, 충분히 확대했을 때만 보인다
   const tags = data.zones.map(z => {
     const el = document.createElement('div');
-    el.className = `zone-tag ${z.role}`; el.textContent = z.name; el.dataset.region = z.region;
+    el.className = `zone-tag ${z.role}`; el.textContent = zoneName(z); el.dataset.region = z.region;
+    subscribe((st, prev) => { if (st.lang !== prev.lang) el.textContent = zoneName(z); });
     new maplibregl.Marker({ element: el, anchor: 'bottom' }).setLngLat([(z.bounds[0] + z.bounds[2]) / 2, z.bounds[3]]).addTo(map);
     return el;
   });

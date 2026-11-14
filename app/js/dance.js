@@ -5,11 +5,12 @@
 //   ③ 점프   = 모든 땅이 함께 오른 날(실측)
 //   ④ 출렁임 = 박자에 맞춘 작은 파동(연출). 피날레에서만 나온다.
 // 어느 것도 땅이 실제로 움직인 것(지표 변위)이 아니다.
-import { state, subscribe, data, pass, rainAt, mdK } from './state.js';
+import { state, subscribe, data, pass, rainAt } from './state.js';
 import { STOPS, centerOf } from './stops.js';
 import { heights, heightAt, togetherDays, change } from './calc.js';
 import { heightAtProgress, isRestAt, jumpAt, cycleAt } from './rhythm.js';
 import { BEAT } from './music.js';
+import { t, dateText } from './i18n.js';
 
 const HEIGHT_PX = 22, JUMP_PX = 16, WOBBLE_PX = 4;   // 높이 1(다섯 지역에서 가장 큰 변화)·점프·출렁임이 화면에서 차지하는 픽셀
 
@@ -23,7 +24,7 @@ export function initDance(map) {
   const scale = Math.max(...ids.flatMap(id => data.passes.map(p => Math.abs(change(data.zones.find(z => z.region === id && z.role === 'main'), p.cycle) ?? 0))));
   const forest = data.zones.find(z => z.id === 'cheorwon-forest');
   const Hforest = data.passes.map(p => { const v = change(forest, p.cycle); return v == null ? null : v / scale; });   // 철원의 숲: 논이 숲에서 벗어나는 것이 보이게 옅게 함께 그린다
-  const together = togetherDays(data.zones).map(t => t.cycle);
+  const together = togetherDays(data.zones).map(d => d.cycle);
   const line = data.boundary.features[0].geometry.coordinates;
   const shown = ids.map(() => 0);
   let shownForest = 0, pts = [], dirty = true, raf = 0, W = 0, Hh = 0, tickerCycle = -1;
@@ -54,9 +55,9 @@ export function initDance(map) {
     if (c === tickerCycle) return;
     tickerCycle = c;
     const p = pass(c), rain = rainAt('cheorwon', c);
-    let text = mdK(p.date);
-    if (p.rest) text += ' · 이 통과는 보지 못했습니다. 선도 반주도 멈춥니다';
-    else if (together.includes(c)) text += ' · 모든 땅이 함께 올랐습니다' + (rain == null ? '' : rain >= 10 ? ` (철원, 직전 3일 비 ${rain.toFixed(0)} mm)` : ' (비는 거의 없었습니다. 이유는 모릅니다)');
+    let text = dateText(p.date);
+    if (p.rest) text += t('dance.rest');
+    else if (together.includes(c)) text += t('dance.together') + (rain == null ? '' : rain >= 10 ? t('dance.rain', { mm: rain.toFixed(0) }) : t('dance.dry'));
     ticker.textContent = text;
   }
 
@@ -113,5 +114,6 @@ export function initDance(map) {
   const request = () => { if (!raf) raf = requestAnimationFrame(draw); };
   map.on('move', () => { dirty = true; request(); });
   map.on('resize', () => { dirty = true; request(); });
-  subscribe(request); request();
+  // 언어가 바뀌면 자막을 지금 언어로 다시 쓴다
+  subscribe((s, prev) => { if (s.lang !== prev.lang) tickerCycle = -1; request(); }); request();
 }

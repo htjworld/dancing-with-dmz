@@ -70,6 +70,7 @@ function chrome(s) {
   $('lang').textContent = t('lang.other'); $('lang').setAttribute('aria-label', t('lang.aria'));
   $('stage-note').textContent = t('stage.note');
   $('map').setAttribute('aria-label', t('map.aria'));
+  $('tray').setAttribute('aria-label', t('tray.aria')); $('timeline').setAttribute('aria-label', t('timeline.aria'));
 }
 
 function fail(e) {

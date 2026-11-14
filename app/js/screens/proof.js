@@ -2,7 +2,7 @@
 // 계산은 js/evidence.js(htj)가 하고 여기서는 그리기만 한다. 숫자를 손으로 적지 않는다.
 import { state, set, subscribe, data, fact } from '../state.js';
 import { evidence } from '../evidence.js';
-import { t, dateText } from '../i18n.js';
+import { t, dateText, zoneName } from '../i18n.js';
 
 const el = document.getElementById('proof');
 // 선마다 다른 색. 순서는 evidence() 가 주는 남 → DMZ → 북이다. 같은 자리(예: 파주의 DMZ 안 두 구역)에 둘이 있어도 구분된다
@@ -38,13 +38,13 @@ function render() {
   if (el.hidden) return;
   const e = evidence(data.zones, id);
   // 구역 이름은 자료의 한국어 이름을 쓰고, 영어 화면에서는 분계선 기준 위치로 부른다
-  const label = l => (state.lang === 'en' ? t('place.' + l.place) : l.name);
+  const label = l => zoneName(data.zones.find(z => z.id === l.zoneId)) ?? l.name;
   el.innerHTML = `
     <button type="button" class="close" data-close aria-label="${t('proof.close')}">×</button>
     <p class="eye">${t('region.' + id)} · ${t('proof.eye')}</p>
     <h2>${t('proof.title')}</h2>
     ${chart(e)}
-    <ul class="ranges">${e.lines.map(l => `<li><i style="background:${colorOf(e, l)}"></i><span>${label(l)}${state.lang === 'en' ? '' : `<small>${t('place.' + l.place)}</small>`}</span><b>${e.ranges[l.zoneId] ?? '–'} dB</b></li>`).join('')}</ul>
+    <ul class="ranges">${e.lines.map(l => `<li><i style="background:${colorOf(e, l)}"></i><span>${label(l)}<small>${t('place.' + l.place)}</small></span><b>${e.ranges[l.zoneId] ?? '–'} dB</b></li>`).join('')}</ul>
     <p class="fine">${t('proof.rangeNote')}${e.excluded.length ? ' ' + t('proof.sharedNote') : ''}</p>
     <ul class="caveats">${e.caveats.map(k => `<li>${t('caveat.' + k, { passes: fact('passes'), prov: fact('passes_provisional') })}</li>`).join('')}</ul>
     <button type="button" class="next" data-mission>${t('proof.mission', { region: t('region.' + id) })}</button>`;

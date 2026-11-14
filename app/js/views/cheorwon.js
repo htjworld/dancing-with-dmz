@@ -1,8 +1,9 @@
 // 철원 평야 · 사람의 눈: 민통선 논의 선을 본 뒤, 3 km 옆 DMZ 안 땅의 선을 직접 그려 본다. 맞고 틀림은 없다.
-import { state, set, data, zone, addKey, mdK } from '../state.js';
-import { STOPS } from '../stops.js';
+import { state, set, data, zone, addKey } from '../state.js';
+import { STOPS, label } from '../stops.js';
 import { change, forestChange } from '../calc.js';
 import { missionReady, canTake, fillGuess, guessComplete, rangeOf } from '../missions.js';
+import { t, dateText, noteText } from '../i18n.js';
 
 const ID = 'cheorwon', PADDY = 'cheorwon-paddy', DMZ = 'cheorwon-dmz', FOREST = 'cheorwon-forest', NORTH = 'cheorwon-north';
 const W = 300, H = 170, L = 30, R = 8, T = 12, B = 22;
@@ -27,14 +28,14 @@ function chart() {
   const s = scale(), drawing = !state.revealed;
   const rest = data.passes.filter(p => p.rest).map(p => `<rect x="${s.x(p.cycle) - 9}" y="${T}" width="18" height="${H - T - B}" class="rest"/>`).join('');
   const ticks = [Math.ceil(s.lo), 0, Math.floor(s.hi)].map(v => `<text x="${L - 5}" y="${s.y(v) + 3}" class="tick" text-anchor="end">${v > 0 ? '+' : ''}${v}</text><line x1="${L}" x2="${W - R}" y1="${s.y(v)}" y2="${s.y(v)}" class="grid${v === 0 ? ' zero' : ''}"/>`).join('');
-  return `<svg class="chart${drawing ? ' draw' : ''}" viewBox="0 0 ${W} ${H}" role="img" aria-label="민통선 논의 신호 변화 위에 DMZ 안 땅의 선을 그리는 차트">
+  return `<svg class="chart${drawing ? ' draw' : ''}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('cheorwon.chartAria')}">
     ${rest}${ticks}
-    <text x="${L}" y="${H - 5}" class="tick">${mdK(data.passes[0].date)}</text><text x="${W - R}" y="${H - 5}" class="tick" text-anchor="end">${mdK(data.passes[s.n - 1].date)}</text>
-    <text x="${L}" y="9" class="tick">첫 관측 대비 변화 (HH, dB)</text>
+    <text x="${L}" y="${H - 5}" class="tick">${dateText(data.passes[0].date)}</text><text x="${W - R}" y="${H - 5}" class="tick" text-anchor="end">${dateText(data.passes[s.n - 1].date)}</text>
+    <text x="${L}" y="9" class="tick">${t('common.axisChange')}</text>
     <path d="${path(series(PADDY), s)}" class="l-paddy"/>
     ${state.revealed ? `<path d="${path(series(FOREST), s)}" class="l-forest"/><path d="${path(series(DMZ), s)}" class="l-dmz"/>` : ''}
     <path id="guess-path" d="${path(state.guess || [], s)}" class="l-guess"/></svg>
-    <p class="legend"><span class="k-paddy">━ 민통선 논</span> <span class="k-guess">━ 내가 그린 선</span>${state.revealed ? ' <span class="k-dmz">━ DMZ 안 저지대(실제)</span> <span class="k-forest">┅ 숲</span>' : ''}</p>`;
+    <p class="legend"><span class="k-paddy">━ ${t('cheorwon.legendPaddy')}</span> <span class="k-guess">━ ${t('cheorwon.legendGuess')}</span>${state.revealed ? ` <span class="k-dmz">━ ${t('cheorwon.legendDmz')}</span> <span class="k-forest">┅ ${t('cheorwon.legendForest')}</span>` : ''}</p>`;
 }
 
 // 그리는 동안에는 화면 전체를 다시 그리지 않고 선만 고친다. 손을 떼면 상태에 저장한다.
@@ -64,31 +65,29 @@ export function bind(panel) {
 function discovery() {
   const r = id => rangeOf(rel(id)), paddy = r(PADDY), dmz = r(DMZ), north = r(NORTH);
   const real = series(DMZ), g = state.guess, both = g ? real.map((v, c) => (v != null && g[c] != null ? Math.abs(v - g[c]) : null)).filter(v => v != null) : [];
-  const mine = both.length ? `그린 선과 실제 선의 차이는 평균 ${(both.reduce((a, b) => a + b, 0) / both.length).toFixed(1)} dB였습니다. ` : '';
-  const main = dmz <= paddy / 2
-    ? `DMZ 안 저지대는 숲과 거의 같이 움직였고(숲을 뺀 변동 폭 ${dmz.toFixed(1)} dB), 논만 따로 크게 움직였습니다(${paddy.toFixed(1)} dB).`
-    : `숲을 뺀 변동 폭은 논이 ${paddy.toFixed(1)} dB, DMZ 안 저지대가 ${dmz.toFixed(1)} dB였습니다. 이 자료에서는 두 땅의 차이가 뚜렷하지 않습니다.`;
-  return `<div class="found"><h3>이 지역에서 본 것</h3>
+  const mine = both.length ? t('cheorwon.foundMine', { diff: (both.reduce((a, b) => a + b, 0) / both.length).toFixed(1) }) : '';
+  const main = t(dmz <= paddy / 2 ? 'cheorwon.foundApart' : 'cheorwon.foundUnclear', { dmz: dmz.toFixed(1), paddy: paddy.toFixed(1) });
+  return `<div class="found"><h3>${t('common.found')}</h3>
     <p>${mine}${main}</p>
-    <p>분계선 너머 북쪽의 경작지로 보이는 곳도 ${north.toFixed(1)} dB를 오르내렸습니다.</p>
-    <p>가능한 설명: 사람이 물을 대고 벼를 기르고 거두는 땅은 한 계절 동안 크게 변하고, 사람이 들어가지 않는 땅은 숲의 리듬을 따를 수 있습니다. 가을에 논의 신호가 내려간 것이 수확 때문이라고 이 자료만으로 단정할 수는 없습니다.</p>
-    <p class="fine">구역은 팀이 레이더 영상에서 고른 사각형입니다. "논", "저지대", "경작지"는 영상에서 그렇게 보인다는 뜻이며 현장에서 확인한 것이 아닙니다.</p></div>`;
+    <p>${t('cheorwon.foundNorth', { north: north.toFixed(1) })}</p>
+    <p>${t('cheorwon.foundWhy')}</p>
+    <p class="fine">${t('cheorwon.foundFine')}</p></div>`;
 }
 
 export function render() {
   const ready = missionReady(ID, state.seen[ID]), got = state.fragments.includes(ID), full = guessComplete(state.guess, zone(DMZ));
   const allowed = canTake(ID, state.fragments, STOPS.map(s => s.id));
   return `${chart()}
-    ${state.revealed ? '' : `<p class="hint">초록 선은 민통선 논입니다. 3 km 옆, 사람이 들어가지 않는 DMZ 안 땅은 어땠을까요? 차트 위를 왼쪽에서 오른쪽으로 끌어 선을 그려 보세요.</p>
-      <div class="acts"><button type="button" data-act="reveal" ${full ? '' : 'disabled'}>실제 선과 겹쳐 보기</button>
-      <button type="button" data-act="clear" ${state.guess ? '' : 'disabled'}>지우기</button></div>
-      <button type="button" class="ghost" data-act="skip">그리지 않고 보기</button>`}
-    ${state.note ? `<p class="note ${state.note.ok ? 'ok' : 'no'}" role="status">${state.note.text}</p>` : ''}
+    ${state.revealed ? '' : `<p class="hint">${t('cheorwon.hint')}</p>
+      <div class="acts"><button type="button" data-act="reveal" ${full ? '' : 'disabled'}>${t('cheorwon.reveal')}</button>
+      <button type="button" data-act="clear" ${state.guess ? '' : 'disabled'}>${t('cheorwon.clear')}</button></div>
+      <button type="button" class="ghost" data-act="skip">${t('cheorwon.skip')}</button>`}
+    ${state.note ? `<p class="note ${state.note.ok ? 'ok' : 'no'}" role="status">${noteText(state.note)}</p>` : ''}
     ${ready ? discovery() : ''}
-    ${ready && !got ? (allowed ? '<button type="button" class="primary" data-act="take">♪ 철원 조각 받기</button>'
-      : '<p class="note no">먼저 앞 지역의 조각을 모아 주세요. 조각은 서쪽부터 차례로 이어집니다.</p>') : ''}
-    ${got ? `<p class="note ok">철원 조각(베이스)을 받았습니다. 선이 철원까지 이어졌습니다.</p>
-      <button type="button" class="primary" data-act="next">다음: 화천 백암산 →</button>` : ''}`;
+    ${ready && !got ? (allowed ? `<button type="button" class="primary" data-act="take">${t('cheorwon.take')}</button>`
+      : `<p class="note no">${t('common.needPrev')}</p>`) : ''}
+    ${got ? `<p class="note ok">${t('cheorwon.got')}</p>
+      <button type="button" class="primary" data-act="next">${t('common.next', { name: label(STOPS.find(s => s.id === 'hwacheon'), 'name') })}</button>` : ''}`;
 }
 
 export function act(name) {
