@@ -138,7 +138,7 @@ export function touch(db, scaleDb)                    // 포인터 이동마다 
 // app/js/evidence.js
 export function evidence(zones, regionId)
 // → { dates: [...],
-//     lines: [{ zoneId, name, role, values: [dB | null] }],   // 숲 대비 HH, 결측은 null
+//     lines: [{ zoneId, name, role, place, values: [dB | null] }],  // place: 'south' | 'dmz' | 'north' 순서. 숲 대비 HH(첫 통과 0), 결측은 null
 //     ranges: { [zoneId]: dB },                                // 계절 변동 폭(최대 - 최소)
 //     excluded: [cycle],                                       // 모든 구역이 함께 변한 통과
 //     caveats: ['forest_relative', 'provisional', ...] }       // 2-4 키
