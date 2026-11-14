@@ -179,5 +179,17 @@ body[data-screen=night] #sound{top:16px}
 
 /* ---- 언어 전환 단추: 모든 화면의 오른쪽 위 */
 #lang{position:fixed;top:16px;right:16px;z-index:6;padding:7px 12px;border-radius:999px;border:1px solid var(--edge);background:var(--card);font-size:12px}
-body[data-screen=mission] #lang{top:auto;bottom:34px;right:60px}
+body[data-screen=mission] #lang{right:590px}   /* 미션에서는 위쪽 단추 줄의 왼쪽 끝. 아래 띠의 슬라이더·날짜를 가리지 않는다 */
 body:not([data-screen=mission]) #sound{right:104px}
+
+/* ---- 파주: 날짜 단추 대신 슬라이더 */
+#paju-slider{display:none}
+body[data-screen=mission][data-stop=paju] #paju-slider{display:block}
+body[data-screen=mission][data-stop=paju] #timeline{display:none}
+#paju-slider label{display:block;font-size:13px;color:var(--gold);margin-bottom:4px}
+#paju-slider input{width:100%;margin:0;accent-color:var(--gold);cursor:pointer}
+#paju-slider .ticks{display:flex;justify-content:space-between;margin-top:2px;font-size:11px;color:var(--dim)}
+#paju-slider .ticks span{flex:0 0 auto;min-width:0}
+#paju-slider .ticks .now{color:var(--ink);font-weight:700}
+body.finale #paju-slider{opacity:.35;pointer-events:none}
+#panel .hint.locked{border:1px dashed var(--edge);border-radius:10px;padding:10px 12px;margin:8px 0}

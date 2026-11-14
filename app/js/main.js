@@ -64,6 +64,7 @@ function timeline() {
 // 화면(밤사진 / 미션)에 따라 바뀌는 바깥 틀: 본문 클래스, 머리말, 돌아가기 단추
 function chrome(s) {
   document.body.dataset.screen = s.screen;
+  document.body.dataset.stop = s.stop;
   document.documentElement.lang = s.lang;
   $('lead').textContent = t(s.screen === 'mission' ? 'mission.lead' : 'night.lead');
   $('to-night').textContent = t('mission.back');

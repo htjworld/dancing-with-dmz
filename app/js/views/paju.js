@@ -1,5 +1,5 @@
 // 파주 장단 · 시간의 눈: 논이 가장 어두웠던 날과 가장 밝았던 날을 찾는다.
-import { state, set, data, zone, pass, rainAt, addKey } from '../state.js';
+import { state, set, subscribe, data, zone, pass, rainAt, addKey, md } from '../state.js';
 import { STOPS, label } from '../stops.js';
 import { level, change, refOf, togetherDays } from '../calc.js';
 import { extremeDays, judgeExtreme, missionReady } from '../missions.js';
@@ -14,12 +14,12 @@ export function startCycle() {
   return data.passes.find(p => !p.rest && !answers.has(p.cycle))?.cycle ?? 0;
 }
 
-// 넘겨 본 날에만 점이 찍히는 밝기 선
+// 밝기 선. 두 날을 모두 맞힌 뒤에만 그린다(그 전에는 지도의 레이더 영상만 보고 고른다). 자료가 있는 모든 통과를 잇는다
 function chart() {
   const z = zone(ZONE), n = data.passes.length, W = 300, H = 150, L = 34, R = 8, T = 12, B = 22;
   const all = z.observations.map(o => o.hh_db).filter(v => v != null), lo = Math.min(...all) - .4, hi = Math.max(...all) + .4;
   const x = c => L + (W - L - R) * c / (n - 1), y = v => T + (H - T - B) * (hi - v) / (hi - lo);
-  const seen = [...new Set(state.visited)].sort((a, b) => a - b).filter(c => level(z, c) != null);
+  const seen = data.passes.map(p => p.cycle).filter(c => level(z, c) != null);
   const path = seen.map((c, i) => `${i ? 'L' : 'M'}${x(c).toFixed(1)},${y(level(z, c)).toFixed(1)}`).join('');
   const rest = data.passes.filter(p => p.rest).map(p => `<rect x="${x(p.cycle) - 9}" y="${T}" width="18" height="${H - T - B}" class="rest"/>`).join('');
   const dots = seen.map(c => `<circle cx="${x(c)}" cy="${y(level(z, c))}" r="${c === state.cycle ? 5.5 : 3.2}" class="${c === state.cycle ? 'now' : ''}"/>`).join('');
@@ -66,9 +66,10 @@ function discovery() {
 export function render() {
   const seen = state.seen.paju || [], ready = missionReady('paju', seen), got = state.fragments.includes('paju');
   const o = level(zone(ZONE), state.cycle), p = pass(state.cycle);
-  const today = p.rest ? `${dateText(p.date)} · ${t('paju.noData')}` : `${dateText(p.date)} · ${fmt(o)} dB`;
-  const step = k => `<li class="${seen.includes(k) ? 'done' : ''}">${seen.includes(k) ? '✓' : '○'} ${t(k === 'dark' ? 'paju.stepDark' : 'paju.stepBright')}${state.marks[k] != null ? ` · ${dateText(pass(state.marks[k]).date)}` : ''}</li>`;
-  return `${chart()}
+  // 밝기 숫자는 두 날을 모두 맞힌 뒤에만 보여 준다
+  const today = p.rest ? `${dateText(p.date)} · ${t('paju.noData')}` : ready ? `${dateText(p.date)} · ${fmt(o)} dB` : dateText(p.date);
+  const step = k => `<li class="${seen.includes(k) ? 'done' : ''}">${seen.includes(k) ? '✓' : '○'} ${t(k === 'dark' ? 'paju.stepDark' : 'paju.stepBright')}${state.marks[k] != null ? ` · ${dateText(pass(state.marks[k]).date)} · ${fmt(level(zone(ZONE), state.marks[k]))} dB` : ''}</li>`;
+  return `${ready ? chart() : `<p class="hint locked">${t('paju.locked')}</p>`}
     <p class="today">${t('paju.today')} <b>${today}</b></p>
     <ul class="steps">${step('dark')}${step('bright')}</ul>
     ${ready ? '' : `<div class="acts">
@@ -88,4 +89,32 @@ export function act(name) {
   else if (name === 'mark-bright') mark('bright');
   else if (name === 'take' && missionReady('paju', state.seen.paju)) set({ fragments: [...state.fragments, 'paju'], note: null });
   else if (name === 'next') set({ stop: 'yeoncheon', note: null });
+}
+
+// ---- 날짜 슬라이더: 파주에서는 아래 날짜 단추 대신 슬라이더로 통과를 넘긴다. 자료가 없는 통과(7/29)는 넣지 않는다.
+// 미션 창은 상태가 바뀔 때마다 새로 그려지므로, 끄는 도중에 사라지지 않게 창 밖(아래 띠)에 한 번만 만든다.
+export function bind() {
+  const cycles = data.passes.filter(p => !p.rest).map(p => p.cycle);
+  const box = document.createElement('div');
+  box.id = 'paju-slider';
+  box.innerHTML = `<label for="paju-range"></label>
+    <input id="paju-range" type="range" min="0" max="${cycles.length - 1}" step="1">
+    <div class="ticks" aria-hidden="true">${cycles.map(c => `<span>${md(pass(c).date)}</span>`).join('')}</div>`;
+  document.getElementById('timeline').before(box);
+  const range = box.querySelector('input'), name = box.querySelector('label'), ticks = [...box.querySelectorAll('.ticks span')];
+  range.addEventListener('input', () => {
+    const c = cycles[+range.value];
+    if (c !== state.cycle) set({ cycle: c, visited: [...state.visited, c], note: null });
+  });
+  const sync = () => {
+    if (state.stop !== 'paju') return;
+    // 자료가 없는 통과에 와 있으면(다른 지역에서 넘어온 경우) 가장 가까운 자료 있는 통과로 옮긴다
+    let i = cycles.indexOf(state.cycle);
+    if (i < 0) { i = cycles.reduce((best, c, k) => (Math.abs(c - state.cycle) < Math.abs(cycles[best] - state.cycle) ? k : best), 0); return set({ cycle: cycles[i], visited: [...state.visited, cycles[i]] }); }
+    if (+range.value !== i) range.value = i;
+    name.textContent = `${t('paju.slider')} · ${dateText(pass(cycles[i]).date)}`;
+    range.setAttribute('aria-valuetext', dateText(pass(cycles[i]).date));
+    ticks.forEach((el, k) => el.classList.toggle('now', k === i));
+  };
+  subscribe(sync); sync();
 }

@@ -15,6 +15,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 파주 미션: 날짜 단추 대신 슬라이더(자료 없는 7/29 제외), 밝기 숫자·그래프는 두 날을 모두 맞힌 뒤에 공개 — jmj · `app/js/views/paju.js`
 - [x] 방향 점검(공식 심사 기준): 유지, 약점은 Impact·Validity 마감 — htj · `brainstorming/direction_check_htj.md`
 - [x] CI/CD 파이프라인: 모든 push 테스트, main은 테스트 통과 시 Pages 배포 — htj · `.github/workflows/deploy.yml`
 - [x] 토지피복 대조(ESA WorldCover: 철원 논 78.7%·북쪽 82.9% 경작지, DMZ 안 0.6%), 함께 변한 날 강수(8/22 39 mm, 10/21 0.2 mm) — htj · `interface.md` 2-4, 3
