@@ -157,15 +157,24 @@ export function initMap() {
   const pins = STOPS.map((s, i) => {
     const el = document.createElement('button');
     el.className = 'pin'; el.type = 'button'; el.dataset.stop = s.id;
-    const name = () => { el.setAttribute('aria-label', `${i + 1} ${label(s, 'name')}`); el.innerHTML = `${i + 1}<span class="pin-label">${label(s, 'name')}</span>`; };
+    const name = () => { el.setAttribute('aria-label', `${i + 1} ${label(s, 'name')}`); el.innerHTML = `${i + 1}<span class="pin-label">${label(s, 'name')}</span><span class="pin-nav prev" data-nav="-1" aria-hidden="true">‹</span><span class="pin-nav next" data-nav="1" aria-hidden="true">›</span>`; };
     name(); subscribe((st, prev) => { if (st.lang !== prev.lang) name(); });
-    el.addEventListener('click', e => { e.stopPropagation(); if (state.stop === s.id) focus(s.id); else set({ stop: s.id }); });   // 지금 지역의 핀을 다시 누르면 그 지역으로 확대
+    el.addEventListener('click', e => {
+      e.stopPropagation();
+      // 지금 지역의 구슬 양옆 화살표: 이전 지역, 다음 지역으로 옮긴다(다음은 여기까지의 조각을 다 모았을 때만)
+      const nav = e.target.closest?.('[data-nav]');
+      if (nav) { const to = STOPS[i + +nav.dataset.nav]; if (to && (nav.dataset.nav === '-1' || el.dataset.next === '1')) set({ stop: to.id, note: null, peek: null }); return; }
+      if (state.stop === s.id) focus(s.id); else set({ stop: s.id });
+    });   // 지금 지역의 핀을 다시 누르면 그 지역으로 확대
     new maplibregl.Marker({ element: el }).setLngLat(centerOf(s)).addTo(map);
     return el;
   });
   const paint = () => pins.forEach(el => {
     el.classList.toggle('current', el.dataset.stop === state.stop);
     el.classList.toggle('done', state.fragments.includes(el.dataset.stop));
+    const i = STOPS.findIndex(x => x.id === el.dataset.stop);
+    el.dataset.prev = i > 0 ? '1' : '0';
+    el.dataset.next = i < STOPS.length - 1 && STOPS.slice(0, i + 1).every(x => state.fragments.includes(x.id)) ? '1' : '0';
   });
   subscribe(paint); paint();
   // 구역 이름표: 배경 지도의 글꼴에 기대지 않게 HTML 로 붙인다. 고른 지역의 것만, 충분히 확대했을 때만 보인다

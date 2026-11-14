@@ -196,14 +196,6 @@ export function initDance(map) {
       }
     }
     ctx.globalAlpha = 1;
-    // 위성: 훑는 자리 위에 작은 위성과 아래로 비추는 띠를 그린다(연출. 실제 위성의 크기나 높이가 아니다)
-    if (dancing && !starK && sweepU >= 0 && sweepU <= 1.05 && pts.length) {
-      const u = Math.min(1, sweepU), p = pts.find(q => q.d / total >= u) || pts[pts.length - 1], sy = p.y - 62;
-      ctx.beginPath(); ctx.moveTo(p.x, sy + 4); ctx.lineTo(p.x - 20, p.y + 6); ctx.lineTo(p.x + 20, p.y + 6); ctx.closePath(); ctx.fillStyle = 'rgba(191,244,255,.10)'; ctx.fill();
-      ctx.beginPath(); ctx.moveTo(p.x, sy + 4); ctx.lineTo(p.x, p.y); ctx.strokeStyle = 'rgba(191,244,255,.4)'; ctx.lineWidth = 1; ctx.stroke();
-      ctx.fillStyle = '#7fb3ff'; ctx.fillRect(p.x - 18, sy - 2, 10, 4); ctx.fillRect(p.x + 8, sy - 2, 10, 4);
-      ctx.fillStyle = '#eef3fa'; ctx.fillRect(p.x - 7, sy - 4, 14, 8);
-    }
     // 별자리: 다섯 지역의 자리에 별이 뜨고 그 사이가 이어진다. 별마다 그 지역에서 배운 것을 적는다
     if (starK > 0 && stars.length === ids.length && pts.length) {
       const sp = stars.map(j => pts[j]);

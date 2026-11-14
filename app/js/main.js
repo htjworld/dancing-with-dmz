@@ -47,8 +47,8 @@ function intro(s, i, beat) {
   el.dataset.key = key; el.dataset.stop = s.id;
   const clip = INTRO_CLIP[s.id];
   el.innerHTML = on ? `<div class="card">
-      ${clip ? `<video src="${clip}" autoplay muted loop playsinline></video>` : ''}
       ${i === 0 && !state.fragments.length ? `<p class="leadin">${t('mission.leadIn')}</p>` : ''}
+      ${clip ? `<video src="${clip}" autoplay muted loop playsinline></video>` : ''}
       ${lineSvg({ current: i, label: `${i + 1} / ${STOPS.length}` })}
       <p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2>
       <p class="story">${label(s, 'story')}</p>
@@ -149,7 +149,7 @@ function perform(mode, ids) {
   set({ playing: { mode, at, duration: plan.duration, ids } });
 }
 function finale() {
-  window.dmzMap.fitBounds(VIEW, { padding: { top: 90, bottom: 190, left: 30, right: 30 }, duration: 1000 });
+  window.dmzMap.fitBounds(VIEW, { padding: { top: 90, bottom: 230, left: 30, right: 30 }, duration: 1000 });
   perform('finale', STOPS.map(s => s.id));
 }
 

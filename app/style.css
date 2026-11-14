@@ -922,3 +922,33 @@ body[data-screen=night][data-night=explore] .ex-mark{display:flex}
 #night .legend .notes[open] summary::after{content:"닫기";font:500 12.5px Pretendard,system-ui,sans-serif;color:#9aa7c3;text-decoration:underline;text-underline-offset:3px}
 html[lang=en] #night .legend .notes[open] summary::after{content:"Close"}
 #night .legend .notes[open] p{font-size:13px;line-height:1.65;color:#c3cbe0;text-shadow:none;margin:10px 0 0;word-break:keep-all}
+
+/* ---- 엔딩의 글을 한 상자로: 날짜(작게) → 자막(크게) → 연출 안내(아주 작게). 따로 떠 있던 세 덩어리를 하나로 묶는다 */
+#stage{display:flex;flex-direction:column;align-items:center;gap:6px;width:min(620px,92vw);padding:14px 22px 12px;border-radius:18px;
+  background:rgba(8,14,24,.84);border:1px solid var(--night-edge);box-shadow:0 18px 50px rgba(0,0,0,.5)}
+#stage[hidden]{display:none}
+#ending-cloud{order:0;margin:0 0 4px}
+#ticker{order:1;margin:0;font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--gold);text-shadow:none;line-height:1.5}
+#ticker[hidden]{display:none}
+#ending-line{order:2;margin:0;min-height:0}
+#ending-line span{display:block;padding:0;background:none;border:0;border-radius:0;font-size:21px;line-height:1.55;animation:none}
+#stage-note{order:3;margin:4px 0 0;padding:8px 0 0;width:100%;border-top:1px solid var(--night-edge);border-radius:0;background:none;font-size:11.5px;line-height:1.5;color:var(--dim)}
+/* 엔딩의 글 상자가 선의 서쪽 끝(파주)을 가리지 않게 화면 아래로 내린다 */
+#stage{bottom:38px}
+
+/* ---- 지금 지역의 구슬 양옆 화살표: 이전·다음 지역으로 */
+.pin-nav{display:none;position:absolute;top:50%;width:30px;height:30px;margin-top:-15px;place-items:center;border-radius:50%;
+  border:1px solid rgba(255,225,162,.55);background:rgba(13,24,38,.86);color:var(--gold);font-size:19px;line-height:1;font-weight:400;cursor:pointer;
+  pointer-events:auto;transition:transform .1s ease-out,background-color .15s}
+.pin-nav.prev{right:calc(100% + 16px)} .pin-nav.next{left:calc(100% + 16px)}
+.pin-nav:hover{background:rgba(255,225,162,.18)} .pin-nav:active{transform:scale(.92)}
+body[data-screen=mission] .pin.current[data-prev="1"] .pin-nav.prev,body[data-screen=mission] .pin.current[data-next="1"] .pin-nav.next{display:grid}
+body.finale .pin-nav,body.endcard .pin-nav,body.ending-stars .pin-nav{display:none !important}
+/* 화살표를 절반 크기로. 누르는 자리는 보이는 것보다 넓게 둔다 */
+.pin-nav{width:15px;height:15px;margin-top:-7.5px;font-size:11px}
+.pin-nav.prev{right:calc(100% + 10px)} .pin-nav.next{left:calc(100% + 10px)}
+.pin-nav::after{content:"";position:absolute;inset:-8px}
+/* 미션을 푸는 동안에는 밤하늘로 가는 단추를 숨긴다(풀고 나면 다시 나온다) */
+body[data-beat=play] #to-night,body[data-beat=intro] #to-night{display:none}
+/* 첫 소개 카드의 안내 한 줄은 영상 위에 둔다 */
+#intro .leadin{margin:0 0 12px;padding:0;border-bottom:0}
