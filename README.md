@@ -1,10 +1,75 @@
 # Dancing with DMZ
 
-NASA Space Apps Challenge 2026 · 챌린지 **Dancing with the SARs**
+**Live: https://htjworld.github.io/dancing-with-dmz/** (deploys automatically from `main`; being set up on 11/14)
 
-사람이 70년 넘게 들어가지 못한 땅, 한반도 비무장지대(DMZ). 레이더 위성 NISAR는 구름과 밤을 가리지 않고 이 땅을 12일마다 다시 본다. 이 서비스는 다섯 지역의 레이더 미션을 풀며 땅의 리듬을 모으고, 다섯 조각이 이어지면 DMZ 선이 실측 자료에 맞춰 춤추는 것을 보여 준다.
+NASA Space Apps Challenge 2026 · Challenge: **Dancing with the SARs** · Team: Seoul
 
-> 작업 중입니다. 대회 기간(2026-11-14 ~ 11-15)에 이 저장소에서 처음부터 만듭니다.
+## What it is
+
+A radar "night photo" of the Korean Demilitarized Zone. Nobody has walked into the DMZ for over 70 years, and in July 2026 optical satellites could not see it either: across five DMZ windows, Landsat looked 19 times and never saw a clear view. NISAR's L-band radar saw the land every 12 days. We turn 11 NISAR passes (June to November 2026) into one image of **how much each pixel changed over the season**. Farmed fields on both sides of the demarcation line glow; the strip between them stays dark.
+
+- **Opening:** rub away a cloudy July optical image to reveal the radar image underneath.
+- **Night photo:** play the season and watch the fields light up pass by pass.
+- **Land play:** sweep the map to hear the change; still land is silent.
+- **Evidence panel:** forest-relative curves, change ranges, land cover, and the limits, for each region. The five original missions remain as "check it yourself".
+- Korean / English.
+
+## How it works
+
+No server. A Python pipeline prepares everything, and a static web app draws it in the browser.
+
+```
+NISAR L2 GCOV (ASF, ~6 GB per scene) → read only the needed pixels with HTTP range requests (tools/extract_nisar.py)
+→ forest-relative seasonal change per pixel (tools/make_glow.py)
++ cloud inside each window from Landsat HLS browse images (tools/hls_window.py)
++ land cover check with ESA WorldCover 2021 (tools/landcover.py) + NASA POWER rain (tools/fetch_rain.py)
+→ every number on screen comes from app/data/facts.json (tools/make_facts.py), with asserts that stop the build if a claim breaks
+→ static site (app/), tested and deployed by GitHub Actions on every push to main
+```
+
+## Key numbers (from `app/data/facts.json`)
+
+| | |
+|---|---|
+| July 2026 clear optical views (5 windows, Landsat) | 0 of 19 |
+| Seasonal change, forest-relative, Cheorwon | paddy 2.1 dB · inside DMZ 0.7 dB · north of the line 2.0 dB |
+| Seasonal change, Paju (both inside the DMZ) | farmed 2.1 dB · unfarmed 0.6 dB |
+| Cropland share (ESA WorldCover 2021), Cheorwon | paddy 78.7% · inside DMZ 0.6% · north 82.9% |
+
+## Data
+
+| Data | Use | License / terms |
+|---|---|---|
+| NISAR L2 GCOV (NASA/ISRO), via ASF DAAC — track 133, frame 069, HH/HV, 2026-06-23 to 11-02 | Seasonal change, layers, missions | NASA open data |
+| HLS L30/S30 v2.0 (NASA LP DAAC), CMR metadata and browse images | Cloud over each window, opening image | NASA open data |
+| NASA POWER daily precipitation | Rain before each pass | NASA open data |
+| ESA WorldCover 2021 v200 | Land cover check of each zone | CC BY 4.0 |
+| OpenStreetMap (demarcation line), OpenFreeMap (base map) | Map | ODbL |
+
+## Limits
+
+- Glow is the size of the radar signal change, not an ecological or crop judgment.
+- 10 of the 11 passes are PROVISIONAL products; the glow map is currently built from the app's display layers (coarser than the 30 m source).
+- On 8/22 every zone brightened after 39 mm of rain; on 10/21 every zone brightened with almost no rain, and we do not know why.
+- One season only; zones are rectangles chosen on the radar image (checked against WorldCover 2021).
+- North of the line is described only as "appears to be farmland".
+
+## Run locally
+
+```bash
+python -m http.server 5173 --directory app   # then open http://localhost:5173
+npm test                                      # logic and data checks (node --test)
+```
+
+## Use of AI tools
+
+This project was built with AI coding assistants: **Claude (Anthropic) through Claude Code** for code, data-processing scripts, tests and documents, and **OpenAI Codex** for reviewing brainstorming notes. Team members directed the work, reviewed and ran every script, and checked results against the data; AI-generated code is covered by the tests in `app/tests` and the asserts in `tools/`. No AI-generated images, audio or video are used.
+
+---
+
+## 한국어
+
+사람이 70년 넘게 들어가지 못한 땅, 한반도 비무장지대(DMZ). 레이더 위성 NISAR는 구름과 밤을 가리지 않고 이 땅을 12일마다 다시 본다. 이 서비스는 2026년 6~11월 11번의 NISAR 관측으로 **화소마다 한 계절 동안 얼마나 변했는지**를 빛으로 그린다. 분계선 양쪽의 농사짓는 들판은 빛나고, 그 사이 DMZ 띠는 어둡게 멈춰 있다. 기존 다섯 지역 미션은 "직접 확인하기"로 남아 있다.
 
 ## 실행
 
@@ -46,4 +111,4 @@ Earthdata Login 토큰을 `.env` 의 `EARTHDATA_TOKEN` 에 넣어야 한다(`.en
 
 - 레이더 신호 변화의 원인은 "가능한 설명"으로만 적는다. 홍수·수확·생태 상태를 확정하지 않는다.
 - 선의 춤은 후방산란 값의 변화를 그린 것이며, 땅이 실제로 움직인 것(지표 변위)이 아니다.
-- 구역은 팀이 영상에서 고른 사각형이며, 토지피복이나 행정 경계를 독립적으로 검증한 것이 아니다.
+- 구역은 팀이 영상에서 고른 사각형이다. ESA WorldCover 2021로 토지피복을 대조했다(`app/data/landcover.json`, 2021년 지도).
