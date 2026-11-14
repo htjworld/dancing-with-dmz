@@ -2,7 +2,7 @@
 
 7월 철원의 HLS 광학 미리보기 영상(가장 흐린 장면, 공개 버킷이라 로그인 불필요)을
 레이더 영상(app/data/layers)과 같은 격자·같은 corners 로 다시 맞춰 저장한다. 레이더는 같은 7월의 NISAR 통과를 쓴다.
-clouds 에는 지역별·월별 [맑은 날, 관측일] 을 담는다(data/hls_clouds.json, tools/hls_cloud.py).
+clouds 에는 지역별·월별 [창 안이 맑았던 관측, 전체 관측] 을 담는다(Landsat L30, data/hls_window.json, tools/hls_window.py).
 사용: python tools/make_opening.py
 """
 import io
@@ -27,6 +27,13 @@ def cmr_meta(granule):
     url = f"https://cmr.earthdata.nasa.gov/search/granules.umm_json?short_name={short}&version=2.0&readable_granule_name={granule}"
     umm = json.load(urllib.request.urlopen(url, timeout=60))["items"][0]["umm"]
     return {a["Name"]: a["Values"][0] for a in umm["AdditionalAttributes"]}
+
+
+def clouds_scenes(region):
+    """CMR 에서 그 지역 창과 겹치는 7월 L30 장면(미리보기 주소, 타일 구름량)"""
+    import hls_window
+    corners = json.loads((DATA / "layers.json").read_text())["regions"][region]["corners"]
+    return [{"granule": s["granule"], "cloud": s["tile_cloud"], "browse": s["browse"]} for s in hls_window.scenes(corners)]
 
 
 def utm_epsg(cs_name):
@@ -54,11 +61,13 @@ def warp_to_layer(browse, ulx, uly, epsg, corners, size):
 
 
 def main():
-    clouds = json.loads((ROOT / "data/hls_clouds.json").read_text())
     layers = json.loads((DATA / "layers.json").read_text())
     meta = layers["regions"][REGION]
-    cands = [(d, g) for d, g in clouds["regions"][REGION]["dates"].items() if d.startswith(MONTH) and g["browse"]]
-    date, g = max(cands, key=lambda c: c[1]["cloud"])
+    # 창 안 구름(tools/hls_window.py)이 가장 많은 7월 장면. 타일 구름량은 창과 다를 수 있다
+    window = json.loads((ROOT / "data/hls_window.json").read_text())["regions"][REGION]["dates"]
+    # 그림이 반쪽만 나오지 않도록 창을 95% 이상 찍은 장면 중에서 고른다
+    date, w = max(((d, v) for d, v in window.items() if d.startswith(MONTH) and v["coverage"] >= 95), key=lambda c: c[1]["window_cloud"])
+    g = next(s for s in clouds_scenes(REGION) if s["granule"] == w["granule"])
     attrs = cmr_meta(g["granule"])
     browse = Image.open(io.BytesIO(urllib.request.urlopen(g["browse"], timeout=120).read()))
     OUT.mkdir(parents=True, exist_ok=True)
@@ -71,13 +80,13 @@ def main():
 
     opening = {
         "region": REGION,
-        "optical": {"date": date, "cloud_pct": g["cloud"], "granule": g["granule"], "file": f"opening/hls_{REGION}.jpg",
+        "optical": {"date": date, "cloud_pct": g["cloud"], "window_cloud_pct": w["window_cloud"], "granule": g["granule"], "file": f"opening/hls_{REGION}.jpg",
                     "corners": meta["corners"]},
         "radar": {"date": radar_date, "file": f"opening/nisar_{REGION}.webp", "corners": meta["corners"]},
-        "clouds": {r: v["monthly"] for r, v in clouds["regions"].items()},
+        "clouds": {r: v["monthly"] for r, v in json.loads((ROOT / "data/hls_window.json").read_text())["regions"].items()},
     }
     (DATA / "opening.json").write_text(json.dumps(opening, ensure_ascii=False, indent=1), encoding="utf-8")
-    print("optical", date, g["cloud"], "% /", "radar", radar_date)
+    print("optical", date, "tile", g["cloud"], "% window", w["window_cloud"], "% /", "radar", radar_date)
 
 
 if __name__ == "__main__":

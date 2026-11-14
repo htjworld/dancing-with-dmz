@@ -1,0 +1,898 @@
+{
+ "clear_pct": 20,
+ "method": "hls_cloud.py 의 구름량은 HLS 타일(약 110 km) 전체 값이라 우리 창과 다를 수 있다. 여기서는 미리보기 영상(공개 버킷)을\n레이더 레이어와 같은 격자로 맞춘 뒤(make_opening.warp_to_layer) 창 안의 흰 화소 비율을 센다.\n  구름 화소 = RGB 최솟값 > 150 이고 (최댓값 - 최솟값) < 45 인 밝은 무채색 화소. 영상 밖(검정)은 셈에서 뺀다.\n  옅은 구름·연무는 못 잡으므로 실제보다 적게 센다(= \"흐리다\"는 주장에는 보수적인 값).\nS30(Sentinel-2) 장면은 미리보기 영상이 없어 빠진다.\n사용: python tools/hls_window.py",
+ "regions": {
+  "paju": {
+   "dates": {
+    "2026-06-08": {
+     "granule": "HLS.L30.T52SBH.2026159T020954.v2.0",
+     "tile_cloud": 51.0,
+     "window_cloud": 24.8,
+     "coverage": 100.0
+    },
+    "2026-06-16": {
+     "granule": "HLS.L30.T52SBH.2026167T020950.v2.0",
+     "tile_cloud": 11.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-06-24": {
+     "granule": "HLS.L30.T52SBH.2026175T021006.v2.0",
+     "tile_cloud": 98.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-07-02": {
+     "granule": "HLS.L30.T52SBH.2026183T021026.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 100.0,
+     "coverage": 100.0
+    },
+    "2026-07-26": {
+     "granule": "HLS.L30.T52SBH.2026207T021023.v2.0",
+     "tile_cloud": 96.0,
+     "window_cloud": 73.2,
+     "coverage": 100.0
+    },
+    "2026-08-03": {
+     "granule": "HLS.L30.T52SBH.2026215T021017.v2.0",
+     "tile_cloud": 43.0,
+     "window_cloud": 7.8,
+     "coverage": 100.0
+    },
+    "2026-08-11": {
+     "granule": "HLS.L30.T52SBH.2026223T021028.v2.0",
+     "tile_cloud": 38.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-08-19": {
+     "granule": "HLS.L30.T52SBH.2026231T021023.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 71.6,
+     "coverage": 100.0
+    },
+    "2026-08-27": {
+     "granule": "HLS.L30.T52SBH.2026239T021031.v2.0",
+     "tile_cloud": 77.0,
+     "window_cloud": 2.7,
+     "coverage": 100.0
+    },
+    "2026-09-04": {
+     "granule": "HLS.L30.T52SBH.2026247T021028.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-09-12": {
+     "granule": "HLS.L30.T52SBH.2026255T021037.v2.0",
+     "tile_cloud": 93.0,
+     "window_cloud": 99.6,
+     "coverage": 100.0
+    },
+    "2026-09-20": {
+     "granule": "HLS.L30.T52SBH.2026263T021035.v2.0",
+     "tile_cloud": 21.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-09-28": {
+     "granule": "HLS.L30.T52SBH.2026271T021043.v2.0",
+     "tile_cloud": 77.0,
+     "window_cloud": 6.1,
+     "coverage": 100.0
+    },
+    "2026-10-06": {
+     "granule": "HLS.L30.T52SBH.2026279T021041.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-14": {
+     "granule": "HLS.L30.T52SBH.2026287T021047.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-22": {
+     "granule": "HLS.L30.T52SBH.2026295T021040.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-30": {
+     "granule": "HLS.L30.T52SBH.2026303T021043.v2.0",
+     "tile_cloud": 20.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    }
+   },
+   "monthly": {
+    "2026-06": [
+     2,
+     3
+    ],
+    "2026-07": [
+     0,
+     2
+    ],
+    "2026-08": [
+     3,
+     4
+    ],
+    "2026-09": [
+     3,
+     4
+    ],
+    "2026-10": [
+     4,
+     4
+    ]
+   }
+  },
+  "yeoncheon": {
+   "dates": {
+    "2026-06-08": {
+     "granule": "HLS.L30.T52SCH.2026159T020954.v2.0",
+     "tile_cloud": 71.0,
+     "window_cloud": 20.5,
+     "coverage": 100.0
+    },
+    "2026-06-16": {
+     "granule": "HLS.L30.T52SCH.2026167T020950.v2.0",
+     "tile_cloud": 14.0,
+     "window_cloud": 0.1,
+     "coverage": 100.0
+    },
+    "2026-06-24": {
+     "granule": "HLS.L30.T52SCH.2026175T021006.v2.0",
+     "tile_cloud": 91.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-07-02": {
+     "granule": "HLS.L30.T52SCH.2026183T021026.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 98.1,
+     "coverage": 100.0
+    },
+    "2026-07-26": {
+     "granule": "HLS.L30.T52SCH.2026207T021023.v2.0",
+     "tile_cloud": 95.0,
+     "window_cloud": 70.8,
+     "coverage": 100.0
+    },
+    "2026-08-03": {
+     "granule": "HLS.L30.T52SCH.2026215T021017.v2.0",
+     "tile_cloud": 46.0,
+     "window_cloud": 5.9,
+     "coverage": 100.0
+    },
+    "2026-08-11": {
+     "granule": "HLS.L30.T52SCH.2026223T021028.v2.0",
+     "tile_cloud": 45.0,
+     "window_cloud": 0.8,
+     "coverage": 100.0
+    },
+    "2026-08-19": {
+     "granule": "HLS.L30.T52SCH.2026231T021023.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 69.4,
+     "coverage": 100.0
+    },
+    "2026-08-27": {
+     "granule": "HLS.L30.T52SCH.2026239T021031.v2.0",
+     "tile_cloud": 68.0,
+     "window_cloud": 1.1,
+     "coverage": 100.0
+    },
+    "2026-09-04": {
+     "granule": "HLS.L30.T52SCH.2026247T021028.v2.0",
+     "tile_cloud": 32.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-09-12": {
+     "granule": "HLS.L30.T52SCH.2026255T021037.v2.0",
+     "tile_cloud": 90.0,
+     "window_cloud": 81.8,
+     "coverage": 100.0
+    },
+    "2026-09-20": {
+     "granule": "HLS.L30.T52SCH.2026263T021035.v2.0",
+     "tile_cloud": 21.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-09-28": {
+     "granule": "HLS.L30.T52SCH.2026271T021043.v2.0",
+     "tile_cloud": 61.0,
+     "window_cloud": 10.5,
+     "coverage": 100.0
+    },
+    "2026-10-06": {
+     "granule": "HLS.L30.T52SCH.2026279T021041.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-14": {
+     "granule": "HLS.L30.T52SCH.2026287T021047.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-22": {
+     "granule": "HLS.L30.T52SCH.2026295T021040.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-30": {
+     "granule": "HLS.L30.T52SCH.2026303T021043.v2.0",
+     "tile_cloud": 69.0,
+     "window_cloud": 0.7,
+     "coverage": 100.0
+    }
+   },
+   "monthly": {
+    "2026-06": [
+     2,
+     3
+    ],
+    "2026-07": [
+     0,
+     2
+    ],
+    "2026-08": [
+     3,
+     4
+    ],
+    "2026-09": [
+     3,
+     4
+    ],
+    "2026-10": [
+     4,
+     4
+    ]
+   }
+  },
+  "cheorwon": {
+   "dates": {
+    "2026-06-01": {
+     "granule": "HLS.L30.T52SCH.2026152T020344.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 98.0,
+     "coverage": 63.2
+    },
+    "2026-06-08": {
+     "granule": "HLS.L30.T52SCH.2026159T020954.v2.0",
+     "tile_cloud": 71.0,
+     "window_cloud": 29.8,
+     "coverage": 100.0
+    },
+    "2026-06-09": {
+     "granule": "HLS.L30.T52SCH.2026160T020333.v2.0",
+     "tile_cloud": 19.0,
+     "window_cloud": 0.7,
+     "coverage": 53.0
+    },
+    "2026-06-16": {
+     "granule": "HLS.L30.T52SCH.2026167T020950.v2.0",
+     "tile_cloud": 14.0,
+     "window_cloud": 2.6,
+     "coverage": 100.0
+    },
+    "2026-06-17": {
+     "granule": "HLS.L30.T52SCH.2026168T020350.v2.0",
+     "tile_cloud": 41.0,
+     "window_cloud": 5.8,
+     "coverage": 57.1
+    },
+    "2026-06-24": {
+     "granule": "HLS.L30.T52SCH.2026175T021006.v2.0",
+     "tile_cloud": 91.0,
+     "window_cloud": 35.6,
+     "coverage": 100.0
+    },
+    "2026-06-25": {
+     "granule": "HLS.L30.T52SCH.2026176T020347.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 95.3,
+     "coverage": 41.2
+    },
+    "2026-07-02": {
+     "granule": "HLS.L30.T52SCH.2026183T021026.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 95.4,
+     "coverage": 36.5
+    },
+    "2026-07-03": {
+     "granule": "HLS.L30.T52SCH.2026184T020358.v2.0",
+     "tile_cloud": 99.0,
+     "window_cloud": 90.2,
+     "coverage": 55.9
+    },
+    "2026-07-11": {
+     "granule": "HLS.L30.T52SCH.2026192T020353.v2.0",
+     "tile_cloud": 93.0,
+     "window_cloud": 40.8,
+     "coverage": 52.6
+    },
+    "2026-07-19": {
+     "granule": "HLS.L30.T52SCH.2026200T020407.v2.0",
+     "tile_cloud": 97.0,
+     "window_cloud": 54.4,
+     "coverage": 58.0
+    },
+    "2026-07-26": {
+     "granule": "HLS.L30.T52SCH.2026207T021023.v2.0",
+     "tile_cloud": 95.0,
+     "window_cloud": 65.9,
+     "coverage": 100.0
+    },
+    "2026-07-27": {
+     "granule": "HLS.L30.T52SCH.2026208T020403.v2.0",
+     "tile_cloud": 99.0,
+     "window_cloud": 98.6,
+     "coverage": 53.9
+    },
+    "2026-08-03": {
+     "granule": "HLS.L30.T52SCH.2026215T021017.v2.0",
+     "tile_cloud": 46.0,
+     "window_cloud": 8.6,
+     "coverage": 100.0
+    },
+    "2026-08-04": {
+     "granule": "HLS.L30.T52SCH.2026216T020416.v2.0",
+     "tile_cloud": 21.0,
+     "window_cloud": 2.9,
+     "coverage": 59.6
+    },
+    "2026-08-11": {
+     "granule": "HLS.L30.T52SCH.2026223T021028.v2.0",
+     "tile_cloud": 45.0,
+     "window_cloud": 0.1,
+     "coverage": 100.0
+    },
+    "2026-08-12": {
+     "granule": "HLS.L30.T52SCH.2026224T020408.v2.0",
+     "tile_cloud": 21.0,
+     "window_cloud": 0.0,
+     "coverage": 52.9
+    },
+    "2026-08-19": {
+     "granule": "HLS.L30.T52SCH.2026231T021023.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 77.0,
+     "coverage": 100.0
+    },
+    "2026-08-20": {
+     "granule": "HLS.L30.T52SCH.2026232T020416.v2.0",
+     "tile_cloud": 99.0,
+     "window_cloud": 59.5,
+     "coverage": 52.6
+    },
+    "2026-08-27": {
+     "granule": "HLS.L30.T52SCH.2026239T021031.v2.0",
+     "tile_cloud": 68.0,
+     "window_cloud": 36.1,
+     "coverage": 100.0
+    },
+    "2026-08-28": {
+     "granule": "HLS.L30.T52SCH.2026240T020416.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 95.9,
+     "coverage": 39.0
+    },
+    "2026-09-04": {
+     "granule": "HLS.L30.T52SCH.2026247T021028.v2.0",
+     "tile_cloud": 32.0,
+     "window_cloud": 2.0,
+     "coverage": 100.0
+    },
+    "2026-09-05": {
+     "granule": "HLS.L30.T52SCH.2026248T020424.v2.0",
+     "tile_cloud": 86.0,
+     "window_cloud": 38.8,
+     "coverage": 56.0
+    },
+    "2026-09-12": {
+     "granule": "HLS.L30.T52SCH.2026255T021037.v2.0",
+     "tile_cloud": 90.0,
+     "window_cloud": 13.9,
+     "coverage": 100.0
+    },
+    "2026-09-13": {
+     "granule": "HLS.L30.T52SCH.2026256T020419.v2.0",
+     "tile_cloud": 58.0,
+     "window_cloud": 0.0,
+     "coverage": 38.4
+    },
+    "2026-09-20": {
+     "granule": "HLS.L30.T52SCH.2026263T021035.v2.0",
+     "tile_cloud": 21.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-09-21": {
+     "granule": "HLS.L30.T52SCH.2026264T020429.v2.0",
+     "tile_cloud": 8.0,
+     "window_cloud": 0.0,
+     "coverage": 56.1
+    },
+    "2026-09-28": {
+     "granule": "HLS.L30.T52SCH.2026271T021043.v2.0",
+     "tile_cloud": 61.0,
+     "window_cloud": 4.7,
+     "coverage": 100.0
+    },
+    "2026-09-29": {
+     "granule": "HLS.L30.T52SCH.2026272T020428.v2.0",
+     "tile_cloud": 13.0,
+     "window_cloud": 0.7,
+     "coverage": 56.7
+    },
+    "2026-10-06": {
+     "granule": "HLS.L30.T52SCH.2026279T021041.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-07": {
+     "granule": "HLS.L30.T52SCH.2026280T020436.v2.0",
+     "tile_cloud": 1.0,
+     "window_cloud": 0.1,
+     "coverage": 60.3
+    },
+    "2026-10-14": {
+     "granule": "HLS.L30.T52SCH.2026287T021047.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-15": {
+     "granule": "HLS.L30.T52SCH.2026288T020430.v2.0",
+     "tile_cloud": 51.0,
+     "window_cloud": 16.6,
+     "coverage": 54.7
+    },
+    "2026-10-22": {
+     "granule": "HLS.L30.T52SCH.2026295T021040.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-23": {
+     "granule": "HLS.L30.T52SCH.2026296T020434.v2.0",
+     "tile_cloud": 2.0,
+     "window_cloud": 0.0,
+     "coverage": 56.9
+    },
+    "2026-10-30": {
+     "granule": "HLS.L30.T52SCH.2026303T021043.v2.0",
+     "tile_cloud": 69.0,
+     "window_cloud": 57.2,
+     "coverage": 99.9
+    },
+    "2026-10-31": {
+     "granule": "HLS.L30.T52SCH.2026304T020435.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 57.1
+    }
+   },
+   "monthly": {
+    "2026-06": [
+     3,
+     7
+    ],
+    "2026-07": [
+     0,
+     6
+    ],
+    "2026-08": [
+     4,
+     8
+    ],
+    "2026-09": [
+     7,
+     8
+    ],
+    "2026-10": [
+     7,
+     8
+    ]
+   }
+  },
+  "hwacheon": {
+   "dates": {
+    "2026-06-01": {
+     "granule": "HLS.L30.T52SCH.2026152T020344.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 100.0,
+     "coverage": 100.0
+    },
+    "2026-06-08": {
+     "granule": "HLS.L30.T52SCH.2026159T020954.v2.0",
+     "tile_cloud": 71.0,
+     "window_cloud": 15.6,
+     "coverage": 100.0
+    },
+    "2026-06-09": {
+     "granule": "HLS.L30.T52SCH.2026160T020333.v2.0",
+     "tile_cloud": 19.0,
+     "window_cloud": 11.6,
+     "coverage": 100.0
+    },
+    "2026-06-16": {
+     "granule": "HLS.L30.T52SCH.2026167T020950.v2.0",
+     "tile_cloud": 14.0,
+     "window_cloud": 2.4,
+     "coverage": 100.0
+    },
+    "2026-06-17": {
+     "granule": "HLS.L30.T52SCH.2026168T020350.v2.0",
+     "tile_cloud": 41.0,
+     "window_cloud": 9.6,
+     "coverage": 100.0
+    },
+    "2026-06-24": {
+     "granule": "HLS.L30.T52SCH.2026175T021006.v2.0",
+     "tile_cloud": 91.0,
+     "window_cloud": 20.3,
+     "coverage": 100.0
+    },
+    "2026-06-25": {
+     "granule": "HLS.L30.T52SCH.2026176T020347.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 100.0,
+     "coverage": 100.0
+    },
+    "2026-07-03": {
+     "granule": "HLS.L30.T52SCH.2026184T020358.v2.0",
+     "tile_cloud": 99.0,
+     "window_cloud": 99.2,
+     "coverage": 100.0
+    },
+    "2026-07-11": {
+     "granule": "HLS.L30.T52SCH.2026192T020353.v2.0",
+     "tile_cloud": 93.0,
+     "window_cloud": 55.5,
+     "coverage": 100.0
+    },
+    "2026-07-19": {
+     "granule": "HLS.L30.T52SCH.2026200T020407.v2.0",
+     "tile_cloud": 97.0,
+     "window_cloud": 57.6,
+     "coverage": 100.0
+    },
+    "2026-07-26": {
+     "granule": "HLS.L30.T52SCH.2026207T021023.v2.0",
+     "tile_cloud": 95.0,
+     "window_cloud": 74.1,
+     "coverage": 100.0
+    },
+    "2026-07-27": {
+     "granule": "HLS.L30.T52SCH.2026208T020403.v2.0",
+     "tile_cloud": 99.0,
+     "window_cloud": 100.0,
+     "coverage": 100.0
+    },
+    "2026-08-03": {
+     "granule": "HLS.L30.T52SCH.2026215T021017.v2.0",
+     "tile_cloud": 46.0,
+     "window_cloud": 15.5,
+     "coverage": 100.0
+    },
+    "2026-08-04": {
+     "granule": "HLS.L30.T52SCH.2026216T020416.v2.0",
+     "tile_cloud": 21.0,
+     "window_cloud": 4.4,
+     "coverage": 100.0
+    },
+    "2026-08-11": {
+     "granule": "HLS.L30.T52SCH.2026223T021028.v2.0",
+     "tile_cloud": 45.0,
+     "window_cloud": 7.8,
+     "coverage": 100.0
+    },
+    "2026-08-12": {
+     "granule": "HLS.L30.T52SCH.2026224T020408.v2.0",
+     "tile_cloud": 21.0,
+     "window_cloud": 2.0,
+     "coverage": 100.0
+    },
+    "2026-08-19": {
+     "granule": "HLS.L30.T52SCH.2026231T021023.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 93.4,
+     "coverage": 100.0
+    },
+    "2026-08-20": {
+     "granule": "HLS.L30.T52SCH.2026232T020416.v2.0",
+     "tile_cloud": 99.0,
+     "window_cloud": 56.7,
+     "coverage": 100.0
+    },
+    "2026-08-27": {
+     "granule": "HLS.L30.T52SCH.2026239T021031.v2.0",
+     "tile_cloud": 68.0,
+     "window_cloud": 57.6,
+     "coverage": 100.0
+    },
+    "2026-08-28": {
+     "granule": "HLS.L30.T52SCH.2026240T020416.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 99.8,
+     "coverage": 100.0
+    },
+    "2026-09-04": {
+     "granule": "HLS.L30.T52SCH.2026247T021028.v2.0",
+     "tile_cloud": 32.0,
+     "window_cloud": 10.2,
+     "coverage": 100.0
+    },
+    "2026-09-05": {
+     "granule": "HLS.L30.T52SCH.2026248T020424.v2.0",
+     "tile_cloud": 86.0,
+     "window_cloud": 33.1,
+     "coverage": 100.0
+    },
+    "2026-09-12": {
+     "granule": "HLS.L30.T52SCH.2026255T021037.v2.0",
+     "tile_cloud": 90.0,
+     "window_cloud": 83.4,
+     "coverage": 100.0
+    },
+    "2026-09-13": {
+     "granule": "HLS.L30.T52SCH.2026256T020419.v2.0",
+     "tile_cloud": 58.0,
+     "window_cloud": 34.3,
+     "coverage": 100.0
+    },
+    "2026-09-20": {
+     "granule": "HLS.L30.T52SCH.2026263T021035.v2.0",
+     "tile_cloud": 21.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-09-21": {
+     "granule": "HLS.L30.T52SCH.2026264T020429.v2.0",
+     "tile_cloud": 8.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-09-28": {
+     "granule": "HLS.L30.T52SCH.2026271T021043.v2.0",
+     "tile_cloud": 61.0,
+     "window_cloud": 0.2,
+     "coverage": 100.0
+    },
+    "2026-09-29": {
+     "granule": "HLS.L30.T52SCH.2026272T020428.v2.0",
+     "tile_cloud": 13.0,
+     "window_cloud": 0.8,
+     "coverage": 100.0
+    },
+    "2026-10-06": {
+     "granule": "HLS.L30.T52SCH.2026279T021041.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-07": {
+     "granule": "HLS.L30.T52SCH.2026280T020436.v2.0",
+     "tile_cloud": 1.0,
+     "window_cloud": 0.2,
+     "coverage": 100.0
+    },
+    "2026-10-14": {
+     "granule": "HLS.L30.T52SCH.2026287T021047.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-15": {
+     "granule": "HLS.L30.T52SCH.2026288T020430.v2.0",
+     "tile_cloud": 51.0,
+     "window_cloud": 9.2,
+     "coverage": 100.0
+    },
+    "2026-10-22": {
+     "granule": "HLS.L30.T52SCH.2026295T021040.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-23": {
+     "granule": "HLS.L30.T52SCH.2026296T020434.v2.0",
+     "tile_cloud": 2.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-30": {
+     "granule": "HLS.L30.T52SCH.2026303T021043.v2.0",
+     "tile_cloud": 69.0,
+     "window_cloud": 76.1,
+     "coverage": 99.9
+    },
+    "2026-10-31": {
+     "granule": "HLS.L30.T52SCH.2026304T020435.v2.0",
+     "tile_cloud": 0.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    }
+   },
+   "monthly": {
+    "2026-06": [
+     4,
+     7
+    ],
+    "2026-07": [
+     0,
+     5
+    ],
+    "2026-08": [
+     4,
+     8
+    ],
+    "2026-09": [
+     5,
+     8
+    ],
+    "2026-10": [
+     7,
+     8
+    ]
+   }
+  },
+  "yanggu": {
+   "dates": {
+    "2026-06-01": {
+     "granule": "HLS.L30.T52SDH.2026152T020344.v2.0",
+     "tile_cloud": 75.0,
+     "window_cloud": 100.0,
+     "coverage": 100.0
+    },
+    "2026-06-09": {
+     "granule": "HLS.L30.T52SDH.2026160T020333.v2.0",
+     "tile_cloud": 19.0,
+     "window_cloud": 26.4,
+     "coverage": 100.0
+    },
+    "2026-06-17": {
+     "granule": "HLS.L30.T52SDH.2026168T020350.v2.0",
+     "tile_cloud": 38.0,
+     "window_cloud": 13.4,
+     "coverage": 100.0
+    },
+    "2026-06-25": {
+     "granule": "HLS.L30.T52SDH.2026176T020347.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 100.0,
+     "coverage": 100.0
+    },
+    "2026-07-03": {
+     "granule": "HLS.L30.T52SDH.2026184T020358.v2.0",
+     "tile_cloud": 51.0,
+     "window_cloud": 76.5,
+     "coverage": 100.0
+    },
+    "2026-07-11": {
+     "granule": "HLS.L30.T52SDH.2026192T020353.v2.0",
+     "tile_cloud": 94.0,
+     "window_cloud": 59.1,
+     "coverage": 100.0
+    },
+    "2026-07-19": {
+     "granule": "HLS.L30.T52SDH.2026200T020407.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 96.6,
+     "coverage": 100.0
+    },
+    "2026-07-27": {
+     "granule": "HLS.L30.T52SDH.2026208T020403.v2.0",
+     "tile_cloud": 70.0,
+     "window_cloud": 62.8,
+     "coverage": 100.0
+    },
+    "2026-08-04": {
+     "granule": "HLS.L30.T52SDH.2026216T020416.v2.0",
+     "tile_cloud": 51.0,
+     "window_cloud": 2.8,
+     "coverage": 100.0
+    },
+    "2026-08-12": {
+     "granule": "HLS.L30.T52SDH.2026224T020408.v2.0",
+     "tile_cloud": 87.0,
+     "window_cloud": 89.5,
+     "coverage": 100.0
+    },
+    "2026-08-20": {
+     "granule": "HLS.L30.T52SDH.2026232T020416.v2.0",
+     "tile_cloud": 99.0,
+     "window_cloud": 44.1,
+     "coverage": 100.0
+    },
+    "2026-08-28": {
+     "granule": "HLS.L30.T52SDH.2026240T020416.v2.0",
+     "tile_cloud": 100.0,
+     "window_cloud": 15.8,
+     "coverage": 100.0
+    },
+    "2026-09-05": {
+     "granule": "HLS.L30.T52SDH.2026248T020424.v2.0",
+     "tile_cloud": 82.0,
+     "window_cloud": 28.6,
+     "coverage": 100.0
+    },
+    "2026-09-13": {
+     "granule": "HLS.L30.T52SDH.2026256T020419.v2.0",
+     "tile_cloud": 98.0,
+     "window_cloud": 99.7,
+     "coverage": 100.0
+    },
+    "2026-09-21": {
+     "granule": "HLS.L30.T52SDH.2026264T020429.v2.0",
+     "tile_cloud": 17.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-09-29": {
+     "granule": "HLS.L30.T52SDH.2026272T020428.v2.0",
+     "tile_cloud": 28.0,
+     "window_cloud": 1.4,
+     "coverage": 100.0
+    },
+    "2026-10-07": {
+     "granule": "HLS.L30.T52SDH.2026280T020436.v2.0",
+     "tile_cloud": 1.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-15": {
+     "granule": "HLS.L30.T52SDH.2026288T020430.v2.0",
+     "tile_cloud": 54.0,
+     "window_cloud": 16.8,
+     "coverage": 100.0
+    },
+    "2026-10-23": {
+     "granule": "HLS.L30.T52SDH.2026296T020434.v2.0",
+     "tile_cloud": 12.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    },
+    "2026-10-31": {
+     "granule": "HLS.L30.T52SDH.2026304T020435.v2.0",
+     "tile_cloud": 2.0,
+     "window_cloud": 0.0,
+     "coverage": 100.0
+    }
+   },
+   "monthly": {
+    "2026-06": [
+     1,
+     4
+    ],
+    "2026-07": [
+     0,
+     4
+    ],
+    "2026-08": [
+     2,
+     4
+    ],
+    "2026-09": [
+     2,
+     4
+    ],
+    "2026-10": [
+     4,
+     4
+    ]
+   }
+  }
+ }
+}

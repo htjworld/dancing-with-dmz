@@ -2,26 +2,26 @@
  "july_clear_optical": {
   "value": 0,
   "unit": "장",
-  "note": "2026년 7월 다섯 지역의 맑은(구름 20% 이하) 광학 관측일 합. 관측일 29일 중",
-  "source": "data/hls_clouds.json (tools/hls_cloud.py)"
+  "note": "2026년 7월, 다섯 지역 창 안이 맑았던(구름 20% 이하) Landsat(HLS L30) 관측 수. 타일 구름량으로 세도 0",
+  "source": "data/hls_window.json (tools/hls_window.py)"
+ },
+ "july_optical_looks": {
+  "value": 19,
+  "unit": "번",
+  "note": "2026년 7월, 다섯 지역 창을 찍은 Landsat(HLS L30) 관측 수(지역별 합)",
+  "source": "data/hls_window.json (tools/hls_window.py)"
  },
  "july_regions": {
   "value": 5,
   "unit": "곳",
-  "note": "7월 구름량을 센 지역 수",
-  "source": "data/hls_clouds.json (tools/hls_cloud.py)"
+  "note": "7월 구름을 센 지역 수",
+  "source": "data/hls_window.json (tools/hls_window.py)"
  },
- "cheorwon_summer_clear": {
-  "value": 0,
-  "unit": "일",
-  "note": "철원 7~9월 맑은 광학 관측일. 관측일 20일 중",
-  "source": "data/hls_clouds.json (tools/hls_cloud.py)"
- },
- "cheorwon_summer_days": {
-  "value": 20,
-  "unit": "일",
-  "note": "철원 7~9월 광학 관측일",
-  "source": "data/hls_clouds.json (tools/hls_cloud.py)"
+ "cheorwon_july_min_cloud": {
+  "value": 41,
+  "unit": "%",
+  "note": "2026년 7월 철원 창 안 구름 비율이 가장 낮았던 날의 값(밝은 무채색 화소 비율, 옅은 구름은 못 셈)",
+  "source": "data/hls_window.json (tools/hls_window.py)"
  },
  "cheorwon_paddy_db": {
   "value": 2.1,
