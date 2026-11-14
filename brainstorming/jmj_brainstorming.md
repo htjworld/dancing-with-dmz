@@ -64,7 +64,7 @@ Art & Technology. 외국인 관람객을 대표로 세우면 Global Connection�
 - 버림: "모든 구역이 함께 오른 날"을 변화의 단서로 쓰는 것.
 - 추가(우선순위 순):
   1. 영어 화면(한·영 전환). 대표 타깃이 외국인이면 필수다.
-  2. "광학은 못 본 여름" 한 장면: 7~9월 HLS 구름 사진과 같은 날짜의 NISAR를 나란히 보여준다.
+  2. "광학은 못 본 7월" 한 장면: 7월 HLS 구름 사진과 같은 날짜의 NISAR를 나란히 보여준다.
   3. 숫자 요약 한 장(관측 횟수, 구역별 변동 폭, 걸러낸 날).
 
 ## 3. 아이디어 B — 완전히 다른 안
@@ -84,7 +84,7 @@ DMZ 일원을 조사하지만 안으로 들어가지 못하는 생태 조사자.
 ### 문제점
 
 - 기관들은 이미 위성을 쓰지만 대부분 광학이다(Landsat 피복 변화, 산불 피해지, 생태교란지 분류). DMZ를 대상으로 한 L밴드 SAR 연구는 찾지 못했다(확인 안 됨).
-- 광학은 7~9월에 비어 있다(A안 필요성 3번의 숫자).
+- 광학은 장마철 7월에 비어 있다(A안 필요성 3번의 숫자).
 
 ### 해결방안
 
@@ -102,7 +102,7 @@ Local Impact 또는 Best Use of Data.
 
 | | A | B |
 |---|---|---|
-| 서비스의 필요성 | 높음. 들어갈 수 없는 곳이고, 외국인 방문객 규모(제3땅굴 약 41만 명)와 여름 광학 공백(7~9월 0일)이 숫자로 있다. 단 땅굴 방문객이 웹앱을 쓸 것이라는 증거는 없다 | 중간. 조사자가 못 들어가는 것은 사실이나, 그들이 위성으로 조사 대상을 정한다는 증거는 찾지 못했다 |
+| 서비스의 필요성 | 높음. 들어갈 수 없는 곳이고, 외국인 방문객 규모(제3땅굴 약 41만 명)와 7월 광학 공백(19번 찍어 맑은 날 0번)이 숫자로 있다. 단 땅굴 방문객이 웹앱을 쓸 것이라는 증거는 없다 | 중간. 조사자가 못 들어가는 것은 사실이나, 그들이 위성으로 조사 대상을 정한다는 증거는 찾지 못했다 |
 | 위성 데이터의 신뢰성 | 중간. 숲 기준 보정과 함께 오른 날 제외는 한다. 그러나 자료가 PROVISIONAL 단계이고 알려진 문제(잔류 RFI, 40 MHz 합동 모드의 방사 밴딩, 5 MHz 대역 보정 잔차)가 있다. 우리가 쓰는 모드가 여기에 해당하는지 확인해야 한다. [원문] https://nisar-docs.asf.alaska.edu/provisional-known-issues/ | 낮음. 계절 주기와 실제 변화를 가르려면 여러 해 자료가 쓰인다(문헌은 50장 이상의 시계열을 씀). 우리는 한 계절 10장이다. [요약] https://repositum.tuwien.at/bitstream/20.500.12708/5074/2/ |
 | 기존 서비스와의 차별성 | 높음. 구글 아트 앤 컬처 "Korea's DMZ"(2023)와 통일부 DMZ 포털(2026-07 개통, 가상체험·영문 제공)은 레이더를 쓰지 않는다. NASA의 HLS 식생지수 소리화(아이오와)는 광학이고, 한 장소의 위성 SAR 시계열을 소리로 바꾼 사례는 찾지 못했다. [원문] https://blog.google/company-news/inside-google/around-the-globe/google-asia/explore-koreas-demilitarized-zone-through-its-history-nature-and-art/ , https://eiec.kdi.re.kr/policy/materialView.do?num=284674 , https://www.earthdata.nasa.gov/news/blog/from-data-melody-data-sonification-its-role-open-science | 좁음. 같은 GCOV로 수면을 내는 공식 산출물(OPERA DSWx-NI)이 예정돼 있고, 기관들은 광학 분석을 이미 한다. [요약] https://www.jpl.nasa.gov/go/opera/opera-workshops/2025-workshop/ |
 | 48시간 내 구현 가능성 | 높음. 앱 1차가 있다. 영어 화면과 HLS 비교 한 장면만 추가 | 낮음. 화면보다 처리 깊이가 필요한데 시간이 없다 |
