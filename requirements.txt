@@ -7,3 +7,6 @@ pyproj
 Pillow
 scipy
 matplotlib
+tifffile
+imagecodecs
+zarr

@@ -18,6 +18,7 @@ await load();
 data.glow      // glow.json (항상 있음)
 data.facts     // facts.json (항상 있음)
 data.opening   // opening.json, 없으면 null
+data.landcover // landcover.json(구역별 토지피복 %), 없으면 null
 data.zones, data.passes, data.boundary, data.layers   // 기존 그대로
 fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 ```
@@ -90,9 +91,22 @@ fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 | `paju_dmz_farm_db` | 2.1 dB | 파주 DMZ 안 경작지 |
 | `paju_dmz_wild_db` | 0.6 dB | 파주 DMZ 안 미경작지 |
 | `paju_north_db` | 2.2 dB | 파주 분계선 서쪽 경작지로 보이는 곳 |
+| `cheorwon_paddy_cropland` / `cheorwon_dmz_cropland` / `cheorwon_north_cropland` | 78.7 / 0.6 / 82.9 % | 철원 세 구역의 경작지 비율(ESA WorldCover 2021) |
+| `cheorwon_dmz_tree_grass` | 99.2 % | 철원 DMZ 안 저지대의 숲 + 초지 비율 |
+| `paju_dmz_farm_cropland` / `paju_dmz_wild_cropland` | 55.7 / 6.7 % | 파주 DMZ 안 경작지 / 미경작지 구역의 경작지 비율 |
+| `rain_0822_mm` / `rain_1021_mm` | 39 / 0.2 mm | 모든 구역이 함께 밝아진 두 날의 통과 전 3일 강수(철원). 8/22는 큰 비 직후, 10/21은 비가 거의 없었다 |
 | `passes` / `passes_total` / `passes_provisional` | 11 / 12 / 10 회 | 자료가 있는 통과 / 전체 / PROVISIONAL |
 
 새 숫자가 필요하면 요청 칸에 적는다(`tools/make_facts.py`에 추가).
+
+### 2-4. `data/landcover.json` — 구역 토지피복 대조
+
+```json
+{ "source": "ESA WorldCover 2021 v200 (10 m)", "unit": "%",
+  "zones": { "cheorwon-paddy": { "tree": 15.5, "shrub": 0, "grassland": 4.2, "cropland": 78.7, "built": 0.9, "bare": 0, "water": 0.6, "wetland": 0, "other": 0.1 }, "...": {} } }
+```
+
+- 구역 이름("논", "DMZ 안", "경작지로 보이는 곳")이 독립 자료와 맞는지 보여 주는 값이다. 2021년 지도라 2026년과 다를 수 있다.
 
 ## 3. 함수
 
@@ -117,11 +131,13 @@ fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 ### `evidence.js`
 
 ```js
-evidence(data.zones, 'cheorwon')
+evidence(data.zones, 'cheorwon', { landcover: data.landcover, rain: data.rain })   // 셋째 인자는 없어도 된다
 // → { dates: ['2026-06-23', ... 12개],
-//     lines: [{ zoneId, name, role, place: 'south' | 'dmz' | 'north', values: [dB | null] x12 }],  // 남 → DMZ → 북 순서
+//     lines: [{ zoneId, name, role, place: 'south' | 'dmz' | 'north', values: [dB | null] x12,
+//               cover: { cropland, tree, grassland, ... } | null }],                            // 남 → DMZ → 북 순서. cover 는 landcover 를 넘겼을 때만
 //     ranges: { 'cheorwon-paddy': 2.1, 'cheorwon-dmz': 0.7, 'cheorwon-north': 2.0 },              // facts.json과 같다
 //     excluded: [2, 5, 10],             // 모든 구역이 함께 변한 통과(cycle). 곡선에 옅게 표시할 때만 쓴다
+//     shared: [{ cycle, date, rain_mm_3day }],   // excluded 마다 통과 전 3일 강수. rain 을 넘겼을 때만 값이 있다
 //     caveats: ['signal_not_cause', 'forest_relative', 'provisional', 'zone_unverified', 'north_wording', 'missing_pass'] }
 ```
 

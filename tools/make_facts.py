@@ -1,7 +1,8 @@
 """화면과 발표가 같이 쓰는 숫자 -> app/data/facts.json
 
 숫자는 모두 여기서 계산한다. 화면이나 슬라이드에 숫자를 손으로 적지 않는다.
-입력: app/data/regions.json, data/hls_clouds.json(tools/hls_cloud.py), data/hls_window.json(tools/hls_window.py)
+입력: app/data/regions.json, data/hls_clouds.json(tools/hls_cloud.py), data/hls_window.json(tools/hls_window.py),
+      app/data/landcover.json(tools/landcover.py), app/data/rain.json(tools/fetch_rain.py)
 사용: python3 tools/make_facts.py
 """
 import json
@@ -11,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REGIONS = json.loads((ROOT / "app/data/regions.json").read_text())
 CLOUDS = json.loads((ROOT / "data/hls_clouds.json").read_text())
 WINDOW = json.loads((ROOT / "data/hls_window.json").read_text())
+COVER = json.loads((ROOT / "app/data/landcover.json").read_text())["zones"]   # tools/landcover.py
+RAIN = json.loads((ROOT / "app/data/rain.json").read_text())["regions"]
 
 
 def zone(zid):
@@ -34,6 +37,8 @@ def clear_days(region, months, src=WINDOW):
 
 def main():
     rel = "숲 대비 HH 계절 변동 폭"
+    src_l, src_rain = "app/data/landcover.json (tools/landcover.py)", "app/data/rain.json (NASA POWER)"
+    rain3 = lambda region, date: next(p["mm_3day"] for p in RAIN[region]["passes"] if p["date"] == date)
     src_r, src_c = "app/data/regions.json", "data/hls_window.json (tools/hls_window.py)"
     july = [clear_days(r, ["2026-07"]) for r in WINDOW["regions"]]
     july_tile = [clear_days(r, ["2026-07"], CLOUDS) for r in CLOUDS["regions"]]
@@ -53,6 +58,14 @@ def main():
         "paju_dmz_farm_db": f(forest_range("paju-dmz_farm"), "dB", f"파주 DMZ 안 경작지, {rel}", src_r),
         "paju_dmz_wild_db": f(forest_range("paju-dmz_wild"), "dB", f"파주 DMZ 안 미경작지, {rel}", src_r),
         "paju_north_db": f(forest_range("paju-north_farm"), "dB", f"파주 분계선 서쪽 경작지로 보이는 곳, {rel}", src_r),
+        "cheorwon_paddy_cropland": f(COVER["cheorwon-paddy"]["cropland"], "%", "철원 민통선 논 구역의 경작지 비율(ESA WorldCover 2021)", src_l),
+        "cheorwon_dmz_cropland": f(COVER["cheorwon-dmz"]["cropland"], "%", "철원 DMZ 안 저지대 구역의 경작지 비율", src_l),
+        "cheorwon_dmz_tree_grass": f(round(COVER["cheorwon-dmz"]["tree"] + COVER["cheorwon-dmz"]["grassland"], 1), "%", "철원 DMZ 안 저지대 구역의 숲 + 초지 비율", src_l),
+        "cheorwon_north_cropland": f(COVER["cheorwon-north"]["cropland"], "%", "철원 북쪽 경작지로 보이는 곳의 경작지 비율", src_l),
+        "paju_dmz_farm_cropland": f(COVER["paju-dmz_farm"]["cropland"], "%", "파주 DMZ 안 경작지 구역의 경작지 비율", src_l),
+        "paju_dmz_wild_cropland": f(COVER["paju-dmz_wild"]["cropland"], "%", "파주 DMZ 안 미경작지 구역의 경작지 비율", src_l),
+        "rain_0822_mm": f(round(rain3("cheorwon", "2026-08-22")), "mm", "8/22 통과 전 3일 강수(철원). 모든 구역이 함께 밝아진 날", src_rain),
+        "rain_1021_mm": f(round(rain3("cheorwon", "2026-10-21"), 1), "mm", "10/21 통과 전 3일 강수(철원). 함께 밝아졌지만 비가 거의 없던 날", src_rain),
         "passes": f(len(valid), "회", f"NISAR 통과 {len(passes)}번 중 자료가 있는 것", src_r),
         "passes_total": f(len(passes), "회", "2026-06-23 ~ 11-02, 12일 간격", src_r),
         "passes_provisional": f(len(provisional), "회", "PROVISIONAL 컬렉션에서 온 통과", src_r),
@@ -62,6 +75,7 @@ def main():
     assert facts["july_optical_looks"]["value"] > 0, "7월 관측이 하나도 없으면 0장이라는 말이 무의미하다"
     assert facts["cheorwon_paddy_db"]["value"] > 2 * facts["cheorwon_dmz_db"]["value"], "철원: 논이 DMZ 안보다 크게 변한다는 주장이 깨졌다"
     assert facts["paju_dmz_farm_db"]["value"] > 2 * facts["paju_dmz_wild_db"]["value"], "파주: DMZ 안 경작지가 미경작지보다 크게 변한다는 주장이 깨졌다"
+    assert facts["cheorwon_paddy_cropland"]["value"] > 50 > facts["cheorwon_dmz_cropland"]["value"], "철원: 논은 경작지, DMZ 안은 경작지가 아니어야 한다"
     out = ROOT / "app/data/facts.json"
     out.write_text(json.dumps(facts, ensure_ascii=False, indent=1), encoding="utf-8")
     for k, v in facts.items():

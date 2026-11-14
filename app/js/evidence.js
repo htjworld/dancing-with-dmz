@@ -6,12 +6,14 @@ export const placeOf = zone => (zone.id.includes('dmz') ? 'dmz' : zone.id.includ
 const ORDER = { south: 0, dmz: 1, north: 2 };
 const round1 = v => Math.round(v * 10) / 10;
 
-export function evidence(zones, regionId) {
+// landcover = data.landcover, rain = data.rain (둘 다 없어도 된다)
+export function evidence(zones, regionId, { landcover = null, rain = null } = {}) {
   const here = zones.filter(z => z.region === regionId);
   const cycles = (here[0]?.observations ?? []).map(o => o.cycle);
   const dates = (here[0]?.observations ?? []).map(o => o.date);
   const lines = here.filter(z => z.role !== 'ref')
-    .map(z => ({ zoneId: z.id, name: z.name, role: z.role, place: placeOf(z), values: cycles.map(c => forestChange(zones, z, c)) }))
+    .map(z => ({ zoneId: z.id, name: z.name, role: z.role, place: placeOf(z), values: cycles.map(c => forestChange(zones, z, c)),
+      cover: landcover?.zones?.[z.id] ?? null }))   // 구역의 토지피복 비율(%), ESA WorldCover 2021
     .sort((a, b) => ORDER[a.place] - ORDER[b.place]);
   const ranges = Object.fromEntries(lines.map(l => {
     const v = l.values.filter(x => x != null);
@@ -21,5 +23,11 @@ export function evidence(zones, regionId) {
   const caveats = ['signal_not_cause', 'forest_relative', 'provisional', 'zone_unverified'];
   if (lines.some(l => l.place === 'north')) caveats.push('north_wording');
   if (missing) caveats.push('missing_pass');
-  return { dates, lines, ranges, excluded: togetherDays(here).map(t => t.cycle), caveats };
+  const excluded = togetherDays(here).map(t => t.cycle);
+  // 함께 변한 날마다 그 통과 전 3일 강수(mm). 비가 많았으면 젖은 땅 때문일 수 있고, 거의 없었으면 원인을 모른다
+  const shared = excluded.map(c => {
+    const date = dates[cycles.indexOf(c)];
+    return { cycle: c, date, rain_mm_3day: rain?.regions?.[regionId]?.passes.find(p => p.date === date)?.mm_3day ?? null };
+  });
+  return { dates, lines, ranges, excluded, shared, caveats };
 }

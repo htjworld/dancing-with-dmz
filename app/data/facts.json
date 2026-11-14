@@ -59,6 +59,54 @@
   "note": "파주 분계선 서쪽 경작지로 보이는 곳, 숲 대비 HH 계절 변동 폭",
   "source": "app/data/regions.json"
  },
+ "cheorwon_paddy_cropland": {
+  "value": 78.7,
+  "unit": "%",
+  "note": "철원 민통선 논 구역의 경작지 비율(ESA WorldCover 2021)",
+  "source": "app/data/landcover.json (tools/landcover.py)"
+ },
+ "cheorwon_dmz_cropland": {
+  "value": 0.6,
+  "unit": "%",
+  "note": "철원 DMZ 안 저지대 구역의 경작지 비율",
+  "source": "app/data/landcover.json (tools/landcover.py)"
+ },
+ "cheorwon_dmz_tree_grass": {
+  "value": 99.2,
+  "unit": "%",
+  "note": "철원 DMZ 안 저지대 구역의 숲 + 초지 비율",
+  "source": "app/data/landcover.json (tools/landcover.py)"
+ },
+ "cheorwon_north_cropland": {
+  "value": 82.9,
+  "unit": "%",
+  "note": "철원 북쪽 경작지로 보이는 곳의 경작지 비율",
+  "source": "app/data/landcover.json (tools/landcover.py)"
+ },
+ "paju_dmz_farm_cropland": {
+  "value": 55.7,
+  "unit": "%",
+  "note": "파주 DMZ 안 경작지 구역의 경작지 비율",
+  "source": "app/data/landcover.json (tools/landcover.py)"
+ },
+ "paju_dmz_wild_cropland": {
+  "value": 6.7,
+  "unit": "%",
+  "note": "파주 DMZ 안 미경작지 구역의 경작지 비율",
+  "source": "app/data/landcover.json (tools/landcover.py)"
+ },
+ "rain_0822_mm": {
+  "value": 39,
+  "unit": "mm",
+  "note": "8/22 통과 전 3일 강수(철원). 모든 구역이 함께 밝아진 날",
+  "source": "app/data/rain.json (NASA POWER)"
+ },
+ "rain_1021_mm": {
+  "value": 0.2,
+  "unit": "mm",
+  "note": "10/21 통과 전 3일 강수(철원). 함께 밝아졌지만 비가 거의 없던 날",
+  "source": "app/data/rain.json (NASA POWER)"
+ },
  "passes": {
   "value": 11,
   "unit": "회",

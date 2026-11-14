@@ -27,6 +27,7 @@ python tools/make_dmz.py                    # OpenStreetMap 군사분계선 -> a
 python tools/make_glow.py                   # 계절 변동 지도(숲 대비) -> app/data/glow/, glow.json
 python tools/hls_cloud.py                   # HLS 광학 구름량(NASA CMR) -> data/hls_clouds.json
 python tools/hls_window.py                  # 다섯 지역 창 안 구름(Landsat 미리보기) -> data/hls_window.json
+python tools/landcover.py                   # 구역 토지피복(ESA WorldCover 2021) -> app/data/landcover.json
 python tools/make_facts.py                  # 화면·발표 공통 숫자 -> app/data/facts.json
 python tools/make_opening.py                # 7월 철원 HLS 광학(구름) + 같은 달 NISAR -> app/data/opening/, opening.json
 ```

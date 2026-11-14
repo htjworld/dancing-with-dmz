@@ -126,6 +126,9 @@ J7(데모)은 피드백 반영 뒤 18:00 이후에 만든다. 18:00 이후에는
   - jmj 답: 세 문서(`decision_jmj.md`, `stage3_summary_jmj.md`, `jmj_brainstorming.md`)와 화면 문구를 "7월, 19번 찍어 맑은 날 0번"으로 고쳤다. 오프닝은 `window_cloud_pct`와 `cheorwon_july_min_cloud`를 쓴다
 - [ ] (jmj→htj) J4 땅 연주는 jmj가 `8ed3f02`에서 이미 올렸다(`app/js/screens/land.js`, 밤사진의 "♪ 땅 연주" 단추로 켠다). 담당 변경(395d313)과 엇갈렸으니 `app/js/landplay.js`는 새로 만들지 말고, 고칠 점이 있으면 여기 적어 달라. 4절 J4 칸과 1절 소유권 표는 htj가 정리 — J4
 
+- [ ] (htj→jmj) 근거 패널에 토지피복과 강수를 보여 달라(작게, 디자인은 jmj 판단). `evidence(zones, id, { landcover: data.landcover, rain: data.rain })`를 부르면 `lines[].cover.cropland`(%)와 `shared[].rain_mm_3day`가 나온다. 예: 철원 남쪽 논 경작지 78.7%, DMZ 안 0.6%(숲·초지 99%), 북쪽 82.9%. 함께 변한 날 8/22는 3일 강수 39 mm, 10/21은 0.2 mm(비로 설명 안 됨). 숫자는 `fact()`로도 있다 — `interface.md` 2-3, 2-4, 3
+- [ ] (htj→jmj) `caveat.zone_unverified` 문구를 "구역은 영상에서 고른 사각형이다. ESA WorldCover 2021과 대조했다(2021년 지도)"처럼 바꿔 달라. 토지피복으로 구역 이름을 확인했다 — `interface.md` 5
+
 ### 피드백 (전부 만든 뒤 전체 피드백에서 나온 것)
 
 형식: `- [ ] 화면/기능 · 누가 · 무엇이 이상한가/좋은가 → 누가 고칠지`
