@@ -133,11 +133,8 @@ const TEXT = {
     'common.piece': '레이더의 특징 {n} / {total}',
     'common.pieceTo': '선이 {name}까지 이어졌습니다.',
     'mission.leadIn': '이제 직접 읽어 볼 차례입니다. 다섯 곳에서 레이더의 특징을 하나씩 모읍니다.',
-    'paju.star': '다시 찍는다',
-    'yeoncheon.star': '물은 검다',
-    'cheorwon.star': '변한 곳의 색',
-    'hwacheon.star': '두 방향',
-    'yanggu.star': '밤에도',
+   
+   
     'common.close': '닫기',
     'common.retry': '이 미션 다시 해 보기',
     'paju.feature': '같은 곳을 다시 찍는다',
@@ -192,7 +189,6 @@ const TEXT = {
     'yeoncheon.strokeMiss': '방금 그은 곳은 강이 아닌 것 같습니다. 검고 구불구불한 띠를 찾아보세요.',
     'hwacheon.wide': '지금 더 넓게 보이는 눈:',
     
-    
     'paju.locked': '밝기 숫자는 두 장을 모두 찾으면 나타납니다.',
     'paju.take': '파주 조각 받기',
     'paju.got': '파주 조각을 받았습니다. 레이더 영상은 여러 날을 견줘야 변화가 보입니다. 날짜를 넘기면 이 구간의 선이 그날의 신호 변화만큼 움직입니다.',
@@ -204,7 +200,6 @@ const TEXT = {
     'yeoncheon.obsWetNotLower': '비가 가장 많이 온 날은 {date}이고, 직전 3일 동안 {mm} mm가 왔습니다. 이날의 비율은 {pct}였고 앞뒤 통과는 {near}였습니다. 앞뒤보다 낮지 않았습니다. ',
     'yeoncheon.obsLowest': '하지만 가장 낮았던 날은 {date}이고, 그날의 직전 3일 강수는 {mm} mm였습니다. 비만으로는 설명되지 않습니다.',
     'yeoncheon.obsLowestUnknown': '하지만 가장 낮았던 날은 {date}이고, 그날의 직전 3일 강수는 알 수 없습니다. 비만으로는 설명되지 않습니다.',
-    
     'yeoncheon.foundWhy': '비나 바람이 물결을 일으키면 물이 덜 검게 찍히기 때문일 수 있습니다.',
     'yeoncheon.foundHead': '검은 띠는 강이었습니다. 레이더에서 잔잔한 물은 검습니다.',
     'yeoncheon.shotLo': '강이 가장 덜 검은 날',
@@ -232,7 +227,6 @@ const TEXT = {
     'cheorwon.foundCaption': '막대는 숲의 변화를 빼고 남은 한 계절의 변동 폭입니다.',
     'cheorwon.landA': '가 땅',
     'cheorwon.landB': '나 땅',
-    
     'cheorwon.noteRight': '맞습니다. 한 계절 동안 가 땅은 {a} dB, 나 땅은 {b} dB를 오르내렸습니다.',
     'cheorwon.noteWrong': '숫자로는 반대였습니다. 한 계절 동안 가 땅은 {a} dB, 나 땅은 {b} dB를 오르내렸습니다.',
     'cheorwon.foundWho': '가 땅은 DMZ 안의 땅이고, 나 땅은 사람이 농사짓는 남쪽 논이었습니다.',
@@ -267,9 +261,6 @@ const TEXT = {
     
     
     
-    
-    
-    
     'yanggu.foundHead': '해가 떠 있을 때도, 진 뒤에도 레이더 영상은 똑같이 선명했습니다.',
     'yanggu.skyAria': '사진이 찍힌 시각의 하늘(연출)',
     'yanggu.shotAt': '{time}에 찍었습니다.',
@@ -292,10 +283,6 @@ const TEXT = {
     'yanggu.foundTime': '촬영 시각은 NISAR 자료 이름에 적힌 시각(10시 25분 UTC)을 한국 시각으로 옮긴 것입니다. 열한 번 모두 {time}쯤입니다.',
     'yanggu.foundSun': '해의 높이는 날짜와 펀치볼의 위치로 계산한 값입니다.',
     'yanggu.foundStaged': '하늘의 색과 "빛으로 찍는 카메라였다면" 그림은 실제 사진이 아니라 연출입니다.',
-    
-    
-    
-    
     
     
     
@@ -445,11 +432,8 @@ const TEXT = {
     'common.piece': 'Radar feature {n} of {total}',
     'common.pieceTo': 'The line now reaches {name}.',
     'mission.leadIn': 'Now it is your turn to read it. In five places you collect one radar feature each.',
-    'paju.star': 'Looks again',
-    'yeoncheon.star': 'Water is black',
-    'cheorwon.star': 'Colour of change',
-    'hwacheon.star': 'Two directions',
-    'yanggu.star': 'Even at night',
+   
+   
     'common.close': 'Close',
     'common.retry': 'Play this mission again',
     'paju.feature': 'It images the same place again',
@@ -503,7 +487,6 @@ const TEXT = {
     'yeoncheon.strokeMiss': 'That stroke does not look like the river. Look for a dark, winding band.',
     'hwacheon.wide': 'Eye with more room now:',
     
-    
     'paju.locked': 'The brightness numbers appear once you have found both.',
     'paju.take': 'Get the Paju piece',
     'paju.got': 'You have the Paju piece. Change in radar images shows only when you compare several days. Step through the dates and this stretch of the line moves by that day\'s signal change.',
@@ -514,7 +497,6 @@ const TEXT = {
     'yeoncheon.obsWetNotLower': 'The rainiest day was {date}, with {mm} mm in the 3 days before. The share that day was {pct}, and the passes before and after were {near}. It was not lower than both. ',
     'yeoncheon.obsLowest': 'But the lowest day was {date}, with {mm} mm of rain in the 3 days before. Rain alone does not explain it.',
     'yeoncheon.obsLowestUnknown': 'But the lowest day was {date}, and its rain in the 3 days before is unknown. Rain alone does not explain it.',
-    
     'yeoncheon.foundWhy': 'Rain or wind may ripple the water, and rippled water comes out less black.',
     'yeoncheon.foundHead': 'The black band was the river. To radar, calm water is black.',
     'yeoncheon.shotLo': 'Least black',
@@ -541,7 +523,6 @@ const TEXT = {
     'cheorwon.foundCaption': 'Each bar is the range over the season after taking out the forest\'s own change.',
     'cheorwon.landA': 'Land A',
     'cheorwon.landB': 'Land B',
-    
     'cheorwon.noteRight': 'Right. Over the season Land A went up and down by {a} dB and Land B by {b} dB.',
     'cheorwon.noteWrong': 'The numbers say the opposite. Over the season Land A went up and down by {a} dB and Land B by {b} dB.',
     'cheorwon.foundWho': 'Land A is the land inside the DMZ. Land B is the paddies people farm to the south.',
@@ -574,9 +555,6 @@ const TEXT = {
     
     
     
-    
-    
-    
     'yanggu.foundHead': 'With the sun up or after sunset, the radar image was just as clear.',
     'yanggu.skyAria': 'The sky at the time the image was taken (illustration)',
     'yanggu.shotAt': 'Taken at {time}.',
@@ -599,10 +577,6 @@ const TEXT = {
     'yanggu.foundTime': 'The time comes from the NISAR file names (10:25 UTC), converted to Korean time. All eleven passes are at about {time}.',
     'yanggu.foundSun': 'The height of the sun is calculated from the date and the location of the Punchbowl.',
     'yanggu.foundStaged': 'The sky colour and the "camera that needs light" picture are illustrations, not real photographs.',
-    
-    
-    
-    
     
     
     

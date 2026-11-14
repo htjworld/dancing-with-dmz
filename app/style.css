@@ -971,3 +971,10 @@ body[data-beat=play] #to-night,body[data-beat=intro] #to-night{display:none}
 #panel .frame:not(.empty){animation:frame-in .35s cubic-bezier(.2,.8,.2,1)}
 @keyframes frame-in{from{opacity:.2;transform:scale(.92)}}
 @media (prefers-reduced-motion:reduce){#panel .frame:not(.empty){animation:none}}
+
+/* ---- 엔딩의 마지막 장면: 별자리 위에 문장 하나만 남긴다. 상자와 점, 안내문은 걷는다 */
+body.ending-stars #stage{background:none;border-color:transparent;box-shadow:none;bottom:14vh;transition:background-color .8s,border-color .8s}
+body.ending-stars #ticker,body.ending-stars #stage-note,body.ending-stars #ending-cloud{display:none}
+body.ending-stars #ending-line span{font-size:30px;line-height:1.6;letter-spacing:-.02em;color:#fff6e0;text-shadow:0 2px 24px rgba(0,0,0,.9);animation:last-in 1.4s ease both}
+@keyframes last-in{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){body.ending-stars #ending-line span{animation:none}}

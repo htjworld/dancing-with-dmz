@@ -198,19 +198,16 @@ export function initDance(map) {
       }
     }
     ctx.globalAlpha = 1;
-    // 별자리: 다섯 지역의 자리에 별이 뜨고 그 사이가 이어진다. 별마다 그 지역에서 배운 것을 적는다
+    // 별자리: 다섯 지역의 자리에 별이 뜨고 그 사이가 이어진다
     if (starK > 0 && stars.length === ids.length && pts.length) {
       const sp = stars.map(j => pts[j]);
       ctx.globalAlpha = starK;
       ctx.beginPath(); sp.forEach((q, i) => (i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)));
       ctx.strokeStyle = 'rgba(255,225,162,.8)'; ctx.lineWidth = 1.4; ctx.stroke();
-      ctx.font = '500 15px "Noto Serif KR", serif'; ctx.textAlign = 'center'; ctx.lineJoin = 'round';
-      sp.forEach((q, i) => {
+      // 별에는 글자를 달지 않는다. 이 장면에서는 화면 아래의 마지막 문장 하나만 말한다
+      sp.forEach(q => {
         ctx.beginPath(); ctx.arc(q.x, q.y, 11, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,225,162,.18)'; ctx.fill();
         ctx.beginPath(); ctx.arc(q.x, q.y, 3.6, 0, Math.PI * 2); ctx.fillStyle = '#fff6e0'; ctx.fill();
-        const text = t(`${ids[i]}.star`), ty = q.y + (i % 2 ? -18 : 30);   // 이웃한 글자가 겹치지 않게 위아래로 번갈아 놓는다
-        ctx.strokeStyle = 'rgba(5,9,18,.9)'; ctx.lineWidth = 4; ctx.strokeText(text, q.x, ty);
-        ctx.fillStyle = '#ffe1a2'; ctx.fillText(text, q.x, ty);
       });
       ctx.globalAlpha = 1;
     }
