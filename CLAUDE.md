@@ -16,6 +16,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 오프닝 문지르기 안내: 손 모양이 한 번 쓸어 레이더를 드러내 보이고 좌우로 흔들리며 기다린다. 직접 문지르면 사라짐 — jmj · `app/js/screens/opening.js`
 - [x] htj 요청 처리: 근거 패널에 토지피복·강수 표시, 구역 한계 문구 수정. 밤하늘 영상의 한계 자막은 NISAR 소개 문구로 교체 — jmj · `screens/proof.js`, `i18n.js`
 - [x] 밤하늘 개편: 설명 창 대신 나레이션 자막과 함께 스스로 흐르는 48초 영상(파주→양구로 DMZ를 따라 이동, 통과가 쌓이며 빛남), 끝나면 게임으로. 기존 설명 창은 '직접 둘러보기'로 남김 — jmj · `app/js/screens/film.js`
 - [x] 저장소 이관(htjworld), 공개 전환, GitHub Pages(Actions) 배포: https://htjworld.github.io/dancing-with-dmz/ — htj · `plan.md` 9절

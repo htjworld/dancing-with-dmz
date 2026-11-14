@@ -213,3 +213,16 @@ body[data-screen=night][data-night=film] #night,body[data-screen=night][data-nig
 #night .ends2 .ghost{padding:11px 12px;border-radius:10px;border:1px dashed var(--edge);background:transparent;font-size:13px;color:var(--dim)}
 @media (prefers-reduced-motion:reduce){ #film .cap p{animation:none} }
 @media (max-width:820px){ #film .cap p{font-size:17px;padding:10px 16px} }
+
+/* ---- 오프닝: 문지르기 안내(손 모양이 한 번 쓸어 보이고 좌우로 흔들린다) */
+#opening .rub-hint{position:absolute;inset:0;pointer-events:none;transition:opacity .4s}
+#opening .frame.touched .rub-hint{opacity:0}
+#opening .rub-hand{position:absolute;left:30%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;
+  border:2.5px solid #fff;background:rgba(255,255,255,.28);box-shadow:0 2px 14px rgba(0,0,0,.55);animation:rub-pulse 1.3s ease-out infinite}
+#opening .rub-hint.idle .rub-hand{animation:rub-sway 2.2s ease-in-out infinite,rub-pulse 1.3s ease-out infinite}
+#opening .rub-label{position:absolute;left:50%;top:calc(50% + 46px);transform:translateX(-50%);padding:5px 12px;border-radius:999px;
+  background:rgba(6,12,11,.82);color:#fff;font-size:14px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .5s}
+#opening .rub-hint.idle .rub-label{opacity:1}
+@keyframes rub-pulse{0%{box-shadow:0 2px 14px rgba(0,0,0,.55),0 0 0 0 rgba(255,255,255,.55)}100%{box-shadow:0 2px 14px rgba(0,0,0,.55),0 0 0 18px rgba(255,255,255,0)}}
+@keyframes rub-sway{0%,100%{transform:translateX(-70px)}50%{transform:translateX(70px)}}
+@media (prefers-reduced-motion:reduce){ #opening .rub-hand,#opening .rub-hint.idle .rub-hand{animation:none} }
