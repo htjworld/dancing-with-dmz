@@ -11,6 +11,7 @@
 | `01_organizer_feedback.md` | 운영진 피드백 4가지(필요성·데이터 신뢰성·차별성·48시간 구현) + 함께 받은 HLS(광학) 자료 원문 |
 | `2025_winners/01~10_*.md` | 2025 Global Winner 10팀 프로젝트 원문 |
 | `2025_sar_finalist_tengrispacers.md` | 직전 SAR 챌린지(2025)의 유일한 Global Finalist 원문 |
+| `02_finalists_2024_2025_benchmark.md` | 2024·2025 지구관측 관련 결선팀 9곳 벤치마킹 요약(2025 수상 10팀 제외, 2024 수상팀 포함). 팀 페이지 원문이 아니라 팀이 정리한 요약이며, 우리 단계별로 참고할 사례를 짚는다 |
 
 ## 1. 심사 기준 (Judging & Awards Guide 원문 요약)
 
