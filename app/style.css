@@ -618,3 +618,6 @@ body[data-screen=night][data-night=film] #film-title.on{opacity:1}
 body[data-screen=night][data-night=film] #film-skip:not([hidden]){display:block;position:fixed;right:20px;bottom:44px;z-index:6;padding:8px 10px;border:none;background:none;color:#7f8bab;font-size:13px;letter-spacing:.01em}
 body[data-screen=night][data-night=film] #film-skip:hover{color:#eef1f8}
 body[data-screen=night][data-night=film] .maplibregl-ctrl-bottom-right{display:none}
+
+/* 처음 불러오는 동안(화면 상태가 정해지기 전)에는 왼쪽 위 제목을 숨긴다. 오프닝·밤하늘 영상에서도 보이지 않다가 영상 끝에 나타난다 */
+body:not([data-screen]) #top{visibility:hidden}
