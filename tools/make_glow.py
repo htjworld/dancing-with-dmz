@@ -7,6 +7,7 @@
 출력(지역마다):
   glow/<지역>_value.webp  빨강 채널 0~255 = 0~SCALE_HI dB, 알파 0 = 자료 없음. 무손실. 소리·숫자는 이걸 읽는다.
   glow/<지역>_color.webp  기본 색을 입힌 표시용 영상
+  glow/<지역>_fNN.webp    재생용 누적 프레임(첫 통과부터 NN+1 번째 통과까지). 마지막 프레임은 color 와 같다
 사용: python tools/make_glow.py
 """
 import json
@@ -90,10 +91,17 @@ def build_region(region, meta, zones, lo, hi):
     value = np.zeros(s.shape + (4,), "uint8")
     value[..., 0] = value[..., 1] = value[..., 2] = np.where(valid, np.round(np.nan_to_num(s) * 255), 0).astype("uint8")
     value[..., 3] = np.where(valid, 255, 0)
+    # 재생용 누적 프레임: frames[i] = 첫 통과부터 i+2 번째 통과까지의 변동 폭. 마지막 프레임 = color
+    frames = []
+    for k in range(2, len(rel) + 1):
+        ok = np.isfinite(rel[:k]).sum(0) >= 2
+        with np.errstate(all="ignore"):
+            sk = np.clip(np.where(ok, np.nanstd(rel[:k], 0), np.nan) / SCALE_HI, 0, 1)
+        frames.append(save(colorize(sk, ok), f"{region}_f{k - 1:02d}.webp", quality=75, method=4))
     entry = {"corners": meta["corners"], "size": meta["size"],
              "value": save(value, f"{region}_value.webp", lossless=True),
              "color": save(colorize(s, valid), f"{region}_color.webp", quality=80, method=4),
-             "frames": []}
+             "frames": frames}
     zone_means = {z["id"]: float(np.nanmean(sd[mask_of(z, lon, lat)])) for z in zones if z["region"] == region}
     return entry, zone_means
 

@@ -44,7 +44,18 @@
    ],
    "value": "glow/paju_value.webp",
    "color": "glow/paju_color.webp",
-   "frames": []
+   "frames": [
+    "glow/paju_f01.webp",
+    "glow/paju_f02.webp",
+    "glow/paju_f03.webp",
+    "glow/paju_f04.webp",
+    "glow/paju_f05.webp",
+    "glow/paju_f06.webp",
+    "glow/paju_f07.webp",
+    "glow/paju_f08.webp",
+    "glow/paju_f09.webp",
+    "glow/paju_f10.webp"
+   ]
   },
   "yeoncheon": {
    "corners": [
@@ -71,7 +82,18 @@
    ],
    "value": "glow/yeoncheon_value.webp",
    "color": "glow/yeoncheon_color.webp",
-   "frames": []
+   "frames": [
+    "glow/yeoncheon_f01.webp",
+    "glow/yeoncheon_f02.webp",
+    "glow/yeoncheon_f03.webp",
+    "glow/yeoncheon_f04.webp",
+    "glow/yeoncheon_f05.webp",
+    "glow/yeoncheon_f06.webp",
+    "glow/yeoncheon_f07.webp",
+    "glow/yeoncheon_f08.webp",
+    "glow/yeoncheon_f09.webp",
+    "glow/yeoncheon_f10.webp"
+   ]
   },
   "cheorwon": {
    "corners": [
@@ -98,7 +120,18 @@
    ],
    "value": "glow/cheorwon_value.webp",
    "color": "glow/cheorwon_color.webp",
-   "frames": []
+   "frames": [
+    "glow/cheorwon_f01.webp",
+    "glow/cheorwon_f02.webp",
+    "glow/cheorwon_f03.webp",
+    "glow/cheorwon_f04.webp",
+    "glow/cheorwon_f05.webp",
+    "glow/cheorwon_f06.webp",
+    "glow/cheorwon_f07.webp",
+    "glow/cheorwon_f08.webp",
+    "glow/cheorwon_f09.webp",
+    "glow/cheorwon_f10.webp"
+   ]
   },
   "hwacheon": {
    "corners": [
@@ -125,7 +158,18 @@
    ],
    "value": "glow/hwacheon_value.webp",
    "color": "glow/hwacheon_color.webp",
-   "frames": []
+   "frames": [
+    "glow/hwacheon_f01.webp",
+    "glow/hwacheon_f02.webp",
+    "glow/hwacheon_f03.webp",
+    "glow/hwacheon_f04.webp",
+    "glow/hwacheon_f05.webp",
+    "glow/hwacheon_f06.webp",
+    "glow/hwacheon_f07.webp",
+    "glow/hwacheon_f08.webp",
+    "glow/hwacheon_f09.webp",
+    "glow/hwacheon_f10.webp"
+   ]
   },
   "yanggu": {
    "corners": [
@@ -152,7 +196,18 @@
    ],
    "value": "glow/yanggu_value.webp",
    "color": "glow/yanggu_color.webp",
-   "frames": []
+   "frames": [
+    "glow/yanggu_f01.webp",
+    "glow/yanggu_f02.webp",
+    "glow/yanggu_f03.webp",
+    "glow/yanggu_f04.webp",
+    "glow/yanggu_f05.webp",
+    "glow/yanggu_f06.webp",
+    "glow/yanggu_f07.webp",
+    "glow/yanggu_f08.webp",
+    "glow/yanggu_f09.webp",
+    "glow/yanggu_f10.webp"
+   ]
   }
  }
 }
