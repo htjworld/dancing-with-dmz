@@ -73,3 +73,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bars div{flex:1;background:#3b6f78;border-radius:3px 3px 0 0;position:relative;min-height:2px}
 .bars div.wet{background:#7fe9ff} .bars div.now{outline:2px solid var(--gold)}
 .barlabels{display:flex;gap:3px;font-size:9px;color:var(--dim)} .barlabels span{flex:1;text-align:center}
+
+.chart.draw{cursor:crosshair;touch-action:none;user-select:none}
+.chart .grid.zero{stroke:rgba(255,255,255,.3)}
+.chart path{fill:none;stroke-width:1.8;stroke-linejoin:round}
+.chart .l-paddy{stroke:var(--line)} .chart .l-guess{stroke:var(--gold);stroke-width:2.4}
+.chart .l-dmz{stroke:#9fd0ff;stroke-width:2.2} .chart .l-forest{stroke:#8ff7b9;stroke-dasharray:3 3;opacity:.7}
+#panel .legend{font-size:11px;margin:0 0 8px} .k-paddy{color:var(--line)} .k-guess{color:var(--gold)} .k-dmz{color:#9fd0ff} .k-forest{color:#8ff7b9}

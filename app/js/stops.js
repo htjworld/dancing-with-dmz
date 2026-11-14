@@ -14,7 +14,7 @@ export const STOPS = [
   { id: 'cheorwon', name: '철원 평야', eye: '사람의 눈', layer: '베이스',
     title: '옆 땅의 여름을 그려라',
     story: '사람이 농사짓는 논과, 3 km 옆 사람이 들어가지 않는 땅.',
-    todo: '논의 선을 본 뒤, DMZ 안 평지의 선을 직접 그려 보세요.',
+    todo: '논의 선을 본 뒤, DMZ 안 땅의 선을 직접 그려 보세요.',
     bounds: [127.15, 38.15, 127.55, 38.42] },
   { id: 'hwacheon', name: '화천 백암산', eye: '두 가지 눈', layer: '패드',
     title: '숲을 더 잘 보는 눈을 골라라',

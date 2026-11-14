@@ -51,3 +51,19 @@ export const riverHit = (points, lng, lat, radiusM = 150) => points.some(p => me
 export const farEnough = (picks, lng, lat, minM = 600) => picks.every(p => meters(p[0], p[1], lng, lat) >= minM);
 // 사각형 [서, 남, 동, 북] 안인가
 export const inside = (b, lng, lat) => lng >= b[0] && lng <= b[2] && lat >= b[1] && lat <= b[3];
+
+// ---- 철원: 선 그리기
+// 두 점 { k: 통과, d: dB } 사이의 칸을 직선으로 채운 새 배열. 기준일 칸(0)은 언제나 0 이고, 범위 밖 칸은 건드리지 않는다.
+export function fillGuess(draft, from, to) {
+  const out = [...draft], step = to.k >= from.k ? 1 : -1;
+  for (let k = from.k; k !== to.k + step; k += step) {
+    if (k <= 0 || k >= out.length) continue;
+    out[k] = to.k === from.k ? to.d : from.d + (to.d - from.d) * (k - from.k) / (to.k - from.k);
+  }
+  out[0] = 0;
+  return out;
+}
+// 유효한 관측이 있는 칸이 모두 채워졌는가(자료가 없는 칸은 비어 있어도 된다)
+export const guessComplete = (guess, zone) => !!guess && zone.observations.every(o => !valid(o) || guess[o.cycle] != null);
+// 구역의 변동 폭(dB): 기준일 대비 변화의 최댓값 − 최솟값. series 를 주면 그 값들로 계산한다
+export const rangeOf = values => { const v = values.filter(x => x != null); return v.length ? Math.max(...v) - Math.min(...v) : null; };

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { change, level, forestChange, togetherDays, heights, heightAt, refOf } from '../js/calc.js';
-import { extremeDays, judgeExtreme, missionReady, canTake, riverHit, farEnough, inside, meters } from '../js/missions.js';
+import { extremeDays, judgeExtreme, missionReady, canTake, riverHit, farEnough, inside, meters, fillGuess, guessComplete, rangeOf } from '../js/missions.js';
 
 // 지어낸 작은 자료: 통과 0~4, 통과 2는 자료 없음
 const zone = (id, region, role, hh) => ({ id, region, role, observations: hh.map((v, cycle) =>
@@ -104,4 +104,26 @@ test('실제 자료에서 연천 미션이 성립한다', () => {
   for (const p of river.points) if (farEnough(picks, p[0], p[1]) && picks.push(p) === 3) break;
   assert.equal(picks.length, 3);
   assert.ok(river.dark_ratio.every(r => r.dark_ratio > 0 && r.dark_ratio < 1));
+});
+
+test('fillGuess: 좌→우, 우→좌 모두 직선으로 채우고 범위 밖과 기준일은 건드리지 않는다', () => {
+  const empty = Array(6).fill(null);
+  assert.deepEqual(fillGuess(empty, { k: 1, d: 1 }, { k: 3, d: 3 }), [0, 1, 2, 3, null, null]);
+  assert.deepEqual(fillGuess(empty, { k: 4, d: 0 }, { k: 2, d: 2 }), [0, null, 2, 1, 0, null]);
+  assert.deepEqual(fillGuess(empty, { k: 2, d: 5 }, { k: 2, d: 7 }), [0, null, 7, null, null, null]);
+  assert.deepEqual(fillGuess(empty, { k: -2, d: 4 }, { k: 9, d: 4 }), [0, 4, 4, 4, 4, 4]);       // 범위 밖은 무시, 기준일은 0
+  assert.deepEqual(empty, Array(6).fill(null), '원본은 바꾸지 않는다');
+});
+
+test('guessComplete: 자료가 없는 칸은 비어 있어도 된다', () => {
+  assert.equal(guessComplete(null, farm), false);
+  assert.equal(guessComplete([0, 1, null, 2, 1], farm), true);     // 통과 2 는 쉼표
+  assert.equal(guessComplete([0, 1, null, null, 1], farm), false);
+  assert.equal(rangeOf([0, 2, null, -1]), 3);
+});
+
+test('실제 자료에서 철원 미션이 성립한다', () => {
+  const real = JSON.parse(readFileSync(new URL('../data/regions.json', import.meta.url), 'utf8'));
+  for (const id of ['cheorwon-paddy', 'cheorwon-dmz', 'cheorwon-forest', 'cheorwon-north'])
+    assert.ok(real.zones.find(z => z.id === id).observations.filter(o => o.status === 'valid').length >= 8, id);
 });
