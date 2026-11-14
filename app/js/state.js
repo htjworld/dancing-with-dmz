@@ -12,6 +12,8 @@ export const state = {
   riverHint: false,  // 연천: 강의 위치를 옅게 보여 준다
   guess: null,       // 철원: 사용자가 그린 선(통과별 dB, 빈 칸은 null)
   revealed: false,   // 철원: 실제 선을 겹쳐 보았는가
+  eyePick: null,     // 화천: 고른 편파('hh' | 'hv')
+  quizPick: null,    // 양구: 고른 선의 구역 id
   note: null,        // 방금 한 행동에 대한 한 줄 응답 { ok, text }
   mapReady: false,
 };

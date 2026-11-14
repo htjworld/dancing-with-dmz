@@ -80,3 +80,5 @@ button{font:inherit;color:inherit;cursor:pointer}
 .chart .l-paddy{stroke:var(--line)} .chart .l-guess{stroke:var(--gold);stroke-width:2.4}
 .chart .l-dmz{stroke:#9fd0ff;stroke-width:2.2} .chart .l-forest{stroke:#8ff7b9;stroke-dasharray:3 3;opacity:.7}
 #panel .legend{font-size:11px;margin:0 0 8px} .k-paddy{color:var(--line)} .k-guess{color:var(--gold)} .k-dmz{color:#9fd0ff} .k-forest{color:#8ff7b9}
+
+#panel .acts.toggle button[aria-pressed=true]{background:var(--line);color:#06231a;font-weight:700}

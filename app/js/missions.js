@@ -67,3 +67,11 @@ export function fillGuess(draft, from, to) {
 export const guessComplete = (guess, zone) => !!guess && zone.observations.every(o => !valid(o) || guess[o.cycle] != null);
 // 구역의 변동 폭(dB): 기준일 대비 변화의 최댓값 − 최솟값. series 를 주면 그 값들로 계산한다
 export const rangeOf = values => { const v = values.filter(x => x != null); return v.length ? Math.max(...v) - Math.min(...v) : null; };
+
+// ---- 화천: 두 구역을 더 잘 구분하는 눈 = 기준일(둘 다 유효한 첫 통과)의 dB 차이가 큰 편파
+export function betterEye(zones, aId, bId) {
+  const a = zones.find(z => z.id === aId), b = zones.find(z => z.id === bId);
+  const oa = a.observations.find(o => valid(o) && valid(obsAt(b, o.cycle))), ob = obsAt(b, oa.cycle);
+  const hh = Math.abs(oa.hh_db - ob.hh_db), hv = Math.abs(oa.hv_db - ob.hv_db);
+  return { pol: hv > hh ? 'hv' : 'hh', hh, hv, cycle: oa.cycle };
+}

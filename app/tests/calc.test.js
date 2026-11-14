@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { change, level, forestChange, togetherDays, heights, heightAt, refOf } from '../js/calc.js';
-import { extremeDays, judgeExtreme, missionReady, canTake, riverHit, farEnough, inside, meters, fillGuess, guessComplete, rangeOf } from '../js/missions.js';
+import { extremeDays, judgeExtreme, missionReady, canTake, riverHit, farEnough, inside, meters, fillGuess, guessComplete, rangeOf, betterEye } from '../js/missions.js';
 
 // 지어낸 작은 자료: 통과 0~4, 통과 2는 자료 없음
 const zone = (id, region, role, hh) => ({ id, region, role, observations: hh.map((v, cycle) =>
@@ -126,4 +126,20 @@ test('실제 자료에서 철원 미션이 성립한다', () => {
   const real = JSON.parse(readFileSync(new URL('../data/regions.json', import.meta.url), 'utf8'));
   for (const id of ['cheorwon-paddy', 'cheorwon-dmz', 'cheorwon-forest', 'cheorwon-north'])
     assert.ok(real.zones.find(z => z.id === id).observations.filter(o => o.status === 'valid').length >= 8, id);
+});
+
+test('betterEye: 기준일의 dB 차이가 큰 편파를 고른다', () => {
+  const mk = (id, hh, hv) => ({ id, region: 'h', role: 'cmp', observations: [{ cycle: 0, status: 'missing', hh_db: null, hv_db: null }, { cycle: 1, status: 'valid', hh_db: hh, hv_db: hv }] });
+  const e = betterEye([mk('a', -5, -10), mk('b', -7, -15)], 'a', 'b');
+  assert.deepEqual({ pol: e.pol, hh: e.hh, hv: e.hv, cycle: e.cycle }, { pol: 'hv', hh: 2, hv: 5, cycle: 1 });
+  assert.equal(betterEye([mk('a', -5, -10), mk('b', -9, -11)], 'a', 'b').pol, 'hh');
+});
+
+test('실제 자료에서 화천·양구 미션이 성립한다', () => {
+  const real = JSON.parse(readFileSync(new URL('../data/regions.json', import.meta.url), 'utf8'));
+  const e = betterEye(real.zones, 'hwacheon-dmz', 'hwacheon-north');
+  assert.ok(Math.abs(e.hh - e.hv) > 0.3, '두 편파의 차이가 눈에 띄게 달라야 고를 수 있다');
+  const layers = JSON.parse(readFileSync(new URL('../data/layers.json', import.meta.url), 'utf8'));
+  assert.ok(layers.regions.hwacheon.pols.includes('hv'), '화천은 HV 영상이 있어야 한다');
+  for (const id of ['cheorwon-paddy', 'yanggu-basin', 'yanggu-dmz']) assert.ok(real.zones.some(z => z.id === id), id);
 });

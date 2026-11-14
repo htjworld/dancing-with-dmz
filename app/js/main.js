@@ -5,9 +5,11 @@ import { initDance } from './dance.js';
 import * as paju from './views/paju.js';
 import * as yeoncheon from './views/yeoncheon.js';
 import * as cheorwon from './views/cheorwon.js';
+import * as hwacheon from './views/hwacheon.js';
+import * as yanggu from './views/yanggu.js';
 
 const $ = id => document.getElementById(id);
-const VIEWS = { paju, yeoncheon, cheorwon };   // 미션 화면이 준비된 지역. 나머지는 안내 문구만 보인다.
+const VIEWS = { paju, yeoncheon, cheorwon, hwacheon, yanggu };   // 미션 화면이 준비된 지역. 나머지는 안내 문구만 보인다.
 
 function panel() {
   const s = STOPS.find(x => x.id === state.stop), i = STOPS.indexOf(s), view = VIEWS[s.id];
@@ -55,7 +57,7 @@ async function start() {
   for (const v of Object.values(VIEWS)) v.bind?.($('panel'));
   document.addEventListener('dmz-map-click', e => VIEWS[state.stop]?.mapClick?.(e.detail.lng, e.detail.lat));
   subscribe((s, prev) => {
-    if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null });
+    if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh' });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
     if (s.cycle !== prev.cycle) timeline();
     if (s.fragments !== prev.fragments) tray();
