@@ -4,7 +4,7 @@ import { state } from './state.js';
 // bounds 는 tools/extract_nisar.py 의 REGIONS 와 같은 창이다(서, 남, 동, 북).
 // 소개 카드에 넣을 짧은 영상(지역 id → 파일 경로). 비워 두면 영상 없이 글만 나온다.
 // 예: paju: 'media/intro/paju.mp4'. 소리 없이 되풀이해 틀므로 5~8초짜리가 알맞다.
-export const INTRO_CLIP = {};
+export const INTRO_CLIP = { yeoncheon: 'media/intro/yeoncheon.mp4' };
 // 결과 카드의 '관련 영상 보기'에 넣을 영상(지역 id → 파일 경로). 비워 두면 '준비 중'이라고 나온다.
 // 예: paju: 'media/result/paju.mp4'
 export const RESULT_CLIP = {};

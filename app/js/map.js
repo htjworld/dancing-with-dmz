@@ -2,6 +2,7 @@
 import { state, set, subscribe, data, pass } from './state.js';
 import { STOPS, centerOf, label } from './stops.js';
 import { zoneName } from './i18n.js';
+import { missionReady } from './missions.js';
 
 // 영상 네 귀퉁이를 감싸는 경위도 범위
 const boundsOf = corners => [[Math.min(...corners.map(c => c[0])), Math.min(...corners.map(c => c[1]))],
@@ -19,6 +20,8 @@ const frameOf = c => ({ type: 'FeatureCollection', features: c ? [{ type: 'Featu
 
 function radarOf(s) {
   if (s.screen !== 'mission') return null;   // 오프닝과 밤사진에서는 날짜별 레이더 영상을 걷는다
+  // 미션을 푸는 동안에만 켠다: 소개 카드를 넘기기 전, 미션을 푼 뒤(결과 카드, 조각을 받은 뒤)에는 걷고 선만 보인다
+  if (!s.introSeen.includes(s.stop) || missionReady(s.stop, s.seen[s.stop])) return null;
   const L = data.layers.regions[s.stop], p = pass(s.cycle);
   if (!L || !p || p.rest || !L.dates.includes(p.date)) return null;
   const pol = L.pols.includes(s.pol) ? s.pol : 'hh';
@@ -97,7 +100,8 @@ export function initMap() {
     const night = s.screen !== 'mission', vis = on => (on ? 'visible' : 'none');   // 오프닝 뒤에도 밤사진이 깔려 있다
     for (const id of Object.keys(glow)) map.setLayoutProperty(`glow-${id}`, 'visibility', vis(night));
     map.setLayoutProperty('dmz-white', 'visibility', vis(night));
-    for (const id of ['dmz-glow', 'dmz-line', 'zone-fill', 'zone-line']) map.setLayoutProperty(id, 'visibility', vis(!night));
+    for (const id of ['dmz-glow', 'dmz-line']) map.setLayoutProperty(id, 'visibility', vis(!night));
+    for (const id of ['zone-fill', 'zone-line']) map.setLayoutProperty(id, 'visibility', vis(!night && !!radarOf(s)));   // 구역 사각형은 레이더 영상이 켜져 있을 때만
   };
   subscribe((s, prev) => {
     if ((s.screen === 'mission') === (prev.screen === 'mission')) return;
@@ -167,7 +171,7 @@ export function initMap() {
     if (k !== shownRadar) {
       shownRadar = k; if (r) map.getSource('radar').updateImage(r); map.setLayoutProperty('radar', 'visibility', r ? 'visible' : 'none');
       if (r) map.getSource('radar-frame').setData(frameOf(r.coordinates));
-      for (const id of ['radar-frame-glow', 'radar-frame-line']) map.setLayoutProperty(id, 'visibility', r ? 'visible' : 'none');
+      for (const id of ['radar-frame-glow', 'radar-frame-line', 'zone-fill', 'zone-line']) if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', r ? 'visible' : 'none');   // 영상이 없으면 구역 사각형도 걷는다
     }
     map.setLayoutProperty('river-hint', 'visibility', s.stop === 'yeoncheon' && s.riverHint ? 'visible' : 'none');
   };
