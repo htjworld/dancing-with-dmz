@@ -124,7 +124,7 @@ J7(데모)은 피드백 반영 뒤 18:00 이후에 만든다. 18:00 이후에는
   - htj 답: 창 안 구름을 직접 재는 `tools/hls_window.py`를 만들었다. 창을 다 덮는 7월 장면 중 가장 흐린 것이 지금 7/26이고 **창 안 66%**다(`optical.window_cloud_pct`). "구름뿐"이 아니라 "창 안 66%가 구름"으로 쓰면 된다. 7월 다섯 지역 창을 19번 찍었고 맑았던 적은 0번(`fact('july_clear_optical')`, `fact('july_optical_looks')`)
 - [x] (htj→jmj) `brainstorming/decision_jmj.md`·`stage3_summary_jmj.md`의 "철원 7~9월 맑은 광학 0일"은 타일 구름량으로 센 값이라 창 기준으로 틀린다(8·9월엔 창 안이 맑은 날이 있다). "7월, 다섯 지역 창을 19번 찍었는데 맑은 날 0번"으로 바꿔 달라 — `interface.md` 2-3
   - jmj 답: 세 문서(`decision_jmj.md`, `stage3_summary_jmj.md`, `jmj_brainstorming.md`)와 화면 문구를 "7월, 19번 찍어 맑은 날 0번"으로 고쳤다. 오프닝은 `window_cloud_pct`와 `cheorwon_july_min_cloud`를 쓴다
-- [ ] (jmj→htj) J4 땅 연주는 jmj가 `8ed3f02`에서 이미 올렸다(`app/js/screens/land.js`, 밤사진의 "♪ 땅 연주" 단추로 켠다). 담당 변경(395d313)과 엇갈렸으니 `app/js/landplay.js`는 새로 만들지 말고, 고칠 점이 있으면 여기 적어 달라. 4절 J4 칸과 1절 소유권 표는 htj가 정리 — J4
+- [x] (jmj→htj) J4 땅 연주는 jmj가 `8ed3f02`에서 이미 올렸다(`app/js/screens/land.js`, 밤사진의 "♪ 땅 연주" 단추로 켠다). 담당 변경(395d313)과 엇갈렸으니 `app/js/landplay.js`는 새로 만들지 말고, 고칠 점이 있으면 여기 적어 달라. 4절 J4 칸과 1절 소유권 표는 htj가 정리 — J4
 
 - [ ] (htj→jmj) 근거 패널에 토지피복과 강수를 보여 달라(작게, 디자인은 jmj 판단). `evidence(zones, id, { landcover: data.landcover, rain: data.rain })`를 부르면 `lines[].cover.cropland`(%)와 `shared[].rain_mm_3day`가 나온다. 예: 철원 남쪽 논 경작지 78.7%, DMZ 안 0.6%(숲·초지 99%), 북쪽 82.9%. 함께 변한 날 8/22는 3일 강수 39 mm, 10/21은 0.2 mm(비로 설명 안 됨). 숫자는 `fact()`로도 있다 — `interface.md` 2-3, 2-4, 3
 - [ ] (htj→jmj) `caveat.zone_unverified` 문구를 "구역은 영상에서 고른 사각형이다. ESA WorldCover 2021과 대조했다(2021년 지도)"처럼 바꿔 달라. 토지피복으로 구역 이름을 확인했다 — `interface.md` 5
@@ -132,7 +132,8 @@ J7(데모)은 피드백 반영 뒤 18:00 이후에 만든다. 18:00 이후에는
 - [ ] (jmj→htj) 밤사진 재생 음악을 아리랑에서 **밤하늘에 어울리는 잔잔한 곡**으로 바꿨다(`app/js/screens/nightmusic.js`, 새로 지은 곡, 북·하이햇 없음, 24초, 테스트 `nightmusic.test.js`). jmj 소유 문서와 `plan.md`·`CLAUDE.md`에서 아리랑 언급을 뺐다. 남은 것은 htj 소유다: 미션 조각·피날레의 아리랑 편곡(`music.js`), `landsound.js` 주석, `interface.md` 128·155행, `htj_brainstorming.md`·`stage3_review_htj.md`. 피날레 곡도 바꿀지, 문서에서 뺄지 정해 달라 — J3
 
 - [ ] (hdk→jmj, 전원) 프론트 디자인 재구성을 hdk가 맡고 싶다. 화면 파일 소유권 조정 제안: hdk = `app/style.css`, `app/index.html` 구조·디자인, 오프닝 첫 장면 연출, 날짜 줄 표시, 에필로그 장면 / jmj = `screens/**` 동작 로직, `i18n.js`, 데모(J7). 동의하면 1절 표를 고친다 — `brainstorming/decision_hdk.md` 5절
-- [ ] (hdk→htj) 근거 패널용 내포리 논 계절 곡선을 원자료(또는 지금 레이어)에서 만들어 `interface.md`에 올려 달라. 숲과 견준 값이면 더 좋다 — `brainstorming/decision_hdk.md` 3절
+- [x] (hdk→htj) 근거 패널용 내포리 논 계절 곡선을 원자료(또는 지금 레이어)에서 만들어 `interface.md`에 올려 달라. 숲과 견준 값이면 더 좋다 — `brainstorming/decision_hdk.md` 3절
+  - htj 답: `tools/make_paddy_curve.py` → `data/paddy_curve.json`, `data.paddyCurve`로 읽힌다. 형식과 읽는 법은 `interface.md` 2-5. 6월 17% → 한여름 0~1% → 10월 22%(어두운 물 찬 화소), 숲은 내내 0%
 
 ### 피드백 (전부 만든 뒤 전체 피드백에서 나온 것)
 

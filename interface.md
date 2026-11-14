@@ -19,6 +19,7 @@ data.glow      // glow.json (항상 있음)
 data.facts     // facts.json (항상 있음)
 data.opening   // opening.json, 없으면 null
 data.landcover // landcover.json(구역별 토지피복 %), 없으면 null
+data.paddyCurve // paddy_curve.json(철원 내포리 논의 계절 곡선), 없으면 null
 data.zones, data.passes, data.boundary, data.layers   // 기존 그대로
 fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 ```
@@ -107,6 +108,20 @@ fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 ```
 
 - 구역 이름("논", "DMZ 안", "경작지로 보이는 곳")이 독립 자료와 맞는지 보여 주는 값이다. 2021년 지도라 2026년과 다를 수 있다.
+
+### 2-5. `data/paddy_curve.json` — 철원 내포리 논의 계절 곡선 (hdk 요청)
+
+```json
+{ "name": "철원 내포리 논", "center": [127.209, 38.289], "radius_km": 1.8, "dark_db": -12.0, "source": "layers",
+  "dates":           ["2026-06-23", "2026-07-05", "...11개"],
+  "dark_pct":        [17.2, 3.9, 0.7, 0.9, 0.1, 0.1, 2.2, 13.9, 22.4, 2.6, 13.4],
+  "forest_dark_pct": [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  "rel_db":          [-4.19, -3.38, -2.95, -2.62, -2.72, -2.73, -3.46, -3.87, -3.91, -3.21, -3.18] }
+```
+
+- `dark_pct`: 내포리 반경 1.8 km 안에서 HH가 -12 dB보다 어두운 화소 비율(%). 물이 찬 논은 레이더에 어둡게 보인다. **6월(물 댄 논) 17% → 한여름 0~1% → 10월(추수 뒤) 22%**이고, 같은 창의 숲(`forest_dark_pct`)은 내내 0%다.
+- `rel_db`: 같은 날 숲 평균을 뺀 HH(dB). 6월 -4.2 → 8월 -2.6(벼가 자람) → 10월 -3.9(거둠)로 움직인다.
+- 원인은 "모내기 물 → 벼 성장 → 추수로 보이는 변화"까지만 말한다. 10/21의 낮은 값은 모든 구역이 함께 밝아진 날이다(`evidence().shared`).
 
 ## 3. 함수
 
