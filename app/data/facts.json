@@ -1,0 +1,80 @@
+{
+ "july_clear_optical": {
+  "value": 0,
+  "unit": "장",
+  "note": "2026년 7월 다섯 지역의 맑은(구름 20% 이하) 광학 관측일 합. 관측일 29일 중",
+  "source": "data/hls_clouds.json (tools/hls_cloud.py)"
+ },
+ "july_regions": {
+  "value": 5,
+  "unit": "곳",
+  "note": "7월 구름량을 센 지역 수",
+  "source": "data/hls_clouds.json (tools/hls_cloud.py)"
+ },
+ "cheorwon_summer_clear": {
+  "value": 0,
+  "unit": "일",
+  "note": "철원 7~9월 맑은 광학 관측일. 관측일 20일 중",
+  "source": "data/hls_clouds.json (tools/hls_cloud.py)"
+ },
+ "cheorwon_summer_days": {
+  "value": 20,
+  "unit": "일",
+  "note": "철원 7~9월 광학 관측일",
+  "source": "data/hls_clouds.json (tools/hls_cloud.py)"
+ },
+ "cheorwon_paddy_db": {
+  "value": 2.1,
+  "unit": "dB",
+  "note": "철원 민통선 논, 숲 대비 HH 계절 변동 폭",
+  "source": "app/data/regions.json"
+ },
+ "cheorwon_dmz_db": {
+  "value": 0.7,
+  "unit": "dB",
+  "note": "철원 DMZ 안 저지대, 숲 대비 HH 계절 변동 폭",
+  "source": "app/data/regions.json"
+ },
+ "cheorwon_north_db": {
+  "value": 2.0,
+  "unit": "dB",
+  "note": "철원 분계선 북쪽 경작지로 보이는 곳, 숲 대비 HH 계절 변동 폭",
+  "source": "app/data/regions.json"
+ },
+ "paju_dmz_farm_db": {
+  "value": 2.1,
+  "unit": "dB",
+  "note": "파주 DMZ 안 경작지, 숲 대비 HH 계절 변동 폭",
+  "source": "app/data/regions.json"
+ },
+ "paju_dmz_wild_db": {
+  "value": 0.6,
+  "unit": "dB",
+  "note": "파주 DMZ 안 미경작지, 숲 대비 HH 계절 변동 폭",
+  "source": "app/data/regions.json"
+ },
+ "paju_north_db": {
+  "value": 2.2,
+  "unit": "dB",
+  "note": "파주 분계선 서쪽 경작지로 보이는 곳, 숲 대비 HH 계절 변동 폭",
+  "source": "app/data/regions.json"
+ },
+ "passes": {
+  "value": 11,
+  "unit": "회",
+  "note": "NISAR 통과 12번 중 자료가 있는 것",
+  "source": "app/data/regions.json"
+ },
+ "passes_total": {
+  "value": 12,
+  "unit": "회",
+  "note": "2026-06-23 ~ 11-02, 12일 간격",
+  "source": "app/data/regions.json"
+ },
+ "passes_provisional": {
+  "value": 10,
+  "unit": "회",
+  "note": "PROVISIONAL 컬렉션에서 온 통과",
+  "source": "app/data/regions.json"
+ }
+}
