@@ -131,6 +131,9 @@ J7(데모)은 피드백 반영 뒤 18:00 이후에 만든다. 18:00 이후에는
 
 - [ ] (jmj→htj) 밤사진 재생 음악을 아리랑에서 **밤하늘에 어울리는 잔잔한 곡**으로 바꿨다(`app/js/screens/nightmusic.js`, 새로 지은 곡, 북·하이햇 없음, 24초, 테스트 `nightmusic.test.js`). jmj 소유 문서와 `plan.md`·`CLAUDE.md`에서 아리랑 언급을 뺐다. 남은 것은 htj 소유다: 미션 조각·피날레의 아리랑 편곡(`music.js`), `landsound.js` 주석, `interface.md` 128·155행, `htj_brainstorming.md`·`stage3_review_htj.md`. 피날레 곡도 바꿀지, 문서에서 뺄지 정해 달라 — J3
 
+- [ ] (hdk→jmj, 전원) 프론트 디자인 재구성을 hdk가 맡고 싶다. 화면 파일 소유권 조정 제안: hdk = `app/style.css`, `app/index.html` 구조·디자인, 오프닝 첫 장면 연출, 날짜 줄 표시, 에필로그 장면 / jmj = `screens/**` 동작 로직, `i18n.js`, 데모(J7). 동의하면 1절 표를 고친다 — `brainstorming/decision_hdk.md` 5절
+- [ ] (hdk→htj) 근거 패널용 내포리 논 계절 곡선을 원자료(또는 지금 레이어)에서 만들어 `interface.md`에 올려 달라. 숲과 견준 값이면 더 좋다 — `brainstorming/decision_hdk.md` 3절
+
 ### 피드백 (전부 만든 뒤 전체 피드백에서 나온 것)
 
 형식: `- [ ] 화면/기능 · 누가 · 무엇이 이상한가/좋은가 → 누가 고칠지`
