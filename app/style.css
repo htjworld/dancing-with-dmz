@@ -621,3 +621,5 @@ body[data-screen=night][data-night=film] .maplibregl-ctrl-bottom-right{display:n
 
 /* 처음 불러오는 동안(화면 상태가 정해지기 전)에는 왼쪽 위 제목을 숨긴다. 오프닝·밤하늘 영상에서도 보이지 않다가 영상 끝에 나타난다 */
 body:not([data-screen]) #top{visibility:hidden}
+/* 처음 불러오는 동안에는 뒤의 일반 지도·단추가 보이지 않게 오프닝과 같은 남색 막으로 덮는다(화면 상태가 정해지면 사라진다) */
+body:not([data-screen])::before{content:"";position:fixed;inset:0;z-index:100;background:#060c1c}
