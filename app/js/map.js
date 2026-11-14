@@ -186,13 +186,7 @@ export function initMap() {
     map.setLayoutProperty('river-hint', 'visibility', s.stop === 'yeoncheon' && s.riverHint ? 'visible' : 'none');
   };
   subscribe(radar);
-  // 테두리의 빛이 6초에 한 번 천천히 밝아졌다 어두워진다. 지도가 움직이는 동안과 움직임 줄이기 설정에서는 쉰다
-  const calm = matchMedia('(prefers-reduced-motion: reduce)');
-  setInterval(() => {
-    if (calm.matches || state.screen !== 'mission' || document.hidden || document.body.classList.contains('map-moving') || !map.getLayer('radar-frame-glow')) return;
-    const k = (Math.sin(performance.now() / 6000 * Math.PI * 2) + 1) / 2;
-    map.setPaintProperty('radar-frame-glow', 'line-opacity', .2 + k * .22);
-  }, 160);
+  // 테두리의 빛은 움직이지 않는다. 값을 계속 바꾸면 지도가 쉬지 않고 다시 그려지고, 그 위의 반투명 창도 매 프레임 흐림을 다시 계산해 느려진다
   // 연천: 강 위에서 고른 곳의 표식
   let picks = [];
   subscribe(s => {
