@@ -57,7 +57,6 @@ function playRow() {
 
 function render() {
   const [lo, hi] = data.glow?.scale_db || [0, 0];
-  const unit = t('unit.' + (data.facts?.july_clear_optical?.unit ?? ''));
   const regions = ORDER.filter(id => data.glow?.regions?.[id]);
   el.innerHTML = `
     <p class="eye">${t('night.eye', { passes: fact('passes') })}</p>
@@ -69,7 +68,7 @@ function render() {
       <div class="still">${t('night.dmz')}<b>${fact('cheorwon_dmz_db')} dB</b></div>
     </div>
     <p class="fine">${t('night.pairNote')}</p>
-    <p class="fact">${t('night.fact', { n: fact('july_clear_optical'), unit })}</p>
+    <p class="fact">${t('night.fact', { n: fact('july_clear_optical'), looks: fact('july_optical_looks') })}</p>
     <div class="scale" role="img" aria-label="${data.glow?.metric ?? ''}"></div>
     <div class="ends"><span>${t('night.scaleLow', { lo })}</span><span>${t('night.scaleHigh', { hi })}</span></div>
     <div class="go" role="group">

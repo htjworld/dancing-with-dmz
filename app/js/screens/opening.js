@@ -35,16 +35,16 @@ function reveal(all) {
 }
 
 function text() {
-  const d = o(), unit = t('unit.' + (data.facts?.july_clear_optical?.unit ?? ''));
+  const d = o();
   el.querySelector('.words').innerHTML = revealed
     ? `<p class="eye">${t('opening.eyeRadar', { date: dateText(d.radar.date) })}</p>
        <h2>${t('opening.titleRadar')}</h2>
-       <p class="fact">${t('night.fact', { n: fact('july_clear_optical'), unit })}</p>
-       <p class="fine">${t('caveat.cloud_tile')}</p>
+       <p class="fact">${t('night.fact', { n: fact('july_clear_optical'), looks: fact('july_optical_looks') })}</p>
+       <p class="fine">${t('caveat.cloud_window')}</p>
        <div class="acts"><button type="button" class="primary" data-enter>${t('opening.enter')}</button></div>`
     : `<p class="eye">${t('opening.eyeOptical', { date: dateText(d.optical.date) })}</p>
        <h2>${t('opening.titleOptical')}</h2>
-       <p>${t('opening.hint', { pct: Math.round(d.optical.cloud_pct) })}</p>
+       <p>${t('opening.hint', { pct: Math.round(d.optical.window_cloud_pct ?? d.optical.cloud_pct), min: fact('cheorwon_july_min_cloud') })}</p>
        <div class="acts"><button type="button" data-reveal>${t('opening.reveal')}</button><button type="button" class="quiet" data-enter>${t('opening.skip')}</button></div>`;
 }
 
