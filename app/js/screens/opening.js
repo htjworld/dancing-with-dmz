@@ -44,7 +44,7 @@ function text() {
        <div class="acts"><button type="button" class="primary" data-enter>${t('opening.enter')}</button></div>`
     : `<p class="eye">${t('opening.eyeOptical', { date: dateText(d.optical.date) })}</p>
        <h2>${t('opening.titleOptical')}</h2>
-       <p>${t('opening.hint', { pct: Math.round(d.optical.window_cloud_pct ?? d.optical.cloud_pct), min: fact('cheorwon_july_min_cloud') })}</p>
+       <p>${t('opening.hint', { pct: Math.round(d.optical.window_cloud_pct ?? d.optical.cloud_pct) })}</p>
        <div class="acts"><button type="button" data-reveal>${t('opening.reveal')}</button><button type="button" class="quiet" data-enter>${t('opening.skip')}</button></div>`;
 }
 

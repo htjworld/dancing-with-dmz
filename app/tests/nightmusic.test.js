@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { nightScore, filmScore, starsIn, BAR, BARS } from '../js/screens/nightmusic.js';
+import { nightScore, filmScore, endingScore, pieceChime, starsIn, BAR, BARS } from '../js/screens/nightmusic.js';
 
 test('밤사진 곡: 24초, 북·하이햇·또렷한 주선율 없이 부드러운 소리만 쓴다', () => {
   const plan = nightScore();
@@ -42,4 +42,28 @@ test('밤하늘 영상 곡: 같은 곡을 두 번 이어 48초, 여전히 부드
   for (const e of plan.events) assert.ok(e.time >= 0 && e.time < plan.duration && e.gain > 0 && e.gain <= .8);
   for (let i = 1; i < plan.events.length; i++) assert.ok(plan.events[i].time >= plan.events[i - 1].time);
   assert.deepEqual(filmScore(), plan);
+});
+
+test('엔딩 곡: 밤하늘과 같은 화음으로 시작하고, 가락이 얹히며, 부드러운 소리만 쓴다', () => {
+  const night = nightScore(), end = endingScore();
+  const chords = p => p.events.filter(e => e.type === 'pad' && e.midis.length > 1).map(e => e.midis.join(','));
+  assert.deepEqual(chords(end).slice(0, BARS), chords(night), '처음 여섯 마디의 화음이 밤하늘의 주제와 같다');
+  assert.equal(chords(end).length, BARS + 2);
+  assert.deepEqual([...new Set(end.events.map(e => e.type))].sort(), ['bass', 'pad', 'sparkle']);
+  const tune = end.events.filter(e => e.type === 'pad' && e.midis.length === 1);
+  assert.ok(tune.length >= 16, '가락이 있다');
+  assert.equal(night.events.filter(e => e.type === 'pad' && e.midis.length === 1).length, BARS, '밤하늘에는 마디마다 머무는 음 하나뿐이다');
+  assert.equal(tune.at(-1).midis[0] % 12, 2, '으뜸음(레)에서 끝난다');
+  for (const e of end.events) assert.ok(e.time >= 0 && e.time < end.duration && e.gain > 0 && e.gain <= .8);
+  assert.deepEqual(endingScore(), end);
+});
+
+test('조각 소리: 주제의 한 마디, 조각이 늘수록 목소리가 더해진다', () => {
+  let prev = 0;
+  for (let n = 1; n <= 5; n++) {
+    const p = pieceChime(n);
+    assert.equal(p.duration, BAR);
+    assert.ok(p.events.length > prev); prev = p.events.length;
+    assert.ok(p.events.every(e => ['pad', 'bass', 'sparkle'].includes(e.type) && e.time < p.duration));
+  }
 });

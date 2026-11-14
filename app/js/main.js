@@ -1,9 +1,7 @@
 import { state, set, subscribe, data, load, md } from './state.js';
 import { STOPS, label } from './stops.js';
 import { initMap, VIEW } from './map.js';
-import { score, layersPreview, LAYER_OF } from './music.js';
-import { layerGains, applyRhythm } from './rhythm.js';
-import { change, mainOf } from './calc.js';
+import { endingScore, pieceChime } from './screens/nightmusic.js';
 import { play, stop, setSound } from './sound.js';
 import { initDance } from './dance.js';
 import { initNight } from './screens/night.js';
@@ -32,12 +30,12 @@ function panel() {
     ${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}`;
 }
 
-// ---- 소리와 춤: 반주 층의 세기와 선의 움직임이 같은 실측값을 따른다
-let gains = null, timer = 0;
+// ---- 소리와 춤
+// 음악은 밤하늘의 주제를 쓴다(screens/nightmusic.js). 엔딩에서는 그 주제에 가락이 얹혀 완성되고, 조각을 받을 때는 한 마디가 울린다.
+// 음악은 연출이다. 실측을 따르는 것은 선의 움직임이다(dance.js).
+let timer = 0;
 function perform(mode, ids) {
-  const n = data.passes.length;
-  gains ||= layerGains(Object.fromEntries(Object.keys(LAYER_OF).map(id => [id, data.passes.map(p => change(mainOf(data.zones, id), p.cycle))])));
-  const plan = applyRhythm(mode === 'finale' ? score() : layersPreview(ids), gains, n);
+  const plan = mode === 'finale' ? endingScore() : pieceChime(ids.length);
   const at = play(plan);
   clearTimeout(timer);
   timer = setTimeout(() => set({ playing: null, ...(mode === 'finale' ? { finaleDone: true } : {}) }), plan.duration * 1000 + 300);

@@ -18,7 +18,7 @@ const CUES = [
   { at: 21, cap: 'film.cheorwon', cam: 'cheorwon' },
   { at: 28, cap: 'film.hwacheon', cam: 'hwacheon' },
   { at: 33, cap: 'film.yanggu', cam: 'yanggu' },
-  { at: 38, cap: 'film.c6', cam: 'all' },
+  { at: 38, cap: 'film.c6', cam: 'all', line: true },
   { at: 43, cap: 'film.c7' },
   { at: 48, cap: 'film.c8' },
 ];
@@ -53,7 +53,7 @@ function tick() {
   const s = (performance.now() - startedAt) / 1000, n = data.glow?.regions?.cheorwon?.frames?.length || 0;
   // 자막과 카메라
   let k = 0; while (k + 1 < CUES.length && s >= CUES[k + 1].at) k++;
-  if (k !== cue) { const from = CUES[cue]?.cam; cue = k; if (CUES[k].cam && CUES[k].cam !== from) go(CUES[k].cam, k === 0 ? 0 : 3200); caption(); buttons(); }
+  if (k !== cue) { const from = CUES[cue]?.cam; cue = k; if (CUES[k].cam && CUES[k].cam !== from) go(CUES[k].cam, k === 0 ? 0 : 3200); caption(); buttons(); if (CUES[k].line) document.dispatchEvent(new Event('dmz-line-pulse')); }
   // 빛: 처음에는 없다가 스며들고, 통과가 쌓이며 밝아지고, 끝에는 완성된 한 장
   glow(s < FADE[0] ? 0 : s >= FADE[1] ? 1 : Math.round((s - FADE[0]) / (FADE[1] - FADE[0]) * 20) / 20);
   const frame = !n || s >= GROW[1] ? null : s < GROW[0] ? 0 : frameAt((s - GROW[0]) / (GROW[1] - GROW[0]), n);

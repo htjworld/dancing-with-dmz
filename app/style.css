@@ -226,3 +226,13 @@ body[data-screen=night][data-night=film] #night,body[data-screen=night][data-nig
 @keyframes rub-pulse{0%{box-shadow:0 2px 14px rgba(0,0,0,.55),0 0 0 0 rgba(255,255,255,.55)}100%{box-shadow:0 2px 14px rgba(0,0,0,.55),0 0 0 18px rgba(255,255,255,0)}}
 @keyframes rub-sway{0%,100%{transform:translateX(-70px)}50%{transform:translateX(70px)}}
 @media (prefers-reduced-motion:reduce){ #opening .rub-hand,#opening .rub-hint.idle .rub-hand{animation:none} }
+
+/* ---- 엔딩 나레이션과 구름 회상 */
+#ending-line{margin:0 0 10px;min-height:34px}
+#ending-line span{display:inline-block;padding:10px 22px;border-radius:10px;background:rgba(6,12,11,.82);color:#f4f0e2;font-size:21px;line-height:1.55;
+  text-shadow:0 1px 10px #000;animation:film-in .9s ease both}
+#ending-cloud{margin:0 auto 12px;width:min(260px,46vw);border-radius:10px;overflow:hidden;border:1px solid var(--edge);box-shadow:0 6px 30px rgba(0,0,0,.6);animation:film-in 1.2s ease both}
+#ending-cloud[hidden]{display:none}
+#ending-cloud img{display:block;width:100%}
+#stage{bottom:120px}
+@media (prefers-reduced-motion:reduce){ #ending-line span,#ending-cloud{animation:none} }

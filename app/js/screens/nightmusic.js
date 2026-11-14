@@ -52,3 +52,46 @@ export function filmScore() {
   const events = [...a.events, ...a.events.map(e => ({ ...e, time: e.time + a.duration })), ...extra].sort((x, y) => x.time - y.time);
   return { bpm: a.bpm, duration: a.duration * 2, events };
 }
+
+// ---- 엔딩: 밤하늘에서 들은 주제가 돌아와 완성된다. 같은 화음 위에 여기서 처음으로 가락이 얹힌다.
+// 느리게(한 박 1초), 마지막은 길게 머물다 사라진다. 음악은 연출이고, 실측을 따르는 것은 춤추는 선의 높이다(dance.js).
+export const ENDING_BEAT = 1;     // 엔딩의 한 박(초). 춤의 느린 출렁임이 이 박을 따른다
+const CLOSE = [                   // 주제의 여섯 마디 뒤에 붙는 맺음 두 마디: 솔 → 레
+  [43, [59, 62, 66, 69]],
+  [38, [57, 62, 66, 69]],
+];
+// 가락: 마디마다 [음, 시작(초), 길이(초)]. 올라갔다가 천천히 내려와 으뜸음에 머문다
+const TUNE = [
+  [[69, 2, 1], [74, 3, 1]],
+  [[78, 0, 2], [76, 2, 1], [74, 3, 1]],
+  [[71, 0, 1.5], [74, 1.5, 1.5], [76, 3, 1]],
+  [[76, 0, 2.5], [73, 2.5, 1.5]],
+  [[74, 0, 1], [76, 1, 1], [78, 2, 2]],
+  [[81, 0, 2], [78, 2, 1], [76, 3, 1]],
+  [[74, 0, 2], [71, 2, 2]],
+  [[69, 0, 1], [74, 1, 5]],
+];
+export function endingScore() {
+  const events = [], rnd = dice(1953), bars = [...SONG.map(([root, chord]) => [root, chord]), ...CLOSE], n = bars.length;
+  bars.forEach(([root, chord], m) => {
+    const t0 = m * BAR, last = m === n - 1;
+    events.push({ type: 'pad', time: t0, dur: BAR * (last ? 2.2 : 1.7), midis: chord, gain: .8 });
+    events.push({ type: 'bass', time: t0, dur: BAR * (last ? 1.6 : .9), midi: root, gain: .3 });
+    for (const [midi, at, len] of TUNE[m]) {
+      events.push({ type: 'pad', time: t0 + at, dur: len * 1.15, midis: [midi], gain: .8 });        // 가락은 부드러운 소리로 노래하고
+      events.push({ type: 'sparkle', time: t0 + at, dur: .3, midi: midi + 12, gain: .32 });        // 음이 시작할 때 작은 종소리가 겹친다
+    }
+    for (let i = 0; i < (last ? 1 : 2); i++)                                                       // 밤하늘의 별 소리가 뒤에서 이어진다
+      events.push({ type: 'sparkle', time: t0 + .5 + Math.round(rnd() * 6) / 2, dur: .3, midi: chord[Math.floor(rnd() * chord.length)] + 24, gain: .16 + .14 * rnd() });
+  });
+  return { bpm: 60, duration: n * BAR + 3, events: events.sort((a, b) => a.time - b.time) };       // 마지막 화음이 사라질 3초를 더 둔다
+}
+
+// 조각을 받을 때: 주제의 한 마디가 짧게 울린다. n번째 조각이면 n번째 마디의 화음이고, 조각이 늘수록 목소리가 더해진다
+export function pieceChime(n) {
+  const k = Math.max(1, Math.min(SONG.length, n)), [root, chord] = SONG[k - 1], events = [];
+  events.push({ type: 'pad', time: 0, dur: BAR * 1.2, midis: chord, gain: .75 });
+  if (k >= 2) events.push({ type: 'bass', time: 0, dur: BAR * .9, midi: root, gain: .28 });
+  for (let i = 0; i < k; i++) events.push({ type: 'sparkle', time: .4 + i * .45, dur: .3, midi: chord[i % chord.length] + 24 + (i >= chord.length ? 12 : 0), gain: .3 });
+  return { bpm: 60, duration: BAR, events };
+}

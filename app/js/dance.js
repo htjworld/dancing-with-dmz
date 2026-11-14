@@ -9,7 +9,7 @@ import { state, subscribe, data, pass, rainAt } from './state.js';
 import { STOPS, centerOf } from './stops.js';
 import { heights, heightAt, togetherDays, change } from './calc.js';
 import { heightAtProgress, isRestAt, jumpAt, cycleAt } from './rhythm.js';
-import { BEAT } from './music.js';
+import { ENDING_BEAT as BEAT } from './screens/nightmusic.js';   // 엔딩 곡의 느린 박(1초)
 import { t, dateText } from './i18n.js';
 
 const HEIGHT_PX = 22, JUMP_PX = 16, WOBBLE_PX = 4;   // 높이 1(다섯 지역에서 가장 큰 변화)·점프·출렁임이 화면에서 차지하는 픽셀
@@ -50,8 +50,24 @@ export function initDance(map) {
     dirty = false;
   }
 
+  // 엔딩 나레이션: 통과 순서에 맞춰 한 문장씩. 자료 없는 통과 → '단 하루', 그 뒤 → '보고 있었다', 끝 무렵 구름으로 돌아갔다가 후렴
+  const endLine = document.getElementById('ending-line'), cloud = document.getElementById('ending-cloud');
+  const restCycle = data.passes.find(p => p.rest)?.cycle ?? -1;
+  let lineKey = null;
+  function say(key) {
+    if (key === lineKey) return;
+    lineKey = key;
+    endLine.innerHTML = key ? `<span>${t(key)}</span>` : '';
+    const back = key === 'ending.cloud' && data.opening?.optical?.file;   // 오프닝의 7월 구름으로 잠깐 돌아간다
+    if (back) { const img = cloud.querySelector('img'); img.src = `data/${data.opening.optical.file}`; img.alt = t('ending.cloudAlt'); }
+    cloud.hidden = !back;
+  }
+  const lineFor = c => (restCycle < 0 ? (c < n - 2 ? 'ending.start' : 'ending.last')
+    : c < restCycle ? 'ending.start' : c === restCycle ? 'ending.rest' : c <= restCycle + 3 ? 'ending.resume' : c <= n - 3 ? 'ending.cloud' : 'ending.last');
+
   function caption(prog) {
     const c = cycleAt(prog, n);
+    say(lineFor(c));
     if (c === tickerCycle) return;
     tickerCycle = c;
     const p = pass(c), rain = rainAt('cheorwon', c);
@@ -86,7 +102,7 @@ export function initDance(map) {
     const wobble = finale && !calm.matches && !rest, beats = elapsed / BEAT;
     if (finale) caption(prog);
     ticker.hidden = !finale;
-    if (!finale) tickerCycle = -1;
+    if (!finale) { tickerCycle = -1; say(state.fragments.length === ids.length && (state.finaleDone || lineKey === 'ending.last') ? 'ending.last' : null); }   // 끝난 뒤에는 후렴이 남는다
 
     if (ghost) {   // 철원 구간의 숲 선
       ctx.beginPath(); let pen = false;
@@ -115,5 +131,5 @@ export function initDance(map) {
   map.on('move', () => { dirty = true; request(); });
   map.on('resize', () => { dirty = true; request(); });
   // 언어가 바뀌면 자막을 지금 언어로 다시 쓴다
-  subscribe((s, prev) => { if (s.lang !== prev.lang) tickerCycle = -1; request(); }); request();
+  subscribe((s, prev) => { if (s.lang !== prev.lang) { tickerCycle = -1; const k = lineKey; lineKey = null; say(k); } request(); }); request();
 }

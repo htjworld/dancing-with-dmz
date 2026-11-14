@@ -100,6 +100,17 @@ export function initMap() {
   });
   // 밤사진 설명 창에서 지역을 고르면 그 지역의 변동 지도로 간다
   document.addEventListener('dmz-night-go', e => { nightAt = e.detail.id; nightView(e.detail.duration ?? 900); });
+  // 밤하늘 영상: '이 흰 선은 움직이지 않습니다'에서 분계선이 굵어졌다 돌아오며 눈길을 끈다(움직이지는 않는다)
+  let pulse = 0;
+  document.addEventListener('dmz-line-pulse', () => {
+    if (!map.getLayer('dmz-white')) return;
+    const t0 = performance.now(); clearInterval(pulse);
+    pulse = setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / 4200), w = 1.4 + 3.2 * Math.sin(k * Math.PI) ** 2 * (1 - k * .4);
+      map.setPaintProperty('dmz-white', 'line-width', k >= 1 ? 1.4 : w);
+      if (k >= 1) clearInterval(pulse);
+    }, 40);
+  });
   // 밤하늘 영상: 빛이 서서히 스며들게 한다(0~1)
   document.addEventListener('dmz-glow-opacity', e => { for (const id of Object.keys(glow)) if (map.getLayer(`glow-${id}`)) map.setPaintProperty(`glow-${id}`, 'raster-opacity', e.detail.value); });
   subscribe((s, prev) => { if (s.nightMode !== prev.nightMode && s.screen === 'night') nightView(); });
