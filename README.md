@@ -18,6 +18,10 @@ python -m http.server 5173 --directory app
 pip install -r requirements.txt
 python tools/extract_nisar.py --list        # 사용하는 NISAR 장면 목록
 python tools/extract_nisar.py --workers 4   # 다섯 지역 창을 원격으로 읽어 data/cache 에 저장
+python tools/preview_regions.py             # 구역을 고르기 위한 미리보기 그림(data/cache/_preview)
+python tools/make_regions.py                # tools/zones.py 의 구역별 시계열 -> app/data/regions.json
+python tools/fetch_rain.py                  # NASA POWER 강수 -> app/data/rain.json
+python tools/make_dmz.py                    # OpenStreetMap 군사분계선 -> app/data/dmz.geojson
 ```
 
 Earthdata Login 토큰을 `.env` 의 `EARTHDATA_TOKEN` 에 넣어야 한다(`.env.example` 참고). `.env` 는 저장소에 올리지 않는다.
@@ -25,7 +29,10 @@ Earthdata Login 토큰을 `.env` 의 `EARTHDATA_TOKEN` 에 넣어야 한다(`.en
 ## 데이터와 출처
 
 - NISAR L2 GCOV (NASA/ISRO), ASF DAAC 제공. 궤도 133(하강)·프레임 069, HH/HV 후방산란.
-- 그 밖의 출처는 만들면서 여기에 추가한다.
+- 2026-06-23 ~ 11-02 의 11개 통과(7월 29일 통과는 자료가 없다). 11월 2일 장면만 정식판(V1) 컬렉션이고 나머지는 PROVISIONAL 이다. 처리 버전이 달라 값의 기준이 조금 다를 수 있다.
+- 강수: NASA POWER 일 강수량(PRECTOTCORR). 약 50 km 격자라 파주와 연천은 같은 값이다.
+- 군사분계선: © OpenStreetMap contributors (ODbL). 표시용 개략 기하다.
+- 배경 지도: OpenFreeMap, © OpenStreetMap contributors.
 
 ## 해석의 한계
 

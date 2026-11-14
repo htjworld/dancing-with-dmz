@@ -34,7 +34,7 @@ function fail(e) {
 
 async function start() {
   await load();
-  initMap();
+  window.dmzMap = initMap();   // 콘솔에서 살펴볼 수 있게 둔다
   $('timeline').addEventListener('click', e => { const b = e.target.closest('[data-cycle]'); if (b) set({ cycle: +b.dataset.cycle }); });
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) panel();

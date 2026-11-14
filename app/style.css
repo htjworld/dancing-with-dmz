@@ -42,3 +42,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 #notice{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--card);border:1px solid var(--edge);
   padding:18px 22px;border-radius:12px;max-width:420px;font-size:14px;line-height:1.6}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+.zone-tag{font-size:12px;padding:1px 6px;border-radius:6px;background:rgba(7,16,14,.8);color:#9fd0ff;white-space:nowrap;pointer-events:none}
+.zone-tag.main{color:var(--gold)} .zone-tag.ref{color:#8ff7b9}
+.zone-tag[hidden]{display:none}

@@ -5,6 +5,8 @@ import { STOPS, centerOf } from './stops.js';
 const BASE = 'https://tiles.openfreemap.org/styles/dark';
 const EMPTY = { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#07100e' } }] };
 const VIEW = [[126.45, 37.6], [128.5, 38.75]];
+// 주 구역은 금색, 숲 기준은 초록, 비교 구역은 하늘색
+const ZONE_COLOR = ['match', ['get', 'role'], 'main', '#ffe1a2', 'ref', '#8ff7b9', '#9fd0ff'];
 
 export function initMap() {
   const nobase = new URLSearchParams(location.search).has('nobase');
@@ -28,6 +30,12 @@ export function initMap() {
     map.addSource('dmz', { type: 'geojson', data: data.boundary });
     map.addLayer({ id: 'dmz-glow', type: 'line', source: 'dmz', paint: { 'line-color': '#8ff7b9', 'line-width': 7, 'line-blur': 6, 'line-opacity': .35 } });
     map.addLayer({ id: 'dmz-line', type: 'line', source: 'dmz', paint: { 'line-color': '#bce9c5', 'line-width': 1.6, 'line-dasharray': [2, 2] } });
+    // 구역 사각형: 지금 고른 지역의 것만 보인다
+    map.addSource('zones', { type: 'geojson', data: { type: 'FeatureCollection', features: data.zones.map(z => ({ type: 'Feature',
+      properties: { id: z.id, region: z.region, name: z.name, role: z.role }, geometry: { type: 'Polygon', coordinates: [z.polygon] } })) } });
+    const only = ['==', ['get', 'region'], state.stop];
+    map.addLayer({ id: 'zone-fill', type: 'fill', source: 'zones', filter: only, paint: { 'fill-color': ZONE_COLOR, 'fill-opacity': .14 } });
+    map.addLayer({ id: 'zone-line', type: 'line', source: 'zones', filter: only, paint: { 'line-color': ZONE_COLOR, 'line-width': 1.6 } });
     ready = true; clearTimeout(fallback);
     set({ mapReady: true });
   });
@@ -46,6 +54,22 @@ export function initMap() {
     el.classList.toggle('done', state.fragments.includes(el.dataset.stop));
   });
   subscribe(paint); paint();
+  // 구역 이름표: 배경 지도의 글꼴에 기대지 않게 HTML 로 붙인다. 고른 지역의 것만, 충분히 확대했을 때만 보인다
+  const tags = data.zones.map(z => {
+    const el = document.createElement('div');
+    el.className = `zone-tag ${z.role}`; el.textContent = z.name; el.dataset.region = z.region;
+    new maplibregl.Marker({ element: el, anchor: 'bottom' }).setLngLat([(z.bounds[0] + z.bounds[2]) / 2, z.bounds[3]]).addTo(map);
+    return el;
+  });
+  const showTags = () => tags.forEach(el => { el.hidden = el.dataset.region !== state.stop || map.getZoom() < 9.5; });
+  map.on('zoom', showTags); subscribe(showTags); showTags();
+  // 지역을 바꾸면 그 지역의 창으로 날아가고 구역을 바꿔 보여 준다
+  subscribe((s, prev) => {
+    if (s.stop === prev.stop && s.mapReady === prev.mapReady) return;
+    for (const id of ['zone-fill', 'zone-line']) if (map.getLayer(id)) map.setFilter(id, ['==', ['get', 'region'], s.stop]);
+    if (s.stop !== prev.stop) { const b = STOPS.find(x => x.id === s.stop).bounds; touched = true;
+      map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 900 }); }
+  });
 
   map.on('click', e => document.dispatchEvent(new CustomEvent('dmz-map-click', { detail: { lng: e.lngLat.lng, lat: e.lngLat.lat } })));
   return map;

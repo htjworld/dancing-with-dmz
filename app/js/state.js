@@ -6,7 +6,7 @@ export const state = {
   fragments: [],     // 모은 조각(지역 id, 서→동 순서)
   mapReady: false,
 };
-export const data = { boundary: null, rain: null, passes: [] };
+export const data = { boundary: null, rain: null, passes: [], zones: [] };
 
 const listeners = new Set();
 export const subscribe = fn => (listeners.add(fn), () => listeners.delete(fn));
@@ -16,21 +16,11 @@ export function set(patch) {
   for (const fn of listeners) fn(state, prev);
 }
 
-const DAY = 86400000;
-// 관측 날짜 사이가 12일보다 길면 그 사이의 통과는 '보지 못한 날'(쉼표)로 채운다
-export function withRests(dates, step = 12) {
-  const out = [];
-  dates.forEach((d, i) => {
-    if (i) for (let t = Date.parse(dates[i - 1]) + step * DAY; t < Date.parse(d) - DAY; t += step * DAY)
-      out.push({ date: new Date(t).toISOString().slice(0, 10), rest: true });
-    out.push({ date: d, rest: false });
-  });
-  return out.map((p, cycle) => ({ ...p, cycle }));
-}
-
 const json = async path => { const r = await fetch(path); if (!r.ok) throw new Error(`${path} ${r.status}`); return r.json(); };
 export async function load() {
-  [data.boundary, data.rain] = await Promise.all([json('data/dmz.geojson'), json('data/rain.json')]);
-  data.passes = withRests(Object.values(data.rain.regions)[0].passes.map(p => p.date));
+  const [boundary, rain, regions] = await Promise.all([json('data/dmz.geojson'), json('data/rain.json'), json('data/regions.json')]);
+  Object.assign(data, { boundary, rain, passes: regions.passes, zones: regions.zones });
 }
 export const md = iso => `${+iso.slice(5, 7)}/${+iso.slice(8)}`;
+export const zonesOf = stopId => data.zones.filter(z => z.region === stopId);
+export const zone = id => data.zones.find(z => z.id === id);

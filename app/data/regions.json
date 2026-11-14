@@ -1,0 +1,2466 @@
+{
+ "source": "NISAR L2 GCOV (NASA/ISRO), ASF DAAC. track 133 descending, frame 069, mode 4005. gamma0 HH/HV",
+ "method": "30 m 캐시(3x3 평균)에서 구역 화소의 전력 평균을 dB 로 변환. 구역은 팀이 영상에서 고른 사각형",
+ "passes": [
+  {
+   "cycle": 0,
+   "date": "2026-06-23",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_023_133_D_069_4005_DHDH_A_20260623T102537_20260623T102612_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 1,
+   "date": "2026-07-05",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_024_133_D_069_4005_DHDH_A_20260705T102536_20260705T102611_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 2,
+   "date": "2026-07-17",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_025_133_D_069_4005_DHDH_A_20260717T102535_20260717T102610_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 3,
+   "date": "2026-07-29",
+   "rest": true
+  },
+  {
+   "cycle": 4,
+   "date": "2026-08-10",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_027_133_D_069_4005_DHDH_A_20260810T102534_20260810T102609_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 5,
+   "date": "2026-08-22",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_028_133_D_069_4005_DHDH_A_20260822T102533_20260822T102608_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 6,
+   "date": "2026-09-03",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_029_133_D_069_4005_DHDH_A_20260903T102533_20260903T102608_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 7,
+   "date": "2026-09-15",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_030_133_D_069_4005_DHDH_A_20260915T102533_20260915T102608_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 8,
+   "date": "2026-09-27",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_031_133_D_069_4005_DHDH_A_20260927T102533_20260927T102608_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 9,
+   "date": "2026-10-09",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_032_133_D_069_4005_DHDH_A_20261009T102533_20261009T102608_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 10,
+   "date": "2026-10-21",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_033_133_D_069_4005_DHDH_A_20261021T102533_20261021T102608_P05023_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "cycle": 11,
+   "date": "2026-11-02",
+   "rest": false,
+   "granule": "NISAR_L2_PR_GCOV_034_133_D_069_4005_DHDH_A_20261102T102534_20261102T102608_P05036_N_F_J_001",
+   "collection": "NISAR_L2_GCOV_V1"
+  }
+ ],
+ "zones": [
+  {
+   "id": "paju-dmz_farm",
+   "region": "paju",
+   "role": "main",
+   "name": "DMZ 안 경작지",
+   "bounds": [
+    126.682,
+    37.928,
+    126.705,
+    37.952
+   ],
+   "polygon": [
+    [
+     126.682,
+     37.928
+    ],
+    [
+     126.705,
+     37.928
+    ],
+    [
+     126.705,
+     37.952
+    ],
+    [
+     126.682,
+     37.952
+    ],
+    [
+     126.682,
+     37.928
+    ]
+   ],
+   "n_pixels": 6370,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -8.271,
+     "hv_db": -14.292,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -7.413,
+     "hv_db": -14.152,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -6.478,
+     "hv_db": -14.027,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -5.824,
+     "hv_db": -13.945,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -5.205,
+     "hv_db": -12.588,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -5.716,
+     "hv_db": -13.194,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -7.023,
+     "hv_db": -13.683,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -7.505,
+     "hv_db": -13.722,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -8.159,
+     "hv_db": -14.093,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -7.218,
+     "hv_db": -13.505,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -7.627,
+     "hv_db": -13.898,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "paju-north_farm",
+   "region": "paju",
+   "role": "cmp",
+   "name": "분계선 서쪽 경작지로 보이는 곳",
+   "bounds": [
+    126.645,
+    37.925,
+    126.665,
+    37.955
+   ],
+   "polygon": [
+    [
+     126.645,
+     37.925
+    ],
+    [
+     126.665,
+     37.925
+    ],
+    [
+     126.665,
+     37.955
+    ],
+    [
+     126.645,
+     37.955
+    ],
+    [
+     126.645,
+     37.925
+    ]
+   ],
+   "n_pixels": 7006,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -10.257,
+     "hv_db": -17.682,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -9.533,
+     "hv_db": -17.041,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -8.755,
+     "hv_db": -16.841,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -8.59,
+     "hv_db": -16.648,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -6.541,
+     "hv_db": -14.716,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -7.856,
+     "hv_db": -15.796,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -9.159,
+     "hv_db": -16.533,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -9.388,
+     "hv_db": -16.671,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -10.02,
+     "hv_db": -17.489,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -8.816,
+     "hv_db": -16.728,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -9.275,
+     "hv_db": -17.54,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "paju-dmz_wild",
+   "region": "paju",
+   "role": "cmp",
+   "name": "DMZ 안 미경작지",
+   "bounds": [
+    126.712,
+    37.932,
+    126.74,
+    37.95
+   ],
+   "polygon": [
+    [
+     126.712,
+     37.932
+    ],
+    [
+     126.74,
+     37.932
+    ],
+    [
+     126.74,
+     37.95
+    ],
+    [
+     126.712,
+     37.95
+    ],
+    [
+     126.712,
+     37.932
+    ]
+   ],
+   "n_pixels": 5712,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -5.25,
+     "hv_db": -11.315,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -5.542,
+     "hv_db": -11.643,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -4.696,
+     "hv_db": -11.1,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -5.232,
+     "hv_db": -11.414,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -3.88,
+     "hv_db": -10.114,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -4.459,
+     "hv_db": -10.765,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -5.373,
+     "hv_db": -11.503,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -5.375,
+     "hv_db": -11.505,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -5.506,
+     "hv_db": -11.637,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -4.522,
+     "hv_db": -11.017,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -5.027,
+     "hv_db": -11.388,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "paju-forest",
+   "region": "paju",
+   "role": "ref",
+   "name": "남쪽 숲",
+   "bounds": [
+    126.69,
+    37.905,
+    126.712,
+    37.922
+   ],
+   "polygon": [
+    [
+     126.69,
+     37.905
+    ],
+    [
+     126.712,
+     37.905
+    ],
+    [
+     126.712,
+     37.922
+    ],
+    [
+     126.69,
+     37.922
+    ],
+    [
+     126.69,
+     37.905
+    ]
+   ],
+   "n_pixels": 4224,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -6.537,
+     "hv_db": -12.313,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -6.612,
+     "hv_db": -12.366,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -5.996,
+     "hv_db": -12.08,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -6.183,
+     "hv_db": -12.222,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -5.019,
+     "hv_db": -10.958,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -5.38,
+     "hv_db": -11.497,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -6.106,
+     "hv_db": -12.081,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -6.297,
+     "hv_db": -12.103,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -6.449,
+     "hv_db": -12.287,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -5.558,
+     "hv_db": -11.69,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -5.985,
+     "hv_db": -12.029,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "yeoncheon-bend",
+   "region": "yeoncheon",
+   "role": "main",
+   "name": "임진강 굽이 안쪽 땅",
+   "bounds": [
+    126.968,
+    38.1,
+    126.995,
+    38.116
+   ],
+   "polygon": [
+    [
+     126.968,
+     38.1
+    ],
+    [
+     126.995,
+     38.1
+    ],
+    [
+     126.995,
+     38.116
+    ],
+    [
+     126.968,
+     38.116
+    ],
+    [
+     126.968,
+     38.1
+    ]
+   ],
+   "n_pixels": 4941,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -7.374,
+     "hv_db": -12.783,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -6.327,
+     "hv_db": -11.987,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -6.451,
+     "hv_db": -12.111,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -6.037,
+     "hv_db": -12.662,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -4.79,
+     "hv_db": -11.059,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -5.255,
+     "hv_db": -11.971,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -5.942,
+     "hv_db": -11.956,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -6.108,
+     "hv_db": -12.156,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -6.591,
+     "hv_db": -12.409,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -5.874,
+     "hv_db": -11.744,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -6.921,
+     "hv_db": -12.483,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "yeoncheon-dmz",
+   "region": "yeoncheon",
+   "role": "cmp",
+   "name": "DMZ 안",
+   "bounds": [
+    126.94,
+    38.1,
+    126.96,
+    38.115
+   ],
+   "polygon": [
+    [
+     126.94,
+     38.1
+    ],
+    [
+     126.96,
+     38.1
+    ],
+    [
+     126.96,
+     38.115
+    ],
+    [
+     126.94,
+     38.115
+    ],
+    [
+     126.94,
+     38.1
+    ]
+   ],
+   "n_pixels": 3420,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -6.649,
+     "hv_db": -12.318,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -6.498,
+     "hv_db": -12.174,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -6.32,
+     "hv_db": -12.055,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -6.904,
+     "hv_db": -12.34,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -5.406,
+     "hv_db": -10.789,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -6.016,
+     "hv_db": -11.603,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -6.519,
+     "hv_db": -11.999,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -6.753,
+     "hv_db": -12.127,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -6.662,
+     "hv_db": -12.186,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -5.733,
+     "hv_db": -11.59,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -6.451,
+     "hv_db": -12.248,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "yeoncheon-north",
+   "region": "yeoncheon",
+   "role": "cmp",
+   "name": "분계선 북쪽",
+   "bounds": [
+    126.9,
+    38.14,
+    126.93,
+    38.16
+   ],
+   "polygon": [
+    [
+     126.9,
+     38.14
+    ],
+    [
+     126.93,
+     38.14
+    ],
+    [
+     126.93,
+     38.16
+    ],
+    [
+     126.9,
+     38.16
+    ],
+    [
+     126.9,
+     38.14
+    ]
+   ],
+   "n_pixels": 6764,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -7.958,
+     "hv_db": -14.681,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -6.921,
+     "hv_db": -13.856,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -7.104,
+     "hv_db": -13.977,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -8.069,
+     "hv_db": -14.428,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -6.412,
+     "hv_db": -12.759,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -7.067,
+     "hv_db": -13.788,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -7.862,
+     "hv_db": -14.286,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -8.288,
+     "hv_db": -14.573,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -8.371,
+     "hv_db": -14.796,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -6.956,
+     "hv_db": -14.216,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -7.662,
+     "hv_db": -14.926,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "yeoncheon-forest",
+   "region": "yeoncheon",
+   "role": "ref",
+   "name": "동쪽 숲",
+   "bounds": [
+    127.03,
+    38.12,
+    127.06,
+    38.14
+   ],
+   "polygon": [
+    [
+     127.03,
+     38.12
+    ],
+    [
+     127.06,
+     38.12
+    ],
+    [
+     127.06,
+     38.14
+    ],
+    [
+     127.03,
+     38.14
+    ],
+    [
+     127.03,
+     38.12
+    ]
+   ],
+   "n_pixels": 6675,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -5.626,
+     "hv_db": -11.314,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -4.642,
+     "hv_db": -10.552,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -5.379,
+     "hv_db": -11.271,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -5.811,
+     "hv_db": -11.469,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -4.632,
+     "hv_db": -10.115,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -5.181,
+     "hv_db": -10.911,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -5.634,
+     "hv_db": -11.24,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -5.815,
+     "hv_db": -11.397,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -5.834,
+     "hv_db": -11.475,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -5.069,
+     "hv_db": -10.98,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -5.771,
+     "hv_db": -11.535,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "cheorwon-paddy",
+   "region": "cheorwon",
+   "role": "main",
+   "name": "민통선 논",
+   "bounds": [
+    127.19,
+    38.25,
+    127.26,
+    38.29
+   ],
+   "polygon": [
+    [
+     127.19,
+     38.25
+    ],
+    [
+     127.26,
+     38.25
+    ],
+    [
+     127.26,
+     38.29
+    ],
+    [
+     127.19,
+     38.29
+    ],
+    [
+     127.19,
+     38.25
+    ]
+   ],
+   "n_pixels": 31464,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -8.624,
+     "hv_db": -14.946,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -7.736,
+     "hv_db": -14.693,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -6.719,
+     "hv_db": -14.639,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -6.879,
+     "hv_db": -14.71,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -5.852,
+     "hv_db": -13.142,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -6.437,
+     "hv_db": -13.268,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -8.198,
+     "hv_db": -14.357,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -8.799,
+     "hv_db": -14.882,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -9.12,
+     "hv_db": -15.213,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -7.538,
+     "hv_db": -14.126,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -8.604,
+     "hv_db": -14.959,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "cheorwon-dmz",
+   "region": "cheorwon",
+   "role": "cmp",
+   "name": "DMZ 안 저지대",
+   "bounds": [
+    127.22,
+    38.312,
+    127.27,
+    38.325
+   ],
+   "polygon": [
+    [
+     127.22,
+     38.312
+    ],
+    [
+     127.27,
+     38.312
+    ],
+    [
+     127.27,
+     38.325
+    ],
+    [
+     127.22,
+     38.325
+    ],
+    [
+     127.22,
+     38.312
+    ]
+   ],
+   "n_pixels": 7350,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -5.966,
+     "hv_db": -11.132,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -5.807,
+     "hv_db": -10.77,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -5.342,
+     "hv_db": -10.742,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -5.618,
+     "hv_db": -10.941,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -4.959,
+     "hv_db": -9.926,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -5.224,
+     "hv_db": -10.55,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -5.963,
+     "hv_db": -11.219,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -6.207,
+     "hv_db": -11.331,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -6.442,
+     "hv_db": -11.608,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -5.215,
+     "hv_db": -10.857,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -6.048,
+     "hv_db": -11.323,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "cheorwon-north",
+   "region": "cheorwon",
+   "role": "cmp",
+   "name": "DMZ 북쪽 경작지로 보이는 곳",
+   "bounds": [
+    127.2,
+    38.37,
+    127.27,
+    38.4
+   ],
+   "polygon": [
+    [
+     127.2,
+     38.37
+    ],
+    [
+     127.27,
+     38.37
+    ],
+    [
+     127.27,
+     38.4
+    ],
+    [
+     127.2,
+     38.4
+    ],
+    [
+     127.2,
+     38.37
+    ]
+   ],
+   "n_pixels": 23690,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -9.376,
+     "hv_db": -18.198,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -9.204,
+     "hv_db": -17.74,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -8.225,
+     "hv_db": -16.611,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -9.807,
+     "hv_db": -17.243,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -7.588,
+     "hv_db": -14.874,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -8.362,
+     "hv_db": -15.774,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -9.79,
+     "hv_db": -17.262,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -10.569,
+     "hv_db": -18.223,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -11.198,
+     "hv_db": -19.306,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -8.924,
+     "hv_db": -18.117,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -10.017,
+     "hv_db": -19.235,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "cheorwon-forest",
+   "region": "cheorwon",
+   "role": "ref",
+   "name": "남동쪽 숲",
+   "bounds": [
+    127.4,
+    38.19,
+    127.46,
+    38.22
+   ],
+   "polygon": [
+    [
+     127.4,
+     38.19
+    ],
+    [
+     127.46,
+     38.19
+    ],
+    [
+     127.46,
+     38.22
+    ],
+    [
+     127.4,
+     38.22
+    ],
+    [
+     127.4,
+     38.19
+    ]
+   ],
+   "n_pixels": 20178,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -4.213,
+     "hv_db": -9.471,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -4.404,
+     "hv_db": -9.635,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -3.882,
+     "hv_db": -9.409,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -4.527,
+     "hv_db": -9.748,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -3.327,
+     "hv_db": -8.621,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -3.815,
+     "hv_db": -9.184,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -4.439,
+     "hv_db": -9.743,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -4.666,
+     "hv_db": -9.963,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -4.943,
+     "hv_db": -10.132,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -3.884,
+     "hv_db": -9.48,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -4.991,
+     "hv_db": -10.209,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "hwacheon-dmz",
+   "region": "hwacheon",
+   "role": "main",
+   "name": "DMZ 안 숲",
+   "bounds": [
+    127.7,
+    38.318,
+    127.75,
+    38.332
+   ],
+   "polygon": [
+    [
+     127.7,
+     38.318
+    ],
+    [
+     127.75,
+     38.318
+    ],
+    [
+     127.75,
+     38.332
+    ],
+    [
+     127.7,
+     38.332
+    ],
+    [
+     127.7,
+     38.318
+    ]
+   ],
+   "n_pixels": 7791,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -4.678,
+     "hv_db": -10.064,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -4.888,
+     "hv_db": -10.234,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -4.205,
+     "hv_db": -9.95,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -4.745,
+     "hv_db": -10.159,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -3.82,
+     "hv_db": -9.308,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -4.035,
+     "hv_db": -9.591,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -4.587,
+     "hv_db": -10.081,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -4.989,
+     "hv_db": -10.368,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -5.173,
+     "hv_db": -10.526,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -4.019,
+     "hv_db": -9.662,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -5.092,
+     "hv_db": -10.494,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "hwacheon-north",
+   "region": "hwacheon",
+   "role": "cmp",
+   "name": "북쪽 평지로 보이는 곳",
+   "bounds": [
+    127.655,
+    38.35,
+    127.69,
+    38.375
+   ],
+   "polygon": [
+    [
+     127.655,
+     38.35
+    ],
+    [
+     127.69,
+     38.35
+    ],
+    [
+     127.69,
+     38.375
+    ],
+    [
+     127.655,
+     38.375
+    ],
+    [
+     127.655,
+     38.35
+    ]
+   ],
+   "n_pixels": 9682,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -6.708,
+     "hv_db": -13.134,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -6.917,
+     "hv_db": -13.229,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -6.005,
+     "hv_db": -12.666,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -6.83,
+     "hv_db": -13.077,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -5.588,
+     "hv_db": -11.912,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -5.763,
+     "hv_db": -12.23,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -6.365,
+     "hv_db": -12.786,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -6.935,
+     "hv_db": -13.164,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -7.139,
+     "hv_db": -13.291,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -5.528,
+     "hv_db": -12.449,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -6.676,
+     "hv_db": -13.227,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "hwacheon-forest",
+   "region": "hwacheon",
+   "role": "ref",
+   "name": "남쪽 숲",
+   "bounds": [
+    127.72,
+    38.23,
+    127.77,
+    38.26
+   ],
+   "polygon": [
+    [
+     127.72,
+     38.23
+    ],
+    [
+     127.77,
+     38.23
+    ],
+    [
+     127.77,
+     38.26
+    ],
+    [
+     127.72,
+     38.26
+    ],
+    [
+     127.72,
+     38.23
+    ]
+   ],
+   "n_pixels": 16611,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -3.893,
+     "hv_db": -9.11,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -4.116,
+     "hv_db": -9.276,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -3.49,
+     "hv_db": -8.992,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -4.187,
+     "hv_db": -9.31,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -3.155,
+     "hv_db": -8.394,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -3.399,
+     "hv_db": -8.7,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -3.931,
+     "hv_db": -9.122,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -4.421,
+     "hv_db": -9.422,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -4.532,
+     "hv_db": -9.495,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -3.207,
+     "hv_db": -8.565,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -4.23,
+     "hv_db": -9.309,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "yanggu-basin",
+   "region": "yanggu",
+   "role": "main",
+   "name": "분지 경작지",
+   "bounds": [
+    128.105,
+    38.265,
+    128.155,
+    38.305
+   ],
+   "polygon": [
+    [
+     128.105,
+     38.265
+    ],
+    [
+     128.155,
+     38.265
+    ],
+    [
+     128.155,
+     38.305
+    ],
+    [
+     128.105,
+     38.305
+    ],
+    [
+     128.105,
+     38.265
+    ]
+   ],
+   "n_pixels": 21903,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -5.367,
+     "hv_db": -12.128,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -5.637,
+     "hv_db": -12.272,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -5.047,
+     "hv_db": -12.093,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -5.224,
+     "hv_db": -12.015,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -4.356,
+     "hv_db": -11.145,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -4.441,
+     "hv_db": -11.319,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -5.133,
+     "hv_db": -11.874,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -5.299,
+     "hv_db": -11.938,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -5.25,
+     "hv_db": -12.056,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -4.543,
+     "hv_db": -11.476,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -5.063,
+     "hv_db": -12.127,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "yanggu-dmz",
+   "region": "yanggu",
+   "role": "cmp",
+   "name": "DMZ 안 숲",
+   "bounds": [
+    128.115,
+    38.328,
+    128.155,
+    38.342
+   ],
+   "polygon": [
+    [
+     128.115,
+     38.328
+    ],
+    [
+     128.155,
+     38.328
+    ],
+    [
+     128.155,
+     38.342
+    ],
+    [
+     128.115,
+     38.342
+    ],
+    [
+     128.115,
+     38.328
+    ]
+   ],
+   "n_pixels": 6084,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -5.316,
+     "hv_db": -9.678,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -5.416,
+     "hv_db": -9.794,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -5.071,
+     "hv_db": -9.668,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -5.314,
+     "hv_db": -9.735,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -4.41,
+     "hv_db": -8.923,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -4.605,
+     "hv_db": -9.028,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -5.006,
+     "hv_db": -9.42,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -5.177,
+     "hv_db": -9.561,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -5.147,
+     "hv_db": -9.585,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -4.356,
+     "hv_db": -8.897,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -4.887,
+     "hv_db": -9.428,
+     "valid_frac": 1.0
+    }
+   ]
+  },
+  {
+   "id": "yanggu-forest",
+   "region": "yanggu",
+   "role": "ref",
+   "name": "분지 서쪽 숲",
+   "bounds": [
+    128.06,
+    38.24,
+    128.09,
+    38.27
+   ],
+   "polygon": [
+    [
+     128.06,
+     38.24
+    ],
+    [
+     128.09,
+     38.24
+    ],
+    [
+     128.09,
+     38.27
+    ],
+    [
+     128.06,
+     38.27
+    ],
+    [
+     128.06,
+     38.24
+    ]
+   ],
+   "n_pixels": 9968,
+   "observations": [
+    {
+     "cycle": 0,
+     "date": "2026-06-23",
+     "status": "valid",
+     "hh_db": -5.028,
+     "hv_db": -9.471,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 1,
+     "date": "2026-07-05",
+     "status": "valid",
+     "hh_db": -4.965,
+     "hv_db": -9.552,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 2,
+     "date": "2026-07-17",
+     "status": "valid",
+     "hh_db": -4.724,
+     "hv_db": -9.36,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 3,
+     "date": "2026-07-29",
+     "status": "missing",
+     "hh_db": null,
+     "hv_db": null
+    },
+    {
+     "cycle": 4,
+     "date": "2026-08-10",
+     "status": "valid",
+     "hh_db": -4.952,
+     "hv_db": -9.418,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 5,
+     "date": "2026-08-22",
+     "status": "valid",
+     "hh_db": -4.198,
+     "hv_db": -8.695,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 6,
+     "date": "2026-09-03",
+     "status": "valid",
+     "hh_db": -4.36,
+     "hv_db": -8.804,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 7,
+     "date": "2026-09-15",
+     "status": "valid",
+     "hh_db": -4.695,
+     "hv_db": -9.193,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 8,
+     "date": "2026-09-27",
+     "status": "valid",
+     "hh_db": -4.915,
+     "hv_db": -9.354,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 9,
+     "date": "2026-10-09",
+     "status": "valid",
+     "hh_db": -4.794,
+     "hv_db": -9.25,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 10,
+     "date": "2026-10-21",
+     "status": "valid",
+     "hh_db": -3.996,
+     "hv_db": -8.512,
+     "valid_frac": 1.0
+    },
+    {
+     "cycle": 11,
+     "date": "2026-11-02",
+     "status": "valid",
+     "hh_db": -4.499,
+     "hv_db": -9.047,
+     "valid_frac": 1.0
+    }
+   ]
+  }
+ ]
+}
