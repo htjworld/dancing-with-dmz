@@ -542,3 +542,79 @@ body[data-beat=intro] .zone-tag,body[data-beat=result] .zone-tag,body[data-beat=
 /* ---- 화면이 바뀐 직후 잠깐은 단추가 눌리지 않는다(연달아 누르던 손이 새 단추를 잇달아 누르는 것을 막는다) */
 body.settling #panel .primary,body.settling #intro .primary,body.settling #panel .land,body.settling #panel [data-go]{pointer-events:none;opacity:.6}
 #panel .primary,#intro .primary,#panel .land{transition:opacity .2s,transform .1s ease-out}
+
+/* ==== 오프닝 2판 시안(hdk): 밤하늘과 같은 남색·은하수 위에서 시작. 카드 대신 위성 뷰파인더, 글은 가운데 자막처럼 ==== */
+body[data-screen=opening] #opening{display:block;background:#060c1c;padding:0;overflow:hidden}
+#opening .sky{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#opening .sheet{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:46px;width:100%;height:100%;padding:64px 20px 32px;grid-template-columns:none}
+#opening .frame{width:min(60vw,calc(48vh * 1184 / 1019));border:none;border-radius:2px;background:#0b1530;overflow:visible;
+  transition:transform 1.4s cubic-bezier(.6,0,.2,1),opacity 1.4s ease,filter 1.4s ease;transform-origin:center}
+#opening .frame img,#opening .frame canvas{-webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 62%,transparent 100%)}
+/* 뷰파인더 모서리 표시 */
+#opening .reticle{position:absolute;inset:-14px;pointer-events:none}
+#opening .reticle i{position:absolute;width:22px;height:22px;border-color:rgba(220,228,255,.55);border-style:solid;border-width:0}
+#opening .reticle i:nth-child(1){left:0;top:0;border-left-width:1px;border-top-width:1px}
+#opening .reticle i:nth-child(2){right:0;top:0;border-right-width:1px;border-top-width:1px}
+#opening .reticle i:nth-child(3){left:0;bottom:0;border-left-width:1px;border-bottom-width:1px}
+#opening .reticle i:nth-child(4){right:0;bottom:0;border-right-width:1px;border-bottom-width:1px}
+#opening .reticle b{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border:1px solid rgba(220,228,255,.35);border-radius:50%;opacity:.7}
+#opening .frame.touched .reticle b{opacity:0;transition:opacity .6s}
+#opening .scan{position:absolute;left:0;right:0;top:-14px;gap:16px;font-size:11px;letter-spacing:.06em;color:rgba(220,228,255,.5);transform:translateY(-100%);display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+/* 글: 가운데, 밤하늘 자막과 같은 글꼴·굵기 */
+#opening .words{max-width:min(760px,92vw);text-align:center;transition:opacity .8s;word-break:keep-all;text-wrap:balance}
+#opening .eye{margin:0 0 10px;font-size:13px;color:var(--gold);letter-spacing:.02em}
+#opening h2{margin:0 0 10px;font-size:28px;font-weight:500;line-height:1.45;color:#f6f3ea;letter-spacing:-.01em}
+
+#opening p{margin:0 auto 10px;font-size:15px;line-height:1.7;color:#a7b2cc;max-width:640px}
+#opening .fact{border:none;padding:0;color:#c9d2e8;font-size:14px}
+#opening .fact b{color:var(--gold);font-size:1em;font-weight:600}
+#opening .fine{font-size:12px;color:#6f7b99}
+#opening .acts{justify-content:center;margin-top:14px}
+#opening .acts button{padding:10px 20px;border-radius:999px;border:1px solid #3a4668;background:transparent;color:#eef1f8;font-size:14px}
+#opening .acts .primary{background:#f6f3ea;border-color:#f6f3ea;color:#0b1530;font-weight:600}
+#opening .acts .quiet{border-color:transparent;color:#8a96b4}
+/* 떠나기: 사진이 작아지며 지구본 위 한반도 자리로 멀어지고, 글은 사라진다 */
+#opening.leaving .words{opacity:0}
+#opening.leaving .reticle,#opening.leaving .scan,#opening.leaving .rub-hint{opacity:0;transition:opacity .5s}
+#opening.leaving .sheet .frame{transform:none!important;opacity:1!important;filter:none!important}
+@media (max-width:820px){ #opening h2{font-size:21px} #opening .frame{width:min(92vw,calc(46vh * 1184 / 1019))} }
+
+#opening .scan.bottom{top:auto;bottom:-14px;transform:translateY(100%)}
+#opening .scan .meta{color:rgba(255,214,140,.75)}
+#opening .words p{margin-bottom:4px}
+
+/* 제목 글꼴: 「Dancing with DMZ 눈과 레이더」 시안의 큰 제목과 같은 Inter Tight 가는 굵기 */
+#top h1{font-family:"Inter Tight","Pretendard","Noto Sans KR",sans-serif;font-weight:300;font-size:24px;letter-spacing:-.04em;line-height:1}
+
+/* 영상 동안에는 왼쪽 위 제목을 숨기고, 영상 끝에 큰 제목이 춤추며 나타난다. 게임으로 갈 때 왼쪽 위 자리로 작아져 옮겨 간다 */
+body[data-screen=night][data-night=film] #top h1{opacity:0}
+body[data-screen=mission] #top h1{animation:title-in .6s ease both}
+@keyframes title-in{from{opacity:0}to{opacity:1}}
+#film-title{display:none}
+body[data-screen=night][data-night=film] #film-title{display:grid;place-items:center;position:fixed;left:0;right:0;top:0;bottom:140px;z-index:5;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+body[data-screen=night][data-night=film] #film-title.on{opacity:1}
+#film-title h2{margin:0;display:flex;flex-wrap:wrap;justify-content:center;font:300 clamp(44px,8vw,112px)/1 "Inter Tight","Pretendard",sans-serif;letter-spacing:-.04em;color:#f6f3ea;text-shadow:0 2px 30px rgba(0,0,0,.6);transform-origin:0 0;transition:transform .9s cubic-bezier(.6,0,.2,1)}
+#film-title i{font-style:normal;display:inline-block;will-change:transform}
+#film-title .sp{width:.28em}
+#film-title.leaving i{transform:none!important;opacity:1!important;transition:transform .5s ease}
+
+/* 영상 조작: 멈춤/재생과 장면 점프(장면 처음으로만 가서 카메라·자막이 깨지지 않는다) */
+#film .ctrl{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+#film .ctrl button{padding:4px 10px;border-radius:999px;border:1px solid transparent;background:none;color:#7f8bab;font-size:12px}
+#film .ctrl button:hover{color:#eef1f8}
+#film .ctrl .chap.now{color:#eef1f8;border-color:#3a4668}
+#film .ctrl .pp{border-color:#3a4668;color:#eef1f8;margin-right:8px;min-width:52px}
+/* 조작 2판: 테두리 없는 글자, 지금 장면만 금빛 + 아래 작은 점. 멈춤은 아이콘 */
+#film .ctrl{gap:2px;align-items:center}
+#film .ctrl button{border:none!important;padding:6px 9px;font-size:12.5px;color:#7884a3;position:relative}
+#film .ctrl .chap.now{color:#ffd27a}
+#film .ctrl .chap.now::after{content:"";position:absolute;left:50%;bottom:0;width:3px;height:3px;margin-left:-1.5px;border-radius:50%;background:#ffd27a}
+#film .ctrl .pp{width:28px;height:28px;min-width:0;padding:0;margin-right:10px;border-radius:50%;display:grid;place-items:center;color:#c9d2e8;background:rgba(255,255,255,.06)!important}
+#film .ctrl .pp:hover{background:rgba(255,255,255,.12)!important}
+#film .ctrl .pp svg{width:11px;height:11px}
+
+/* 건너뛰기: 영상 동안 오른쪽 아래 구석에 작게. 영상 중에는 지도 확대·축소 단추를 숨긴다 */
+#film-skip{display:none}
+body[data-screen=night][data-night=film] #film-skip:not([hidden]){display:block;position:fixed;right:20px;bottom:44px;z-index:6;padding:8px 10px;border:none;background:none;color:#7f8bab;font-size:13px;letter-spacing:.01em}
+body[data-screen=night][data-night=film] #film-skip:hover{color:#eef1f8}
+body[data-screen=night][data-night=film] .maplibregl-ctrl-bottom-right{display:none}

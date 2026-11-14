@@ -3,6 +3,7 @@
 import { state, set, subscribe, data, fact } from '../state.js';
 import { t, dateText } from '../i18n.js';
 import { startFilm } from './film.js';
+import { paintSky } from './globe.js';
 
 const el = document.getElementById('opening');
 const GRID = [48, 41];          // 얼마나 걷었는지 세는 거친 격자
@@ -35,16 +36,23 @@ function reveal(all) {
 }
 
 function text() {
-  const d = o();
+  const d = o(), pct = Math.round(d.optical.window_cloud_pct ?? d.optical.cloud_pct);
+  const looks = fact('july_optical_looks'), n = fact('july_clear_optical');
+  // 뷰파인더 정보 줄: 숫자와 단서는 글 대신 여기에 작게 둔다
+  const set = (q, v) => { const e = el.querySelector(q); if (e) e.textContent = v; };
+  set('.scan.top .src', revealed ? `NISAR L2 GCOV · HH · ${d.radar.date}` : `HLS · ${d.optical.date}`);
+  set('.scan.top .meta', revealed ? t('opening.hudClear', { looks, n }) : t('opening.hudCloud', { pct }));
+  set('.scan.bottom .note', revealed ? t('opening.hudNote') : '');
+  // 글: 제목 한 줄 + 이야기 한 줄
+  const one = h => h.replace(/<br>/g, ' ');
   el.querySelector('.words').innerHTML = revealed
     ? `<p class="eye">${t('opening.eyeRadar', { date: dateText(d.radar.date) })}</p>
-       <h2>${t('opening.titleRadar')}</h2>
-       <p class="fact">${t('night.fact', { n: fact('july_clear_optical'), looks: fact('july_optical_looks') })}</p>
-       <p class="fine">${t('caveat.cloud_window')}</p>
+       <h2>${one(t('opening.titleRadar'))}</h2>
+       <p>${t(n === 0 ? 'opening.line2none' : 'opening.line2', { looks, n })}</p>
        <div class="acts"><button type="button" class="primary" data-enter>${t('opening.enter')}</button></div>`
     : `<p class="eye">${t('opening.eyeOptical', { date: dateText(d.optical.date) })}</p>
-       <h2>${t('opening.titleOptical')}</h2>
-       <p>${t('opening.hint', { pct: Math.round(d.optical.window_cloud_pct ?? d.optical.cloud_pct) })}</p>
+       <h2>${one(t('opening.titleOptical'))}</h2>
+       <p>${t('opening.line1')}</p>
        <div class="acts"><button type="button" data-reveal>${t('opening.reveal')}</button><button type="button" class="quiet" data-enter>${t('opening.skip')}</button></div>`;
 }
 
@@ -79,15 +87,20 @@ function build() {
   const d = o(), [gw, gh] = GRID;
   seen = new Uint8Array(gw * gh); cleared = 0; revealed = false; last = null;
   el.innerHTML = `
+    <canvas class="sky" aria-hidden="true"></canvas>
     <div class="sheet">
       <div class="frame">
+        <div class="scan top" aria-hidden="true"><span class="src"></span><span class="meta"></span></div>
+        <div class="scan bottom" aria-hidden="true"><span>38.28°N 127.35°E</span><span class="note"></span></div>
+        <div class="reticle" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
         <img class="radar" src="data/${d.radar.file}" alt="${t('opening.altRadar')}">
         <canvas width="1184" height="1019" aria-label="${t('opening.altOptical')}"></canvas>
         <div class="rub-hint" aria-hidden="true"><i class="rub-hand"></i><span class="rub-label">${t('opening.rub')}</span></div>
       </div>
       <div class="words" aria-live="polite"></div>
     </div>`;
-  canvas = el.querySelector('canvas'); ctx = canvas.getContext('2d');
+  canvas = el.querySelector('.frame canvas'); ctx = canvas.getContext('2d');
+  drawSky();
   const img = new Image();
   img.onload = () => { canvas.width = img.naturalWidth; canvas.height = img.naturalHeight; ctx.globalCompositeOperation = 'source-over'; ctx.drawImage(img, 0, 0); demo(); };
   img.src = `data/${d.optical.file}`;
@@ -99,11 +112,39 @@ function build() {
   text();
 }
 
+function drawSky() {
+  const c = el.querySelector('.sky'); if (!c) return;
+  const W = innerWidth, H = innerHeight, r = devicePixelRatio || 1;
+  c.width = W * r; c.height = H * r;
+  const x = c.getContext('2d'); x.setTransform(r, 0, 0, r, 0, 0); x.globalAlpha = 0.7;
+  x.drawImage(paintSky(W, H), -W * 0.15, -H * 0.15, W * 1.3, H * 1.3);
+}
+
+// 떠나기: 글과 조준 표시만 사라지고 레이더 사진은 그 자리에 남는다. 이어서 밤하늘 영상의 도입이 이 사진 화면에서 시작해
+// 사진을 지구 위 제자리에 붙인 채 위로 빠져나간다(globe.js 의 도착 단계). 사진의 화면 자리·축척을 넘겨준다
+function leave() {
+  if (el.classList.contains('leaving')) return;
+  el.classList.add('leaving');
+  canvas.classList.add('gone');                        // 남은 구름도 걷는다
+  setTimeout(() => {
+    const d = o(), img = el.querySelector('.frame img.radar'), b = img.getBoundingClientRect();
+    const RAD = Math.PI / 180, v = ([lon, lat]) => [Math.cos(lat * RAD) * Math.sin(lon * RAD), Math.sin(lat * RAD), Math.cos(lat * RAD) * Math.cos(lon * RAD)];
+    const [p0, p1] = [v(d.radar.corners[0]), v(d.radar.corners[1])];
+    const ang = Math.acos(Math.min(1, p0[0] * p1[0] + p0[1] * p1[1] + p0[2] * p1[2]));   // 위쪽 가장자리의 각거리(라디안)
+    const lon = d.radar.corners.reduce((s, c) => s + c[0], 0) / 4, lat = d.radar.corners.reduce((s, c) => s + c[1], 0) / 4;
+    window.__introFrom = { img, corners: d.radar.corners, center: [lon, lat],
+      xy: [b.left + b.width / 2, b.top + b.height / 2], scale: b.width / ang };
+    startFilm();
+    el.classList.remove('leaving');
+  }, 700);
+}
+
 export function initOpening() {
+  addEventListener('resize', () => { if (state.screen === 'opening') drawSky(); });
   if (!o()) return;
   el.addEventListener('click', e => {
     if (e.target.closest('[data-reveal]')) return reveal(true);
-    if (e.target.closest('[data-enter]')) startFilm();   // 누른 순간이라 소리를 낼 수 있다. 밤하늘 영상이 시작된다
+    if (e.target.closest('[data-enter]')) leave();   // 누른 순간이라 소리를 낼 수 있다. 밤하늘 영상이 시작된다
   });
   subscribe((s, prev) => {
     if (s.screen === 'opening' && (prev.screen !== 'opening' || s.lang !== prev.lang)) build();

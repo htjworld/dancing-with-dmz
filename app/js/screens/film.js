@@ -12,12 +12,13 @@ import { createIntro } from './globe.js';
 const el = document.getElementById('film');
 // 물결 영상의 시간표(초, 도입이 끝난 뒤부터). cam: 카메라가 가는 곳, cap: 자막 키
 const CUES = [
-  { at: 0, cap: 'film.c1', cam: 'all' }, { at: 5, cap: 'film.c2', cam: 'cheorwon' }, { at: 10, cap: 'film.paju', cam: 'paju' },
-  { at: 16, cap: 'film.yeoncheon', cam: 'yeoncheon' }, { at: 21, cap: 'film.cheorwon', cam: 'cheorwon' },
-  { at: 28, cap: 'film.hwacheon', cam: 'hwacheon' }, { at: 33, cap: 'film.yanggu', cam: 'yanggu' },
-  { at: 38, cap: 'film.c6', cam: 'all', line: true }, { at: 44, cap: 'film.c7' }, { at: 49, cap: 'film.c8' },
+  { at: 0, cap: 'film.c1', cam: 'all' }, { at: 4, cap: 'film.c2', cam: 'cheorwon' }, { at: 8, cap: 'film.paju', cam: 'paju', ch: 'paju' },
+  { at: 13, cap: 'film.yeoncheon', cam: 'yeoncheon', ch: 'yeoncheon' }, { at: 17.5, cap: 'film.cheorwon', cam: 'cheorwon', ch: 'cheorwon' },
+  { at: 23, cap: 'film.hwacheon', cam: 'hwacheon', ch: 'hwacheon' }, { at: 27, cap: 'film.yanggu', cam: 'yanggu', ch: 'yanggu' },
+  { at: 31, cap: 'film.c6', cam: 'all', line: true, ch: 'end' }, { at: 35, cap: 'film.c7' }, { at: 38.5, cap: 'film.c8' },
+  { at: 42, cap: '', title: true },
 ];
-const SHOW = [3, 6], GROW = [8, 38], END = 54, LEAVE = 60;   // 선이 나타나는 구간, 통과가 흐르는 구간, 끝, 게임으로 넘어가는 때
+const SHOW = [2.5, 5], GROW = [7, 31], END = 44, LEAVE = 51;   // 선이 나타나는 구간, 통과가 흐르는 구간, 끝, 게임으로 넘어가는 때
 const SLOTS = 11, LOOP = 0.95;                                // 통과 수, 끝난 뒤 한 통과에 걸리는 시간
 const LABELS = ['6/23', '7/5', '7/17', '8/10', '8/22', '9/3', '9/15', '9/27', '10/9', '10/21', '11/2'];
 
@@ -45,6 +46,15 @@ const cv = document.createElement('canvas'); cv.id = 'film-waves';
 const tint = document.createElement('div'); tint.id = 'film-tint';
 const ticks = document.createElement('div'); ticks.id = 'film-ticks'; ticks.setAttribute('aria-hidden', 'true');
 const cx = cv.getContext('2d');
+// 영상 끝의 제목: 글자마다 다섯 지역 중 하나를 맡아(서쪽부터 차례로), 그 지역 물결의 실제 흔들림만큼 오르내린다(참고: 「Dancing with DMZ 눈과 레이더」 시안)
+const WORD = 'Dancing with DMZ', ORDER = ['paju', 'yeoncheon', 'cheorwon', 'hwacheon', 'yanggu'];
+const skipEl = document.createElement('button'); skipEl.type = 'button'; skipEl.id = 'film-skip';
+const titleEl = document.createElement('div'); titleEl.id = 'film-title'; titleEl.setAttribute('aria-hidden', 'true');
+titleEl.innerHTML = `<h2>${[...WORD].map((ch, i) => ch === ' ' ? '<i class="sp"></i>' : `<i>${ch}</i>`).join('')}</h2>`;
+const letters = [...titleEl.querySelectorAll('i:not(.sp)')];
+let CH = null, titleAt = 0;   // CH[지역][관측] = 그 관측의 평균 흔들림(0~1, 전체 최댓값으로 나눔)
+let paused = 0, pausedAt = 0;   // 멈춘 시각(performance.now), 0 이면 재생 중
+let KOREA = [];   // 한반도 촘촘한 점 [경도, 위도]
 let R = null, mdl = [], raf = 0, startedAt = 0, cue = -1, capKey = '', left = -1, held = false, linePulse = 0, loading = null;
 
 const smooth = (a, b, x) => { const k = Math.min(1, Math.max(0, (x - a) / (b - a))); return k * k * (3 - 2 * k); };
@@ -64,8 +74,12 @@ function load() {
   loading ??= Promise.all([
     fetch('data/ridges.json').then(r => r.json()),
     fetch('data/dmz.geojson').then(r => r.json()),
-  ]).then(async ([ridges, dmz]) => {
+    fetch('data/globe_dots.json').then(r => r.json()),
+  ]).then(async ([ridges, dmz, dots]) => {
+    KOREA = dots.korea;
     R = ridges.regions;
+    CH = ORDER.map(id => R[id].wave.map(f => { let s = 0, n = 0; for (const row of f) for (const v of row) if (v != null) { s += Math.abs(v); n++; } return n ? s / n : 0; }));
+    const mx = Math.max(...CH.flat()) || 1; CH = CH.map(a => a.map(v => v / mx));
     for (const f of dmz.features) { const g = f.geometry; if (g.type === 'LineString') mdl.push(g.coordinates); else if (g.type === 'MultiLineString') mdl.push(...g.coordinates); }
     // 지구본의 끝 화면을 지도의 첫 화면(전체)에 맞추는 값: 지도 중심, 그 화면 위치, 정사영 축척(라디안당 px)
     await intro.init(mdl, () => {
@@ -100,7 +114,9 @@ function curve(pts, pxDb) {
 function drawWaves(s) {
   cx.clearRect(0, 0, innerWidth, innerHeight);
   const m = mapOf(); if (!m || !R) return -1;
-  const st = waveState(s), show = smooth(SHOW[0], SHOW[1], s);
+  const calm = titleAt ? smooth(0, 1.6, (performance.now() - titleAt) / 1000) : 0;   // 제목이 나오면 선의 춤이 잦아든다(춤은 글자로 옮겨 간다)
+  const st = waveState(s), show = smooth(SHOW[0], SHOW[1], s) * (1 - 0.65 * calm);
+  st.amp *= 1 - calm;
   if (show > 0) {
     cx.globalCompositeOperation = 'lighter';
     for (const r of Object.values(R)) {
@@ -141,10 +157,47 @@ function drawWaves(s) {
   return st.slot;
 }
 
+let mapSaved = null;
+function nightMap(on) {
+  const m = mapOf(); if (!m) return;
+  let st = null; try { st = m.getStyle(); } catch { /* 아직 스타일 없음 */ }
+  if (!st || !st.layers || st.layers.length < 3) { if (on) m.once('styledata', () => { if (raf) nightMap(true); }); return; }   // 바탕 지도가 늦게 오면 그때 바꾼다
+  if (on && !mapSaved) {
+    mapSaved = [];
+    for (const l of m.getStyle().layers) {
+      const src = l['source-layer'] || '', id = l.id;
+      if (!l.source || l.source === 'radar' || id.startsWith('glow-') || ['dmz', 'zones', 'river'].includes(l.source)) continue;   // 앱이 얹은 층은 그대로
+      const keep = (l.type === 'fill' && src === 'water') || (l.type === 'line' && (src === 'waterway' || src === 'boundary'));
+      mapSaved.push([id, m.getLayoutProperty(id, 'visibility') ?? 'visible', l.type, keep ? m.getPaintProperty(id, `${l.type}-color`) : null, keep && l.type === 'line' ? m.getPaintProperty(id, 'line-opacity') : null]);
+      if (!keep) { m.setLayoutProperty(id, 'visibility', 'none'); continue; }
+      if (l.type === 'fill') m.setPaintProperty(id, 'fill-color', '#050a18');
+      else if (src === 'waterway') m.setPaintProperty(id, 'line-color', '#050a18');
+      else { m.setPaintProperty(id, 'line-color', '#3a4a7a'); m.setPaintProperty(id, 'line-opacity', 0.7); }
+    }
+    const bg = m.getStyle().layers.find(l => l.type === 'background');
+    if (bg) { mapSaved.push([bg.id, 'visible', 'background', m.getPaintProperty(bg.id, 'background-color'), null]); m.setPaintProperty(bg.id, 'background-color', '#121d3f'); }
+  } else if (!on && mapSaved) {
+    for (const [id, vis, type, col, op] of mapSaved) {
+      if (!m.getLayer(id)) continue;
+      m.setLayoutProperty(id, 'visibility', vis);
+      if (col != null) m.setPaintProperty(id, `${type === 'background' ? 'background' : type}-color`, col);
+      if (op != null || type === 'line') m.setPaintProperty(id, 'line-opacity', op ?? 1);
+    }
+    mapSaved = null;
+  }
+}
 function caption(key) {
   if (key === capKey) return;
   capKey = key;
   el.querySelector('.cap').innerHTML = key ? `<p>${t(key, vars())}</p>` : '';
+}
+function toGame() {
+  if (!titleAt) { stopFilm(); return set({ screen: 'mission' }); }
+  const h = document.querySelector('#top h1'), from = titleEl.querySelector('h2').getBoundingClientRect(), to = h.getBoundingClientRect();
+  const k = to.height / from.height;
+  titleEl.classList.add('leaving');
+  titleEl.querySelector('h2').style.transform = `translate(${to.left - from.left}px, ${to.top - from.top}px) scale(${k})`;
+  setTimeout(() => { stopFilm(); set({ screen: 'mission' }); }, 900);
 }
 function buttons() {
   const ended = cue === CUES.length - 1;
@@ -153,49 +206,98 @@ function buttons() {
        <button type="button" data-replay>${t('film.replay')}</button>
        <button type="button" data-explore>${t('film.explore')}</button>
        <span class="soon">${held || left < 0 ? '' : t('film.soon', { n: left })}</span>`
-    : `<button type="button" class="quiet" data-game>${t('film.skip')}</button>`;
+    : '';
+  skipEl.textContent = t('film.skipShort'); skipEl.hidden = ended;   // 영상 중에는 오른쪽 아래 구석의 작은 '건너뛰기'
 }
 function setTicks(slot) { [...ticks.children].forEach((e, i) => { e.classList.toggle('on', i <= slot); e.classList.toggle('now', i === slot); }); }
 
 export function stopFilm() {
+  titleAt = 0; titleEl.classList.remove('on', 'leaving'); titleEl.querySelector('h2').style.transform = '';
   if (!raf) return;
   cancelAnimationFrame(raf); raf = 0; stop();
-  glow(1); set({ nightFrame: null });
+  glow(1); set({ nightFrame: null }); nightMap(false);
 }
 
+const clock = () => ((paused ? pausedAt : performance.now()) - startedAt) / 1000;
+function music(fromT) {   // 영상 시각 fromT 부터 음악을 다시 튼다(멈춤·장면 점프 뒤)
+  const all = longScore(intro.LEN + LEAVE + 2), ev = all.events.filter(e => e.time >= fromT).map(e => ({ ...e, time: e.time - fromT }));
+  play({ ...all, duration: all.duration - fromT, events: ev });
+}
+function setPaused(on) {
+  if (!raf || on === !!paused) return;
+  if (on) { paused = 1; pausedAt = performance.now(); stop(); }
+  else { startedAt += performance.now() - pausedAt; paused = 0; music(clock()); }
+  ctrl();
+}
+function jump(toT) {   // 장면 처음으로: 시계를 옮기고, 자막·카메라를 그 장면에서 다시 정한다
+  const now = paused ? pausedAt : performance.now();
+  startedAt = now - toT * 1000; cue = -1; capKey = ''; jumped = true;
+  titleAt = 0; titleEl.classList.remove('on'); left = -1; held = false;
+  if (!paused) music(toT);
+}
+let jumped = false;
+function chapters() {   // [이름, 영상 시각(초)]
+  const L = intro.LEN, at = id => L + CUES.find(c => c.ch === id).at;
+  return [['지구', 0.01], ['파주', at('paju')], ['연천', at('yeoncheon')], ['철원', at('cheorwon')], ['화천', at('hwacheon')], ['양구', at('yanggu')], ['전체', at('end')]];
+}
+function ctrl() {
+  const box = el.querySelector('.ctrl'); if (!box) return;
+  const T = clock(), cs = chapters();
+  let cur = 0; cs.forEach(([, at], i) => { if (T >= at - 0.05) cur = i; });
+  const icon = paused ? '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>'
+    : '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="1.5" width="2.4" height="9" rx=".6" fill="currentColor"/><rect x="7.1" y="1.5" width="2.4" height="9" rx=".6" fill="currentColor"/></svg>';
+  box.innerHTML = `<button type="button" class="pp" data-pause aria-label="${paused ? '재생' : '멈춤'}">${icon}</button>`
+    + cs.map(([n, at], i) => `<button type="button" class="chap${i === cur ? ' now' : ''}" data-jump="${at}" aria-current="${i === cur}">${n}</button>`).join('');
+  box.dataset.cur = cur;
+}
 function tick() {
   raf = requestAnimationFrame(tick);
-  const T = (performance.now() - startedAt) / 1000, L = intro.LEN;
+  const T = clock(), L = intro.LEN;
+  { const cs = chapters(); let cur = 0; cs.forEach(([, at], i) => { if (T >= at - 0.05) cur = i; }); if (String(cur) !== el.querySelector('.ctrl')?.dataset.cur) ctrl(); }
   document.body.dataset.filmPart = T < L ? 'intro' : 'waves';
   if (T < L) {
     intro.frame(T); caption(intro.caption()); cx.clearRect(0, 0, innerWidth, innerHeight);
-    tint.style.opacity = smooth(L - 1.3, L - 0.1, T);
+    tint.style.opacity = smooth(L - 1.3, L - 0.1, T) * (mapSaved ? 0.18 : 1);
     el.querySelector('.bar i').style.width = '0%';
     return;
   }
-  intro.frame(T); tint.style.opacity = 1;
+  intro.frame(T); tint.style.opacity = mapSaved ? 0.18 : 1;
   const s = T - L;
   let k = 0; while (k + 1 < CUES.length && s >= CUES[k + 1].at) k++;
   if (k !== cue) {
     const from = CUES[cue]?.cam; cue = k; const c = CUES[k];
-    if (c.cam && c.cam !== from) go(c.cam, k === 0 ? 0 : 3200);
+    if (c.cam && (c.cam !== from || jumped)) {
+      if (c.ch === 'end' && mapOf()) mapOf().fitBounds([[125.8, 37.15], [129.1, 39.0]], { padding: { top: 70, bottom: 190, left: 40, right: 40 }, duration: jumped ? 700 : 3600 });
+      else go(c.cam, jumped ? 700 : k === 0 ? 0 : 3200);
+    }
+    jumped = false;
     if (c.line) linePulse = performance.now();
     caption(c.cap); buttons();
+    if (c.title) { titleAt = performance.now(); titleEl.classList.add('on'); }
   }
   setTicks(drawWaves(s));
+  if (titleAt && CH) {   // 글자 춤: 물결의 끝없는 되풀이와 같은 박자로 관측을 넘긴다
+    const tt = (s - GROW[1]) / LOOP;
+    letters.forEach((el, i) => {
+      const a = CH[i % 5], p = ((tt + i * 0.35) % SLOTS + SLOTS) % SLOTS, i0 = Math.floor(p), f = p - i0;
+      const v = a[i0] + (a[(i0 + 1) % SLOTS] - a[i0]) * ((1 - Math.cos(Math.PI * f)) / 2);
+      el.style.transform = `translateY(${(-v * 18).toFixed(1)}px)`;
+      el.style.opacity = (0.55 + v * 0.45).toFixed(2);
+    });
+  }
   el.querySelector('.bar i').style.width = `${Math.min(100, s / END * 100).toFixed(1)}%`;
   if (s >= END) {
     const remain = Math.max(0, Math.ceil(LEAVE - s));
     if (remain !== left) { left = remain; buttons(); }
-    if (s >= LEAVE && !held) { stopFilm(); set({ screen: 'mission' }); }
+    if (s >= LEAVE && !held && !titleEl.classList.contains('leaving')) toGame();
   }
 }
 
 export async function startFilm() {
   if (state.screen !== 'night' || state.nightMode !== 'film') set({ screen: 'night', nightMode: 'film', evidenceAt: null, landPlay: false });
   stopFilm();
-  cue = -1; capKey = ''; left = -1; held = false; linePulse = 0;
-  glow(0); go('all', 0); buttons(); caption('');
+  cue = -1; capKey = ''; left = -1; held = false; linePulse = 0; paused = 0; jumped = false;
+  glow(0); go('all', 0); buttons(); caption(''); nightMap(true);
   const playing = play(longScore(intro.LEN + LEAVE + 2));   // 누른 순간에 소리를 시작해야 브라우저가 막지 않는다
   await load();
   if (state.screen !== 'night' || state.nightMode !== 'film') return;
@@ -204,17 +306,21 @@ export async function startFilm() {
 }
 
 export function initFilm() {
-  document.body.append(tint, cv);
+  document.body.append(tint, cv, titleEl, skipEl);
+  skipEl.addEventListener('click', () => toGame());
   ticks.innerHTML = LABELS.map(l => `<div class="t" title="${l}"><i></i></div>`).join('');   // 날짜 글자 없이 눈금만(통과 11번)
   document.body.append(ticks);
   resize(); addEventListener('resize', resize);
   el.innerHTML = `<div class="cap" aria-live="polite"></div>
-    <div class="acts"></div><div class="bar" aria-hidden="true"><i></i></div>`;
+    <div class="acts"></div><div class="ctrl" aria-label="영상 조작"></div><div class="bar" aria-hidden="true"><i></i></div>`;
   el.addEventListener('click', e => {
-    if (e.target.closest('[data-game]')) { stopFilm(); return set({ screen: 'mission' }); }
+    if (e.target.closest('[data-game]')) return toGame();
     if (e.target.closest('[data-replay]')) return startFilm();
+    if (e.target.closest('[data-pause]')) return setPaused(!paused);
+    const j = e.target.closest('[data-jump]'); if (j) return jump(+j.dataset.jump);
     if (e.target.closest('[data-explore]')) { stopFilm(); return set({ nightMode: 'explore' }); }
   });
+  addEventListener('keydown', e => { if (e.code === 'Space' && raf && state.screen === 'night' && state.nightMode === 'film' && !e.target.closest('button,input')) { e.preventDefault(); setPaused(!paused); } });
   // 끝난 뒤 단추 위에 머무르면 자동으로 넘어가지 않는다
   el.addEventListener('pointerenter', () => { if (cue === CUES.length - 1 && !held) { held = true; buttons(); } }, true);
   subscribe((s, prev) => {
