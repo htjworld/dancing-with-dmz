@@ -5,6 +5,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 ## 진행 중
 - [ ] 배포: 저장소 이관(jmj→htjworld) → 공개 + Pages 켜기 → main 푸시마다 자동 배포 — jmj, htj · `plan.md` 9절
 - [ ] 제출 준비 체크리스트(영어 Summary, Use of SI 공개, LICENSE, Submit for Judging) — 전원 · `plan.md` 10절
+- [ ] 제출 문구 검토: `submission.md` 초안(Summary 168단어, Details, Use of SI, Data, References) — 전원 · `submission.md`
 - [ ] 기획 확정: jmj 결정 초안 확인 (htj·jmj·hdk 동의함, hdk 의견 `brainstorming/decision_hdk.md`) → 최종 `decision.md` — khs(김현석) · `brainstorming/decision_jmj.md`
 - [ ] 팀 전체 피드백 1회 (11/15 13:00~14:00) → 반영 → 18:00 동결 → J7 데모 → 23:00 제출 — 전원 · `plan.md` 진행 방식
 - [ ] 막힌 일(H7 토큰, 운영진 문의, 결정 확정) — 각 담당 · `todo.md`

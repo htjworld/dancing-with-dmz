@@ -242,6 +242,8 @@ git pull --rebase origin main 하고 CLAUDE.md, plan.md, interface.md를 읽어.
 
 ## 10. 제출 준비 (공식 안내 `ref/03_nasa_seoul_guide.md`)
 
+제출 페이지 칸별 영어 초안: **`submission.md`** (htj 초안, 팀이 고친 뒤 붙여 넣는다).
+
 - [ ] High-Level Summary 영어 50~200단어
 - [ ] Project Demo: 영상 30초 이하(영어 자막) 또는 슬라이드 7장 이하, 공개 링크 하나 — J7
 - [ ] Final Project: 배포 주소(+ 공개 저장소)
