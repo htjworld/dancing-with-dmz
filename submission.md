@@ -64,6 +64,7 @@
 | OpenStreetMap — https://www.openstreetmap.org/ | Demarcation line | ODbL |
 | OpenFreeMap — https://openfreemap.org/ | Base map | ODbL (OSM data) |
 | MapLibre GL JS — https://maplibre.org/ | Map rendering | BSD-3-Clause |
+| NASA Space Apps Challenge mark (favicon) — https://www.spaceappschallenge.org/ | Browser tab icon | Event mark, used as provided by the Seoul organizers |
 | Paju Third Tunnel visitor numbers — https://www.m-i.kr/news/articleView.html?idxno=1399626 | Target users | News article |
 
 - [ ] 우리 코드의 라이선스(`LICENSE`)를 정해서 여기와 README에 적는다(안 정하면 Apache 2.0).
