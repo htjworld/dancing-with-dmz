@@ -22,9 +22,10 @@ brainstorming/   각자 자기 파일에만 쓴다.
 ### 1단계. 같은 자료 읽기 (15분, 각자)
 
 1. `ref/00_challenge_dancing_with_the_sars.md` — 챌린지 원문
-2. `ref/README.md` — 심사 기준, 수상작 표, 관찰 (꼭 읽기)
-3. 관심 가는 수상작 1~2개 원문 (`ref/2025_winners/`, `ref/2025_sar_finalist_tengrispacers.md`)
-4. 루트 `README.md` — 지금 만든 앱이 무엇인지
+2. `ref/01_organizer_feedback.md` — 운영진 피드백 4가지. 모든 안은 이 4가지에 답해야 한다.
+3. `ref/README.md` — 심사 기준, 수상작 표, 관찰 (꼭 읽기)
+4. 관심 가는 수상작 1~2개 원문 (`ref/2025_winners/`, `ref/2025_sar_finalist_tengrispacers.md`)
+5. 루트 `README.md` — 지금 만든 앱이 무엇인지
 
 ### 2단계. 혼자 발산 (30분, 각자)
 
