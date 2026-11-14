@@ -35,6 +35,10 @@ export function initMap() {
   const nightView = (duration = 900) => map.fitBounds(nightAt === 'all' || !glow[nightAt] ? VIEW : boundsOf(glow[nightAt].corners), { padding: nightPadding(), duration });
   const map = new maplibregl.Map({ container: 'map', style: nobase ? EMPTY : BASE, bounds: VIEW,
     fitBoundsOptions: { padding: padding() }, attributionControl: false, maxZoom: 14 });
+  // 지도가 움직이는 동안에는 반투명 창의 흐림 효과를 잠깐 끈다(움직이는 지도 위의 흐림은 프레임마다 다시 계산되어 느려진다)
+  let still = 0;
+  map.on('movestart', () => { clearTimeout(still); document.body.classList.add('map-moving'); });
+  map.on('moveend', () => { clearTimeout(still); still = setTimeout(() => document.body.classList.remove('map-moving'), 120); });
   window.__dmzMap = map;   // (hdk, 밤하늘 영상) 물결 선 캔버스가 지도 좌표를 화면 좌표로 바꿀 때 쓴다. jmj 확인 요청은 plan.md 5절
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
   // 사용자가 지도를 직접 움직이기 전까지는 창 크기가 바뀌면 전체가 보이게 다시 맞춘다

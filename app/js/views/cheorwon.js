@@ -60,7 +60,7 @@ function round(r) {
   const from = pass(r.a).date, to = pass(r.b).date;
   return `<p class="today">${t('cheorwon.round', { n: state.cmpPicks.length + 1, total: ROUNDS })} · ${t('cheorwon.between', { from: dateText(from), to: dateText(to) })}</p>
     <div class="lands">${LANDS.map(l => {
-    const b = zone(l.id).bounds, c0 = crop(ID, from, b), c1 = crop(ID, to, b);
+    const b = zone(l.id).bounds, look = { contrast: 1.7, bright: .85 }, c0 = crop(ID, from, b, 0, 'hh', look), c1 = crop(ID, to, b, 0, 'hh', look);
     return `<button type="button" class="land" data-act="pick" data-land="${l.key}" aria-label="${t('cheorwon.pickAria', { name: t(l.name) })}">
         <b>${t(l.name)}</b>
         <span class="pair" style="--ar:${c0.ar.toFixed(3)}"><span class="pic" style="${c0.style}"></span><span class="pic" style="${c1.style}"></span></span></button>`;

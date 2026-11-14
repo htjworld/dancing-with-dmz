@@ -60,7 +60,7 @@ function observation() {
   // 강이 가장 덜 검게 찍힌 날과 가장 검게 찍힌 날의 사진을 나란히 놓는다(강이 지나는 범위만 잘라서)
   const xs = data.river.points.map(p => p[0]), ys = data.river.points.map(p => p[1]);
   const box = [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)];
-  const shot = (x, key) => { const c = crop(ID, x.date, box, .04); return `<figure><span class="pic" style="aspect-ratio:${c.ar.toFixed(3)};${c.style}"></span>
+  const shot = (x, key) => { const c = crop(ID, x.date, box, .04, 'hh', { contrast: 1.5, bright: .9 }); return `<figure><span class="pic" style="aspect-ratio:${c.ar.toFixed(3)};${c.style}"></span>
       <figcaption><b>${t(key)}</b>${dateText(x.date)} · ${pct(x.dark_ratio)}</figcaption></figure>`; };
   const bars = `<div class="twoshots">${shot(lo, 'yeoncheon.shotLo')}${shot(hi, 'yeoncheon.shotHi')}</div>
     <p class="fine">${t('yeoncheon.shotsFine')}</p>`;

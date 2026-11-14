@@ -38,18 +38,16 @@ function chart() {
 
 // 사진 한 장: 그날 레이더 영상에서 논 구역(둘레를 조금 포함)만 잘라 보여 준다
 function frames(ready) {
-  const L = data.layers.regions.paju, [W, H] = L.size, b = zone(ZONE).bounds;   // [서, 남, 동, 북]
-  const nw = pixelOf(L.corners, L.size, b[0], b[3]) || [0, 0], se = pixelOf(L.corners, L.size, b[2], b[1]) || [W, H];
-  const pad = .12, w0 = se[0] - nw[0], h0 = se[1] - nw[1];
-  const sx = Math.max(0, nw[0] - w0 * pad), sy = Math.max(0, nw[1] - h0 * pad), sw = Math.min(W - sx, w0 * (1 + 2 * pad)), sh = Math.min(H - sy, h0 * (1 + 2 * pad));
+  const L = data.layers.regions.paju, b = zone(ZONE).bounds;   // [서, 남, 동, 북]
+  const look = { contrast: 1.7, bright: .82 }, pic = c => crop('paju', pass(c).date, b, .12, 'hh', look);
   const cycles = data.passes.filter(x => !x.rest && L.dates.includes(x.date)).map(x => x.cycle);
   // 찾기 전에는 날짜순이 아닌 순서로 놓는다(순서가 답을 알려 주지 않게). 다 찾으면 날짜순으로 늘어선다
   const order = ready ? cycles : [...cycles].sort((x, y) => ((x * 5 + 4) % 13) - ((y * 5 + 4) % 13));
-  return `<div class="frames${ready ? ' sorted' : ''}" style="--ar:${(sw / sh).toFixed(3)}">${order.map(c => {
+  return `<div class="frames${ready ? ' sorted' : ''}" style="--ar:${pic(cycles[0]).ar.toFixed(3)}">${order.map(c => {
     const dark = state.marks.dark === c, bright = state.marks.bright === c;
     return `<button type="button" class="frame${c === state.cycle ? ' now' : ''}${dark ? ' dark' : ''}${bright ? ' bright' : ''}" data-act="frame" data-cycle="${c}"
       aria-label="${ready ? dateText(pass(c).date) : t('paju.frameAria')}"
-><span class="pic" style="background-image:url('data/layers/paju/${pass(c).date}_hh.webp');background-size:${(W / sw * 100).toFixed(1)}% ${(H / sh * 100).toFixed(1)}%;background-position:${(sx / Math.max(1, W - sw) * 100).toFixed(1)}% ${(sy / Math.max(1, H - sh) * 100).toFixed(1)}%"></span>
+><span class="pic" style="${pic(c).style}"></span>
       ${dark ? `<b>${t('paju.flagDark')}</b>` : bright ? `<b>${t('paju.flagBright')}</b>` : ''}${ready ? `<small>${dateText(pass(c).date)}</small>` : ''}</button>`;
   }).join('')}</div>`;
 }
@@ -85,7 +83,7 @@ function discovery() {
   const shot = (k, key) => {
     const c = state.marks[k]; if (c == null) return '';
     const b = z.bounds, h = (b[3] - b[1]) / 4;   // 세로는 구역의 가운데 절반만 보여 준다
-    const cr = crop('paju', pass(c).date, [b[0], b[1] + h, b[2], b[3] - h], .12);
+    const cr = crop('paju', pass(c).date, [b[0], b[1] + h, b[2], b[3] - h], .12, 'hh', { contrast: 1.5, bright: .9 });
     return `<figure><span class="pic" style="aspect-ratio:${cr.ar.toFixed(3)};${cr.style}"></span>
       <figcaption><b>${t(key)}</b>${dateText(pass(c).date)} · ${fmt(level(z, c))} dB</figcaption></figure>`;
   };

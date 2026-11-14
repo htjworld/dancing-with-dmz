@@ -37,7 +37,7 @@ export function initDance(map) {
   };
 
   function project() {
-    W = host.clientWidth; Hh = host.clientHeight; const dpr = devicePixelRatio || 1;
+    W = host.clientWidth; Hh = host.clientHeight; const dpr = Math.min(1.5, devicePixelRatio || 1);   // 빛나는 선은 1.5배면 충분하다(큰 화면에서 그리는 값을 줄인다)
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(Hh * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const raw = line.map(([x, y]) => ({ ...map.project([x, y]), lon: x }));
     let dist = 0;
@@ -147,10 +147,11 @@ export function initDance(map) {
         ctx.closePath(); ctx.fillStyle = fade('255,225,162', finale ? .2 : .13); ctx.fill();
         // ② 번지는 빛 두 겹
         ctx.beginPath(); trace(r, 'x', 'y', true); ctx.strokeStyle = fade('255,214,140', .1); ctx.lineWidth = finale ? 18 : 13; ctx.stroke();
-        ctx.beginPath(); trace(r, 'x', 'y', true); ctx.strokeStyle = fade('255,225,162', .28); ctx.lineWidth = finale ? 7 : 5.5; ctx.stroke();
+        ctx.beginPath(); trace(r, 'x', 'y', true); ctx.strokeStyle = fade('255,225,162', .3); ctx.lineWidth = finale ? 7 : 5.5; ctx.stroke();
+        ctx.beginPath(); trace(r, 'x', 'y', true); ctx.strokeStyle = fade('255,236,190', .35); ctx.lineWidth = finale ? 4 : 3.2; ctx.stroke();
         // ③ 가운데 밝은 줄기
         ctx.beginPath(); trace(r, 'x', 'y', true); ctx.strokeStyle = fade('255,246,224', 1); ctx.lineWidth = finale ? 2.2 : 1.8;
-        ctx.shadowColor = '#ffd98a'; ctx.shadowBlur = finale ? 16 : 10; ctx.stroke(); ctx.shadowBlur = 0;
+        ctx.stroke();
         // ④ 선 위의 별빛: 소리가 나는 동안에만 반짝인다(연출)
         if (active && !calm.matches) {
           for (let j = 6; j < r.length - 6; j += 9) {
