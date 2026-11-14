@@ -83,11 +83,13 @@ export function initDance(map) {
     say(lineFor(c));
     if (c === tickerCycle) return;
     tickerCycle = c;
-    const p = pass(c), rain = rainAt('cheorwon', c);
-    let text = dateText(p.date);
-    if (p.rest) text += t('dance.rest');
-    else if (together.includes(c)) text += t('dance.together') + (rain == null ? '' : rain >= 10 ? t('dance.rain', { mm: rain.toFixed(0) }) : t('dance.dry'));
-    ticker.textContent = text;
+    // 날짜를 글로 읽어 주지 않는다. 한 계절의 통과를 점으로 늘어놓고, 지금 지나는 점만 밝힌다. 자료가 없는 통과는 빈 고리로 남는다
+    if (!ticker.dataset.built || ticker.dataset.built !== state.lang) {
+      ticker.dataset.built = state.lang;
+      ticker.innerHTML = `<span>${dateText(data.passes[0].date)}</span><span class="dots">${data.passes.map(p => `<i class="${p.rest ? 'rest' : ''}"></i>`).join('')}</span><span>${dateText(data.passes[n - 1].date)}</span>`;
+      ticker.setAttribute('aria-hidden', 'true');
+    }
+    [...ticker.querySelectorAll('.dots i')].forEach((d, k) => { d.classList.toggle('on', k <= c); d.classList.toggle('now', k === c); });
   }
 
   function draw(now) {

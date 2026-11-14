@@ -53,6 +53,11 @@ export function initMap() {
   let still = 0;
   map.on('movestart', () => { clearTimeout(still); document.body.classList.add('map-moving'); });
   map.on('moveend', () => { clearTimeout(still); still = setTimeout(() => document.body.classList.remove('map-moving'), 120); });
+  // 지도 틀의 크기가 바뀌면 지도도 다시 맞춘다. 창 크기 이벤트 없이 틀만 커지는 때가 있다(가려진 채로 열렸다가 나중에 보이는 화면 등).
+  // 그때 지도가 처음 크기(400×300)에 머물러 화면 한쪽에만 그려지던 것을 막는다
+  const fit = () => { const c = map.getCanvas(), h = map.getContainer(); if (Math.abs(c.clientWidth - h.clientWidth) > 1 || Math.abs(c.clientHeight - h.clientHeight) > 1) map.resize(); };
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(fit).observe(map.getContainer());
+  map.on('load', fit); document.addEventListener('visibilitychange', fit); addEventListener('pageshow', fit);
   window.__dmzMap = map;   // (hdk, 밤하늘 영상) 물결 선 캔버스가 지도 좌표를 화면 좌표로 바꿀 때 쓴다. jmj 확인 요청은 plan.md 5절
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
   // 사용자가 지도를 직접 움직이기 전까지는 창 크기가 바뀌면 전체가 보이게 다시 맞춘다
@@ -63,7 +68,8 @@ export function initMap() {
   subscribe(s => { if (s.screen === 'mission') queueMicrotask(() => { if (state.screen === 'mission') lock(true); }); });
   let touched = false;
   for (const ev of ['dragstart', 'wheel', 'touchstart']) map.on(ev, () => { touched = true; });
-  map.on('resize', () => { if (state.screen !== 'mission') nightView(0); else { const b = STOPS.find(x => x.id === state.stop).bounds; map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 0 }); } });   // 창 크기가 바뀌어도 그 지역이 화면에 맞게 들어온다
+  map.on('resize', () => { if (state.screen !== 'mission') nightView(0); else if (state.playing?.mode === 'finale') map.fitBounds(VIEW, { padding: { top: 90, bottom: 230, left: 30, right: 30 }, duration: 0 });   // 엔딩 중에는 선 전체가 보이는 화면을 지킨다
+    else { const b = STOPS.find(x => x.id === state.stop).bounds; map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 0 }); } });   // 창 크기가 바뀌어도 그 지역이 화면에 맞게 들어온다
 
   // 배경 지도를 못 받아도 선과 핀은 보이게 한다
   let ready = false;

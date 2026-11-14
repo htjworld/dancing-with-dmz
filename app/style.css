@@ -952,3 +952,16 @@ body.finale .pin-nav,body.endcard .pin-nav,body.ending-stars .pin-nav{display:no
 body[data-beat=play] #to-night,body[data-beat=intro] #to-night{display:none}
 /* 첫 소개 카드의 안내 한 줄은 영상 위에 둔다 */
 #intro .leadin{margin:0 0 12px;padding:0;border-bottom:0}
+
+/* ---- 엔딩의 한 계절: 날짜를 나열하지 않고 통과 열두 번을 점으로. 자막 아래에 둔다 */
+#ticker{order:3;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;margin:6px 0 0;font-size:11.5px;font-weight:400;letter-spacing:0;color:var(--dim)}
+#ticker .dots{display:flex;align-items:center;gap:0;flex:0 1 300px;justify-content:space-between;position:relative}
+#ticker .dots::before{content:"";position:absolute;left:4px;right:4px;top:50%;border-top:1px solid rgba(255,255,255,.14)}
+#ticker .dots i{position:relative;width:7px;height:7px;border-radius:50%;background:#33465a;transition:background-color .4s,transform .4s,box-shadow .4s}
+#ticker .dots i.on{background:var(--gold)}
+#ticker .dots i.now{transform:scale(1.7);box-shadow:0 0 10px 2px rgba(255,214,140,.6)}
+#ticker .dots i.rest{background:#0a111d;border:1.5px solid #8a97a8;box-sizing:border-box}
+#ticker .dots i.rest.now{border-color:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+#ending-line{order:2}
+#stage-note{order:4}
+@media (prefers-reduced-motion:reduce){#ticker .dots i{transition:none}}
