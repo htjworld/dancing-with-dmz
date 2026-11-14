@@ -11,13 +11,18 @@ import { heights, heightAt, togetherDays, change } from './calc.js';
 import { heightAtProgress, isRestAt, jumpAt, cycleAt } from './rhythm.js';
 import { ENDING_BEAT as BEAT } from './screens/nightmusic.js';   // 엔딩 곡의 느린 박(1초)
 import { t, dateText } from './i18n.js';
+import { fact } from './state.js';
+import { STOPS as ALL, label } from './stops.js';
+import { sunElev, sky } from './views/yanggu.js';
 
+const GATHER = 10;   // 엔딩의 첫 장면(초): 선이 서쪽부터 한 구간씩 켜지며, 그 지역에서 배운 레이더의 특징이 한 줄씩 나온다
 const HEIGHT_PX = 22, JUMP_PX = 16, WOBBLE_PX = 4;   // 높이 1(다섯 지역에서 가장 큰 변화)·점프·출렁임이 화면에서 차지하는 픽셀
 
 export function initDance(map) {
   const host = map.getContainer(), canvas = document.createElement('canvas');
   canvas.id = 'dance'; canvas.setAttribute('aria-hidden', 'true'); host.append(canvas);
   const ticker = document.getElementById('ticker');
+  const dusk = document.createElement('div'); dusk.id = 'ending-sky'; dusk.setAttribute('aria-hidden', 'true'); host.insertBefore(dusk, canvas);
   const ctx = canvas.getContext('2d'), calm = matchMedia('(prefers-reduced-motion: reduce)');
   const ids = STOPS.map(s => s.id), lon = STOPS.map(s => centerOf(s)[0]), n = data.passes.length;
   const H = heights(data.zones, ids, n);
@@ -56,10 +61,13 @@ export function initDance(map) {
   const endLine = document.getElementById('ending-line'), cloud = document.getElementById('ending-cloud');
   const restCycle = data.passes.find(p => p.rest)?.cycle ?? -1;
   let lineKey = null;
-  function say(key) {
-    if (key === lineKey) return;
-    lineKey = key;
-    endLine.innerHTML = key ? `<span>${t(key)}</span>` : '';
+  // 구름으로 돌아가는 문장에는 자료의 숫자를 넣는다(7월 광학 19번 중 맑은 날 0번, 레이더 12번 중 11번)
+  const vars = () => ({ looks: fact('july_optical_looks'), clear: fact('july_clear_optical'), passes: fact('passes'), total: data.passes.length });
+  function say(key, html) {
+    const id = html ? `${key}|${html}` : key;
+    if (id === lineKey) return;
+    lineKey = id;
+    endLine.innerHTML = key ? `<span>${html || t(key, vars())}</span>` : '';
     const back = key === 'ending.cloud' && data.opening?.optical?.file;   // 오프닝의 7월 구름으로 잠깐 돌아간다
     if (back) { const img = cloud.querySelector('img'); img.src = `data/${data.opening.optical.file}`; img.alt = t('ending.cloudAlt'); }
     cloud.hidden = !back;
@@ -85,26 +93,35 @@ export function initDance(map) {
     ctx.clearRect(0, 0, W, Hh);
     const play = state.playing, elapsed = play ? (now - play.at) / 1000 : 0, active = play && elapsed >= 0 && elapsed < play.duration;
     const finale = active && play.mode === 'finale', preview = active && play.mode === 'preview';
-    const prog = active ? Math.max(0, elapsed / play.duration) : state.cycle / n + 1e-6;
-    const lit = id => finale || state.fragments.includes(id);
+    // 엔딩은 두 토막이다: 처음 GATHER 초는 모으기(선이 서쪽부터 켜진다), 그 뒤가 한 계절을 훑는 춤
+    const gather = finale && elapsed < GATHER, gathered = finale ? Math.min(ids.length - 1, Math.floor(elapsed / (GATHER / ids.length))) : -1;
+    const prog = finale ? Math.max(0, (elapsed - GATHER) / (play.duration - GATHER)) : active ? Math.max(0, elapsed / play.duration) : state.cycle / n + 1e-6;
+    const lit = id => (finale ? ids.indexOf(id) <= gathered : state.fragments.includes(id));
     let moving = false;
     ids.forEach((id, i) => {
       // 미리 듣기 동안에는 듣는 구간만 한 계절을 한 번 훑고, 그 밖에는 타임라인에서 고른 날짜의 높이를 따른다
       const sweep = finale || (preview && play.ids.includes(id));
-      const target = !lit(id) ? 0 : sweep ? heightAtProgress(H[id], prog) : heightAt(H[id], state.cycle), d = target - shown[i];
+      const target = !lit(id) || gather ? 0 : sweep ? heightAtProgress(H[id], prog) : heightAt(H[id], state.cycle), d = target - shown[i];
       shown[i] += Math.abs(d) < .003 ? d : d * (calm.matches ? .08 : .25);
       if (Math.abs(target - shown[i]) > .003) moving = true;
     });
     const ghost = finale || state.fragments.includes('cheorwon');
-    const fTarget = !ghost ? 0 : finale ? heightAtProgress(Hforest, prog) : heightAt(Hforest, state.cycle);
+    const fTarget = !ghost || gather ? 0 : finale ? heightAtProgress(Hforest, prog) : heightAt(Hforest, state.cycle);
     shownForest += (fTarget - shownForest) * (calm.matches ? .08 : .25);
     if (Math.abs(fTarget - shownForest) > .003) moving = true;
 
-    const rest = finale && isRestAt(H[ids[0]], prog), jump = finale && !calm.matches ? jumpAt(together, prog, n) : 0;
-    const wobble = finale && !calm.matches && !rest, beats = elapsed / BEAT;
+    const rest = finale && !gather && isRestAt(H[ids[0]], prog), jump = finale && !gather && !calm.matches ? jumpAt(together, prog, n) : 0;
+    const wobble = finale && !gather && !calm.matches && !rest, beats = elapsed / BEAT;
     const k = finale ? Math.max(zoomK, .85) : active ? Math.max(zoomK, .5) : zoomK;   // 춤추는 동안에는 멀리서도 움직임이 보여야 한다
-    if (finale) caption(prog);
-    ticker.hidden = !finale;
+    if (gather) {   // 모으기: 그 지역에서 배운 특징 한 줄
+      const st = ALL[gathered];
+      say('gather', `<small>${label(st, 'name').split(' ')[0]}</small>${t(`${st.id}.feature`)}`);
+    } else if (finale) caption(prog);
+    ticker.hidden = !finale || gather;
+    // 하늘(연출): 춤추는 동안 그 통과가 찍힌 저녁 7시 25분의 하늘. 여름에는 노을빛, 가을에는 밤
+    const skyOn = finale && !gather;
+    if (skyOn) { const c = cycleAt(prog, n), e = sunElev(c) ?? 0; if (dusk.dataset.c !== String(c)) { dusk.dataset.c = c; dusk.style.background = sky(e); dusk.classList.toggle('night', e < -6); } }
+    dusk.classList.toggle('on', skyOn);
     if (!finale) { tickerCycle = -1; say(state.fragments.length === ids.length && (state.finaleDone || lineKey === 'ending.last') ? 'ending.last' : null); }   // 끝난 뒤에는 후렴이 남는다
 
     if (ghost) {   // 철원 구간의 숲 선

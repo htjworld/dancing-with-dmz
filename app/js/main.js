@@ -1,4 +1,4 @@
-import { state, set, subscribe, data, load, md } from './state.js';
+import { state, set, subscribe, data, load, md, fact } from './state.js';
 import { missionReady } from './missions.js';
 import { STOPS, label, INTRO_CLIP } from './stops.js';
 import { initMap, VIEW } from './map.js';
@@ -13,7 +13,7 @@ import { initProof } from './screens/proof.js';
 import { initDateSlider } from './screens/dateslider.js';
 import { initGameMap } from './screens/gamemap.js';
 import { initZones } from './screens/zones.js';
-import { t } from './i18n.js';
+import { t, dateText } from './i18n.js';
 import { lineSvg } from './views/line.js';
 import * as paju from './views/paju.js';
 import * as yeoncheon from './views/yeoncheon.js';
@@ -64,6 +64,25 @@ function retry(id) {
   set({ ...clear, seen, retry: id, note: null, visited: [], peek: null });
 }
 
+// 엔딩이 끝난 뒤 남는 한 장: 후렴, 읽은 다섯 가지, 쓴 자료, 다음에 할 수 있는 일
+function endCard() {
+  const el = $('ending-card'), on = state.endCard && state.screen === 'mission' && !state.playing, key = on ? state.lang : '';
+  el.hidden = !on; document.body.classList.toggle('endcard', on);
+  if (el.dataset.key === key) return;
+  el.dataset.key = key;
+  const first = data.passes.find(p => !p.rest), last = [...data.passes].reverse().find(p => !p.rest);
+  el.innerHTML = on ? `<div class="card">
+      <button type="button" data-end="close" aria-label="${t('common.close')}" title="${t('common.close')}">×</button>
+      ${lineSvg({ current: -1 })}
+      <h2>${t('ending.last')}</h2>
+      <p class="eye">${t('ending.cardEyebrow')}</p>
+      <ol>${STOPS.map(s => `<li><span>${label(s, 'name').split(' ')[0]}</span>${t(`${s.id}.feature`)}</li>`).join('')}</ol>
+      <p class="fine">${t('ending.cardData', { from: dateText(first.date), to: dateText(last.date), passes: fact('passes') })}</p>
+      <div class="acts"><button type="button" class="primary" data-end="again">${t('finale.again')}</button>
+        <button type="button" class="again" data-end="explore">${t('ending.explore')}</button></div></div>` : '';
+  if (on) el.querySelector('.primary').focus({ preventScroll: true });
+}
+
 let fragShown = 0, newDot = null, newUntil = 0;   // 방금 받은 조각의 점은 잠깐 튄다(그 사이 창이 다시 그려져도 유지)
 let peekShown = null;   // 방금 그린 설명 풍선의 지역(같은 풍선을 다시 그릴 때는 움직이지 않는다)
 function panel() {
@@ -71,6 +90,7 @@ function panel() {
   const done = state.fragments.includes(s.id), beat = beatOf(state);
   document.body.dataset.beat = state.screen === 'mission' ? beat : '';
   intro(s, i, beat);
+  endCard();
   if (state.screen === 'mission') settle(`${s.id}|${beat}|${state.cmpPicks.length}`, beat === 'play' ? 450 : 1200);
   const arrive = beat !== beatShown && beat === 'result';   // 방금 미션을 풀었다
   $('panel').classList.toggle('in', arrive); beatShown = beat;
@@ -121,7 +141,7 @@ function perform(mode, ids) {
   const plan = mode === 'finale' ? endingScore() : pieceChime(ids.length);
   const at = play(plan);
   clearTimeout(timer);
-  timer = setTimeout(() => set({ playing: null, ...(mode === 'finale' ? { finaleDone: true } : {}) }), plan.duration * 1000 + 300);
+  timer = setTimeout(() => set({ playing: null, ...(mode === 'finale' ? { finaleDone: true, endCard: true } : {}) }), plan.duration * 1000 + 300);
   set({ playing: { mode, at, duration: plan.duration, ids } });
 }
 function finale() {
@@ -178,6 +198,12 @@ async function start() {
     const drag = dragged && e.detail > 0; dragged = false;   // e.detail 이 0 이면 키보드로 누른 것이다
     if (settling() || drag) { e.stopImmediatePropagation(); e.preventDefault(); }
   }, true);
+  $('ending-card').addEventListener('click', e => {
+    const act = e.target.closest('[data-end]')?.dataset.end;
+    if (act === 'close') set({ endCard: false });
+    else if (act === 'again') { set({ endCard: false }); finale(); }
+    else if (act === 'explore') set({ endCard: false, screen: 'night', nightMode: 'explore' });
+  });
   $('intro').addEventListener('click', e => { const b = e.target.closest('[data-start]'); if (b) set({ introSeen: [...state.introSeen, b.dataset.start] }); });
   $('to-night').addEventListener('click', () => set({ screen: 'night', nightMode: 'explore' }));   // 게임에서 돌아오면 둘러보기로
   $('lang').addEventListener('click', () => {

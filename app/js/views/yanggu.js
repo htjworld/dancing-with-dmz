@@ -44,7 +44,7 @@ function clock(c) {
   return state.lang === 'en' ? `${((h + 11) % 12) + 1}:${String(m).padStart(2, '0')} ${h < 12 ? 'am' : 'pm'}` : `${h}시 ${m}분`;
 }
 // 하늘의 색(연출): 해의 높이에 따라 노을빛에서 밤의 남색으로
-function sky(e) {
+export function sky(e) {
   const k = Math.max(0, Math.min(1, (e + 14) / 19)), mix = (a, b) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
   const top = mix([6, 9, 24], [92, 132, 190]), low = mix([14, 20, 44], [245, 168, 104]);
   return `linear-gradient(180deg,rgb(${top}) 0,rgb(${low}) 100%)`;

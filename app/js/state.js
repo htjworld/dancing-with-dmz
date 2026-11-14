@@ -24,6 +24,7 @@ export const state = {
   nightMode: 'film', // 밤하늘 화면의 모습: 'film'(나레이션과 함께 스스로 흐르는 영상) | 'explore'(직접 둘러보기)
   landPlay: false,   // 땅 연주가 켜져 있는가(지도를 쓸면 소리가 난다)
   evidenceAt: null,  // 근거 패널을 연 지역 id. null 이면 닫힘
+  endCard: false,    // 엔딩이 끝난 뒤의 요약 카드를 보여 주는가
   retry: null,       // 다시 해 보는 중인 지역 id(조각은 그대로 두고 미션만 다시 푼다)
   introSeen: [],     // 소개 카드를 넘긴 지역 id
   cmpPicks: [],      // 철원: 견주기에서 고른 것 [{ a, b, land, ok }]

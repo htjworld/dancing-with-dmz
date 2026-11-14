@@ -787,3 +787,30 @@ body[data-beat=play] #panel .play > .note.ok:not([role]),body[data-beat=play] #p
 @media (max-width:900px){#scrub .time{left:50%;width:calc(100% - 32px)} #piece-toast{left:50%}}
 /* 미션 화면에서 왼쪽 위의 안내 한 줄이 단추 줄과 겹치는 너비에서는 그 줄을 숨긴다(제목은 남긴다) */
 @media (max-width:1480px){body[data-screen=mission] #top p{display:none}}
+
+/* ---- 엔딩: 모으기 자막, 하늘(연출), 끝난 뒤 남는 요약 카드 */
+#ending-line span{font-family:var(--serif);background:rgba(8,14,24,.82);border:1px solid var(--night-edge);border-radius:14px;line-height:1.6}
+#ending-line small{display:block;font-family:"Pretendard","Noto Sans KR",system-ui,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--gold);margin-bottom:2px}
+#ending-sky{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.6s ease,background 1.2s linear;-webkit-mask-image:linear-gradient(180deg,#000 0,transparent 62%);mask-image:linear-gradient(180deg,#000 0,transparent 62%)}
+#ending-sky.on{opacity:.5}
+#ending-sky.night::after{content:"";position:absolute;inset:0 0 45% 0;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px),radial-gradient(circle,#fff 0 1px,transparent 1.5px);background-size:97px 61px,71px 89px;background-position:11px 13px,37px 29px;opacity:.7}
+#dance{z-index:1}
+#ending-card{position:fixed;inset:0;z-index:26;display:grid;place-items:center;padding:20px;background:rgba(3,7,14,.6)}
+#ending-card[hidden]{display:none}
+#ending-card .card{position:relative;width:min(520px,100%);max-height:calc(100% - 8px);overflow:auto;padding:20px 28px 26px;border-radius:22px;background:var(--night);border:1px solid var(--night-edge);border-top:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(26px) saturate(170%);-webkit-backdrop-filter:blur(26px) saturate(170%);box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.1);animation:card-in .6s cubic-bezier(.2,.8,.2,1)}
+#ending-card h2{margin:10px 0 18px;font-family:var(--serif);font-size:24px;line-height:1.5;letter-spacing:-.02em;text-align:center}
+#ending-card .eye{margin:0 0 8px;font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--gold)}
+#ending-card ol{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:7px}
+#ending-card li{display:grid;grid-template-columns:3.2em 1fr;gap:10px;align-items:baseline;font-size:15.5px;padding-bottom:7px;border-bottom:1px solid var(--night-edge)}
+#ending-card li span{font-size:12.5px;color:var(--gold)}
+#ending-card .fine{margin:0 0 16px;font-size:12.5px;line-height:1.55;color:var(--dim)}
+#ending-card .acts{display:grid;gap:10px}
+#ending-card .primary{width:100%;padding:13px;border-radius:999px;border:0;background:var(--gold);color:#2a1e05;font-size:15.5px;font-weight:700}
+#ending-card .again{display:flex;align-items:center;justify-content:center;width:100%;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,225,162,.5);background:rgba(255,225,162,.05);color:var(--gold);font-size:14px;font-weight:700}
+#ending-card button{transition:transform .1s ease-out,background-color .15s}
+#ending-card button:active{transform:scale(.97)}
+#ending-card [data-end=close]{position:absolute;top:10px;right:10px;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:var(--ink);font-size:16px;line-height:1}
+body.endcard #stage,body.endcard #panel{display:none}
+@media (prefers-reduced-motion:reduce){#ending-card .card{animation:none} #ending-sky{transition:none}}
+@media (prefers-reduced-transparency:reduce){#ending-card .card{background:#0d1826;backdrop-filter:none}}
