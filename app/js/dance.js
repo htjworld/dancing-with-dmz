@@ -15,6 +15,8 @@ import { fact } from './state.js';
 import { STOPS as ALL, label } from './stops.js';
 import { sunElev, sky } from './views/yanggu.js';
 
+const STAR = 4;      // 엔딩의 마지막 장면(초): 선이 다섯 별을 잇는 별자리로 남는다
+const SWEEP = .6;    // 한 통과의 시간 가운데 위성이 서쪽에서 동쪽으로 훑는 데 쓰는 몫
 const GATHER = 10;   // 엔딩의 첫 장면(초): 선이 서쪽부터 한 구간씩 켜지며, 그 지역에서 배운 레이더의 특징이 한 줄씩 나온다
 const HEIGHT_PX = 22, JUMP_PX = 16, WOBBLE_PX = 4;   // 높이 1(다섯 지역에서 가장 큰 변화)·점프·출렁임이 화면에서 차지하는 픽셀
 
@@ -32,7 +34,7 @@ export function initDance(map) {
   const together = togetherDays(data.zones).map(d => d.cycle);
   const line = data.boundary.features[0].geometry.coordinates;
   const shown = ids.map(() => 0);
-  let shownForest = 0, pts = [], dirty = true, raf = 0, W = 0, Hh = 0, tickerCycle = -1, zoomK = 1;
+  let shownForest = 0, pts = [], stars = [], dirty = true, raf = 0, W = 0, Hh = 0, tickerCycle = -1, zoomK = 1;
 
   // 선 위의 점이 어느 두 지역 사이에 있는지(지역 중심을 조절점으로 삼아 높이를 부드럽게 잇는다)
   const between = l => {
@@ -54,6 +56,7 @@ export function initDance(map) {
     });
     // 지도를 멀리서 볼수록 선이 분계선에서 덜 떠오르게 한다(화면 픽셀로 고정하면 멀리서는 딴 곳을 지나는 것처럼 보인다)
     zoomK = Math.max(.28, Math.min(1.1, 2 ** (map.getZoom() - 10.5)));
+    stars = lon.map(l => raw.reduce((best, q, j) => (Math.abs(q.lon - l) < Math.abs(raw[best].lon - l) ? j : best), 0));
     dirty = false;
   }
 
@@ -95,7 +98,9 @@ export function initDance(map) {
     const finale = active && play.mode === 'finale', preview = active && play.mode === 'preview';
     // 엔딩은 두 토막이다: 처음 GATHER 초는 모으기(선이 서쪽부터 켜진다), 그 뒤가 한 계절을 훑는 춤
     const gather = finale && elapsed < GATHER, gathered = finale ? Math.min(ids.length - 1, Math.floor(elapsed / (GATHER / ids.length))) : -1;
-    const prog = finale ? Math.max(0, (elapsed - GATHER) / (play.duration - GATHER)) : active ? Math.max(0, elapsed / play.duration) : state.cycle / n + 1e-6;
+    // 마지막 STAR 초는 별자리 장면이다. 그 앞까지가 한 계절을 훑는 춤
+    const starK = finale ? Math.max(0, Math.min(1, (elapsed - (play.duration - STAR)) / 1.6)) : 0, dancing = finale && !gather;
+    const prog = finale ? Math.max(0, Math.min(.9999, (elapsed - GATHER) / (play.duration - GATHER - STAR))) : active ? Math.max(0, elapsed / play.duration) : state.cycle / n + 1e-6;
     const lit = id => (finale ? ids.indexOf(id) <= gathered : state.fragments.includes(id));
     let moving = false;
     ids.forEach((id, i) => {
@@ -117,12 +122,12 @@ export function initDance(map) {
       const st = ALL[gathered];
       say('gather', `<small>${label(st, 'name').split(' ')[0]}</small>${t(`${st.id}.feature`)}`);
     } else if (finale) caption(prog);
-    ticker.hidden = !finale || gather;
+    ticker.hidden = !finale || gather || starK > 0;
     // 하늘(연출): 춤추는 동안 그 통과가 찍힌 저녁 7시 25분의 하늘. 여름에는 노을빛, 가을에는 밤
     const skyOn = finale && !gather;
     if (skyOn) { const c = cycleAt(prog, n), e = sunElev(c) ?? 0; if (dusk.dataset.c !== String(c)) { dusk.dataset.c = c; dusk.style.background = sky(e); dusk.classList.toggle('night', e < -6); } }
     dusk.classList.toggle('on', skyOn);
-    if (!finale) { tickerCycle = -1; say(state.fragments.length === ids.length && (state.finaleDone || lineKey === 'ending.last') ? 'ending.last' : null); }   // 끝난 뒤에는 후렴이 남는다
+    if (!finale) { tickerCycle = -1; say(null); }   // 엔딩이 끝나면 자막을 걷는다. 후렴은 끝난 뒤의 요약 카드에 남는다
 
     if (ghost) {   // 철원 구간의 숲 선
       ctx.beginPath(); let pen = false;
@@ -133,15 +138,24 @@ export function initDance(map) {
       }
       ctx.strokeStyle = 'rgba(160,240,190,.7)'; ctx.lineWidth = 1.3; ctx.setLineDash([4, 5]); ctx.stroke(); ctx.setLineDash([]);
     }
+    // 위성이 훑는 자리(0 = 서쪽 끝, 1 = 동쪽 끝). 자료가 없는 통과에는 위성이 지나가지 않고 선이 그대로 멈춘다
+    let cNow = 0, cPrev = 0, sweepU = 2;
+    if (dancing) { const pos = prog * n, c = Math.min(n - 1, Math.floor(pos)); cNow = c; cPrev = Math.max(0, c - 1); sweepU = H[ids[0]][c] == null ? -1 : (pos - c) / SWEEP; }
+    const total = pts.length ? pts[pts.length - 1].d || 1 : 1;
+    const hOf = (p, c) => { const a = heightAt(H[ids[p.i]], c), b = heightAt(H[ids[Math.min(ids.length - 1, p.i + 1)]], c); return a + (b - a) * p.w; };
     if (finale || state.fragments.length) {
       // 이어진 구간마다 점을 모은다: 분계선 위의 자리(bx, by)와 거기서 떠오른 자리(x, y)
       const runs = []; let run = null;
       for (const p of pts) {
         const near = p.w < .5 ? p.i : Math.min(ids.length - 1, p.i + 1);
         if (!lit(ids[near])) { run = null; continue; }
-        const h = shown[p.i] + ((shown[p.i + 1] ?? shown[p.i]) - shown[p.i]) * p.w, slow = near === 3 ? .5 : 1;   // 화천은 반 박자의 느린 왈츠
+        let h = shown[p.i] + ((shown[p.i + 1] ?? shown[p.i]) - shown[p.i]) * p.w; const slow = near === 3 ? .5 : 1;
+        if (dancing) {   // 위성이 지나간 서쪽은 오늘의 높이, 아직 안 지나간 동쪽은 지난번의 높이
+          const m = Math.max(0, Math.min(1, (sweepU * 1.06 - p.d / total) / .07)), ease = m * m * (3 - 2 * m);
+          h = hOf(p, cPrev) + (hOf(p, cNow) - hOf(p, cPrev)) * ease;
+        }   // 화천은 반 박자의 느린 왈츠
         const beat = wobble ? Math.sin(p.d * .045 - beats * Math.PI * slow) * WOBBLE_PX : 0;                       // 박자에 맞춘 기본 출렁임(연출)
-        const off = (h * HEIGHT_PX + jump * JUMP_PX + beat) * k;
+        const off = (h * HEIGHT_PX + jump * JUMP_PX + beat) * k * (1 - starK);   // 별자리 장면에서는 선이 분계선 위로 내려앉는다
         if (!run) runs.push(run = []);
         run.push({ x: p.x + p.nx * off, y: p.y + p.ny * off, bx: p.x, by: p.y, d: p.d });
       }
@@ -152,6 +166,7 @@ export function initDance(map) {
         ctx.lineTo(r[r.length - 1][kx], r[r.length - 1][ky]);
       };
       ctx.lineJoin = ctx.lineCap = 'round';
+      ctx.globalAlpha = 1 - starK * .72;
       for (const r of runs) {
         if (r.length < 3) continue;
         const first = r[0], last = r[r.length - 1];
@@ -180,6 +195,33 @@ export function initDance(map) {
         }
       }
     }
+    ctx.globalAlpha = 1;
+    // 위성: 훑는 자리 위에 작은 위성과 아래로 비추는 띠를 그린다(연출. 실제 위성의 크기나 높이가 아니다)
+    if (dancing && !starK && sweepU >= 0 && sweepU <= 1.05 && pts.length) {
+      const u = Math.min(1, sweepU), p = pts.find(q => q.d / total >= u) || pts[pts.length - 1], sy = p.y - 62;
+      ctx.beginPath(); ctx.moveTo(p.x, sy + 4); ctx.lineTo(p.x - 20, p.y + 6); ctx.lineTo(p.x + 20, p.y + 6); ctx.closePath(); ctx.fillStyle = 'rgba(191,244,255,.10)'; ctx.fill();
+      ctx.beginPath(); ctx.moveTo(p.x, sy + 4); ctx.lineTo(p.x, p.y); ctx.strokeStyle = 'rgba(191,244,255,.4)'; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = '#7fb3ff'; ctx.fillRect(p.x - 18, sy - 2, 10, 4); ctx.fillRect(p.x + 8, sy - 2, 10, 4);
+      ctx.fillStyle = '#eef3fa'; ctx.fillRect(p.x - 7, sy - 4, 14, 8);
+    }
+    // 별자리: 다섯 지역의 자리에 별이 뜨고 그 사이가 이어진다. 별마다 그 지역에서 배운 것을 적는다
+    if (starK > 0 && stars.length === ids.length && pts.length) {
+      const sp = stars.map(j => pts[j]);
+      ctx.globalAlpha = starK;
+      ctx.beginPath(); sp.forEach((q, i) => (i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)));
+      ctx.strokeStyle = 'rgba(255,225,162,.8)'; ctx.lineWidth = 1.4; ctx.stroke();
+      ctx.font = '500 15px "Noto Serif KR", serif'; ctx.textAlign = 'center'; ctx.lineJoin = 'round';
+      sp.forEach((q, i) => {
+        ctx.beginPath(); ctx.arc(q.x, q.y, 11, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,225,162,.18)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(q.x, q.y, 3.6, 0, Math.PI * 2); ctx.fillStyle = '#fff6e0'; ctx.fill();
+        const text = t(`${ids[i]}.star`), ty = q.y + (i % 2 ? -18 : 30);   // 이웃한 글자가 겹치지 않게 위아래로 번갈아 놓는다
+        ctx.strokeStyle = 'rgba(5,9,18,.9)'; ctx.lineWidth = 4; ctx.strokeText(text, q.x, ty);
+        ctx.fillStyle = '#ffe1a2'; ctx.fillText(text, q.x, ty);
+      });
+      ctx.globalAlpha = 1;
+    }
+    dusk.classList.toggle('deep', starK > 0);
+    document.body.classList.toggle('ending-stars', starK > 0);   // 별자리 장면에서는 지도 위의 지역 구슬과 이름을 걷는다(별과 겹친다)
     if (active || moving) request();
   }
   const request = () => { if (!raf) raf = requestAnimationFrame(draw); };

@@ -814,3 +814,14 @@ body[data-beat=play] #panel .play > .note.ok:not([role]),body[data-beat=play] #p
 body.endcard #stage,body.endcard #panel{display:none}
 @media (prefers-reduced-motion:reduce){#ending-card .card{animation:none} #ending-sky{transition:none}}
 @media (prefers-reduced-transparency:reduce){#ending-card .card{background:#0d1826;backdrop-filter:none}}
+
+/* ---- 엔딩의 별자리 장면: 지도를 짙게 가라앉힌다 */
+#ending-sky.deep{opacity:.84;background:#050912 !important;-webkit-mask-image:none;mask-image:none}
+#ending-sky.deep::after{inset:0;opacity:.55}
+/* ---- 밤하늘 → 게임 → 엔딩을 잇는 것들 */
+#intro .leadin{margin:0 0 10px;padding:0 0 10px;border-bottom:1px solid var(--night-edge);font-family:var(--serif);font-size:15px;line-height:1.55;color:#dfe8f3;text-align:center}
+#piece-toast .go{display:block;width:100%;margin:14px 0 0;padding:11px 16px;border-radius:999px;border:0;background:var(--gold);color:#2a1e05;font-size:14.5px;font-weight:700;transition:transform .1s ease-out}
+#piece-toast .go:active{transform:scale(.97)}
+#panel > .primary[data-finale]{margin-top:12px}
+body.ending-stars .pin{opacity:0;transition:opacity .8s}
+.pin{transition:opacity .6s}

@@ -48,6 +48,7 @@ function intro(s, i, beat) {
   const clip = INTRO_CLIP[s.id];
   el.innerHTML = on ? `<div class="card">
       ${clip ? `<video src="${clip}" autoplay muted loop playsinline></video>` : ''}
+      ${i === 0 && !state.fragments.length ? `<p class="leadin">${t('mission.leadIn')}</p>` : ''}
       ${lineSvg({ current: i, label: `${i + 1} / ${STOPS.length}` })}
       <p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2>
       <p class="story">${label(s, 'story')}</p>
@@ -111,6 +112,7 @@ function panel() {
     <header class="brief"><p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2></header>
     <p class="todo${done ? ' done' : ''}"><b>${done ? '✓' : t('common.todo')}</b>${label(s, 'todo')}</p>
     <div class="play">${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}</div>
+    ${state.fragments.length === STOPS.length && s.id !== 'yanggu' && beat === 'done' ? `<button type="button" class="primary" data-finale>${t(state.finaleDone ? 'finale.again' : 'finale.go')}</button>` : ''}
     ${missionReady(s.id, state.seen[s.id]) ? `<button type="button" class="ghost again" data-retry="${s.id}">${t('common.retry')}</button>` : ''}`;
 }
 
@@ -122,11 +124,13 @@ function pieceToast(id) {
   el.innerHTML = `<p class="n">${t('common.piece', { n, total: STOPS.length })}</p><p class="word">${word}</p><p class="saw">${t(`${id}.saw`)}</p>
     ${lineSvg({ current: n - 1, draw: n - 1 })}
     <p class="to">${t(n === STOPS.length ? 'common.pieceAll' : 'common.pieceTo', { name: label(STOPS.find(x => x.id === id), 'name').split(' ')[0] })}</p>
+    ${n === STOPS.length ? `<button type="button" class="go" data-finale>${t('finale.go')}</button>` : ''}
     <button type="button" data-close aria-label="${t('common.close')}" title="${t('common.close')}">×</button>`;
   el.hidden = false; el.classList.remove('out'); void el.offsetWidth; el.classList.add('in');
   // 저절로 사라지지 않는다. 닫기를 눌러야 닫힌다(다음 지역으로 넘어가면 함께 걷힌다)
   clearTimeout(toastTimer);
   el.onclick = e => {
+    if (e.target.closest('[data-finale]')) { el.hidden = true; el.classList.remove('in', 'out'); return finale(); }
     if (!e.target.closest('[data-close]')) return;
     el.classList.add('out'); toastTimer = setTimeout(() => { el.hidden = true; el.classList.remove('in', 'out'); }, 400);
   };
@@ -212,6 +216,7 @@ async function start() {
     set({ lang });
   });
   $('panel').addEventListener('click', e => {
+    if (e.target.closest('[data-finale]')) return finale();
     const again = e.target.closest('[data-retry]');
     if (again) return retry(again.dataset.retry);
     const pk = e.target.closest('[data-peek]'), go = e.target.closest('[data-go]');
@@ -233,7 +238,7 @@ async function start() {
     chrome(s);
     const fin = s.playing?.mode === 'finale';
     document.body.classList.toggle('finale', fin);
-    $('stage').hidden = !(fin || s.finaleDone && s.fragments.length === STOPS.length && !s.playing && s.stop === 'yanggu');
+    $('stage').hidden = !fin;   // 자막과 안내문은 엔딩이 도는 동안에만 보인다
     $('sound').textContent = t(s.sound ? 'sound.on' : 'sound.off'); $('sound').setAttribute('aria-pressed', s.sound);
   });
   panel(); chrome(state);
