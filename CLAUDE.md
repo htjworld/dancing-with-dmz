@@ -4,8 +4,8 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
 - [ ] 기획 확정: jmj 결정 초안 확인 (htj·jmj 동의함) → 최종 `decision.md` — hdk(황도경), khs(김현석) · `brainstorming/decision_jmj.md`
-- [ ] 구현 로직·데이터 H1~H7 — htj(한태진) · `plan.md` 4절
-- [ ] 구현 프론트 J1~J7 — jmj(장민준) · `plan.md` 4절
+- [ ] MVP1 밤사진 한 장 (11/14 21:00): H1 — htj(한태진), J1 — jmj(장민준) · `plan.md` 4절
+- [ ] MVP2~4 (오프닝·재생 → 땅 연주·근거 → 영어·데모) — htj, jmj · `plan.md` 4절
 - [ ] 데이터: 더 긴 띠, 함께 변한 날 원인, 원자료 캐시 공유 — khs · `plan.md` 4절
 - [ ] 대회 전 작업 사용 규정 확인 — 담당 미정 · `brainstorming/decision_jmj.md`
 
