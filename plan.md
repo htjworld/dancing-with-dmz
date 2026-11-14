@@ -35,7 +35,7 @@
 | `tools/**` | htj | |
 | `app/data/**` | htj | 생성물. 손으로 고치지 않고 `tools/`로 다시 만든다 |
 | `app/js/calc.js`, `missions.js`, `rhythm.js`, `music.js`, `sound.js` | htj | 계산·소리 로직 |
-| `app/js/glow.js`, `landsound.js`, `evidence.js` (신규) | htj | 3절 API |
+| `app/js/glow.js`, `landsound.js`, `evidence.js` (신규) | htj | `interface.md` 3절 |
 | `app/js/state.js`의 `data`, `load()`, 데이터 조회 함수 | htj | |
 | `app/js/state.js`의 `state` 객체(화면 상태 필드) | jmj | 같은 파일이지만 다른 덩어리다. rebase로 대부분 자동 병합된다 |
 | `app/tests/**` | htj | jmj가 테스트를 추가해도 된다(새 파일로) |
@@ -45,106 +45,10 @@
 | `demo/**` (신규) | jmj | 영상·슬라이드 자료 |
 | `plan.md`, `CLAUDE.md` | 공동 | 고친 사람이 바로 푸시 |
 
-## 2. 데이터 계약 (htj가 만들고 jmj가 읽는다)
+## 2·3. 데이터 계약과 로직 API → `interface.md`
 
-모든 좌표는 경위도(EPSG:4326)다. `corners`는 `layers.json`과 같은 순서 `[좌상, 우상, 우하, 좌하]`다.
-
-### 2-1. `app/data/glow.json` + `app/data/glow/*.webp` — 계절 변동 지도
-
-```json
-{
-  "metric": "숲 대비 HH 계절 변동 폭(표준편차, dB)",
-  "scale_db": [0, 1.5],
-  "source": "layers",
-  "dates": ["2026-06-23", "2026-07-05", "..."],
-  "regions": {
-    "cheorwon": {
-      "corners": [[127.1, 38.4], [127.5, 38.4], [127.5, 38.1], [127.1, 38.1]],
-      "size": [1184, 1019],
-      "value": "glow/cheorwon_value.webp",
-      "color": "glow/cheorwon_color.webp",
-      "frames": ["glow/cheorwon_f01.webp", "..."]
-    }
-  }
-}
-```
-
-- `value`: 회색 영상. 빨강 채널 0~255가 `scale_db` 범위로 선형 대응한다(`scale_db`는 숫자를 박지 말고 `glow.json`에서 읽는다). 알파 0은 자료 없음이다. **땅 연주와 숫자 표시는 이 영상에서 읽는다.**
-- `color`: 기본 색을 입힌 표시용 영상(어두운 남색 → 주황 → 노랑). 프론트가 색을 바꾸고 싶으면 `value`로 직접 칠한다.
-- `frames[k]`: 첫 통과부터 k+2번째 유효 통과까지 누적한 변동 폭을 칠한 표시용 영상. 밤사진 켜기 애니메이션에 쓴다. 마지막 프레임은 `color`와 같다.
-- `dates`: 유효 통과 날짜. 7/29 결측은 빠진다.
-- `source`: `"layers"`(앱 흑백 영상에서 만든 거친 판) 또는 `"cache"`(원자료 판). 화면에서는 구분하지 않아도 된다.
-
-### 2-2. `app/data/opening.json` + `app/data/opening/*` — 구름 문지르기
-
-```json
-{
-  "region": "cheorwon",
-  "optical": { "date": "2026-07-xx", "cloud_pct": 97, "file": "opening/hls_cheorwon.jpg", "corners": [] },
-  "radar":   { "date": "2026-07-17", "file": "opening/nisar_cheorwon.webp", "corners": [] },
-  "clouds": {
-    "cheorwon": { "2026-06": [2, 7], "2026-07": [0, 3], "2026-08": [0, 7], "2026-09": [0, 10], "2026-10": [7, 10] }
-  }
-}
-```
-
-- `clouds[지역][월] = [맑은 날, 관측일]`. 맑음은 구름 20% 이하. 값은 `tools/hls_cloud.py` 결과와 같다.
-- 두 영상은 같은 `corners`에 맞춘다(지도 위에 겹쳐 놓고 위 영상을 지운다).
-
-### 2-3. `app/data/facts.json` — 화면과 발표가 같이 쓰는 숫자
-
-```json
-{
-  "july_clear_optical": { "value": 0, "unit": "장", "note": "2026년 7월, 다섯 지역 모두", "source": "tools/hls_cloud.py" },
-  "cheorwon_paddy_db":  { "value": 2.1, "unit": "dB", "note": "숲 대비 HH 계절 변동 폭", "source": "app/data/regions.json" },
-  "cheorwon_dmz_db":    { "value": 0.7, "unit": "dB", "note": "", "source": "" },
-  "paju_dmz_farm_db":   { "value": 2.1, "unit": "dB", "note": "", "source": "" },
-  "paju_dmz_wild_db":   { "value": 0.6, "unit": "dB", "note": "", "source": "" },
-  "passes":             { "value": 11, "unit": "회", "note": "12번 중 7/29 결측", "source": "app/data/regions.json" }
-}
-```
-
-- **화면과 슬라이드의 숫자는 여기서만 가져온다.** 손으로 숫자를 적지 않는다.
-- 발표 숫자는 숲 대비 값만 쓴다(`decision_jmj.md` 초안). 원본 값(3.4 dB 대 1.6 dB)은 쓰지 않는다.
-
-### 2-4. 한계 문구 키 (로직은 키를 주고, 문구는 프론트가 한·영으로 쓴다)
-
-| 키 | 뜻 |
-|---|---|
-| `signal_not_cause` | 빛남은 레이더 신호 변화이지 생태·작황 판정이 아니다 |
-| `provisional` | 11번 중 10번은 PROVISIONAL 자료라 기준이 조금 다를 수 있다 |
-| `zone_unverified` | 구역은 영상에서 고른 사각형이고 토지피복 검증이 없다 |
-| `forest_relative` | 숲 구역을 기준으로 장면 전체가 함께 변한 몫을 뺐다 |
-| `cloud_tile` | 구름량은 HLS 타일(약 110 km) 단위 값이다 |
-| `north_wording` | 북쪽 땅은 "경작지로 보이는 곳"으로만 부른다 |
-| `missing_pass` | 7/29 통과는 자료가 없다 |
-
-## 3. 로직 API (htj가 만들고 jmj가 부른다)
-
-모두 ES 모듈이고, 계산 함수는 DOM 없이 node 테스트가 된다.
-
-```js
-// app/js/glow.js
-export function pixelOf(corners, size, lng, lat)      // → [x, y] | null (영상 밖)
-export function sampleDb(imageData, x, y, scaleDb)    // → dB | null (알파 0)
-export function frameAt(progress, nFrames)            // progress 0~1 → 프레임 번호
-export function regionAt(glow, lng, lat)              // → { region, x, y } | null. 포인터가 어느 지역 영상 위에 있는지
-
-// app/js/landsound.js
-export function noteFor(db, scaleDb)                  // → { midi, freq, gain } | null(쉼). 눈금의 25% 아래는 쉼
-export function touch(db, scaleDb)                    // 포인터 이동마다 불러도 된다(내부에서 간격 조절). 울린 음 또는 null
-// sound.js: blip(freq, gain, dur) — 곡을 멈추지 않는 짧은 음. touch가 쓴다
-
-// app/js/evidence.js
-export function evidence(zones, regionId)
-// → { dates: [...],
-//     lines: [{ zoneId, name, role, place, values: [dB | null] }],  // place: 'south' | 'dmz' | 'north' 순서. 숲 대비 HH(첫 통과 0), 결측은 null
-//     ranges: { [zoneId]: dB },                                // 계절 변동 폭(최대 - 최소)
-//     excluded: [cycle],                                       // 모든 구역이 함께 변한 통과
-//     caveats: ['forest_relative', 'provisional', ...] }       // 2-4 키
-```
-
-`state.js`의 `load()`가 `glow.json`, `facts.json`, `opening.json`(없으면 `null`)을 함께 읽는다. 결과는 `data.glow`, `data.facts`, `data.opening`에 담긴다. 숫자는 `fact('july_clear_optical')`처럼 꺼낸다(값만 반환, 없으면 `null`).
+데이터 파일(`glow.json`, `opening.json`, `facts.json`), 함수(`glow.js`, `landsound.js`, `evidence.js`, `sound.js`), 한계 문구 키, 쓰는 법 예시는 **`interface.md` 하나가 기준**이다. 지금 저장소에 있는 그대로 적었다.
+계약을 바꿀 때는 `interface.md`를 먼저 고쳐 푸시하고, 5절 요청 칸에 한 줄 남긴 뒤 코드를 바꾼다.
 
 ## 4. 작업 목록 (MVP 단위)
 
@@ -246,7 +150,7 @@ git push origin main
   - 다시 `npm test`를 통과하고 푸시한다.
 - `git push --force`, `git reset --hard origin/...` 처럼 남의 커밋을 지울 수 있는 명령은 쓰지 않는다.
 - 생성물(`app/data/**`)이 충돌하면 손으로 합치지 않는다. 최신 `tools/`로 다시 만들어 덮는다.
-- 계약(2절·3절)을 바꿀 때는 **이 문서를 먼저 고쳐 푸시하고**, 요청 보드에 한 줄 남긴 뒤 코드를 바꾼다. 바뀌는 동안은 옛 형식도 읽히게 둔다.
+- 계약(`interface.md`)을 바꿀 때는 **그 문서를 먼저 고쳐 푸시하고**, 요청 보드에 한 줄 남긴 뒤 코드를 바꾼다. 바뀌는 동안은 옛 형식도 읽히게 둔다.
 - 작업을 시작하거나 끝내면 `CLAUDE.md` 트래커의 해당 줄을 같은 커밋에서 고친다.
 
 ## 7. AI 세션 시작 문장
@@ -254,7 +158,7 @@ git push origin main
 htj:
 
 ```
-git pull --rebase origin main 하고 CLAUDE.md와 plan.md를 읽어. 나는 htj(로직·데이터)야.
+git pull --rebase origin main 하고 CLAUDE.md, plan.md, interface.md를 읽어. 나는 htj(로직·데이터)야.
 5절 보드의 피드백·요청 중 내 몫을 먼저 처리하고, 4절에서 지금 MVP의 htj 작업만 해. MVP 범위 밖은 하지 마.
 내 소유 파일만 고치고, 푸시 전에는 6절 순서(fetch → rebase → npm test → push)를 지켜.
 ```
@@ -262,9 +166,9 @@ git pull --rebase origin main 하고 CLAUDE.md와 plan.md를 읽어. 나는 htj(
 jmj:
 
 ```
-git pull --rebase origin main 하고 CLAUDE.md와 plan.md를 읽어. 나는 jmj(프론트)야.
+git pull --rebase origin main 하고 CLAUDE.md, plan.md, interface.md를 읽어. 나는 jmj(프론트)야.
 5절 보드의 피드백·요청 중 내 몫을 먼저 처리하고, 4절에서 지금 MVP의 jmj 작업만 해. MVP 범위 밖은 하지 마.
-데이터·로직이 아직 없으면 2·3절 계약대로 가정하고 만들고, 필요한 건 5절 요청 칸에 적어.
+데이터·함수는 interface.md에 있는 것만 쓰고, 없는 게 필요하면 5절 요청 칸에 적어.
 내 소유 파일만 고치고, 푸시 전에는 6절 순서(fetch → rebase → npm test → push)를 지켜.
 ```
 
@@ -273,4 +177,4 @@ git pull --rebase origin main 하고 CLAUDE.md와 plan.md를 읽어. 나는 jmj(
 - "빛난다 / 고요하다"는 레이더 신호 변화 크기를 말한다. 생태 회복, 작황, 무인 지대 같은 판정어는 쓰지 않는다.
 - 북쪽 땅은 "경작지로 보이는 곳 (appears to be farmland)"으로만 부른다.
 - 숫자는 `facts.json`에서만 가져온다.
-- 화면마다 2-4절 한계 문구 키 중 해당하는 것을 하나 이상 보여 준다.
+- 화면마다 `interface.md` 5절 한계 문구 키 중 해당하는 것을 하나 이상 보여 준다.
