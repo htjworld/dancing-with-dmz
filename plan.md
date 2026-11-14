@@ -218,15 +218,21 @@ git pull --rebase origin main 하고 CLAUDE.md, plan.md, interface.md를 읽어.
 ### 파이프라인 (`.github/workflows/deploy.yml`)
 
 - **모든 브랜치 push와 PR**: `npm test` + 앱이 처음에 읽는 데이터 파일이 다 있는지 확인한다.
-- **`main` push**: 테스트를 통과하면 `app/`을 GitHub Pages에 배포한다. 주소는 `https://cen04088.github.io/dancing-with-dmz/`이다(소유자 계정 기준).
+- **`main` push**: 테스트를 통과하면 `app/`을 GitHub Pages에 배포한다. 주소는 **`https://htjworld.github.io/dancing-with-dmz/`**이다(이관 뒤 소유자 htjworld 기준).
 - 저장소가 비공개인 동안은 배포 단계를 건너뛴다(빨간 실패가 뜨지 않게). 공개되는 순간부터 자동으로 배포된다.
 - 테스트가 실패하면 배포되지 않는다. 6절 푸시 순서(`npm test`)를 지키면 실패할 일이 없다.
 
-### 처음 한 번만 (저장소 소유자 cen04088이 해야 한다. htj는 쓰기 권한뿐이라 못 한다)
+### 처음 한 번만
 
-1. 저장소 공개: Settings → General → Danger Zone → Change visibility → Public. 그 전에 비밀값이 없는지 확인한다(`.env`, `data/raw`, `data/cache`는 gitignore 대상).
-2. Pages 켜기: Settings → Pages → Build and deployment → Source를 **GitHub Actions**로.
-3. Actions → test-and-deploy → Run workflow(또는 `main`에 아무 커밋)로 첫 배포를 확인한다.
+저장소를 cen04088(jmj) → **htjworld로 이관**한다(11/14 19:39 jmj 동의). 관리자 설정을 htj가 직접 하기 위해서다.
+
+1. jmj: Settings → General → Danger Zone → Transfer ownership → `htjworld`
+2. htj: 이관 요청 수락(하루 안)
+3. htj: 저장소 공개(`gh repo edit htjworld/dancing-with-dmz --visibility public --accept-visibility-change-consequences`). 그 전에 비밀값이 없는지 확인한다(`.env`, `data/raw`, `data/cache`는 gitignore 대상).
+4. htj: Pages 켜기(Settings → Pages → Source를 **GitHub Actions**로, 또는 `gh api -X POST repos/htjworld/dancing-with-dmz/pages -f build_type=workflow`)
+5. 전원: 원격 주소 바꾸기 `git remote set-url origin https://github.com/htjworld/dancing-with-dmz.git` (옛 주소도 자동으로 넘겨 주지만 바꿔 둔다)
+6. htj: 협업자 확인(Settings → Collaborators). jmj·hdk·khs가 빠졌으면 다시 초대한다
+7. Actions → test-and-deploy → Run workflow(또는 `main`에 아무 커밋)로 첫 배포를 확인한다
 
 ### 배포 뒤 확인
 
