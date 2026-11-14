@@ -133,7 +133,10 @@ body.finale #timeline{opacity:.35;pointer-events:none}
 #to-night{position:fixed;top:16px;right:470px;padding:7px 12px;border-radius:999px;border:1px solid var(--edge);background:var(--card);font-size:12px}
 #night{display:none}
 body[data-screen=night] #night{display:block;position:fixed;left:20px;top:86px;width:370px;max-height:calc(100% - 130px);overflow:auto;
-  background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:20px;backdrop-filter:blur(6px)}
+  background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:20px;backdrop-filter:blur(6px);scrollbar-width:thin;scrollbar-color:#486058 transparent}
+#night::-webkit-scrollbar{width:6px}
+#night::-webkit-scrollbar-track{background:transparent}
+#night::-webkit-scrollbar-thumb{background:#486058;border-radius:6px}
 body:not([data-screen=mission]) #panel,body:not([data-screen=mission]) #to-night,body:not([data-screen=mission]) #tray,
 body:not([data-screen=mission]) #timeline,body:not([data-screen=mission]) #stage,body:not([data-screen=mission]) #dance,
 body:not([data-screen=mission]) .pin,body:not([data-screen=mission]) .zone-tag,body:not([data-screen=mission]) .river-mark{display:none}

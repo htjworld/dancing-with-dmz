@@ -24,6 +24,17 @@ test('regionAt: 철원 민통선 논 가운데는 철원', () => {
   assert.equal(regionAt(glow, 0, 0), null);
 });
 
+test('pixelOf: Web Mercator 타일은 지도의 투영 좌표로 화소를 찾는다', () => {
+  const corners = [[126, 39], [128, 39], [128, 37], [126, 37]], size = [1024, 1024];
+  const y = lat => Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360));
+  const lat = (2 * Math.atan(Math.exp((y(39) + y(37)) / 2)) - Math.PI / 2) * 180 / Math.PI;
+  const hit = regionAt({ projection: 'EPSG:3857', regions: { strip: { corners, size } } }, 127, lat);
+  assert.equal(hit.region, 'strip');
+  assert.ok(Math.abs(hit.x - 512) <= 1 && Math.abs(hit.y - 512) <= 1);
+  assert.equal(pixelOf(corners, size, 128, lat, 'EPSG:3857'), null);
+  assert.equal(pixelOf(corners, size, 127, 90, 'EPSG:3857'), null);
+});
+
 test('sampleDb: 0 -> lo, 255 -> hi, 알파 0 -> null, 범위 밖 -> null', () => {
   const img = { width: 2, height: 1, data: Uint8ClampedArray.from([0, 0, 0, 255, 255, 255, 255, 255]) };
   assert.equal(sampleDb(img, 0, 0, [0, 1.5]), 0);

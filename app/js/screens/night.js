@@ -12,12 +12,12 @@ const CAVEATS = ['signal_not_cause', 'forest_relative'];   // 이 화면에서 �
 let at = 'cheorwon';   // 지도에서 보고 있는 곳. map.js 의 처음 범위와 같다
 let timer = 0, startedAt = 0, duration = 0, preloaded = false;
 
-const nFrames = () => data.glow?.regions?.cheorwon?.frames?.length || 0;
+const nFrames = () => Object.values((data.corridor || data.glow)?.regions || {})[0]?.frames?.length || 0;
 
 // ---- 한 계절 재생: 곡의 처음~끝이 첫 통과~마지막 통과다. 통과가 쌓일수록 들판이 빛나고 별 소리가 늘어난다.
 function preload() {
   if (preloaded) return; preloaded = true;
-  for (const g of Object.values(data.glow.regions)) for (const f of g.frames) { const im = new Image(); im.src = `data/${f}`; }
+  for (const g of Object.values((data.corridor || data.glow).regions)) for (const f of g.frames) { const im = new Image(); im.src = `data/${f}`; }
 }
 export function stopSeason() {
   if (!timer) return;
@@ -42,7 +42,7 @@ export function playSeason() {
 }
 
 function playRow() {
-  const k = state.nightFrame, dates = data.glow?.dates || [];
+  const k = state.nightFrame, dates = (data.corridor || data.glow)?.dates || [];
   if (!nFrames()) return '';
   // frames[k] 는 첫 통과부터 k+2번째 유효 통과까지 쌓은 것이다
   const now = k == null ? '' : `<span class="when">${t('night.playing', { k: k + 2, n: dates.length, from: dateText(dates[0]), to: dateText(dates[k + 1]) })}</span>`;
@@ -53,7 +53,7 @@ function playRow() {
 }
 
 function render() {
-  const [lo, hi] = data.glow?.scale_db || [0, 0];
+  const [lo, hi] = (data.corridor || data.glow)?.scale_db || [0, 0];
   const regions = ORDER.filter(id => data.glow?.regions?.[id]);
   el.innerHTML = `
     <p class="eye">${t('night.eye', { passes: fact('passes') })}</p>
@@ -68,6 +68,7 @@ function render() {
     <p class="fact">${t('night.fact', { n: fact('july_clear_optical'), looks: fact('july_optical_looks') })}</p>
     <div class="scale" role="img" aria-label="${t('night.scaleAria')}"></div>
     <div class="ends"><span>${t('night.scaleLow', { lo })}</span><span>${t('night.scaleHigh', { hi })}</span></div>
+    ${data.corridor ? `<p class="fine">${t('night.corridor', { km: data.corridor.half_width_km })}</p>` : ''}
     <div class="go" role="group">
       ${regions.map(id => `<button type="button" data-go="${id}" aria-pressed="${at === id}">${t('region.' + id)}</button>`).join('')}
       <button type="button" data-go="all" aria-pressed="${at === 'all'}">${t('night.all')}</button>
@@ -79,6 +80,7 @@ function render() {
 }
 
 export function initNight() {
+  if (data.corridor) at = 'all';
   el.addEventListener('click', e => {
     const go = e.target.closest('[data-go]');
     if (go) {

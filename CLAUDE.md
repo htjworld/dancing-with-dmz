@@ -17,6 +17,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 연속 관측 띠 구현: 양쪽 22km, 11개 관측일·인접 22장면 원자료 추출, 경계선·재생·땅 연주 연결 및 검수 — khs · `interface.md` 2-1a
 - [x] 밤하늘 영상 1차 초안: 점 지구본(은하수 배경, 위성이 비추며 돌고 DMZ로 확대) → 물결 선(다섯 지역 가로줄이 관측마다 실제 값으로 흔들림, 금빛 = 크게 흔들린 곳), 눈금 11칸, 자막 한·영, 음악 96초로 이어 붙임 — hdk · `app/js/screens/film.js`, `globe.js`, `tools/make_ridges.py` (jmj·htj 확인 요청은 `plan.md` 5절)
 - [x] 게임 개편: 한 지역을 소개 카드 → 놀기 → 결과 카드 세 박자로. 파주 필름 고르기, 연천 강 따라 긋기, 철원 전후 사진 견주기, 화천 커튼 밀기, 양구 끌어서 가장 많이 변한 곳 찾기. 조각 받는 순간 연출, 팝업 디자인 '밤하늘의 선', 지도 위 선 다시 그리기, 결과 카드(한 줄 결론·막대·관련 영상 자리·? 단추), 문구 다듬기 — jmj · `app/js/views/**`, `screens/gamemap.js`, `main.js`, `dance.js`, `map.js`, `stops.js`, `i18n.js`, `style.css`
 - [x] 엔딩·조각 소리: 밤하늘 주제가 엔딩에서 가락을 얹어 완성(35초), 조각을 받을 때 주제 한 마디 — jmj · `app/js/screens/nightmusic.js`

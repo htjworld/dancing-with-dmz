@@ -11,7 +11,7 @@ let pixels = null, loading = null;
 function loadPixels() {
   loading ||= (async () => {
     const out = {};
-    for (const [id, r] of Object.entries(data.glow.regions)) {
+    for (const [id, r] of Object.entries((data.corridor || data.glow).regions)) {
       const blob = await (await fetch(`data/${r.value}`)).blob();
       const bmp = await createImageBitmap(blob, { premultiplyAlpha: 'none', colorSpaceConversion: 'none' });
       const c = typeof OffscreenCanvas === 'function' ? new OffscreenCanvas(bmp.width, bmp.height)
@@ -32,7 +32,8 @@ export function initLand(map) {
 
   function move(e) {
     if (!on() || !pixels || !e.lngLat) return;
-    const scale = data.glow.scale_db, hit = regionAt(data.glow, e.lngLat.lng, e.lngLat.lat);
+    const dataset = data.corridor || data.glow;
+    const scale = dataset.scale_db, hit = regionAt(dataset, e.lngLat.lng, e.lngLat.lat);
     const db = hit ? sampleDb(pixels[hit.region], hit.x, hit.y, scale) : null;
     if (db == null) return hide();   // 영상 밖이거나 자료가 없는 곳
     touch(db, scale);

@@ -36,9 +36,12 @@ export function initMap() {
   // 영상 모드에서는 설명 창이 없으니 가운데에 두고 아래 자막 자리만 비운다
   const nightPadding = () => (state.nightMode === 'film' || state.screen === 'opening' ? { top: 70, bottom: 190, left: 40, right: 40 }
     : innerWidth > 900 ? { top: 60, bottom: 50, left: 420, right: state.evidenceAt ? 390 : 40 } : { top: 60, bottom: 300, left: 16, right: 16 });
-  const glow = data.glow?.regions || {};
-  let nightAt = 'cheorwon';   // 밤사진에서 보고 있는 곳(지역 id 또는 'all')
-  const nightView = (duration = 900) => map.fitBounds(nightAt === 'all' || !glow[nightAt] ? VIEW : boundsOf(glow[nightAt].corners), { padding: nightPadding(), duration });
+  const places = data.glow?.regions || {};
+  const glow = data.corridor?.regions || places;
+  let nightAt = data.corridor ? 'all' : 'cheorwon';   // 연속 관측 띠가 있으면 전체 범위부터 보여 준다
+  const nightView = (duration = 900) => map.fitBounds(nightAt === 'all' || !places[nightAt]
+    ? (state.nightMode === 'explore' ? data.corridor?.bounds || VIEW : VIEW)
+    : boundsOf(places[nightAt].corners), { padding: nightPadding(), duration });
   const map = new maplibregl.Map({ container: 'map', style: nobase ? EMPTY : BASE, bounds: VIEW,
     fitBoundsOptions: { padding: padding() }, attributionControl: false, maxZoom: 14 });
   // 지도가 움직이는 동안에는 반투명 창의 흐림 효과를 잠깐 끈다(움직이는 지도 위의 흐림은 프레임마다 다시 계산되어 느려진다)
@@ -80,6 +83,12 @@ export function initMap() {
     map.addSource('dmz', { type: 'geojson', data: data.boundary });
     map.addLayer({ id: 'dmz-glow', type: 'line', source: 'dmz', paint: { 'line-color': '#9fc4ee', 'line-width': 6, 'line-blur': 6, 'line-opacity': .18 } });
     map.addLayer({ id: 'dmz-line', type: 'line', source: 'dmz', paint: { 'line-color': '#d5e2f2', 'line-width': 1.2, 'line-opacity': .75, 'line-dasharray': [1, 2.4] } });
+    // 두 바깥 선은 관측 범위이며 실제 DMZ 경계가 아니다. 가운데 군사분계선과 구별한다.
+    if (data.corridor?.edges) {
+      map.addSource('corridor-edges', { type: 'geojson', data: data.corridor.edges });
+      map.addLayer({ id: 'corridor-edges', type: 'line', source: 'corridor-edges', layout: { visibility: 'none' },
+        paint: { 'line-color': '#d7c9ef', 'line-width': 1.2, 'line-opacity': .8, 'line-dasharray': [5, 4] } });
+    }
     // 밤사진의 분계선: 빛나는 들판 사이에서 또렷이 보이는 흰 실선
     map.addLayer({ id: 'dmz-white', type: 'line', source: 'dmz', layout: { visibility: 'none' }, paint: { 'line-color': '#ffffff', 'line-width': 1.4, 'line-opacity': .95 } });
     // 구역 사각형: 지금 고른 지역의 것만 보인다
@@ -102,6 +111,7 @@ export function initMap() {
     map.setLayoutProperty('dmz-white', 'visibility', vis(night));
     for (const id of ['dmz-glow', 'dmz-line']) map.setLayoutProperty(id, 'visibility', vis(!night));
     for (const id of ['zone-fill', 'zone-line']) map.setLayoutProperty(id, 'visibility', vis(!night && !!radarOf(s)));   // 구역 사각형은 레이더 영상이 켜져 있을 때만
+    if (map.getLayer('corridor-edges')) map.setLayoutProperty('corridor-edges', 'visibility', vis(night && s.nightMode === 'explore'));
   };
   subscribe((s, prev) => {
     if ((s.screen === 'mission') === (prev.screen === 'mission')) return;
@@ -134,7 +144,7 @@ export function initMap() {
   });
   // 밤하늘 영상: 빛이 서서히 스며들게 한다(0~1)
   document.addEventListener('dmz-glow-opacity', e => { for (const id of Object.keys(glow)) if (map.getLayer(`glow-${id}`)) map.setPaintProperty(`glow-${id}`, 'raster-opacity', e.detail.value); });
-  subscribe((s, prev) => { if (s.nightMode !== prev.nightMode && s.screen === 'night') nightView(); });
+  subscribe((s, prev) => { if (s.nightMode !== prev.nightMode && s.screen === 'night') { screen(s); nightView(); } });
   subscribe((s, prev) => { if (s.evidenceAt !== prev.evidenceAt && s.screen === 'night' && !s.evidenceAt) nightView(); });
   let pieceBack = 0;
   const focus = id => { const b = STOPS.find(x => x.id === id).bounds; touched = true;

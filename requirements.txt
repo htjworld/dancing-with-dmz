@@ -6,6 +6,8 @@ numpy
 pyproj
 Pillow
 scipy
+rasterio
+shapely
 matplotlib
 tifffile
 imagecodecs

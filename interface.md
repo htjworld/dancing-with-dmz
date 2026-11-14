@@ -16,6 +16,7 @@
 import { load, data, fact } from './state.js';
 await load();
 data.glow      // glow.json (항상 있음)
+data.corridor  // corridor.json (있으면 밤사진·땅 연주의 연속 관측 띠, 없으면 기존 glow 사용)
 data.facts     // facts.json (항상 있음)
 data.opening   // opening.json, 없으면 null
 data.landcover // landcover.json(구역별 토지피복 %), 없으면 null
@@ -57,6 +58,20 @@ fact('july_clear_optical')   // → 0 (값만, 키가 없으면 null)
 | `source` | — | `"layers"`(앱 영상에서 만든 판) / `"cache"`(원자료 판). 화면에서 구분하지 않아도 된다 |
 
 경로는 `data/` 기준이다. 쓸 때는 `` `data/${r.color}` ``처럼 붙인다.
+
+### 2-1a. `data/corridor.json` — 이어진 관측 띠 (khs)
+
+기존 다섯 영상의 범위를 모두 포함하도록 개략 군사분계선에 양쪽 22km 버퍼를 적용한다. 두 바깥 점선은 **관측 범위**이며 실제 DMZ 경계가 아니다. 기존 `glow.json`의 다섯 지역은 확대 위치·기존 통계용으로 유지한다.
+
+- `regions`: `glow.json`과 같은 `{ corners, size, color, value, frames }` 타일 목록. 경위도와 Web Mercator가 정렬된 타일이라 지도 위에서 이음매 없이 연결된다.
+- `projection: "EPSG:3857"`: `regionAt()`이 이 값을 읽어 지도와 같은 투영으로 화소를 찾는다. `pixelOf()`를 직접 부르면 다섯째 인자로 이 값을 전달한다.
+- `dates`, `scale_db`: 재생 날짜와 숫자 눈금. `bounds`는 전체 띠의 지도 범위, `edges`는 두 경계선 GeoJSON, `half_width_km`는 한쪽 폭이다.
+- 관측은 기존 11개 날짜와 같은 하강 궤도 133, 모드 4005, HH 편파다. 인접 프레임 069를 우선 사용하고 같은 날의 070으로 결측 부분만 채운다.
+- 유효한 원본 10m 화소(mask 1~254, 양수·유한 gamma0)를 3×3 평균해 30m로 만든 뒤, 선형 전력을 5×5 평균한다. 다섯 기준 숲의 평균 전력을 dB로 바꾼 값의 중앙값을 매 관측에서 공통으로 뺀다.
+- 색은 그 결과의 계절 표준편차다. 표시용 격자는 Web Mercator 80m(이 위도에서 지상 약 63m). 없는 관측을 보간하지 않고, 두 번 이상 관측된 화소만 표시한다. 자료 없음은 투명하다.
+- 기존 미션·근거 패널의 구역 통계는 기존 지역별 숲 기준을 유지한다. 연속 배경과 기준이 같다고 간주해 숫자를 섞지 않는다. 상세 처리·출처·관측별 유효 범위는 `processing`, `sources`, `coverage`, `references`에 둔다.
+
+재생성은 `python tools/corridor/prepare.py` → `python tools/corridor/collect.py --workers 3` → `python tools/corridor/render.py --publish` 순서다. Python 의존성은 `requirements.txt`, 인증은 기존 `.env`의 `EARTHDATA_TOKEN`을 쓴다. 원본 추출 캐시·중간 파일은 Git에서 제외되는 `data/cache/corridor/`, 화면용 결과는 `app/data/corridor/`와 `corridor.json`에 둔다. 수치 처리 검사는 `python tools/corridor/test_processing.py`로 실행한다.
 
 ### 2-2. `data/opening.json` — 구름 문지르기
 
