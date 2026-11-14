@@ -51,7 +51,7 @@
 | `app/index.html`, `app/style.css` | jmj | |
 | `app/js/main.js`, `map.js`, `dance.js`, `stops.js`, `views/**` | jmj | |
 | `app/js/screens/**`, `app/js/i18n.js` (신규) | jmj | 화면 모듈, 한·영 문구 |
-| **밤하늘 섹션**: `screens/film.js`, `screens/night.js`, `style.css`의 "밤사진 화면"·"밤하늘 영상" 블록, `i18n.js`의 `film.*`·`night.*` 문구 | hdk | 11/14 21:33 디코 합의(섹션별 분담). 오프닝·게임·엔딩은 jmj. `map.js`의 밤 레이어(바탕 지도·빛 레이어)는 jmj가 "DMZ 맵 잇기"로 같이 고치므로 고치기 전에 디코로 알린다 |
+| **밤하늘 섹션**: `screens/film.js`, `screens/globe.js`, `screens/night.js`, `style.css`의 "밤사진 화면"·"밤하늘 영상" 블록, `i18n.js`의 `film.*`·`night.*` 문구 | hdk | 11/14 21:33 디코 합의(섹션별 분담). 오프닝·게임·엔딩은 jmj. `map.js`의 밤 레이어(바탕 지도·빛 레이어)는 jmj가 "DMZ 맵 잇기"로 같이 고치므로 고치기 전에 디코로 알린다 |
 | `demo/**` (신규) | jmj | 영상·슬라이드 자료 |
 | `plan.md`, `CLAUDE.md` | 공동 | 고친 사람이 바로 푸시 |
 
@@ -144,6 +144,9 @@ J7(데모)은 피드백 반영 뒤 18:00 이후에 만든다. 18:00 이후에는
   - jmj 답: 1~3순위를 모두 반영했다. 구름 첫 줄("이 땅은 보이지 않습니다"), 영상 c1(열한 번 찍었다)·c2(밤사진 반전)·c6~c8(멈춘 흰 선 → 춤추게 해 볼까요 → 당신이 읽을 차례), 조각 받기 문구(시간·물·비교·두 눈·한계), 엔딩 자막 5줄(이어짐 → 단 하루 → 보고 있었다 → 7월 구름 회상 → 후렴). "오늘도 지나갑니다"는 넣지 않았다. 영상에서 흰 선을 말할 때 분계선이 한 번 굵어진다(`dmz-line-pulse`). 엔딩 자막은 `#ending-line`, 구름 회상은 `#ending-cloud`(`index.html`의 `#stage` 안, 스타일은 `style.css` 끝 "엔딩 나레이션" 블록)
 - [x] (hdk→jmj, 전원) 디자인은 **오프닝 첫 화면부터** hdk가 다시 잡고 싶다(위 136행 소유권 제안의 구체화). 동작(`opening.js` 문지르기·손 안내, `film.js`)과 문구는 jmj가 그대로 갖고, hdk는 `style.css`·`index.html`의 모습만 고친다. 필요한 클래스·구조 변경은 이 보드로 주고받는다. 동의하면 1절 표를 고친다
   - 결론(11/14 21:33 디코): 파일이 아니라 **섹션별로** 나눈다. hdk = 밤하늘(동작·문구·디자인 모두), jmj = 오프닝·게임·엔딩. 136행 제안과 이 줄은 이것으로 대신한다. 1절 표에 반영했다
+
+- [ ] (hdk→jmj) 밤하늘 영상 1차 초안을 올렸다: 점 지구본 도입(15.5초, `screens/globe.js`) → 물결 선(`screens/film.js`). 남의 파일을 한 곳 고쳤다: `map.js`에 `window.__dmzMap = map;` 한 줄(물결 선 캔버스가 지도 좌표를 화면 좌표로 바꿀 때 쓴다). 더 나은 방법(예: `map.js`가 지도를 내보내는 함수)이 있으면 바꿔 달라. 함께 볼 것: ① 밤하늘 음악은 `nightmusic.js`를 고치지 않고 `film.js`에서 `nightScore()`를 이어 96초로 쓴다 ② 「밤하늘 직접 둘러보기」·근거 패널은 아직 예전 빛 사각형이라 영상과 그림이 다르다(내가 이어서 맞출지 상의) ③ 화면 문구의 "통과"를 "관측"으로 바꾸는 중이다. 밤하늘(`night.*`, `film.*`)은 바꿨고, 남은 9곳(`proof.*`, `caveat.provisional`·`caveat.missing_pass`, `paju.noteRest`, `yeoncheon.obsWet*`, `dance.rest`)도 맞춰 주면 좋겠다 — J1·J3
+- [ ] (hdk→htj) 물결 선 자료 `app/data/ridges.json`(2.3 MB)과 지구본 점 `app/data/globe_dots.json`을 넣었다(`app/data`는 htj 소유). 물결은 `tools/make_ridges.py`로 다시 만들 수 있다(`layers` WebP에서 make_glow.py와 같은 숲 기준, 다시 돌려 같은 결과 확인). 지구본 점은 Natural Earth 110m 땅에서 고른 점(4,678개)과 한반도 촘촘한 점이며, 만든 스크립트는 hdk 로컬 시안에 있다. 확인하고 문제 있으면 알려 달라 — H
 
 - [ ] (jmj→htj) 엔딩과 조각 소리도 밤하늘의 주제로 바꿨다(`screens/nightmusic.js`의 `endingScore()` 35초, `pieceChime(n)` 4초). 밤하늘에서 들은 화음이 엔딩에서 가락을 얹어 완성되는 구조다. `main.js`의 `perform()`과 `dance.js`의 박자가 이 곡을 쓰고, `music.js`·`rhythm.js`·`sound.js`는 건드리지 않았다(`score()`·`layersPreview()`·`applyRhythm()`은 이제 앱에서 부르지 않는다). 바뀐 점: 반주 세기가 실측을 따르던 연결이 없어졌다. 음악은 연출이고, 실측을 따르는 것은 선의 높이·멈춤·점프다. README·`submission.md`·`interface.md`에 반주와 실측의 연결을 설명한 곳이 있으면 고쳐 달라 — J3
 
