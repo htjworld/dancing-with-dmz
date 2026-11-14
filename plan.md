@@ -45,7 +45,6 @@
 | `app/data/**` | htj | 생성물. 손으로 고치지 않고 `tools/`로 다시 만든다 |
 | `app/js/calc.js`, `missions.js`, `rhythm.js`, `music.js`, `sound.js` | htj | 계산·소리 로직 |
 | `app/js/glow.js`, `landsound.js`, `evidence.js` (신규) | htj | `interface.md` 3절 |
-| `app/js/landplay.js` (신규) | htj | J4 땅 연주. 화면 요소 없이 지도 포인터만 쓴다 |
 | `app/js/state.js`의 `data`, `load()`, 데이터 조회 함수 | htj | |
 | `app/js/state.js`의 `state` 객체(화면 상태 필드) | jmj | 같은 파일이지만 다른 덩어리다. rebase로 대부분 자동 병합된다 |
 | `app/tests/**` | htj | jmj가 테스트를 추가해도 된다(새 파일로) |
@@ -88,7 +87,7 @@ htj와 jmj가 동시에 만든다. 단계 사이에 피드백으로 멈추지 �
 |---|---|---|---|
 | H4 | htj | `glow.js`(`pixelOf`, `sampleDb`, `frameAt`), `landsound.js`(`noteFor`, `touch`) + 테스트 | `npm test` 통과, 경계값 테스트 포함 |
 | H5 | htj | `evidence.js` + 테스트 (`calc.forestChange`, `togetherDays` 재사용) | 철원·파주 숫자가 `facts.json`과 같다 |
-| J4 | **htj** | 땅 연주: 포인터 → `regionAt` → `sampleDb` → `touch`. 화면 요소가 없어 htj가 맡는다(`app/js/landplay.js`, `main.js`에는 호출 한 줄) | DMZ 띠 위에서 소리가 끊긴다 |
+| J4 ✅ | jmj | 땅 연주: 포인터 → `regionAt` → `sampleDb` → `touch` (`screens/land.js`) | DMZ 띠 위에서 소리가 끊긴다 |
 | J5 | jmj | 확대 근거 패널: `evidence()` 곡선, 변동 폭, 한계 문구, 기존 미션 진입 | 철원·파주에서 숫자와 곡선이 보인다 |
 
 ### MVP4 — 영어와 제출물
