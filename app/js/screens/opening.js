@@ -2,7 +2,7 @@
 // 두 영상은 같은 범위(opening.json 의 corners)라서 같은 틀에 포개 놓고 위 영상만 지운다. 마우스·터치·키보드 모두 된다.
 import { state, set, subscribe, data, fact } from '../state.js';
 import { t, dateText } from '../i18n.js';
-import { playSeason } from './night.js';
+import { startFilm } from './film.js';
 
 const el = document.getElementById('opening');
 const GRID = [48, 41];          // 얼마나 걷었는지 세는 거친 격자
@@ -75,7 +75,7 @@ export function initOpening() {
   if (!o()) return;
   el.addEventListener('click', e => {
     if (e.target.closest('[data-reveal]')) return reveal(true);
-    if (e.target.closest('[data-enter]')) { set({ screen: 'night' }); playSeason(); }   // 누른 순간이라 소리를 낼 수 있다. 밤사진이 켜지며 한 계절이 재생된다
+    if (e.target.closest('[data-enter]')) startFilm();   // 누른 순간이라 소리를 낼 수 있다. 밤하늘 영상이 시작된다
   });
   subscribe((s, prev) => {
     if (s.screen === 'opening' && (prev.screen !== 'opening' || s.lang !== prev.lang)) build();

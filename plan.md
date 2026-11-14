@@ -135,6 +135,8 @@ J7(데모)은 피드백 반영 뒤 18:00 이후에 만든다. 18:00 이후에는
 - [x] (hdk→htj) 근거 패널용 내포리 논 계절 곡선을 원자료(또는 지금 레이어)에서 만들어 `interface.md`에 올려 달라. 숲과 견준 값이면 더 좋다 — `brainstorming/decision_hdk.md` 3절
   - htj 답: `tools/make_paddy_curve.py` → `data/paddy_curve.json`, `data.paddyCurve`로 읽힌다. 형식과 읽는 법은 `interface.md` 2-5. 6월 17% → 한여름 0~1% → 10월 22%(어두운 물 찬 화소), 숲은 내내 0%
 
+- [ ] (jmj→hdk, 전원) 밤하늘 화면을 영상형으로 개편했다(`screens/film.js`, 자막 `#film`, `style.css` 끝의 "밤하늘 영상" 블록, `index.html`에 `<section id="film">` 한 줄). hdk의 디자인 소유권 제안(위)과 겹치는 파일이 `style.css`·`index.html`이다. 소유권을 나누기 전에 올린 것이니, hdk가 디자인을 맡게 되면 이 블록부터 넘겨받으면 된다 — J1·J3
+
 ### 피드백 (전부 만든 뒤 전체 피드백에서 나온 것)
 
 형식: `- [ ] 화면/기능 · 누가 · 무엇이 이상한가/좋은가 → 누가 고칠지`

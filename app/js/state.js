@@ -21,6 +21,7 @@ export const state = {
   mapReady: false,
   screen: 'opening', // 지금 화면: 'opening'(구름 문지르기) | 'night'(밤사진) | 'mission'(다섯 지역에서 직접 확인하기)
   nightFrame: null,  // 밤사진 재생 중 보여 줄 누적 프레임 번호. null 이면 완성된 한 장
+  nightMode: 'film', // 밤하늘 화면의 모습: 'film'(나레이션과 함께 스스로 흐르는 영상) | 'explore'(직접 둘러보기)
   landPlay: false,   // 땅 연주가 켜져 있는가(지도를 쓸면 소리가 난다)
   evidenceAt: null,  // 근거 패널을 연 지역 id. null 이면 닫힘
   lang: 'ko',        // 화면 문구의 언어: 'ko' | 'en'

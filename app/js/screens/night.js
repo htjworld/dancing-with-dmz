@@ -73,7 +73,9 @@ function render() {
       <button type="button" data-go="all" aria-pressed="${at === 'all'}">${t('night.all')}</button>
     </div>
     <ul class="caveats">${CAVEATS.map(k => `<li>${t('caveat.' + k)}</li>`).join('')}</ul>
-    <p class="fine">${t('night.pick')}</p>`;
+    <p class="fine">${t('night.pick')}</p>
+    <div class="ends2"><button type="button" class="next" data-next>${t('night.next')}</button>
+      <button type="button" class="ghost" data-film>${t('film.replay')}</button></div>`;
 }
 
 export function initNight() {
@@ -87,9 +89,11 @@ export function initNight() {
     }
     if (e.target.closest('[data-play]')) return state.nightFrame == null ? playSeason() : stopSeason();
     if (e.target.closest('[data-land]')) return set({ landPlay: !state.landPlay });
+    if (e.target.closest('[data-next]')) return set({ screen: 'mission' });
+    if (e.target.closest('[data-film]')) { stopSeason(); return document.dispatchEvent(new Event('dmz-film')); }
   });
   subscribe((s, prev) => {
-    if (s.screen !== 'night' && prev.screen === 'night') stopSeason();        // 화면을 떠나면 재생을 멈춘다
+    if ((s.screen !== 'night' || s.nightMode !== 'explore') && timer) stopSeason();   // 화면이나 모드를 떠나면 재생을 멈춘다
     if (!s.sound && prev.sound && timer) stop();                              // 소리만 끄면 그림은 계속 간다
     if (s.screen !== prev.screen || s.lang !== prev.lang || s.nightFrame !== prev.nightFrame || s.landPlay !== prev.landPlay) render();
   });

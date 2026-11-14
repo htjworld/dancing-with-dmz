@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { nightScore, starsIn, BAR, BARS } from '../js/screens/nightmusic.js';
+import { nightScore, filmScore, starsIn, BAR, BARS } from '../js/screens/nightmusic.js';
 
 test('밤사진 곡: 24초, 북·하이햇·또렷한 주선율 없이 부드러운 소리만 쓴다', () => {
   const plan = nightScore();
@@ -33,4 +33,13 @@ test('밤사진 곡: 재생할 때마다 같고, 별은 그 마디 화음의 음
     const chord = chords[Math.floor(s.time / BAR)].midis;
     assert.ok(chord.includes(s.midi - 24), `별 ${s.midi}`);
   }
+});
+
+test('밤하늘 영상 곡: 같은 곡을 두 번 이어 48초, 여전히 부드러운 소리만 쓴다', () => {
+  const plan = filmScore();
+  assert.equal(plan.duration, 48);
+  assert.deepEqual([...new Set(plan.events.map(e => e.type))].sort(), ['bass', 'pad', 'sparkle']);
+  for (const e of plan.events) assert.ok(e.time >= 0 && e.time < plan.duration && e.gain > 0 && e.gain <= .8);
+  for (let i = 1; i < plan.events.length; i++) assert.ok(plan.events[i].time >= plan.events[i - 1].time);
+  assert.deepEqual(filmScore(), plan);
 });

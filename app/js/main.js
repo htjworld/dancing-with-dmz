@@ -8,6 +8,7 @@ import { play, stop, setSound } from './sound.js';
 import { initDance } from './dance.js';
 import { initNight } from './screens/night.js';
 import { initOpening } from './screens/opening.js';
+import { initFilm, startFilm } from './screens/film.js';
 import { initLand } from './screens/land.js';
 import { initProof } from './screens/proof.js';
 import { initDateSlider } from './screens/dateslider.js';
@@ -51,6 +52,7 @@ function finale() {
 function chrome(s) {
   document.body.dataset.screen = s.screen;
   document.body.dataset.stop = s.stop;
+  document.body.dataset.night = s.nightMode;
   document.documentElement.lang = s.lang;
   $('lead').textContent = t(s.screen === 'mission' ? 'mission.lead' : 'night.lead');
   $('to-night').textContent = t('mission.back');
@@ -80,10 +82,12 @@ async function start() {
   initDance(map);
   initNight();
   initOpening();
+  initFilm();
+  document.addEventListener('dmz-film', startFilm);   // 둘러보기 창의 '다시 보기'
   initLand(map);
   initProof();
   initDateSlider();
-  $('to-night').addEventListener('click', () => set({ screen: 'night' }));
+  $('to-night').addEventListener('click', () => set({ screen: 'night', nightMode: 'explore' }));   // 게임에서 돌아오면 둘러보기로
   $('lang').addEventListener('click', () => {
     const lang = state.lang === 'ko' ? 'en' : 'ko';
     try { localStorage.setItem('dmz-lang', lang); } catch { /* 저장이 막힌 환경에서도 전환은 된다 */ }

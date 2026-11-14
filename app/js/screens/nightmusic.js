@@ -41,3 +41,14 @@ export function nightScore() {
   });
   return { bpm: 60, duration: BARS * BAR, events: events.sort((a, b) => a.time - b.time) };
 }
+
+// 밤하늘 영상(film.js)용: 같은 곡을 두 번 이어 48초. 두 번째에는 별이 조금 더 많다(연출)
+export function filmScore() {
+  const a = nightScore(), rnd = dice(1115), extra = [];
+  for (let m = 0; m < BARS; m++) {
+    const chord = SONG[m][1];
+    extra.push({ type: 'sparkle', time: a.duration + m * BAR + .25 + Math.round(rnd() * 6) / 2, dur: .3, midi: chord[Math.floor(rnd() * chord.length)] + 24, gain: .22 + .2 * rnd() });
+  }
+  const events = [...a.events, ...a.events.map(e => ({ ...e, time: e.time + a.duration })), ...extra].sort((x, y) => x.time - y.time);
+  return { bpm: a.bpm, duration: a.duration * 2, events };
+}
