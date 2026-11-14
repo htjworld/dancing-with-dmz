@@ -1,6 +1,6 @@
 # 3단계 모아 보기
 
-작성: jmj + Claude, 2026-11-14. `brainstorming/`의 네 파일(hdk, htj, jmj, khs)을 읽고 겹치는 것, 갈리는 것, 아무도 안 쓴 것을 정리했다. 이 문서는 설득하지 않고 정리만 한다. 고르는 일은 `decision.md`에서 한다.
+작성: jmj + Claude, 2026-11-14. `brainstorming/`의 네 파일(hdk, htj, jmj, khs)을 읽고 겹치는 것, 갈리는 것, 아무도 안 쓴 것을 정리했다. 이 문서는 설득하지 않고 정리만 한다. jmj가 고른 안은 `decision_jmj.md`에 있다. 팀의 최종 결정은 `decision.md`에 쓴다.
 
 ## 나와 있는 안
 

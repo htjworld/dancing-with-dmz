@@ -1,7 +1,7 @@
-# 4단계 결정 (초안)
+# 4단계 결정 초안 — jmj 안
 
-> **상태: 초안. jmj + Claude가 작성했고 팀 확인 전이다.** htj, hdk, khs가 동의하거나 고치면 이 줄을 "확정"으로 바꾼다. 그 전에는 `CLAUDE.md` 트래커의 "결정"에 옮기지 않는다.
-> 근거 정리는 `stage3_summary.md`.
+> **상태: jmj의 안이다. jmj + Claude가 작성했고 팀 확정이 아니다.** 다른 사람도 `decision_<이니셜>.md`로 자기 안을 올릴 수 있다. 팀이 하나로 정하면 그 결과를 `decision.md`에 쓰고, 그때 `CLAUDE.md` 트래커를 갱신한다.
+> 근거 정리는 `stage3_summary_jmj.md`.
 
 ## 고른 안
 
