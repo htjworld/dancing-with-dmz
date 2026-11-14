@@ -198,3 +198,48 @@ git pull --rebase origin main 하고 CLAUDE.md, plan.md, interface.md를 읽어.
 - 북쪽 땅은 "경작지로 보이는 곳 (appears to be farmland)"으로만 부른다.
 - 숫자는 `facts.json`에서만 가져온다.
 - 화면마다 `interface.md` 5절 한계 문구 키 중 해당하는 것을 하나 이상 보여 준다.
+
+## 9. 배포와 CI/CD
+
+**결론: GitHub Pages + GitHub Actions.** 무료이고 다른 서비스 계정이 필요 없다. `main`에 푸시하면 테스트를 돌리고, 통과하면 자동으로 배포된다. 빌드 단계가 없는 정적 앱(`app/` 폴더 그대로)이라 가장 단순하다.
+
+| 선택지 | 무료 | 비공개 저장소 | 자동 배포 | 판단 |
+|---|---|---|---|---|
+| **GitHub Pages + Actions** | O | X (공개 저장소만 무료) | `main` 푸시 → 테스트 → 배포 | **채택.** 제출 규정상 저장소를 어차피 공개해야 한다(Final Project 공개 링크, OSI 라이선스) |
+| Cloudflare Pages | O | O | 저장소 연결 시 `main` 푸시마다 | 저장소를 공개하지 못할 때의 대안. 소유자가 대시보드에서 연결(빌드 명령 없음, 출력 폴더 `app`) |
+| Render (Static Site) | O | O | 연결 시 자동 | 대안. Publish directory `app` |
+| Vercel (Hobby) | O | 조건부 | 연결 시 자동 | 비공개 저장소 + 여러 사람 커밋이면 Hobby에서 배포가 막힐 수 있어 제외 |
+| Netlify | O | O | 연결 시 자동 | 대안. Publish directory `app` |
+
+### 파이프라인 (`.github/workflows/deploy.yml`)
+
+- **모든 브랜치 push와 PR**: `npm test` + 앱이 처음에 읽는 데이터 파일이 다 있는지 확인한다.
+- **`main` push**: 테스트를 통과하면 `app/`을 GitHub Pages에 배포한다. 주소는 `https://cen04088.github.io/dancing-with-dmz/`이다(소유자 계정 기준).
+- 저장소가 비공개인 동안은 배포 단계를 건너뛴다(빨간 실패가 뜨지 않게). 공개되는 순간부터 자동으로 배포된다.
+- 테스트가 실패하면 배포되지 않는다. 6절 푸시 순서(`npm test`)를 지키면 실패할 일이 없다.
+
+### 처음 한 번만 (저장소 소유자 cen04088이 해야 한다. htj는 쓰기 권한뿐이라 못 한다)
+
+1. 저장소 공개: Settings → General → Danger Zone → Change visibility → Public. 그 전에 비밀값이 없는지 확인한다(`.env`, `data/raw`, `data/cache`는 gitignore 대상).
+2. Pages 켜기: Settings → Pages → Build and deployment → Source를 **GitHub Actions**로.
+3. Actions → test-and-deploy → Run workflow(또는 `main`에 아무 커밋)로 첫 배포를 확인한다.
+
+### 배포 뒤 확인
+
+- 로그아웃 상태(시크릿 창)에서 주소가 열리는지(제출 규정 p19, p23)
+- 오프닝 → 밤사진 → 땅 연주 → 근거 패널이 돌아가는지, 콘솔 에러가 없는지
+- README 맨 위에 서비스 주소를 넣는다(p33)
+
+## 10. 제출 준비 (공식 안내 `ref/03_nasa_seoul_guide.md`)
+
+- [ ] High-Level Summary 영어 50~200단어
+- [ ] Project Demo: 영상 30초 이하(영어 자막) 또는 슬라이드 7장 이하, 공개 링크 하나 — J7
+- [ ] Final Project: 배포 주소(+ 공개 저장소)
+- [ ] Project Details: 문제 → 근거 → NASA 데이터의 의미와 쓰임 → 검증(WorldCover, 창 안 구름, 강수) → 한계 → 다음 검증
+- [ ] **Use of SI: 쓴 AI 도구와 쓴 곳을 공개.** AI가 만든 코드·데이터는 설명문과 메타데이터(README)에 표시
+- [ ] Space Agency Data: NISAR GCOV(ASF), HLS, NASA POWER (+ ESA WorldCover, OSM은 References)
+- [ ] References: 출처·링크·라이선스·쓰인 곳
+- [ ] `LICENSE` 파일(정하지 않으면 Apache 2.0으로 배포됨)
+- [ ] **Submit for Judging**까지 누르고 "Project Submitted for Judging" 확인, 23:55까지
+- [ ] 출석: 개인 체크인 5번 중 4번, 팀 미팅 전원 1회
+

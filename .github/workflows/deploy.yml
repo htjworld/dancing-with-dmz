@@ -1,0 +1,49 @@
+# 테스트 → (main 이고 저장소가 공개일 때만) GitHub Pages 배포
+# 모든 브랜치 push 와 PR 에서 테스트가 돈다. main 에 올라오면 app/ 폴더를 그대로 배포한다(빌드 단계 없음).
+# 처음 한 번: 저장소 공개 + Settings → Pages → Source 를 "GitHub Actions" 로 (plan.md 9절)
+name: test-and-deploy
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm test
+      - name: 앱이 처음에 읽는 데이터 파일이 다 있는지
+        run: |
+          for f in index.html data/dmz.geojson data/rain.json data/regions.json data/layers.json data/river.json data/glow.json data/facts.json; do
+            test -f "app/$f" || { echo "없음: app/$f"; exit 1; }
+          done
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && !github.event.repository.private
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app
+      - id: deployment
+        uses: actions/deploy-pages@v4
