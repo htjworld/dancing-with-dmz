@@ -44,7 +44,7 @@ function render() {
     <p class="eye">${t('region.' + id)} · ${t('proof.eye')}</p>
     <h2>${t('proof.title')}</h2>
     ${chart(e)}
-    <ul class="ranges">${e.lines.map(l => `<li><i style="background:${colorOf(e, l)}"></i><span>${label(l)}<small>${t('place.' + l.place)}</small></span><b>${e.ranges[l.zoneId] ?? '–'} dB</b></li>`).join('')}</ul>
+    <ul class="ranges">${e.lines.map(l => `<li><i style="background:${colorOf(e, l)}"></i><span>${label(l)}${state.lang === 'en' ? '' : `<small>${t('place.' + l.place)}</small>`}</span><b>${e.ranges[l.zoneId] ?? '–'} dB</b></li>`).join('')}</ul>
     <p class="fine">${t('proof.rangeNote')}${e.excluded.length ? ' ' + t('proof.sharedNote') : ''}</p>
     <ul class="caveats">${e.caveats.map(k => `<li>${t('caveat.' + k, { passes: fact('passes'), prov: fact('passes_provisional') })}</li>`).join('')}</ul>
     <button type="button" class="next" data-mission>${t('proof.mission', { region: t('region.' + id) })}</button>`;

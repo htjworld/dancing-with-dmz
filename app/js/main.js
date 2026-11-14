@@ -1,5 +1,5 @@
 import { state, set, subscribe, data, load, md } from './state.js';
-import { STOPS } from './stops.js';
+import { STOPS, label } from './stops.js';
 import { initMap, VIEW } from './map.js';
 import { score, layersPreview, LAYER_OF } from './music.js';
 import { layerGains, applyRhythm } from './rhythm.js';
@@ -23,20 +23,20 @@ const VIEWS = { paju, yeoncheon, cheorwon, hwacheon, yanggu };   // 미션 화�
 function panel() {
   const s = STOPS.find(x => x.id === state.stop), i = STOPS.indexOf(s), view = VIEWS[s.id];
   $('panel').innerHTML = `
-    <p class="eye">${i + 1} / ${STOPS.length} · ${s.name} · ${s.eye}</p>
-    <h2>${s.title}</h2>
-    <p>${s.story}</p>
-    <p class="todo">${s.todo}</p>
-    ${view ? view.render() : '<p class="hint">이 지역의 미션은 준비 중입니다.</p>'}`;
+    <p class="eye">${i + 1} / ${STOPS.length} · ${label(s, 'name')} · ${label(s, 'eye')}</p>
+    <h2>${label(s, 'title')}</h2>
+    <p>${label(s, 'story')}</p>
+    <p class="todo">${label(s, 'todo')}</p>
+    ${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}`;
 }
 
 function tray() {
   const n = state.fragments.length;
   $('tray').innerHTML = STOPS.map(s => {
     const on = state.fragments.includes(s.id);
-    return `<button type="button" class="piece${on ? ' on' : ''}" data-piece="${s.id}" ${on ? '' : 'disabled'} title="${on ? '이 층만 듣기' : '아직 모으지 않은 조각'}">${on ? '♪' : '·'} ${s.name}<br><small>${s.layer}</small></button>`;
-  }).join('') + (n >= 2 && n < STOPS.length ? '<button type="button" class="piece on" data-piece="all">♪♪ 지금까지<br><small>함께 듣기</small></button>' : '')
-    + (n === STOPS.length ? `<button type="button" class="piece go" data-piece="finale">▶ 춤추는 DMZ<br><small>${state.finaleDone ? '다시 보기' : '다섯 조각을 이어 보기'}</small></button>` : '');
+    return `<button type="button" class="piece${on ? ' on' : ''}" data-piece="${s.id}" ${on ? '' : 'disabled'} title="${t(on ? 'tray.solo' : 'tray.locked')}">${on ? '♪' : '·'} ${label(s, 'name')}<br><small>${label(s, 'layer')}</small></button>`;
+  }).join('') + (n >= 2 && n < STOPS.length ? `<button type="button" class="piece on" data-piece="all">♪♪ ${t('tray.sofar')}<br><small>${t('tray.together')}</small></button>` : '')
+    + (n === STOPS.length ? `<button type="button" class="piece go" data-piece="finale">▶ ${t('tray.finale')}<br><small>${t(state.finaleDone ? 'tray.again' : 'tray.join')}</small></button>` : '');
 }
 
 // ---- 소리와 춤: 반주 층의 세기와 선의 움직임이 같은 실측값을 따른다
@@ -58,7 +58,7 @@ function finale() {
 function timeline() {
   $('timeline').innerHTML = data.passes.map(p =>
     `<button type="button" data-cycle="${p.cycle}" class="${p.rest ? 'rest' : ''}" aria-pressed="${p.cycle === state.cycle}"
-       title="${p.rest ? '이 통과는 자료가 없습니다' : p.date}">${md(p.date)}${p.rest ? ' ·' : ''}</button>`).join('');
+       title="${p.rest ? t('timeline.rest') : p.date}">${md(p.date)}${p.rest ? ' ·' : ''}</button>`).join('');
 }
 
 // 화면(밤사진 / 미션)에 따라 바뀌는 바깥 틀: 본문 클래스, 머리말, 돌아가기 단추
@@ -67,17 +67,24 @@ function chrome(s) {
   document.documentElement.lang = s.lang;
   $('lead').textContent = t(s.screen === 'mission' ? 'mission.lead' : 'night.lead');
   $('to-night').textContent = t('mission.back');
+  $('lang').textContent = t('lang.other'); $('lang').setAttribute('aria-label', t('lang.aria'));
+  $('stage-note').textContent = t('stage.note');
+  $('map').setAttribute('aria-label', t('map.aria'));
 }
 
 function fail(e) {
   console.error(e);
   $('notice').hidden = false;
-  $('notice').textContent = `자료를 불러오지 못했습니다. 로컬 서버로 열었는지 확인해 주세요. (${e.message})`;
+  $('notice').textContent = `${t('notice.load')} (${e.message})`;
 }
 
 async function start() {
   // 시험용: 화면이 가려져 애니메이션 프레임이 멈추는 환경에서도 그리기를 확인할 수 있게 한다(?timer)
   if (new URLSearchParams(location.search).has('timer')) window.requestAnimationFrame = cb => setTimeout(() => cb(performance.now()), 16);
+  // 언어: 주소의 ?lang=en 이 먼저, 없으면 지난번에 고른 언어
+  const asked = new URLSearchParams(location.search).get('lang');
+  let saved = null; try { saved = localStorage.getItem('dmz-lang'); } catch { /* 없음 */ }
+  if (['ko', 'en'].includes(asked || saved)) state.lang = asked || saved;
   await load();
   if (!data.opening) state.screen = 'night';   // 오프닝 자료가 없으면 밤사진부터 시작한다
   const first = paju.startCycle();
@@ -89,6 +96,11 @@ async function start() {
   initLand(map);
   initProof();
   $('to-night').addEventListener('click', () => set({ screen: 'night' }));
+  $('lang').addEventListener('click', () => {
+    const lang = state.lang === 'ko' ? 'en' : 'ko';
+    try { localStorage.setItem('dmz-lang', lang); } catch { /* 저장이 막힌 환경에서도 전환은 된다 */ }
+    set({ lang });
+  });
   $('timeline').addEventListener('click', e => {
     const b = e.target.closest('[data-cycle]');
     if (b) set({ cycle: +b.dataset.cycle, visited: [...state.visited, +b.dataset.cycle], note: null });
@@ -108,8 +120,8 @@ async function start() {
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh' });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
-    if (s.cycle !== prev.cycle) timeline();
-    if (s.fragments !== prev.fragments || s.finaleDone !== prev.finaleDone) tray();
+    if (s.cycle !== prev.cycle || s.lang !== prev.lang) timeline();
+    if (s.fragments !== prev.fragments || s.finaleDone !== prev.finaleDone || s.lang !== prev.lang) tray();
     if (s.fragments.length > prev.fragments.length) perform('preview', s.fragments);   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
     chrome(s);

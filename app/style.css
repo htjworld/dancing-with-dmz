@@ -176,3 +176,8 @@ body[data-screen=opening] #sound,body[data-screen=opening] #top{display:none}
 body:not([data-screen=night]) #proof,body:not([data-screen=night]) #land-read{display:none}
 body[data-screen=night] #sound{top:16px}
 @media (max-width:900px){ #proof{left:10px;right:10px;top:56px;width:auto;max-height:40%} }
+
+/* ---- 언어 전환 단추: 모든 화면의 오른쪽 위 */
+#lang{position:fixed;top:16px;right:16px;z-index:6;padding:7px 12px;border-radius:999px;border:1px solid var(--edge);background:var(--card);font-size:12px}
+body[data-screen=mission] #lang{top:auto;bottom:34px;right:60px}
+body:not([data-screen=mission]) #sound{right:104px}

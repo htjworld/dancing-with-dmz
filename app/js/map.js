@@ -1,6 +1,6 @@
 // 지도: 어두운 배경 위에 군사분계선과 다섯 지역의 핀을 올린다.
 import { state, set, subscribe, data, pass } from './state.js';
-import { STOPS, centerOf } from './stops.js';
+import { STOPS, centerOf, label } from './stops.js';
 
 // 영상 네 귀퉁이를 감싸는 경위도 범위
 const boundsOf = corners => [[Math.min(...corners.map(c => c[0])), Math.min(...corners.map(c => c[1]))],
@@ -103,8 +103,8 @@ export function initMap() {
   const pins = STOPS.map((s, i) => {
     const el = document.createElement('button');
     el.className = 'pin'; el.type = 'button'; el.dataset.stop = s.id;
-    el.setAttribute('aria-label', `${i + 1}번 ${s.name}`);
-    el.innerHTML = `${i + 1}<span class="pin-label">${s.name}</span>`;
+    const name = () => { el.setAttribute('aria-label', `${i + 1} ${label(s, 'name')}`); el.innerHTML = `${i + 1}<span class="pin-label">${label(s, 'name')}</span>`; };
+    name(); subscribe((st, prev) => { if (st.lang !== prev.lang) name(); });
     el.addEventListener('click', e => { e.stopPropagation(); if (state.stop === s.id) focus(s.id); else set({ stop: s.id }); });   // 지금 지역의 핀을 다시 누르면 그 지역으로 확대
     new maplibregl.Marker({ element: el }).setLngLat(centerOf(s)).addTo(map);
     return el;

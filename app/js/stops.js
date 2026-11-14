@@ -1,3 +1,5 @@
+import { state } from './state.js';
+
 // 다섯 지역(서→동). 지역마다 레이더의 눈 하나와 손으로 하는 일 하나가 짝을 이룬다.
 // bounds 는 tools/extract_nisar.py 의 REGIONS 와 같은 창이다(서, 남, 동, 북).
 export const STOPS = [
@@ -5,26 +7,48 @@ export const STOPS = [
     title: '논이 가장 어두웠던 날과 가장 밝았던 날을 찾아라',
     story: 'DMZ 안에서도 농사를 짓는 마을이 있습니다. 물을 댄 논은 레이더에 어둡게 보입니다.',
     todo: '날짜를 넘기며 가장 어두운 날과 가장 밝은 날에 표시를 붙이세요.',
+    en: { name: 'Paju Jangdan', eye: 'The eye of time', layer: 'Kick',
+      title: 'Find the day the paddies were darkest, and the day they were brightest',
+      story: 'Even inside the DMZ there is a village that farms. Flooded paddies look dark to radar.',
+      todo: 'Step through the dates and mark the darkest day and the brightest day.' },
     bounds: [126.62, 37.86, 126.80, 38.00] },
   { id: 'yeoncheon', name: '연천 임진강', eye: '물의 눈', layer: '하이햇',
     title: '강을 따라가라',
     story: '경계를 넘어 흐르는 강. 잔잔한 물은 전파를 다른 방향으로 튕겨 보내 레이더에 검게 보입니다.',
     todo: '레이더 영상에서 강 위의 서로 다른 세 곳을 누르세요.',
+    en: { name: 'Yeoncheon Imjin River', eye: 'The eye for water', layer: 'Hi-hat',
+      title: 'Follow the river',
+      story: 'A river that flows across the border. Calm water bounces the radar pulse away, so it looks black.',
+      todo: 'On the radar image, tap three different places on the river.' },
     bounds: [126.85, 37.98, 127.10, 38.18] },
   { id: 'cheorwon', name: '철원 평야', eye: '사람의 눈', layer: '베이스',
     title: '옆 땅의 여름을 그려라',
     story: '사람이 농사짓는 논과, 3 km 옆 사람이 들어가지 않는 땅.',
     todo: '논의 선을 본 뒤, DMZ 안 땅의 선을 직접 그려 보세요.',
+    en: { name: 'Cheorwon Plain', eye: 'The eye for people', layer: 'Bass',
+      title: 'Draw the summer of the land next door',
+      story: 'Paddies that people farm, and land 3 km away that no one enters.',
+      todo: 'Look at the line of the paddies, then draw the line of the land inside the DMZ.' },
     bounds: [127.15, 38.15, 127.55, 38.42] },
   { id: 'hwacheon', name: '화천 백암산', eye: '두 가지 눈', layer: '패드',
     title: '숲을 더 잘 보는 눈을 골라라',
     story: '사람이 닿지 않는 깊은 숲. 레이더는 전파의 방향에 따라 다른 것을 봅니다.',
     todo: 'HH와 HV를 바꿔 보며, 숲과 평지가 더 잘 구분되는 쪽을 고르세요.',
+    en: { name: 'Hwacheon Baegam-san', eye: 'Two eyes', layer: 'Pad',
+      title: 'Pick the eye that sees the forest better',
+      story: 'A deep forest people do not reach. Radar sees different things depending on the direction of its waves.',
+      todo: 'Switch between HH and HV and pick the one that separates forest from flat land more clearly.' },
     bounds: [127.65, 38.18, 127.90, 38.38] },
   { id: 'yanggu', name: '양구 펀치볼', eye: '종합', layer: '반짝임',
     title: '논과 밭, 누구의 선일까',
     story: '그릇 모양 분지의 밭. 마지막 조각입니다.',
     todo: '이름을 가린 세 선 가운데 분지 밭의 선을 고르세요.',
+    en: { name: 'Yanggu Punchbowl', eye: 'All together', layer: 'Sparkle',
+      title: 'Paddy or field: whose line is it?',
+      story: 'Fields in a bowl-shaped basin. This is the last piece.',
+      todo: 'Of three unnamed lines, pick the one that belongs to the basin fields.' },
     bounds: [128.05, 38.22, 128.22, 38.36] },
 ];
+// 지금 언어에 맞는 지역 문구. 영어가 없으면 한국어가 나온다
+export const label = (s, key) => (state.lang === 'en' ? s.en?.[key] ?? s[key] : s[key]);
 export const centerOf = s => [(s.bounds[0] + s.bounds[2]) / 2, (s.bounds[1] + s.bounds[3]) / 2];
