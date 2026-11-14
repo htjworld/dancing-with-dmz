@@ -128,10 +128,12 @@
 export function pixelOf(corners, size, lng, lat)      // → [x, y] | null (영상 밖)
 export function sampleDb(imageData, x, y, scaleDb)    // → dB | null (알파 0)
 export function frameAt(progress, nFrames)            // progress 0~1 → 프레임 번호
+export function regionAt(glow, lng, lat)              // → { region, x, y } | null. 포인터가 어느 지역 영상 위에 있는지
 
 // app/js/landsound.js
-export function noteFor(db, scaleDb)                  // → { freq, gain } | null(쉼). 순수 함수
-export function touch(db, scaleDb)                    // noteFor 결과를 sound.js로 짧게 울린다. 소리 꺼짐이면 무시
+export function noteFor(db, scaleDb)                  // → { midi, freq, gain } | null(쉼). 눈금의 25% 아래는 쉼
+export function touch(db, scaleDb)                    // 포인터 이동마다 불러도 된다(내부에서 간격 조절). 울린 음 또는 null
+// sound.js: blip(freq, gain, dur) — 곡을 멈추지 않는 짧은 음. touch가 쓴다
 
 // app/js/evidence.js
 export function evidence(zones, regionId)

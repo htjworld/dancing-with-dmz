@@ -51,6 +51,13 @@ export function play(plan) {
   for (const e of plan.events) { const k = e.gain ?? 1; if (k > 0 && VOICE[e.type]) VOICE[e.type](e, t0 + e.time, k); }
   return startedAt;
 }
+// 짧은 음 하나. play() 와 달리 울리고 있는 곡을 멈추지 않는다(땅 연주용).
+export function blip(freq, gain = .25, dur = .28) {
+  if (!soundOn || !ensure()) return;
+  if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+  const t = ctx.currentTime + .01, g = env(t, dur, gain, .004);
+  osc('triangle', freq, t, dur, g); osc('sine', freq * 2, t, dur * .6, env(t, dur * .6, gain * .25, .004));
+}
 export function stop() {
   for (const n of live) { try { n.stop(); } catch { /* 이미 끝난 음 */ } }
   live = [];
