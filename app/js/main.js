@@ -27,6 +27,16 @@ const VIEWS = { paju, yeoncheon, cheorwon, hwacheon, yanggu };   // 미션 화�
 // 한 지역의 박자: 소개(intro) → 놀기(play) → 결과(result) → 조각을 받은 뒤(done)
 const beatOf = st => (st.fragments.includes(st.stop) ? 'done' : missionReady(st.stop, st.seen[st.stop]) ? 'result' : st.introSeen.includes(st.stop) ? 'play' : 'intro');
 let beatShown = '';
+// 화면이 바뀐 직후의 누르기는 받지 않는다. 강을 긋거나 사진을 고르던 손이, 그 자리에 새로 뜬 단추(조각 받기, 다음 지역, 시작하기)를
+// 연달아 눌러 지역이 저절로 넘어가는 일을 막는다
+let settleKey = '', settleUntil = 0, settleTimer = 0;
+function settle(key, ms = 900) {
+  if (key === settleKey) return;
+  settleKey = key; settleUntil = performance.now() + ms;
+  document.body.classList.add('settling'); clearTimeout(settleTimer);
+  settleTimer = setTimeout(() => document.body.classList.remove('settling'), ms);
+}
+const settling = () => performance.now() < settleUntil;
 // 소개 카드: 지역 이름, 한 문장, (있으면) 짧은 영상, 시작 단추
 function intro(s, i, beat) {
   const el = $('intro'), on = state.screen === 'mission' && beat === 'intro', key = on ? `${s.id}|${state.lang}` : '';
@@ -51,6 +61,7 @@ function panel() {
   const done = state.fragments.includes(s.id), beat = beatOf(state);
   document.body.dataset.beat = state.screen === 'mission' ? beat : '';
   intro(s, i, beat);
+  if (state.screen === 'mission') settle(`${s.id}|${beat}|${state.cmpPicks.length}`, beat === 'play' ? 450 : 1200);
   const arrive = beat !== beatShown && beat === 'result';   // 방금 미션을 풀었다
   $('panel').classList.toggle('in', arrive); beatShown = beat;
   if (state.fragments.length > fragShown) { newDot = state.fragments[state.fragments.length - 1]; newUntil = performance.now() + 900; }
@@ -141,6 +152,14 @@ async function start() {
   initProof();
   initDateSlider();
   initGameMap(map);
+  // 끌다가 뗀 것은 누르기로 치지 않는다: 강을 긋던 손이 새로 뜬 카드의 넓은 단추 위에서 긋기를 이어 가면, 그 단추 안에서 누르고 뗀 것이 되어 눌려 버린다
+  let downAt = null, dragged = false;
+  document.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; dragged = false; }, true);
+  document.addEventListener('pointermove', e => { if (downAt && Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 10) dragged = true; }, true);
+  for (const id of ['intro', 'panel']) $(id).addEventListener('click', e => {
+    const drag = dragged && e.detail > 0; dragged = false;   // e.detail 이 0 이면 키보드로 누른 것이다
+    if (settling() || drag) { e.stopImmediatePropagation(); e.preventDefault(); }
+  }, true);
   $('intro').addEventListener('click', e => { const b = e.target.closest('[data-start]'); if (b) set({ introSeen: [...state.introSeen, b.dataset.start] }); });
   $('to-night').addEventListener('click', () => set({ screen: 'night', nightMode: 'explore' }));   // 게임에서 돌아오면 둘러보기로
   $('lang').addEventListener('click', () => {

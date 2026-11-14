@@ -538,3 +538,7 @@ body[data-screen=mission] .maplibregl-canvas-container,body[data-screen=mission]
 /* ---- 미션 중에는 지도 위의 지역 핀과 구역 이름표가 눌리지 않는다(강을 긋다가 다른 지역 핀 위에서 손을 떼면 그 지역으로 넘어가던 문제) */
 body[data-screen=mission] .pin,body[data-screen=mission] .zone-tag{pointer-events:none}
 body[data-beat=intro] .zone-tag,body[data-beat=result] .zone-tag,body[data-beat=done] .zone-tag{display:none}
+
+/* ---- 화면이 바뀐 직후 잠깐은 단추가 눌리지 않는다(연달아 누르던 손이 새 단추를 잇달아 누르는 것을 막는다) */
+body.settling #panel .primary,body.settling #intro .primary,body.settling #panel .land,body.settling #panel [data-go]{pointer-events:none;opacity:.6}
+#panel .primary,#intro .primary,#panel .land{transition:opacity .2s,transform .1s ease-out}
