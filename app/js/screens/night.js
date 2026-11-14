@@ -7,6 +7,7 @@ import { frameAt } from '../glow.js';
 import { play, stop } from '../sound.js';
 import { nightMap } from './film.js';
 import { prewarmGlow, valueAt, sectionAt, sectionAll, places } from './nightglow.js';
+import { regionZones } from './proof.js';
 
 const el = document.getElementById('night');
 const ORDER = ['paju', 'yeoncheon', 'cheorwon', 'hwacheon', 'yanggu'];
@@ -62,7 +63,9 @@ function render() {
   const k = state.nightFrame, dates = (data.corridor || data.glow)?.dates || [];
   const when = k == null ? '' : t('night.playing', { k: k + 2, n: dates.length, from: dateText(dates[0]), to: dateText(dates[k + 1]) });
   const note = state.landPlay ? t('land.hint') : k != null ? t('night.musicNote') : t('night.pickHint');
+  el.classList.toggle('zoomed', !!state.evidenceAt);   // 지역 근거 창이 열려 있으면 왼쪽은 제목만(내용은 오른쪽 창이 맡는다)
   el.innerHTML = `
+    <div class="scrim" aria-hidden="true"></div>
     <div class="words">
       <h2>${t('night.title').replace(/<br>/g, ' ')}</h2>
       <p class="lead">${brk(t('night.body'))}</p>
@@ -139,7 +142,8 @@ async function showPick(lng, lat) {
 let waterNext = null;   // [물 층 id, 원래 바로 다음 층 id]
 function waterOnTop(on) {
   const m = window.__dmzMap; if (!m) return;
-  let st; try { st = m.getStyle(); } catch { return; }
+  let st; try { st = m.getStyle(); } catch { st = null; }
+  if (!st?.layers) { m.once('idle', () => waterOnTop(on)); return; }   // 바탕 지도가 아직 안 들어왔으면 다 그린 뒤에
   const ids = st.layers.map(l => l.id), glows = ids.filter(i => i.startsWith('glow-'));
   if (on && !waterNext && glows.length) {
     const water = st.layers.filter(l => l.type === 'fill' && l['source-layer'] === 'water').map(l => l.id);
@@ -150,6 +154,30 @@ function waterOnTop(on) {
     for (const [w, next] of waterNext.slice().reverse()) if (m.getLayer(w)) m.moveLayer(w, next && m.getLayer(next) ? next : undefined);
     waterNext = null;
   }
+}
+
+// 지역 근거 창이 열려 있으면 그 지역 구역들을 지도에 곡선과 같은 색 테두리와 이름표로 그린다(어느 땅의 곡선인지 보이게)
+let evTags = [];
+function evZones() {
+  const m = window.__dmzMap; if (!m || typeof maplibregl === 'undefined') return;
+  const on = state.screen === 'night' && state.nightMode === 'explore' && state.evidenceAt;
+  let ready = false; try { ready = !!m.getStyle()?.layers; } catch { ready = false; }
+  if (!ready) { if (on) m.once('idle', evZones); return; }   // 바탕 지도가 아직 안 들어왔으면 다 그린 뒤에
+  const zs = on ? regionZones(state.evidenceAt) : [];
+  const fc = { type: 'FeatureCollection', features: zs.map(z => ({ type: 'Feature', properties: { color: z.color }, geometry: { type: 'Polygon', coordinates: [z.polygon] } })) };
+  if (!m.getSource('ev-zones')) {
+    if (!zs.length) return;
+    m.addSource('ev-zones', { type: 'geojson', data: fc });
+    m.addLayer({ id: 'ev-zones-line', type: 'line', source: 'ev-zones', paint: { 'line-color': ['get', 'color'], 'line-width': 1.4, 'line-opacity': 0.95 } });   // 얇은 한 줄(어두운 테두리를 깔면 이중선처럼 보인다)
+  } else m.getSource('ev-zones').setData(fc);
+  evTags.forEach(k => k.remove());
+  const west = z => Math.min(...z.polygon.map(p => p[0])), rank = zs.map(z => zs.filter(q => west(q) < west(z)).length);
+  evTags = zs.map((z, i) => {
+    const el = document.createElement('span'); el.className = 'ev-tag'; el.style.borderLeftColor = z.color; el.textContent = z.label;
+    const xs = z.polygon.map(p => p[0]), ys = z.polygon.map(p => p[1]), up = rank[i] % 2 === 0;   // 서쪽부터 번갈아 위·아래 모서리에(이웃 구역끼리 겹치지 않게)
+    return new maplibregl.Marker({ element: el, anchor: up ? 'bottom-left' : 'top-left', offset: [0, up ? -3 : 3] })
+      .setLngLat([Math.min(...xs), up ? Math.max(...ys) : Math.min(...ys)]).addTo(m);
+  });
 }
 
 // 고요한 띠 안의 예외: 지도에 작은 점과 이름, 누르면 설명(숫자는 section.json 의 places, tools/make_section.py)
@@ -199,12 +227,13 @@ export function initNight() {
     const ex = s.screen === 'night' && s.nightMode === 'explore', was = prev.screen === 'night' && prev.nightMode === 'explore';
     if (ex && !was) { nightMap(true); prewarmGlow(); placeMarks(); waterOnTop(true); }
     if (!ex && was) waterOnTop(false);
+    if (s.evidenceAt !== prev.evidenceAt || ex !== was || s.lang !== prev.lang) evZones();
     if (!ex || s.landPlay) closePick();
     if (ex) { const m = window.__dmzMap; if (m?.getLayer('corridor-edges')) m.setLayoutProperty('corridor-edges', 'visibility', 'none'); }   // 관측 범위 점선은 둘러보기에서 숨긴다(빛이 분계선에서 멀어질수록 옅어져 경계를 대신한다)
     if (!ex && was && !(s.screen === 'night' && s.nightMode === 'film')) nightMap(false);   // 영상으로 가면 영상이 맡는다
     if ((s.screen !== 'night' || s.nightMode !== 'explore') && timer) stopSeason();   // 화면이나 모드를 떠나면 재생을 멈춘다
     if (!s.sound && prev.sound && timer) stop();                              // 소리만 끄면 그림은 계속 간다
-    if (s.screen !== prev.screen || s.lang !== prev.lang || s.nightFrame !== prev.nightFrame || s.landPlay !== prev.landPlay) render();
+    if (s.screen !== prev.screen || s.lang !== prev.lang || s.nightFrame !== prev.nightFrame || s.landPlay !== prev.landPlay || s.evidenceAt !== prev.evidenceAt) render();
   });
   render();
 }

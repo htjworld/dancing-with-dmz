@@ -978,3 +978,80 @@ body.ending-stars #ticker,body.ending-stars #stage-note,body.ending-stars #endin
 body.ending-stars #ending-line span{font-size:30px;line-height:1.6;letter-spacing:-.02em;color:#fff6e0;text-shadow:0 2px 24px rgba(0,0,0,.9);animation:last-in 1.4s ease both}
 @keyframes last-in{from{opacity:0;transform:translateY(8px)}}
 @media (prefers-reduced-motion:reduce){body.ending-stars #ending-line span{animation:none}}
+/* 근거 창(지역 단추): 밤하늘 둘러보기와 같은 남색 창·금빛/회청 색(hdk) */
+#proof{top:84px;right:24px;width:360px;max-height:calc(100% - 200px);padding:18px 20px 20px;background:rgba(8,14,32,.97);border:1px solid rgba(154,167,195,.22);
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.55);color:#dfe5f2;font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif}
+#proof .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+#proof .head .eye{margin:0;padding:0;color:#ffd68c;font-size:13px;font-weight:600}
+#proof .head .close{position:static;font:500 12.5px Pretendard,system-ui,sans-serif;color:#9aa7c3;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+#proof h2{margin:0 0 2px;font:700 20px/1.3 Pretendard,system-ui,sans-serif;letter-spacing:-.02em;color:#f6f3ea}
+#proof .sub{margin:0 0 6px;font-size:12px;color:#8390ad}
+#proof .chart .grid{stroke:rgba(154,167,195,.16)} #proof .chart .grid.zero{stroke:rgba(154,167,195,.4)}
+#proof .chart .tick{fill:#7f8bab;font-size:10px}
+#proof .chart .rest{fill:rgba(154,167,195,.08)}
+#proof .chart .shared{stroke:rgba(154,167,195,.35)}
+#proof .ranges li{border-bottom:1px solid rgba(154,167,195,.14);font-size:13.5px;color:#dfe5f2}
+#proof .ranges small{color:#8390ad;font-size:11.5px;margin-top:1px}
+#proof .ranges b{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+#proof .fine{font-size:12px;color:#8f9bb8;margin:8px 0 10px;line-height:1.55;word-break:keep-all}
+#proof .more{margin:0 0 14px}
+#proof .more summary{cursor:pointer;list-style:none;font-size:12.5px;color:#9aa7c3;text-decoration:underline;text-decoration-color:rgba(154,167,195,.4);text-underline-offset:3px}
+#proof .more summary::-webkit-details-marker{display:none}
+#proof .more p{font-size:12px;line-height:1.6;color:#9aa7c3;margin:8px 0 0;word-break:keep-all}
+#proof .next{width:100%;padding:11px;border-radius:999px;border:none;background:#f6f3ea;color:#0b1530;font-size:14px;font-weight:600}
+@media (max-width:900px){ #proof{left:10px;right:10px;top:56px;width:auto;max-height:46%;padding:14px 16px 16px} }
+/* 근거 창 2: 제목 한 줄(지역 이름 포함)과 닫기, 글머리는 곡선과 같은 짧은 선 */
+#proof .head{align-items:flex-start;gap:12px;margin-bottom:4px}
+#proof .head h2{margin:0}
+#proof .head .close{flex:none;margin-top:4px}
+#proof .ranges i{flex:0 0 14px;height:3px;border-radius:2px}
+/* 둘러보기: 지역을 고르면 왼쪽은 제목만 남긴다 */
+#night.zoomed .words .lead,#night.zoomed .whole{display:none}
+/* 왼쪽·아래 가장자리의 은은한 어둠: 확대해 빛이 화면을 채워도 글과 조작 줄이 읽히게 */
+#night .scrim{display:none}
+body[data-screen=night][data-night=explore] #night .scrim{display:block;position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(5,9,22,.78) 0,rgba(5,9,22,.5) 340px,rgba(5,9,22,0) 620px),linear-gradient(0deg,rgba(5,9,22,.8) 0,rgba(5,9,22,0) 190px)}
+body[data-screen=night][data-night=explore] #night .words{position:relative;z-index:1}
+@media (max-width:900px){ body[data-screen=night][data-night=explore] #night .scrim{background:linear-gradient(180deg,rgba(5,9,22,.7) 0,rgba(5,9,22,0) 260px),linear-gradient(0deg,rgba(5,9,22,.8) 0,rgba(5,9,22,0) 220px)} }
+
+/* 근거 창 3(C안): 카드 없이 오른쪽 가장자리의 어둠 위에 글과 곡선. 글 기둥 뒤는 거의 불투명, 바깥 가장자리만 지도로 녹아든다(hdk) */
+#proof{top:0;right:0;bottom:0;left:auto;z-index:3;width:min(500px,100vw);max-height:none;padding:84px 24px 120px 76px;overflow:auto;border:none;border-radius:0;box-shadow:none;
+  backdrop-filter:none;-webkit-backdrop-filter:none;pointer-events:none;color:#f6f3ea;
+  background:linear-gradient(270deg,rgba(5,9,22,.93) 0,rgba(5,9,22,.88) 424px,rgba(5,9,22,.35) 468px,rgba(5,9,22,0) 500px)}
+#proof>*{pointer-events:auto}
+#proof,#proof .chart text{text-shadow:0 1px 8px rgba(0,0,0,.9)}
+#proof .close{position:absolute;top:88px;right:24px;border:0;background:none;padding:0;font:500 12.5px Pretendard,system-ui,sans-serif;color:#9aa7c3;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+#proof .where{margin:0 0 6px;font-size:13px;color:#c9d2e8;padding-right:48px}
+#proof h2{margin:0 0 12px;font:700 25px/1.3 Pretendard,system-ui,sans-serif;letter-spacing:-.03em;color:#f6f3ea;word-break:keep-all}
+#proof .chart{display:block;width:100%;height:auto;overflow:visible}
+#proof .chart path{fill:none;stroke-linejoin:round;stroke-linecap:round}
+#proof .chart .halo{stroke:#050916;stroke-opacity:.85;stroke-width:7}
+#proof .chart .zero{stroke:rgba(246,243,234,.28);stroke-dasharray:1 4}
+#proof .chart .gap{stroke:rgba(154,167,195,.3);stroke-dasharray:2 4}
+#proof .chart .tick{fill:#9aa7c3;font-size:11px}
+#proof .chart .db{font:700 17px Pretendard,system-ui,sans-serif}
+#proof .chart .nm{fill:#c9d2e8;font-size:11.5px}
+#proof .foot{margin:8px 0 0;font-size:12px;line-height:1.6;color:#b3bdd4;word-break:keep-all}
+#proof .row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-top:16px}
+#proof .row .more{flex:1;margin:0}
+#proof .row .more summary{margin-top:10px}
+#proof .row .more p b{color:#dfe5f2;font-weight:600}
+#proof .row .next{flex:none;width:auto;padding:10px 18px;border-radius:999px}
+#proof .row:has(.more[open]){flex-direction:column}
+@media (max-width:900px){
+  #proof{top:auto;left:0;width:auto;max-height:52%;padding:28px 16px 16px;background:linear-gradient(0deg,rgba(5,9,22,.93) 0,rgba(5,9,22,.88) calc(100% - 28px),rgba(5,9,22,0) 100%)}
+  #proof .close{top:30px;right:16px}
+}
+/* 지도 위 구역 이름표(근거 창과 같은 색) */
+.ev-tag{padding:2px 7px;border-radius:4px;background:rgba(5,9,22,.85);font:700 12px Pretendard,system-ui,sans-serif;white-space:nowrap;pointer-events:none}
+/* 위 단추 줄(소리·언어)과 아래 단추 줄(영상 다시 보기·다섯 지역)은 어둠 밖에 두어 흐려지지 않게 */
+@media (min-width:901px){
+  #proof{top:64px;bottom:84px;padding-top:20px;padding-bottom:20px;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%)}
+  #proof .close{top:24px}
+}
+/* 구역 이름표 2: 알약 바탕 없이 지도 주석처럼 글자만(어두운 번짐으로 읽히게) */
+.ev-tag{padding:0;background:none;border-radius:0;font:600 12px Pretendard,system-ui,sans-serif;letter-spacing:-.01em;
+  text-shadow:0 0 2px #050916,0 0 4px #050916,0 0 8px rgba(5,9,22,.9),0 1px 12px rgba(0,0,0,.8)}
+/* 구역 이름표 3: 밝은 글자 + 왼쪽에 구역 색 막대, 얇고 각진 어두운 바탕(알약보다 지도 주석에 가깝게) */
+.ev-tag{padding:2px 7px 2px 6px;border-left:3px solid;border-radius:2px;background:rgba(5,9,22,.8);color:#f6f3ea;font:600 12.5px Pretendard,system-ui,sans-serif;text-shadow:none}
