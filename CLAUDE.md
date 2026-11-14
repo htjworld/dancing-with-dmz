@@ -4,8 +4,9 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
 - [ ] 기획 확정: jmj 결정 초안 확인 (htj·jmj 동의함) → 최종 `decision.md` — hdk(황도경), khs(김현석) · `brainstorming/decision_jmj.md`
-- [ ] MVP3~4 프론트 J4~J7 (땅 연주, 근거 패널, 영어, 데모) — jmj · `plan.md` 4절
-- [ ] H7(여유): 상승 궤도 125·긴 띠·원자료 판, 그리고 MVP 피드백 반영 — htj · `plan.md` 4·5절
+- [ ] 프론트 J4~J6 전부 완성 (땅 연주, 근거 패널, 영어) ~11/15 13:00 — jmj · `plan.md` 4절
+- [ ] 팀 전체 피드백 1회 (11/15 13:00~14:00) → 반영 → 18:00 동결 → J7 데모 → 23:00 제출 — 전원 · `plan.md` 진행 방식
+- [ ] H7: 상승 궤도 125·긴 띠·원자료 판(Earthdata 토큰 필요), 피드백 반영 — htj · `plan.md` 4·5절
 - [ ] 데이터: 더 긴 띠, 함께 변한 날 원인, 원자료 캐시 공유 — khs · `plan.md` 4절
 - [ ] 대회 전 작업 사용 규정 확인 — 담당 미정 · `brainstorming/decision_jmj.md`
 
@@ -26,4 +27,5 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - 작업을 시작하거나 끝내거나 담당이 바뀌면 이 파일을 바로 고친다. 끝난 항목은 `[x]`로 바꿔 "완료"로 옮긴다.
 - `brainstorming/decision.md`가 생기거나 바뀌면: "결정"에 타깃·필요성·문제점·해결방안·노리는 상을 한 줄씩 적고, 기획 항목을 "완료"로 옮기고, 결정에서 나온 다음 할 일을 "진행 중"에 한 줄씩 추가한다.
 - 기획 방법은 `brainstorming_method.md`, 근거 자료는 `ref/README.md`를 본다.
+- 진행은 "4절 전부 만들기 → 전체 피드백 1회 → 수정"이다. 중간 피드백으로 멈추지 않는다.
 - 구현은 `plan.md`를 따른다: 자기 소유 파일만 고치고(1절), 데이터·함수는 `interface.md`에 있는 것만 쓰고, 푸시 전에 fetch → rebase → `npm test` → push(6절).
