@@ -6,6 +6,8 @@ import { layerGains, applyRhythm } from './rhythm.js';
 import { change, mainOf } from './calc.js';
 import { play, stop, setSound } from './sound.js';
 import { initDance } from './dance.js';
+import { initNight } from './screens/night.js';
+import { t } from './i18n.js';
 import * as paju from './views/paju.js';
 import * as yeoncheon from './views/yeoncheon.js';
 import * as cheorwon from './views/cheorwon.js';
@@ -56,6 +58,14 @@ function timeline() {
        title="${p.rest ? '이 통과는 자료가 없습니다' : p.date}">${md(p.date)}${p.rest ? ' ·' : ''}</button>`).join('');
 }
 
+// 화면(밤사진 / 미션)에 따라 바뀌는 바깥 틀: 본문 클래스, 머리말, 돌아가기 단추
+function chrome(s) {
+  document.body.dataset.screen = s.screen;
+  document.documentElement.lang = s.lang;
+  $('lead').textContent = t(s.screen === 'night' ? 'night.lead' : 'mission.lead');
+  $('to-night').textContent = t('mission.back');
+}
+
 function fail(e) {
   console.error(e);
   $('notice').hidden = false;
@@ -70,6 +80,8 @@ async function start() {
   Object.assign(state, { cycle: first, visited: [first] });
   const map = window.dmzMap = initMap();   // 콘솔에서 살펴볼 수 있게 둔다
   initDance(map);
+  initNight();
+  $('to-night').addEventListener('click', () => set({ screen: 'night' }));
   $('timeline').addEventListener('click', e => {
     const b = e.target.closest('[data-cycle]');
     if (b) set({ cycle: +b.dataset.cycle, visited: [...state.visited, +b.dataset.cycle], note: null });
@@ -93,11 +105,12 @@ async function start() {
     if (s.fragments !== prev.fragments || s.finaleDone !== prev.finaleDone) tray();
     if (s.fragments.length > prev.fragments.length) perform('preview', s.fragments);   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
+    chrome(s);
     const fin = s.playing?.mode === 'finale';
     document.body.classList.toggle('finale', fin);
     $('stage').hidden = !(fin || s.finaleDone && s.fragments.length === STOPS.length && !s.playing && s.stop === 'yanggu');
     $('sound').textContent = s.sound ? '소리 켜짐' : '소리 꺼짐'; $('sound').setAttribute('aria-pressed', s.sound);
   });
-  panel(); tray(); timeline();
+  panel(); tray(); timeline(); chrome(state);
 }
 start().catch(fail);

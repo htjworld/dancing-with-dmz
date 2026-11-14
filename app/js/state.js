@@ -19,6 +19,8 @@ export const state = {
   sound: true,
   note: null,        // 방금 한 행동에 대한 한 줄 응답 { ok, text }
   mapReady: false,
+  screen: 'night',   // 지금 화면: 'night'(밤사진) | 'mission'(다섯 지역에서 직접 확인하기)
+  lang: 'ko',        // 화면 문구의 언어: 'ko' | 'en'
 };
 export const data = { boundary: null, rain: null, passes: [], zones: [], layers: null, river: null, glow: null, facts: null, opening: null };
 
