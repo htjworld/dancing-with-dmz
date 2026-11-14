@@ -27,7 +27,7 @@ let timer = 0, startedAt = 0, cue = -1, opacity = -1, left = -1, held = false;
 
 const go = (id, duration) => document.dispatchEvent(new CustomEvent('dmz-night-go', { detail: { id, duration } }));
 const glow = value => { if (value !== opacity) { opacity = value; document.dispatchEvent(new CustomEvent('dmz-glow-opacity', { detail: { value } })); } };
-const vars = () => ({ passes: fact('passes'), paddy: fact('cheorwon_paddy_db'), dmz: fact('cheorwon_dmz_db'), farm: fact('paju_dmz_farm_db'), wild: fact('paju_dmz_wild_db') });
+const vars = () => ({ passes: fact('passes') });   // 자막에는 통과 횟수만 넣는다. dB 숫자는 근거 패널에서 보여 준다
 
 function caption() {
   const c = CUES[cue];
