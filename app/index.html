@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dancing with DMZ</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="map" aria-label="DMZ 지도"></div>
+
+<header id="top">
+  <h1>Dancing with DMZ</h1>
+  <p id="lead">레이더가 본 다섯 땅의 리듬을 모아, 끊어진 선을 춤추게 하세요.</p>
+</header>
+
+<aside id="panel" aria-live="polite"></aside>
+
+<footer id="bottom">
+  <div id="tray" aria-label="모은 조각"></div>
+  <div id="timeline" role="group" aria-label="관측 날짜"></div>
+  <p id="credit">NISAR (NASA/ISRO) · ASF DAAC · NASA POWER · © OpenStreetMap contributors · OpenFreeMap</p>
+</footer>
+
+<div id="notice" hidden></div>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
