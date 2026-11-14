@@ -1,0 +1,57 @@
+// 소리: 악보(music.js)의 음을 Web Audio 로 합성한다. 녹음된 음원은 쓰지 않는다.
+// 음마다 붙은 gain(rhythm.applyRhythm) 이 그 층의 세기다. gain 이 0 인 음은 내지 않는다.
+let ctx = null, master = null, noise = null, live = [];
+export let soundOn = true;
+export const setSound = on => { soundOn = on; if (!on) stop(); };
+
+function ensure() {
+  if (ctx) return true;
+  try {
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = .5;
+    const comp = ctx.createDynamicsCompressor(); master.connect(comp); comp.connect(ctx.destination);
+    noise = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
+    const d = noise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    return true;
+  } catch { ctx = null; return false; }   // 소리를 낼 수 없는 환경에서도 미션과 춤은 그대로 간다
+}
+const hz = midi => 440 * 2 ** ((midi - 69) / 12);
+
+function env(t, dur, peak, attack = .005) {
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(Math.max(.0002, peak), t + attack);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + Math.max(attack + .02, dur));
+  g.connect(master); return g;
+}
+function osc(type, freq, t, dur, out, detune = 0) {
+  const o = ctx.createOscillator(); o.type = type; o.frequency.setValueAtTime(freq, t); o.detune.value = detune;
+  o.connect(out); o.start(t); o.stop(t + dur + .05); live.push(o); return o;
+}
+function hiss(t, dur, out, type, freq) {
+  const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(); s.buffer = noise; f.type = type; f.frequency.value = freq;
+  s.connect(f); f.connect(out); s.start(t); s.stop(t + dur + .05); live.push(s);
+}
+
+const VOICE = {
+  kick(e, t, k) { const g = env(t, .28, .95 * k), o = osc('sine', 130, t, .28, g); o.frequency.exponentialRampToValueAtTime(42, t + .16); },
+  hat(e, t, k) { e.snare ? hiss(t, .14, env(t, .14, .34 * k), 'bandpass', 1900) : hiss(t, .05, env(t, .05, (e.accent ? .2 : .11) * k), 'highpass', 7500); },
+  bass(e, t, k) { const g = env(t, e.dur, .42 * k, .01), f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 420; f.connect(g); osc('sawtooth', hz(e.midi), t, e.dur, f); },
+  pad(e, t, k) { const g = env(t, e.dur, .11 * k, .35); for (const m of e.midis) { osc('triangle', hz(m), t, e.dur, g, -6); osc('sine', hz(m), t, e.dur, g, 7); } },
+  sparkle(e, t, k) { osc('sine', hz(e.midi), t, .3, env(t, .3, .16 * k, .003)); },
+  lead(e, t, k) { const g = env(t, e.dur, .3 * k, .02); osc('triangle', hz(e.midi), t, e.dur, g); osc('square', hz(e.midi), t, e.dur, env(t, e.dur, .05 * k, .02)); },
+};
+
+// plan = { duration, events:[{ type, time, gain, ... }] }. 시작한 시각(performance.now 기준 ms)을 돌려준다. 소리가 꺼져 있어도 시각은 돌려준다.
+export function play(plan) {
+  stop();
+  const startedAt = performance.now() + 80;
+  if (!soundOn || !ensure()) return startedAt;
+  if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+  const t0 = ctx.currentTime + .08;
+  for (const e of plan.events) { const k = e.gain ?? 1; if (k > 0 && VOICE[e.type]) VOICE[e.type](e, t0 + e.time, k); }
+  return startedAt;
+}
+export function stop() {
+  for (const n of live) { try { n.stop(); } catch { /* 이미 끝난 음 */ } }
+  live = [];
+}

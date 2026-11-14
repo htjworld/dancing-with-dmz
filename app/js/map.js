@@ -4,7 +4,7 @@ import { STOPS, centerOf } from './stops.js';
 
 const BASE = 'https://tiles.openfreemap.org/styles/dark';
 const EMPTY = { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#07100e' } }] };
-const VIEW = [[126.45, 37.6], [128.5, 38.75]];
+export const VIEW = [[126.45, 37.6], [128.5, 38.75]];
 // 주 구역은 금색, 숲 기준은 초록, 비교 구역은 하늘색
 const ZONE_COLOR = ['match', ['get', 'role'], 'main', '#ffe1a2', 'ref', '#8ff7b9', '#9fd0ff'];
 
@@ -84,7 +84,7 @@ export function initMap() {
   let shownRadar = null;
   const radar = s => {
     if (!map.getSource('radar')) return;
-    const r = radarOf(s), k = r?.url || '';
+    const r = s.playing?.mode === 'finale' ? null : radarOf(s), k = r?.url || '';   // 피날레에서는 영상을 걷고 선만 본다
     if (k !== shownRadar) { shownRadar = k; if (r) map.getSource('radar').updateImage(r); map.setLayoutProperty('radar', 'visibility', r ? 'visible' : 'none'); }
     map.setLayoutProperty('river-hint', 'visibility', s.stop === 'yeoncheon' && s.riverHint ? 'visible' : 'none');
   };

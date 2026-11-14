@@ -14,6 +14,9 @@ export const state = {
   revealed: false,   // 철원: 실제 선을 겹쳐 보았는가
   eyePick: null,     // 화천: 고른 편파('hh' | 'hv')
   quizPick: null,    // 양구: 고른 선의 구역 id
+  playing: null,     // 지금 울리는 것 { mode: 'preview' | 'finale', at(ms), duration(s), ids }
+  finaleDone: false, // 피날레를 끝까지 보았는가
+  sound: true,
   note: null,        // 방금 한 행동에 대한 한 줄 응답 { ok, text }
   mapReady: false,
 };
