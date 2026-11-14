@@ -51,6 +51,7 @@
 | `app/index.html`, `app/style.css` | jmj | |
 | `app/js/main.js`, `map.js`, `dance.js`, `stops.js`, `views/**` | jmj | |
 | `app/js/screens/**`, `app/js/i18n.js` (신규) | jmj | 화면 모듈, 한·영 문구 |
+| **밤하늘 섹션**: `screens/film.js`, `screens/night.js`, `style.css`의 "밤사진 화면"·"밤하늘 영상" 블록, `i18n.js`의 `film.*`·`night.*` 문구 | hdk | 11/14 21:33 디코 합의(섹션별 분담). 오프닝·게임·엔딩은 jmj. `map.js`의 밤 레이어(바탕 지도·빛 레이어)는 jmj가 "DMZ 맵 잇기"로 같이 고치므로 고치기 전에 디코로 알린다 |
 | `demo/**` (신규) | jmj | 영상·슬라이드 자료 |
 | `plan.md`, `CLAUDE.md` | 공동 | 고친 사람이 바로 푸시 |
 
@@ -133,15 +134,16 @@ J7(데모)은 피드백 반영 뒤 18:00 이후에 만든다. 18:00 이후에는
 
 - [ ] (jmj→htj) 밤사진 재생 음악을 아리랑에서 **밤하늘에 어울리는 잔잔한 곡**으로 바꿨다(`app/js/screens/nightmusic.js`, 새로 지은 곡, 북·하이햇 없음, 24초, 테스트 `nightmusic.test.js`). jmj 소유 문서와 `plan.md`·`CLAUDE.md`에서 아리랑 언급을 뺐다. 남은 것은 htj 소유다: 미션 조각·피날레의 아리랑 편곡(`music.js`), `landsound.js` 주석, `interface.md` 128·155행, `htj_brainstorming.md`·`stage3_review_htj.md`. 피날레 곡도 바꿀지, 문서에서 뺄지 정해 달라 — J3
 
-- [ ] (hdk→jmj, 전원) 프론트 디자인 재구성을 hdk가 맡고 싶다. 화면 파일 소유권 조정 제안: hdk = `app/style.css`, `app/index.html` 구조·디자인, 오프닝 첫 장면 연출, 날짜 줄 표시, 에필로그 장면 / jmj = `screens/**` 동작 로직, `i18n.js`, 데모(J7). 동의하면 1절 표를 고친다 — `brainstorming/decision_hdk.md` 5절
+- [x] (hdk→jmj, 전원) 프론트 디자인 재구성을 hdk가 맡고 싶다. 화면 파일 소유권 조정 제안: hdk = `app/style.css`, `app/index.html` 구조·디자인, 오프닝 첫 장면 연출, 날짜 줄 표시, 에필로그 장면 / jmj = `screens/**` 동작 로직, `i18n.js`, 데모(J7). 동의하면 1절 표를 고친다 — `brainstorming/decision_hdk.md` 5절
 - [x] (hdk→htj) 근거 패널용 내포리 논 계절 곡선을 원자료(또는 지금 레이어)에서 만들어 `interface.md`에 올려 달라. 숲과 견준 값이면 더 좋다 — `brainstorming/decision_hdk.md` 3절
   - htj 답: `tools/make_paddy_curve.py` → `data/paddy_curve.json`, `data.paddyCurve`로 읽힌다. 형식과 읽는 법은 `interface.md` 2-5. 6월 17% → 한여름 0~1% → 10월 22%(어두운 물 찬 화소), 숲은 내내 0%
 
-- [ ] (jmj→hdk, 전원) 밤하늘 화면을 영상형으로 개편했다(`screens/film.js`, 자막 `#film`, `style.css` 끝의 "밤하늘 영상" 블록, `index.html`에 `<section id="film">` 한 줄). hdk의 디자인 소유권 제안(위)과 겹치는 파일이 `style.css`·`index.html`이다. 소유권을 나누기 전에 올린 것이니, hdk가 디자인을 맡게 되면 이 블록부터 넘겨받으면 된다 — J1·J3
+- [x] (jmj→hdk, 전원) 밤하늘 화면을 영상형으로 개편했다(`screens/film.js`, 자막 `#film`, `style.css` 끝의 "밤하늘 영상" 블록, `index.html`에 `<section id="film">` 한 줄). hdk의 디자인 소유권 제안(위)과 겹치는 파일이 `style.css`·`index.html`이다. 소유권을 나누기 전에 올린 것이니, hdk가 디자인을 맡게 되면 이 블록부터 넘겨받으면 된다 — J1·J3
   - hdk 답: 디자인을 맡겠다. `style.css` 끝의 "밤하늘 영상" 블록과 `index.html`의 `<section id="film">`부터 넘겨받는다. 동작 로직(`film.js`의 시간표·카메라·단추)과 자막 문구(`i18n.js`)는 jmj가 그대로 갖고, 디자인을 바꾸며 필요한 클래스·구조 변경은 이 보드로 주고받는다. 문구 제안도 이 보드로 올린다(예: "아무도 들어갈 수 없는 땅"→"민간인은 들어갈 수 없는 땅", "사람이 닿지 않는 깊은 숲"→판정어를 뺀 표현). 1절 소유권 표는 위 hdk 제안 줄과 함께 확정되면 고친다
 - [x] (hdk→jmj, 전원) 스토리 디벨롭안을 `brainstorming/story_hdk.md`에 올렸다. 후렴 "보이지 않는 땅을, NISAR는 볼 수 있었고, 보고 있었다"와 "멈춘 분계선 → 춤추는 선"으로 구름·밤하늘·게임·엔딩을 잇는다. 자막을 바꿀 곳: 구름 첫 줄, 영상 c2·c8과 밤하늘 마지막 줄, 조각 받기 문구(조각마다 "레이더 읽는 법" 하나), 엔딩. 우선순위 1(선 + 엔딩 문장)만이라도 반영 여부를 답해 달라 — J1·J3
   - jmj 답: 1~3순위를 모두 반영했다. 구름 첫 줄("이 땅은 보이지 않습니다"), 영상 c1(열한 번 찍었다)·c2(밤사진 반전)·c6~c8(멈춘 흰 선 → 춤추게 해 볼까요 → 당신이 읽을 차례), 조각 받기 문구(시간·물·비교·두 눈·한계), 엔딩 자막 5줄(이어짐 → 단 하루 → 보고 있었다 → 7월 구름 회상 → 후렴). "오늘도 지나갑니다"는 넣지 않았다. 영상에서 흰 선을 말할 때 분계선이 한 번 굵어진다(`dmz-line-pulse`). 엔딩 자막은 `#ending-line`, 구름 회상은 `#ending-cloud`(`index.html`의 `#stage` 안, 스타일은 `style.css` 끝 "엔딩 나레이션" 블록)
-- [ ] (hdk→jmj, 전원) 디자인은 **오프닝 첫 화면부터** hdk가 다시 잡고 싶다(위 136행 소유권 제안의 구체화). 동작(`opening.js` 문지르기·손 안내, `film.js`)과 문구는 jmj가 그대로 갖고, hdk는 `style.css`·`index.html`의 모습만 고친다. 필요한 클래스·구조 변경은 이 보드로 주고받는다. 동의하면 1절 표를 고친다
+- [x] (hdk→jmj, 전원) 디자인은 **오프닝 첫 화면부터** hdk가 다시 잡고 싶다(위 136행 소유권 제안의 구체화). 동작(`opening.js` 문지르기·손 안내, `film.js`)과 문구는 jmj가 그대로 갖고, hdk는 `style.css`·`index.html`의 모습만 고친다. 필요한 클래스·구조 변경은 이 보드로 주고받는다. 동의하면 1절 표를 고친다
+  - 결론(11/14 21:33 디코): 파일이 아니라 **섹션별로** 나눈다. hdk = 밤하늘(동작·문구·디자인 모두), jmj = 오프닝·게임·엔딩. 136행 제안과 이 줄은 이것으로 대신한다. 1절 표에 반영했다
 
 - [ ] (jmj→htj) 엔딩과 조각 소리도 밤하늘의 주제로 바꿨다(`screens/nightmusic.js`의 `endingScore()` 35초, `pieceChime(n)` 4초). 밤하늘에서 들은 화음이 엔딩에서 가락을 얹어 완성되는 구조다. `main.js`의 `perform()`과 `dance.js`의 박자가 이 곡을 쓰고, `music.js`·`rhythm.js`·`sound.js`는 건드리지 않았다(`score()`·`layersPreview()`·`applyRhythm()`은 이제 앱에서 부르지 않는다). 바뀐 점: 반주 세기가 실측을 따르던 연결이 없어졌다. 음악은 연출이고, 실측을 따르는 것은 선의 높이·멈춤·점프다. README·`submission.md`·`interface.md`에 반주와 실측의 연결을 설명한 곳이 있으면 고쳐 달라 — J3
 
