@@ -20,7 +20,7 @@ export const state = {
   note: null,        // 방금 한 행동에 대한 한 줄 응답 { ok, text }
   mapReady: false,
 };
-export const data = { boundary: null, rain: null, passes: [], zones: [], layers: null, river: null };
+export const data = { boundary: null, rain: null, passes: [], zones: [], layers: null, river: null, glow: null, facts: null, opening: null };
 
 const listeners = new Set();
 export const subscribe = fn => (listeners.add(fn), () => listeners.delete(fn));
@@ -31,11 +31,16 @@ export function set(patch) {
 }
 
 const json = async path => { const r = await fetch(path); if (!r.ok) throw new Error(`${path} ${r.status}`); return r.json(); };
+// 아직 만들어지지 않았을 수 있는 파일(MVP 진행 중)은 없으면 null 로 둔다
+const optional = path => json(path).catch(() => null);
 export async function load() {
-  const [boundary, rain, regions, layers, river] = await Promise.all(
-    ['dmz.geojson', 'rain.json', 'regions.json', 'layers.json', 'river.json'].map(f => json(`data/${f}`)));
-  Object.assign(data, { boundary, rain, passes: regions.passes, zones: regions.zones, layers, river });
+  const [boundary, rain, regions, layers, river, glow, facts, opening] = await Promise.all([
+    ...['dmz.geojson', 'rain.json', 'regions.json', 'layers.json', 'river.json', 'glow.json', 'facts.json'].map(f => json(`data/${f}`)),
+    optional('data/opening.json')]);
+  Object.assign(data, { boundary, rain, passes: regions.passes, zones: regions.zones, layers, river, glow, facts, opening });
 }
+// 화면에 쓰는 숫자는 facts.json 에서만 가져온다
+export const fact = key => data.facts?.[key]?.value ?? null;
 export const md = iso => `${+iso.slice(5, 7)}/${+iso.slice(8)}`;
 export const zonesOf = stopId => data.zones.filter(z => z.region === stopId);
 export const zone = id => data.zones.find(z => z.id === id);

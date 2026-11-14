@@ -54,7 +54,7 @@
 ```json
 {
   "metric": "숲 대비 HH 계절 변동 폭(표준편차, dB)",
-  "scale_db": [0, 2.5],
+  "scale_db": [0, 1.5],
   "source": "layers",
   "dates": ["2026-06-23", "2026-07-05", "..."],
   "regions": {
@@ -69,7 +69,7 @@
 }
 ```
 
-- `value`: 회색 영상. 빨강 채널 0~255가 `scale_db` 범위로 선형 대응한다. 알파 0은 자료 없음이다. **땅 연주와 숫자 표시는 이 영상에서 읽는다.**
+- `value`: 회색 영상. 빨강 채널 0~255가 `scale_db` 범위로 선형 대응한다(`scale_db`는 숫자를 박지 말고 `glow.json`에서 읽는다). 알파 0은 자료 없음이다. **땅 연주와 숫자 표시는 이 영상에서 읽는다.**
 - `color`: 기본 색을 입힌 표시용 영상(어두운 남색 → 주황 → 노랑). 프론트가 색을 바꾸고 싶으면 `value`로 직접 칠한다.
 - `frames[k]`: 첫 통과부터 k+2번째 유효 통과까지 누적한 변동 폭을 칠한 표시용 영상. 밤사진 켜기 애니메이션에 쓴다. 마지막 프레임은 `color`와 같다.
 - `dates`: 유효 통과 날짜. 7/29 결측은 빠진다.
@@ -142,7 +142,7 @@ export function evidence(zones, regionId)
 //     caveats: ['forest_relative', 'provisional', ...] }       // 2-4 키
 ```
 
-`state.js`의 `load()`는 htj가 `glow.json`, `opening.json`, `facts.json`을 함께 읽도록 늘린다. 결과는 `data.glow`, `data.opening`, `data.facts`에 담긴다.
+`state.js`의 `load()`가 `glow.json`, `facts.json`, `opening.json`(없으면 `null`)을 함께 읽는다. 결과는 `data.glow`, `data.facts`, `data.opening`에 담긴다. 숫자는 `fact('july_clear_optical')`처럼 꺼낸다(값만 반환, 없으면 `null`).
 
 ## 4. 작업 목록 (MVP 단위)
 
