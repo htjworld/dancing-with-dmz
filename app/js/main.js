@@ -86,9 +86,9 @@ function panel() {
 // 조각을 받는 순간 화면 가운데에 잠깐 뜨는 알림: 몇 번째 조각인지, 무엇을 읽는 법인지, 선이 어디까지 이어졌는지
 let toastTimer = 0;
 function pieceToast(id) {
-  const el = $('piece-toast'), n = state.fragments.length, word = t(`${id}.saw`);
+  const el = $('piece-toast'), n = state.fragments.length, word = t(`${id}.feature`);
   el.dataset.stop = id;
-  el.innerHTML = `<p class="n">${t('common.piece', { n, total: STOPS.length })}</p><p class="word">${word}</p>
+  el.innerHTML = `<p class="n">${t('common.piece', { n, total: STOPS.length })}</p><p class="word">${word}</p><p class="saw">${t(`${id}.saw`)}</p>
     ${lineSvg({ current: n - 1, draw: n - 1 })}
     <p class="to">${t(n === STOPS.length ? 'common.pieceAll' : 'common.pieceTo', { name: label(STOPS.find(x => x.id === id), 'name').split(' ')[0] })}</p>`;
   el.hidden = false; el.classList.remove('out'); void el.offsetWidth; el.classList.add('in');

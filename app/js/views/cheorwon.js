@@ -1,5 +1,7 @@
-// 철원 평야 · 사람의 눈: 이름을 가린 두 땅(가, 나)을 같은 두 날짜에 찍은 사진으로 견주고, 더 많이 변한 땅을 고른다. 세 번 견준다.
-// 다 고르면 어느 쪽이 사람이 농사짓는 논이고 어느 쪽이 DMZ 안의 땅인지 밝히고, 두 땅의 한 계절을 선으로 겹쳐 보여 준다.
+// 철원 평야 · 변화 지도: 지도 위의 손잡이로 날짜를 넘기면, 6월 23일의 영상과 그날의 영상을 색으로 겹친 그림이 나온다(views/composite.js).
+// 변하지 않은 곳은 회색, 달라진 곳에는 색이 든다. 이름을 가린 두 땅(가, 나) 가운데 색이 더 많이 드는 쪽을 찾는다.
+// 열한 날을 다 보면 더 크게 변한 땅을 지도에서 직접 누른다. 그 뒤 어느 쪽이 사람이 농사짓는 논이었는지 밝힌다.
+// 손잡이와 두 땅의 테두리는 screens/gamemap.js 가 지도 위에 그린다. 여기서는 안내, 판정, 결과를 맡는다.
 import { state, set, data, zone, addKey, pass } from '../state.js';
 import { STOPS, label } from '../stops.js';
 import { level, change, forestChange } from '../calc.js';
@@ -7,29 +9,21 @@ import { missionReady, canTake, rangeOf } from '../missions.js';
 import { t, dateText, noteText } from '../i18n.js';
 import { blip } from '../sound.js';
 import { foundCard } from './found.js';
-import { crop } from './crop.js';
 
 const ID = 'cheorwon', PADDY = 'cheorwon-paddy', DMZ = 'cheorwon-dmz', FOREST = 'cheorwon-forest', NORTH = 'cheorwon-north';
-const ROUNDS = 3;
-// 화면에 놓는 순서와 이름. 어느 쪽이 논인지는 다 고른 뒤에 밝힌다
-const LANDS = [{ key: 'a', id: DMZ, name: 'cheorwon.landA' }, { key: 'b', id: PADDY, name: 'cheorwon.landB' }];
+// 화면에 붙이는 이름. 어느 쪽이 논인지는 고른 뒤에 밝힌다
+export const LANDS = [{ key: 'a', id: DMZ, name: 'cheorwon.landA' }, { key: 'b', id: PADDY, name: 'cheorwon.landB' }];
 const W = 300, H = 170, L = 30, R = 8, T = 12, B = 22;
 const series = (id, f = change) => data.passes.map(p => f(zone(id), p.cycle));
 const rel = id => data.passes.map(p => forestChange(data.zones, zone(id), p.cycle));
 
-// 견줄 날짜 쌍: 이어진 두 통과 가운데 두 땅의 변화 차이가 가장 컸던 세 쌍(날짜순). 어느 땅이 더 변했는지는 자료가 정한다
-let memo = null;
-function rounds() {
-  if (memo) return memo;
-  const dates = data.layers.regions[ID].dates;
-  const ok = data.passes.filter(p => !p.rest && dates.includes(p.date) && level(zone(PADDY), p.cycle) != null && level(zone(DMZ), p.cycle) != null).map(p => p.cycle);
-  const pairs = ok.slice(1).map((b, i) => {
-    const a = ok[i], d = id => Math.abs(level(zone(id), b) - level(zone(id), a));
-    return { a, b, paddy: d(PADDY), dmz: d(DMZ) };
-  });
-  memo = pairs.sort((x, y) => Math.abs(y.paddy - y.dmz) - Math.abs(x.paddy - x.dmz)).slice(0, ROUNDS).sort((x, y) => x.a - y.a);
-  return memo;
-}
+// 넘겨 볼 날짜들(영상이 있는 통과)
+export const cycles = () => { const d = data.layers.regions[ID].dates; return data.passes.filter(p => !p.rest && d.includes(p.date)).map(p => p.cycle); };
+const seenCount = () => cycles().filter(c => state.visited.includes(c)).length;
+// 열한 날을 다 봤는가(그 뒤에 땅을 고를 수 있다)
+export const askReady = () => seenCount() >= cycles().length;
+// 한 계절 동안 밝기가 오르내린 폭(dB)
+const swing = id => rangeOf(cycles().map(c => level(zone(id), c)));
 
 function scale() {
   const all = [PADDY, DMZ, FOREST].flatMap(id => series(id)).filter(v => v != null), n = data.passes.length;
@@ -42,7 +36,7 @@ function path(vals, s) {
   vals.forEach((v, c) => { if (v == null) { pen = false; return; } d += `${pen ? 'L' : 'M'}${s.x(c).toFixed(1)},${s.y(v).toFixed(1)}`; pen = true; });
   return d;
 }
-// 다 고른 뒤에 보여 주는 두 땅의 한 계절
+// 고른 뒤에 보여 주는 두 땅의 한 계절
 function chart() {
   const s = scale();
   const rest = data.passes.filter(p => p.rest).map(p => `<rect x="${s.x(p.cycle) - 9}" y="${T}" width="18" height="${H - T - B}" class="rest"/>`).join('');
@@ -55,56 +49,68 @@ function chart() {
     <p class="legend"><span class="k-paddy">━ ${t('cheorwon.legendPaddy')}</span> <span class="k-dmz">━ ${t('cheorwon.legendDmz')}</span> <span class="k-forest">┅ ${t('cheorwon.legendForest')}</span></p>`;
 }
 
-// 한 판: 두 땅을 위아래로 놓고, 땅마다 먼저 찍은 사진과 나중에 찍은 사진을 나란히 보여 준다
-function round(r) {
-  const from = pass(r.a).date, to = pass(r.b).date;
-  return `<p class="today">${t('cheorwon.round', { n: state.cmpPicks.length + 1, total: ROUNDS })} · ${t('cheorwon.between', { from: dateText(from), to: dateText(to) })}</p>
-    <div class="lands">${LANDS.map(l => {
-    const b = zone(l.id).bounds, look = { contrast: 1.7, bright: .85 }, c0 = crop(ID, from, b, 0, 'hh', look), c1 = crop(ID, to, b, 0, 'hh', look);
-    return `<button type="button" class="land" data-act="pick" data-land="${l.key}" aria-label="${t('cheorwon.pickAria', { name: t(l.name) })}">
-        <b>${t(l.name)}</b>
-        <span class="pair" style="--ar:${c0.ar.toFixed(3)}"><span class="pic" style="${c0.style}"></span><span class="pic" style="${c1.style}"></span></span></button>`;
-  }).join('')}</div>
-    <p class="hint">${t('cheorwon.hint')}</p>`;
+// 손잡이를 넘길 때의 음높이(0~1): 나 땅이 첫 날짜에서 달라진 만큼 올라간다
+export const tone = c => { const z = zone(PADDY), base = level(z, cycles()[0]), all = cycles().map(k => Math.abs(level(z, k) - base)), v = Math.abs(level(z, c) - base); return v / (Math.max(...all) || 1); };
+
+// 첫 날짜(6월 23일)와 견줘 두 땅의 밝기가 달라진 정도를 막대로 보여 준다. 날짜를 넘기면 막대가 따라 움직인다
+function now() {
+  const base = cycles()[0], diff = (id, c) => { const a = level(zone(id), base), b = level(zone(id), c); return a == null || b == null ? 0 : Math.abs(b - a); };
+  const top = Math.max(...LANDS.flatMap(l => cycles().map(c => diff(l.id, c))), .0001);
+  return `<p class="swatches"><span class="same">${t('cheorwon.colorSame')}</span><span class="up">${t('cheorwon.colorUp')}</span><span class="down">${t('cheorwon.colorDown')}</span></p>
+    <div class="nowbars" role="img" aria-label="${t('cheorwon.nowAria')}">${LANDS.map(l => `<span>${t(l.name)}</span><i><u style="width:${(diff(l.id, state.cycle) / top * 100).toFixed(0)}%"></u></i>`).join('')}</div>`;
+}
+
+function play() {
+  const n = cycles().length, seen = seenCount(), ask = seen >= n, p = pass(state.cycle);
+  return `<p class="today big">${p && !p.rest ? dateText(p.date) : ''}</p>
+    ${now()}
+    <p class="fine cap">${t('cheorwon.nowFine')}</p>
+    <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${seen}" aria-label="${t('cheorwon.seenAria')}"><i style="width:${(seen / n * 100).toFixed(0)}%"></i></div>
+    <p class="hint">${ask ? '' : t('cheorwon.seen', { n: seen, total: n })} ${t(ask ? 'cheorwon.ask' : 'cheorwon.hint')}</p>
+    ${ask ? `<div class="acts">${LANDS.map(l => `<button type="button" data-act="pick" data-land="${l.key}">${t(l.name)}</button>`).join('')}</div>` : ''}`;
 }
 
 function discovery() {
   const r = id => rangeOf(rel(id)), paddy = r(PADDY), dmz = r(DMZ), north = r(NORTH);
-  const right = state.cmpPicks.filter(p => p.ok).length;
   const apart = dmz <= paddy / 2;   // DMZ 안의 땅이 논의 절반도 움직이지 않았는가
   return foundCard({
     head: t(apart ? 'cheorwon.foundHeadApart' : 'cheorwon.foundHeadUnclear'),
     rows: [{ name: t('cheorwon.rowPaddy'), value: paddy }, { name: t('cheorwon.rowDmz'), value: dmz, cls: 'calm' }, { name: t('cheorwon.rowNorth'), value: north, cls: 'far' }],
     caption: t('cheorwon.foundCaption'),
-    body: [t('cheorwon.foundWho'), state.cmpPicks.length ? t('cheorwon.foundScore', { n: right, total: state.cmpPicks.length }) : '', apart ? t('cheorwon.foundWhy') : ''],
+    body: [t('cheorwon.foundWho'), apart ? t('cheorwon.foundWhy') : ''],
+    extra: chart(),
     more: [t(apart ? 'cheorwon.foundApart' : 'cheorwon.foundUnclear', { dmz: dmz.toFixed(1), paddy: paddy.toFixed(1) }), t('cheorwon.foundNorth', { north: north.toFixed(1) }), t('cheorwon.foundCaveat'), t('cheorwon.foundFine')],
   });
 }
 
 export function render() {
   const ready = missionReady(ID, state.seen[ID]), got = state.fragments.includes(ID);
-  const allowed = canTake(ID, state.fragments, STOPS.map(s => s.id)), r = rounds()[state.cmpPicks.length];
-  return `${ready || !r ? '' : round(r)}
+  const allowed = canTake(ID, state.fragments, STOPS.map(s => s.id));
+  return `${ready ? '' : play()}
     ${state.note ? `<p class="note ${state.note.ok ? 'ok' : 'no'}" role="status">${noteText(state.note)}</p>` : ''}
-    ${ready ? discovery() + chart() : ''}
+    ${ready ? discovery() : ''}
     ${ready && !got ? (allowed ? `<button type="button" class="primary" data-act="take">${t('cheorwon.take')}</button>`
       : `<p class="note no">${t('common.needPrev')}</p>`) : ''}
     ${got ? `<p class="note ok">${t('cheorwon.got')}</p>
       <button type="button" class="primary" data-act="next">${t('common.next', { name: label(STOPS.find(s => s.id === 'hwacheon'), 'name') })}</button>` : ''}`;
 }
 
+// 더 크게 변한 땅을 골랐다(지도에서 누르거나 창의 단추로). 맞든 틀리든 완료되고, 숫자로 답을 보여 준다
+function pick(land) {
+  if (state.stop !== ID || state.screen !== 'mission' || missionReady(ID, state.seen[ID]) || !askReady()) return;
+  const a = swing(DMZ), b = swing(PADDY), ok = land === (b > a ? 'b' : 'a');
+  const vars = { a: a.toFixed(1), b: b.toFixed(1) };
+  const say = () => t(ok ? 'cheorwon.noteRight' : 'cheorwon.noteWrong', vars);   // 문구는 보여 줄 때의 언어로 만든다
+  blip(ok ? 784 : 233, .18, ok ? .35 : .16);
+  set({ cmpPicks: [{ land, ok }], note: { ok, text: say(), say }, revealed: true, seen: addKey(ID, 'drawn') });
+}
+
+export function bind() {
+  document.addEventListener('dmz-map-pick', e => pick(e.detail.land));
+}
+
 export function act(name, el) {
-  if (name === 'pick' && !missionReady(ID, state.seen[ID])) {
-    const r = rounds()[state.cmpPicks.length]; if (!r) return;
-    const land = el.dataset.land, more = r.paddy > r.dmz ? 'b' : 'a', ok = land === more;
-    const vars = { a: r.dmz.toFixed(1), b: r.paddy.toFixed(1) };
-    const say = () => t(ok ? 'cheorwon.noteRight' : 'cheorwon.noteWrong', vars);   // 문구는 보여 줄 때의 언어로 만든다
-    blip(ok ? 660 : 233, .16, ok ? .3 : .16);
-    const picks = [...state.cmpPicks, { a: r.a, b: r.b, land, ok }], done = picks.length >= rounds().length;
-    // 다음 판의 나중 날짜로 지도도 옮긴다
-    const nextDay = done ? r.b : rounds()[picks.length].b;
-    set({ cmpPicks: picks, note: { ok, text: say(), say }, cycle: nextDay, visited: [...state.visited, nextDay], ...(done ? { revealed: true, seen: addKey(ID, 'drawn') } : {}) });
-  }
+  if (name === 'pick') pick(el.dataset.land);
   else if (name === 'take' && missionReady(ID, state.seen[ID]) && canTake(ID, state.fragments, STOPS.map(s => s.id))) set({ fragments: [...state.fragments, ID], note: null });
   else if (name === 'next') set({ stop: 'hwacheon', note: null });
 }

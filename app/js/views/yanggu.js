@@ -1,126 +1,107 @@
-// 양구 펀치볼 · 한계: 지도의 레이더 영상을 누른 채 끌면, 손이 지나는 곳이 한 계절 동안 얼마나 변했는지가 막대와 소리로 나온다.
-// 가장 많이 변한 곳을 찾으면 완료. 찾은 뒤에는 '어디가 변했는지'는 보이지만 '왜 변했는지'는 레이더만으로 알 수 없다는 것을 말한다.
-// 변화 정도는 날짜별 영상(열한 장)을 겹쳐 직접 잰다: 10화소 묶음의 평균 밝기에서 한 계절의 최댓값과 최솟값의 차. dB 가 아니라 영상 밝기 기준이다.
-import { state, set, data, zone, addKey } from '../state.js';
+// 양구 펀치볼 · 밤의 눈: 지도 아래의 손잡이로 날짜를 넘기면, 그날 사진이 찍힌 시각의 하늘이 저녁에서 밤으로 어두워진다. 레이더 영상은 그대로 선명하다.
+// 열한 날을 다 보면 "밝은 날과 어두운 밤 가운데 레이더 영상이 더 선명한 쪽은?"에 답한다. 답은 '똑같다'.
+// 촬영 시각은 NISAR 그래뉼 이름의 시각(UTC)에서 읽고, 해의 높이는 날짜와 위치로 계산한다. 하늘 색과 '빛으로 찍는 카메라' 그림은 연출이다.
+import { state, set, data, zone, addKey, pass } from '../state.js';
 import { STOPS } from '../stops.js';
-import { change } from '../calc.js';
-import { missionReady, canTake, rangeOf, inside, meters } from '../missions.js';
-import { pixelOf } from '../glow.js';
-import { t, zoneName } from '../i18n.js';
+import { missionReady, canTake } from '../missions.js';
+import { t, dateText } from '../i18n.js';
 import { blip } from '../sound.js';
 import { foundCard } from './found.js';
+import { crop } from './crop.js';
 
-const ID = 'yanggu', BASIN = 'yanggu-basin', FOREST = 'yanggu-dmz';
-const BLOCK = 10;        // 화소를 이만큼씩 묶어 평균한다(레이더 영상의 알갱이 잡음을 줄인다)
-const NEED = .88;        // 가장 많이 변한 곳의 이만큼 이상이면 찾은 것으로 본다
-const STEP = 110;        // 자국을 남기는 간격(m)
-const HINT_AFTER = 70;   // 이만큼 살펴보고도 못 찾으면 가까운 곳을 알려 주는 단추가 나온다
-let grid = null, loading = false, lastBlip = 0;
+const ID = 'yanggu', LAT = 38.29, LNG = 128.13;   // 펀치볼 한가운데
+const RAD = Math.PI / 180;
 
-// 날짜별 영상을 겹쳐 '변화 지도'를 만든다(한 번만)
-async function build() {
-  const L = data.layers.regions[ID], [W, H] = L.size, bw = Math.floor(W / BLOCK), bh = Math.floor(H / BLOCK), n = bw * bh;
-  const lo = new Float32Array(n).fill(Infinity), hi = new Float32Array(n).fill(-Infinity), seen = new Uint8Array(n);
-  const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
-  const g = cv.getContext('2d', { willReadFrequently: true });
-  for (const date of L.dates) {
-    const img = new Image(); img.src = `data/layers/${ID}/${date}_hh.webp`;
-    await img.decode();
-    g.clearRect(0, 0, W, H); g.drawImage(img, 0, 0, W, H);
-    const d = g.getImageData(0, 0, W, H).data;
-    for (let by = 0; by < bh; by++) for (let bx = 0; bx < bw; bx++) {
-      let sum = 0, k = 0;
-      for (let y = by * BLOCK; y < (by + 1) * BLOCK; y++) for (let x = bx * BLOCK; x < (bx + 1) * BLOCK; x++) { const i = (y * W + x) * 4; if (d[i + 3] > 200) { sum += d[i]; k++; } }
-      if (k < BLOCK * BLOCK * .6) continue;   // 영상 밖이거나 가장자리
-      const m = sum / k, j = by * bw + bx;
-      if (m < lo[j]) lo[j] = m; if (m > hi[j]) hi[j] = m; seen[j]++;
-    }
-  }
-  const raw = new Float32Array(n).fill(-1);
-  for (let j = 0; j < n; j++) if (seen[j] === L.dates.length) raw[j] = hi[j] - lo[j];
-  // 이웃 묶음과 평균해 한 점만 튀는 값을 누른다
-  const val = new Float32Array(n).fill(-1); let top = 0, at = 0;
-  for (let by = 0; by < bh; by++) for (let bx = 0; bx < bw; bx++) {
-    const j = by * bw + bx; if (raw[j] < 0) continue;
-    let sum = 0, k = 0;
-    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) { const x = bx + dx, y = by + dy; if (x < 0 || y < 0 || x >= bw || y >= bh) continue; const v = raw[y * bw + x]; if (v >= 0) { sum += v; k++; } }
-    val[j] = sum / k; if (val[j] > top) { top = val[j]; at = j; }
-  }
-  // 조용한 곳(아래 10%)을 0, 가장 많이 변한 곳을 1 로 맞춘다. 막대가 늘 절반쯤 차 있지 않게 한다
-  const sorted = Array.from(val).filter(x => x >= 0).sort((a, b) => a - b), floor = sorted[Math.floor(sorted.length * .1)] || 0;
-  for (let j = 0; j < n; j++) if (val[j] >= 0) val[j] = Math.max(0, (val[j] - floor) / ((top - floor) || 1));
-  // 가장 많이 변한 묶음의 가운데(경위도)
-  const [[x0, y0], [x1, y1], , [x3, y3]] = L.corners, u = ((at % bw) + .5) * BLOCK / W, v = (Math.floor(at / bw) + .5) * BLOCK / H;
-  grid = { bw, bh, val, hot: [x0 + u * (x1 - x0) + v * (x3 - x0), y0 + u * (y1 - y0) + v * (y3 - y0)] };
+// 넘겨 볼 날짜들(영상이 있는 통과)
+export const cycles = () => { const d = data.layers.regions[ID].dates; return data.passes.filter(p => !p.rest && d.includes(p.date)).map(p => p.cycle); };
+const seenCount = () => cycles().filter(c => state.visited.includes(c)).length;
+export const askReady = () => seenCount() >= cycles().length;
+
+// 그 통과가 찍힌 시각(UTC). 그래뉼 이름의 '_A_20260623T102537' 에서 읽는다. 이름에 없으면 다른 통과와 같은 시각으로 본다(같은 궤도)
+function shotAt(c) {
+  const m = (pass(c)?.granule || '').match(/_(\d{8})T(\d\d)(\d\d)(\d\d)_/), any = data.passes.map(p => (p.granule || '').match(/_(\d{8})T(\d\d)(\d\d)(\d\d)_/)).find(Boolean);
+  const k = m || any; if (!k) return null;
+  const [y, mo, d] = pass(c).date.split('-').map(Number);
+  return { y, mo, d, h: +k[2] + +k[3] / 60 + +k[4] / 3600 };
 }
-function ensure() {
-  if (grid || loading) return;
-  loading = true;
-  build().catch(() => { grid = null; }).finally(() => { loading = false; set({}); });   // 다 만들면 창을 다시 그린다
+// 해의 높이(도). 0 보다 크면 지평선 위. NOAA 의 근사식
+export function sunElev(c) {
+  const s = shotAt(c); if (!s) return null;
+  const day = Math.floor((Date.UTC(s.y, s.mo - 1, s.d) - Date.UTC(s.y, 0, 0)) / 864e5), g = 2 * Math.PI / 365 * (day - 1 + (s.h - 12) / 24);
+  const eqt = 229.18 * (.000075 + .001868 * Math.cos(g) - .032077 * Math.sin(g) - .014615 * Math.cos(2 * g) - .040849 * Math.sin(2 * g));
+  const dec = .006918 - .399912 * Math.cos(g) + .070257 * Math.sin(g) - .006758 * Math.cos(2 * g) + .000907 * Math.sin(2 * g) - .002697 * Math.cos(3 * g) + .00148 * Math.sin(3 * g);
+  const ha = (((s.h * 60 + eqt + 4 * LNG) % 1440) / 4 - 180) * RAD;
+  return Math.asin(Math.sin(LAT * RAD) * Math.sin(dec) + Math.cos(LAT * RAD) * Math.cos(dec) * Math.cos(ha)) / RAD;
 }
-// 그 자리의 변화 정도(0~1). 영상 밖이면 null
-function sample(lng, lat) {
-  const L = data.layers.regions[ID], p = grid && pixelOf(L.corners, L.size, lng, lat);
-  if (!p) return null;
-  const bx = Math.min(grid.bw - 1, Math.floor(p[0] / BLOCK)), by = Math.min(grid.bh - 1, Math.floor(p[1] / BLOCK)), v = grid.val[by * grid.bw + bx];
-  return v < 0 ? null : v;
+// 낮(해가 떠 있다) · 해질녘(해는 졌지만 어스름이 남았다) · 밤
+const kind = e => (e > .5 ? 'day' : e > -6 ? 'dusk' : 'night');
+// 손잡이를 넘길 때의 음높이(0~1): 해가 내려갈수록 낮아진다
+export const tone = c => { const e = sunElev(c) ?? 0; return Math.max(0, Math.min(1, (e + 24) / 30)); };
+// 한국 시각으로 적은 촬영 시각
+function clock(c) {
+  const s = shotAt(c); if (!s) return '';
+  const total = Math.floor(((s.h + 9) % 24) * 60), h = Math.floor(total / 60), m = total % 60;
+  return state.lang === 'en' ? `${((h + 11) % 12) + 1}:${String(m).padStart(2, '0')} ${h < 12 ? 'am' : 'pm'}` : `${h}시 ${m}분`;
+}
+// 하늘의 색(연출): 해의 높이에 따라 노을빛에서 밤의 남색으로
+function sky(e) {
+  const k = Math.max(0, Math.min(1, (e + 14) / 19)), mix = (a, b) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
+  const top = mix([6, 9, 24], [92, 132, 190]), low = mix([14, 20, 44], [245, 168, 104]);
+  return `linear-gradient(180deg,rgb(${top}) 0,rgb(${low}) 100%)`;
 }
 
-// 지도 위에서 손이 지나간 자리(screens/gamemap.js 가 알려 준다)
-function probe({ lng, lat, phase }) {
-  if (state.stop !== ID || state.screen !== 'mission' || missionReady(ID, state.seen[ID]) || phase === 'end' || !grid) return;
-  const v = sample(lng, lat);
-  if (v == null) return set({ probe: null });
-  const now = performance.now();
-  if (now - lastBlip > 120) { lastBlip = now; blip(196 * 2 ** (v * 2), .14, .16); }   // 많이 변한 곳일수록 음이 높다
-  const tr = state.probeTrail, last = tr[tr.length - 1];
-  const trail = !last || meters(last[0], last[1], lng, lat) >= STEP ? [...tr.slice(-600), [lng, lat, +v.toFixed(2)]] : tr;
-  if (v >= NEED) {   // 찾았다
-    const z = data.zones.find(x => x.region === ID && inside(x.bounds, lng, lat));
-    blip(784, .2, .4);
-    return set({ probe: [lng, lat, v], probeTrail: trail, hot: [lng, lat], quizPick: z?.id ?? null, hotHint: false, seen: addKey(ID, 'picked') });
-  }
-  set({ probe: [lng, lat, v], probeTrail: trail });
+function scene(c) {
+  const e = sunElev(c) ?? 0, y = Math.max(-40, Math.min(70, e * 6));   // 해의 자리(지평선에서 위아래로)
+  return `<div class="sky ${kind(e)}" style="background:${sky(e)}" role="img" aria-label="${t('yanggu.skyAria')}">
+      <i class="stars" style="opacity:${Math.max(0, Math.min(1, (-e - 3) / 9)).toFixed(2)}"></i><i class="sun" style="bottom:${(26 + y).toFixed(0)}px"></i><i class="land"></i></div>
+    <p class="today">${t('yanggu.shotAt', { time: clock(c) })} ${t(e > .5 ? 'yanggu.sunUp' : e > -1 ? 'yanggu.sunEdge' : 'yanggu.sunDown', { deg: Math.abs(e).toFixed(0) })}</p>`;
+}
+// 같은 자리를 레이더로 찍은 것(실측)과, 빛으로 찍는 카메라였다면 어땠을지(연출: 해의 높이만큼 어둡게)
+function shots(c) {
+  const z = zone('yanggu-basin'), b = z ? z.bounds : STOPS.find(s => s.id === ID).bounds, date = pass(c).date, e = sunElev(c) ?? 0;
+  const radar = crop(ID, date, b, .5, 'hh', { contrast: 1.4, bright: .95 });
+  const dim = +Math.max(.03, Math.min(1, (e + 7) / 11)).toFixed(2), cam = crop(ID, date, b, .5, 'hh', { contrast: 1.4, bright: +(0.95 * dim).toFixed(3) });
+  const fig = (x, key) => `<figure><span class="pic" style="aspect-ratio:${x.ar.toFixed(3)};${x.style}"></span><figcaption><b>${t(key)}</b></figcaption></figure>`;
+  return `<div class="twoshots">${fig(radar, 'yanggu.shotRadar')}${fig(cam, 'yanggu.shotCamera')}</div>`;
 }
 
-const series = id => data.passes.map(p => change(zone(id), p.cycle));
+function play() {
+  const n = cycles().length, seen = seenCount(), ask = seen >= n, c = cycles().includes(state.cycle) ? state.cycle : cycles()[0];
+  return `<p class="today big">${dateText(pass(c).date)}</p>
+    ${scene(c)}
+    ${shots(c)}
+    <p class="fine cap">${t('yanggu.shotsFine')}</p>
+    <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${seen}" aria-label="${t('yanggu.seenAria')}"><i style="width:${(seen / n * 100).toFixed(0)}%"></i></div>
+    <p class="hint">${ask ? t('yanggu.ask') : `${t('yanggu.seen', { n: seen, total: n })} ${t('yanggu.hint')}`}</p>
+    ${ask ? `<div class="acts three">${['day', 'night', 'same'].map(a => `<button type="button" data-act="pick" data-answer="${a}">${t(`yanggu.answer.${a}`)}</button>`).join('')}</div>` : ''}`;
+}
+
 function result() {
-  const basin = rangeOf(series(BASIN)), forest = rangeOf(series(FOREST)), close = Math.abs(basin - forest) < .5;
-  const z = zone(state.quizPick);
+  const kinds = cycles().map(c => kind(sunElev(c) ?? 0)), count = k => kinds.filter(x => x === k).length;
+  const chips = `<div class="skychips">${cycles().map(c => { const e = sunElev(c) ?? 0; return `<span style="background:${sky(e)}" title="${dateText(pass(c).date)}"><b>${+pass(c).date.slice(5, 7)}/${+pass(c).date.slice(8)}</b></span>`; }).join('')}</div>`;
   return foundCard({
     head: t('yanggu.foundHead'),
-    rows: [{ name: t('yanggu.rowBasin'), value: basin }, { name: t('yanggu.rowForest'), value: forest, cls: 'calm' }],
-    caption: t('common.foundSwing'),
-    body: [t('yanggu.foundLimit'), z ? t('yanggu.spotZone', { name: zoneName(z) }) : t('yanggu.spotOut'), !close ? '' : t(z?.id === BASIN ? 'yanggu.foundAvg' : 'yanggu.foundClose')],
-    more: [t('yanggu.foundMethod'), t('yanggu.foundFine')],
+    body: [t(state.quizPick === 'same' ? 'yanggu.pickRight' : 'yanggu.pickWrong'), t('yanggu.foundCount', { total: kinds.length, day: count('day'), dusk: count('dusk'), night: count('night') }), t('yanggu.foundWhyNight')],
+    extra: chips,
+    more: [t('yanggu.foundTime', { time: clock(cycles()[0]) }), t('yanggu.foundSun'), t('yanggu.foundStaged')],
   });
 }
 
 export function render() {
   const ready = missionReady(ID, state.seen[ID]), got = state.fragments.includes(ID), allowed = canTake(ID, state.fragments, STOPS.map(s => s.id));
-  if (!ready) ensure();
-  const v = ready ? 1 : state.probe?.[2] ?? 0, pct = Math.round(v * 100);
-  return `${ready ? '' : `
-    <div class="meter heat" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="${t('yanggu.meterAria')}"><i style="width:${pct}%"></i></div>
-    <p class="today">${!grid ? t('yanggu.loading') : state.probe ? t('yanggu.meter', { pct }) : t('yanggu.meterIdle')}</p>
-    <p class="hint">${t('yanggu.hint')}</p>
-    ${state.probeTrail.length >= HINT_AFTER && !state.hotHint ? `<button type="button" class="ghost" data-act="hint">${t('yanggu.hintBtn')}</button>` : ''}`}
-    ${ready ? result() : ''}
+  return `${ready ? result() : play()}
     ${ready && !got ? (allowed ? `<button type="button" class="primary" data-act="take">${t('yanggu.take')}</button>`
       : `<p class="note no">${t('common.needPrev')}</p>`) : ''}
     ${got ? `<p class="note ok">${t('yanggu.got')}</p>
       ${state.fragments.length === STOPS.length ? `<button type="button" class="primary" data-act="finale">${t(state.finaleDone ? 'finale.again' : 'finale.go')}</button>` : ''}` : ''}`;
 }
 
-export function bind() {
-  document.addEventListener('dmz-map-trace', e => probe(e.detail));
-}
-
-// 지도에 그릴 것(screens/gamemap.js 가 읽는다): 가장 많이 변한 곳의 자리
-export const hotSpot = () => grid?.hot ?? null;
-
-export function act(name) {
-  if (name === 'hint') set({ hotHint: true });
+export function act(name, el) {
+  if (name === 'pick' && askReady() && !missionReady(ID, state.seen[ID])) {
+    const answer = el.dataset.answer, ok = answer === 'same';
+    blip(ok ? 784 : 233, .18, ok ? .35 : .16);
+    set({ quizPick: answer, seen: addKey(ID, 'picked') });   // 맞든 틀리든 완료되고, 결과에서 답을 말해 준다
+  }
   else if (name === 'take' && missionReady(ID, state.seen[ID]) && canTake(ID, state.fragments, STOPS.map(s => s.id))) set({ fragments: [...state.fragments, ID] });
   else if (name === 'finale') document.dispatchEvent(new Event('dmz-finale'));   // main.js 가 듣고 피날레를 시작한다
 }

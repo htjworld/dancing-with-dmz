@@ -3,6 +3,7 @@ import { state, set, subscribe, data, pass } from './state.js';
 import { STOPS, centerOf, label } from './stops.js';
 import { zoneName } from './i18n.js';
 import { missionReady } from './missions.js';
+import { compositeUrl } from './views/composite.js';
 
 // 영상 네 귀퉁이를 감싸는 경위도 범위
 const boundsOf = corners => [[Math.min(...corners.map(c => c[0])), Math.min(...corners.map(c => c[1]))],
@@ -25,7 +26,9 @@ function radarOf(s) {
   const L = data.layers.regions[s.stop], p = pass(s.cycle);
   if (!L || !p || p.rest || !L.dates.includes(p.date)) return null;
   const pol = L.pols.includes(s.pol) ? s.pol : 'hh';
-  return { url: `data/layers/${s.stop}/${p.date}_${pol}.webp`, coordinates: L.corners };
+  // 철원은 첫 날짜와 고른 날짜를 색으로 겹친 그림을 쓴다. 아직 만들어지지 않았으면 그날의 흑백 영상을 먼저 보여 준다
+  const mix = s.stop === 'cheorwon' ? compositeUrl('cheorwon', L.dates[0], p.date) : null;
+  return { url: mix || `data/layers/${s.stop}/${p.date}_${pol}.webp`, coordinates: L.corners };
 }
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
@@ -110,7 +113,7 @@ export function initMap() {
     for (const id of Object.keys(glow)) map.setLayoutProperty(`glow-${id}`, 'visibility', vis(night));
     map.setLayoutProperty('dmz-white', 'visibility', vis(night));
     for (const id of ['dmz-glow', 'dmz-line']) map.setLayoutProperty(id, 'visibility', vis(!night));
-    for (const id of ['zone-fill', 'zone-line']) map.setLayoutProperty(id, 'visibility', vis(!night && !!radarOf(s)));   // 구역 사각형은 레이더 영상이 켜져 있을 때만
+    for (const id of ['zone-fill', 'zone-line']) map.setLayoutProperty(id, 'visibility', vis(!night && !!radarOf(s) && s.stop !== 'cheorwon'));   // 구역 사각형은 레이더 영상이 켜져 있을 때만
     if (map.getLayer('corridor-edges')) map.setLayoutProperty('corridor-edges', 'visibility', vis(night && s.nightMode === 'explore'));
   };
   subscribe((s, prev) => {
@@ -181,7 +184,8 @@ export function initMap() {
     if (k !== shownRadar) {
       shownRadar = k; if (r) map.getSource('radar').updateImage(r); map.setLayoutProperty('radar', 'visibility', r ? 'visible' : 'none');
       if (r) map.getSource('radar-frame').setData(frameOf(r.coordinates));
-      for (const id of ['radar-frame-glow', 'radar-frame-line', 'zone-fill', 'zone-line']) if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', r ? 'visible' : 'none');   // 영상이 없으면 구역 사각형도 걷는다
+      for (const id of ['radar-frame-glow', 'radar-frame-line']) if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', r ? 'visible' : 'none');
+      for (const id of ['zone-fill', 'zone-line']) if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', r && s.stop !== 'cheorwon' ? 'visible' : 'none');   // 철원은 이름을 가린 두 땅만 따로 그린다(gamemap.js)   // 영상이 없으면 구역 사각형도 걷는다
     }
     map.setLayoutProperty('river-hint', 'visibility', s.stop === 'yeoncheon' && s.riverHint ? 'visible' : 'none');
   };

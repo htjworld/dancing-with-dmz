@@ -623,3 +623,54 @@ body[data-screen=night][data-night=film] .maplibregl-ctrl-bottom-right{display:n
 body:not([data-screen]) #top{visibility:hidden}
 /* 처음 불러오는 동안에는 뒤의 일반 지도·단추가 보이지 않게 오프닝과 같은 남색 막으로 덮는다(화면 상태가 정해지면 사라진다) */
 body:not([data-screen])::before{content:"";position:fixed;inset:0;z-index:100;background:#060c1c}
+/* ---- 철원: 시간 돌리기(지도 위의 손잡이와 이름을 가린 두 땅) */
+#scrub{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+#scrub[hidden]{display:none}
+#scrub .lands{position:absolute;inset:0;width:100%;height:100%}
+#scrub .lands polygon{fill:rgba(255,255,255,.04);stroke:#fff;stroke-width:2;stroke-dasharray:6 5}
+#scrub .lands text{fill:#fff;font-size:15px;font-weight:700;paint-order:stroke;stroke:rgba(4,9,14,.85);stroke-width:4px}
+#scrub.ask .lands g{pointer-events:all;cursor:pointer}
+#scrub.ask .lands polygon{stroke:var(--gold);stroke-dasharray:none;fill:rgba(255,225,162,.12);animation:land-ask 1.6s ease-in-out infinite}
+#scrub.ask .lands g:hover polygon{fill:rgba(255,225,162,.3)}
+@keyframes land-ask{50%{fill:rgba(255,225,162,.22)}}
+#scrub .time{position:absolute;left:calc((100% - 380px) / 2);bottom:26px;transform:translateX(-50%);width:min(520px,calc(100% - 430px));min-width:260px;padding:10px 20px 10px;
+  pointer-events:auto;border-radius:18px;background:rgba(13,24,38,.86);border:1px solid var(--night-edge);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+#scrub .day{display:block;text-align:center;font-family:var(--serif);font-size:19px;margin:0 0 8px}
+#scrub .rail{position:relative;height:30px;cursor:ew-resize;touch-action:none;outline-offset:6px}
+#scrub .rail::before{content:"";position:absolute;left:0;right:0;top:13px;height:4px;border-radius:2px;background:rgba(255,255,255,.14)}
+#scrub .fill{position:absolute;left:0;top:13px;height:4px;border-radius:2px;background:var(--gold)}
+#scrub .dots{position:absolute;left:0;right:0;top:11px;display:flex;justify-content:space-between}
+#scrub .dots i{width:8px;height:8px;margin:0 -4px;border-radius:50%;background:#33465a}
+#scrub .dots i.seen{background:var(--gold)}
+#scrub .knob{position:absolute;top:2px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.6);transition:transform .12s ease-out}
+#scrub.grab .knob{transform:scale(1.15)}
+#scrub .ends{display:flex;justify-content:space-between;margin-top:2px;font-size:11.5px;color:var(--dim)}
+@media (max-width:900px){#scrub .time{left:50%;width:calc(100% - 32px)}}
+body[data-stop=cheorwon][data-beat=play] .zone-tag{display:none}
+#panel .today.big{font-family:var(--serif);font-size:22px;margin:0 0 8px}
+#panel .nowbars{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:8px 10px;margin:0 0 4px;font-size:13.5px}
+#panel .nowbars i{height:14px;border-radius:7px;background:rgba(255,255,255,.1);overflow:hidden}
+#panel .nowbars u{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,#55606c,#fff);transition:width .18s ease-out}
+@media (prefers-reduced-motion:reduce){#scrub.ask .lands polygon{animation:none} #panel .nowbars u{transition:none}}
+
+/* ---- 조각 알림: 레이더의 특징 */
+#piece-toast .saw{font-size:13.5px;color:#c9d6e4;margin:0 0 8px}
+#piece-toast .word{margin:4px 0 4px}
+/* ---- 시간 손잡이를 양구도 쓴다(땅 테두리는 철원에서만) */
+#scrub[data-stop=yanggu] .lands{display:none}
+/* ---- 철원: 색의 뜻 */
+#panel .swatches{display:flex;flex-wrap:wrap;gap:6px 12px;margin:0 0 8px;font-size:12px;color:var(--ink)}
+#panel .swatches span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+#panel .swatches .same::before{background:#9a9a9a} #panel .swatches .up::before{background:#ff9a3d} #panel .swatches .down::before{background:#4c8dff}
+#panel .nowbars u{background:linear-gradient(90deg,#8d6a3a,#ffb25e)}
+/* ---- 양구: 하늘(연출)과 두 사진 */
+#panel .sky{position:relative;height:74px;border-radius:12px;overflow:hidden;margin:0 0 8px;border:1px solid var(--night-edge)}
+#panel .sky .sun{position:absolute;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:#ffe9a8;box-shadow:0 0 18px 6px rgba(255,214,140,.55);transition:bottom .25s ease-out}
+#panel .sky .land{position:absolute;left:0;right:0;bottom:0;height:26px;background:#070b12;border-top:1px solid rgba(255,255,255,.12)}
+#panel .sky .stars{position:absolute;inset:0 0 26px;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px),radial-gradient(circle,#fff 0 1px,transparent 1.5px);background-size:61px 37px,43px 53px;background-position:7px 9px,23px 17px;transition:opacity .25s}
+#panel .acts.three{flex-wrap:wrap}
+#panel .acts.three button{flex:1 1 30%}
+#panel .skychips{display:grid;grid-template-columns:repeat(11,1fr);gap:3px;margin:4px 0 10px}
+#panel .skychips span{height:38px;border-radius:5px;display:grid;place-items:end center;border:1px solid rgba(255,255,255,.12)}
+#panel .skychips b{font-size:9.5px;font-weight:400;color:#fff;text-shadow:0 1px 3px #000;padding-bottom:2px}
+@media (prefers-reduced-motion:reduce){#panel .sky .sun,#panel .sky .stars{transition:none}}
