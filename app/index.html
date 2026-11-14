@@ -7,6 +7,9 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,6 +35,9 @@
   <p id="ticker" hidden></p>
   <p id="stage-note">박자에 맞춘 작은 출렁임은 연출입니다. 선의 높이, 함께 뛰는 순간, 멈춤은 NISAR가 본 레이더 신호의 변화입니다. 땅이 실제로 움직인 것이 아닙니다.</p>
 </div>
+
+<section id="intro" hidden aria-live="polite"></section>
+<div id="piece-toast" hidden role="status"></div>
 
 <footer id="bottom">
   <div id="date-slider"></div>

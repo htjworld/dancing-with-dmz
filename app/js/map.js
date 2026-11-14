@@ -60,8 +60,8 @@ export function initMap() {
     map.addSource('river', { type: 'geojson', data: { type: 'MultiPoint', coordinates: data.river.points } });
     map.addLayer({ id: 'river-hint', type: 'circle', source: 'river', layout: { visibility: 'none' }, paint: { 'circle-radius': 2.2, 'circle-color': '#7fe9ff', 'circle-opacity': .55 } });
     map.addSource('dmz', { type: 'geojson', data: data.boundary });
-    map.addLayer({ id: 'dmz-glow', type: 'line', source: 'dmz', paint: { 'line-color': '#8ff7b9', 'line-width': 7, 'line-blur': 6, 'line-opacity': .35 } });
-    map.addLayer({ id: 'dmz-line', type: 'line', source: 'dmz', paint: { 'line-color': '#bce9c5', 'line-width': 1.6, 'line-dasharray': [2, 2] } });
+    map.addLayer({ id: 'dmz-glow', type: 'line', source: 'dmz', paint: { 'line-color': '#9fc4ee', 'line-width': 6, 'line-blur': 6, 'line-opacity': .18 } });
+    map.addLayer({ id: 'dmz-line', type: 'line', source: 'dmz', paint: { 'line-color': '#d5e2f2', 'line-width': 1.2, 'line-opacity': .75, 'line-dasharray': [1, 2.4] } });
     // 밤사진의 분계선: 빛나는 들판 사이에서 또렷이 보이는 흰 실선
     map.addLayer({ id: 'dmz-white', type: 'line', source: 'dmz', layout: { visibility: 'none' }, paint: { 'line-color': '#ffffff', 'line-width': 1.4, 'line-opacity': .95 } });
     // 구역 사각형: 지금 고른 지역의 것만 보인다
@@ -116,6 +116,7 @@ export function initMap() {
   document.addEventListener('dmz-glow-opacity', e => { for (const id of Object.keys(glow)) if (map.getLayer(`glow-${id}`)) map.setPaintProperty(`glow-${id}`, 'raster-opacity', e.detail.value); });
   subscribe((s, prev) => { if (s.nightMode !== prev.nightMode && s.screen === 'night') nightView(); });
   subscribe((s, prev) => { if (s.evidenceAt !== prev.evidenceAt && s.screen === 'night' && !s.evidenceAt) nightView(); });
+  let pieceBack = 0;
   const focus = id => { const b = STOPS.find(x => x.id === id).bounds; touched = true;
     map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 900 }); };
   const pins = STOPS.map((s, i) => {
@@ -163,7 +164,14 @@ export function initMap() {
   subscribe((s, prev) => {
     if (s.stop === prev.stop && s.mapReady === prev.mapReady) return;
     for (const id of ['zone-fill', 'zone-line']) if (map.getLayer(id)) map.setFilter(id, ['==', ['get', 'region'], s.stop]);
-    if (s.stop !== prev.stop) focus(s.stop);
+    if (s.stop !== prev.stop) { clearTimeout(pieceBack); focus(s.stop); }
+    // 조각을 받는 순간: 서쪽 끝에서 이 지역까지 이어진 선이 한눈에 보이게 물러났다가, 잠시 뒤 돌아온다
+    if (s.screen === 'mission' && s.fragments.length > prev.fragments.length) {
+      const id = s.fragments[s.fragments.length - 1], a = STOPS[0].bounds, b = STOPS.find(x => x.id === id).bounds;
+      map.fitBounds([[a[0] - .1, Math.min(a[1], b[1]) - .06], [b[2] + .1, Math.max(a[3], b[3]) + .06]], { padding: padding(), duration: 1100 });
+      clearTimeout(pieceBack);
+      pieceBack = setTimeout(() => { if (state.screen === 'mission' && state.stop === id && state.playing?.mode !== 'finale') focus(id); }, 3800);
+    }
   });
 
   map.on('click', e => document.dispatchEvent(new CustomEvent('dmz-map-click', { detail: { lng: e.lngLat.lng, lat: e.lngLat.lat } })));

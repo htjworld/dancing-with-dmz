@@ -1,31 +1,41 @@
-// 화천 백암산 · 두 가지 눈: 같은 날의 영상을 HH 와 HV 로 바꿔 보며, 숲과 북쪽 평지가 더 잘 구분되는 쪽을 고른다.
+// 화천 백암산 · 두 가지 눈: 지도 위의 커튼을 좌우로 밀며 HH(왼쪽)와 HV(오른쪽)를 견주고, 숲과 평지가 더 잘 구분되는 눈 쪽을 넓게 둔다.
+// 커튼 자체는 screens/gamemap.js 가 지도 위에 그린다. 여기서는 안내와 판정, 결과를 맡는다.
 import { state, set, data, zone, addKey, pass } from '../state.js';
 import { STOPS, label } from '../stops.js';
 import { change } from '../calc.js';
 import { missionReady, canTake, betterEye, rangeOf } from '../missions.js';
 import { t, dateText } from '../i18n.js';
+import { foundCard } from './found.js';
+import { blip } from '../sound.js';
 
 const ID = 'hwacheon', A = 'hwacheon-dmz', B = 'hwacheon-north';
 const NAME = { hh: 'hwacheon.eyeHH', hv: 'hwacheon.eyeHV' };   // 눈 이름의 문구 키
+// 커튼 왼쪽이 HH 다. 커튼을 오른쪽으로 밀수록 HH 가 넓어진다
+const wide = () => (state.curtain >= .5 ? 'hh' : 'hv');
 
 function result() {
   const e = betterEye(data.zones, A, B), mine = state.eyePick, right = mine === e.pol;
   const range = rangeOf(data.passes.map(p => change(zone(A), p.cycle)));
-  return `<div class="found"><h3>${t('common.found')}</h3>
-    <p>${right ? t('hwacheon.right') : t('hwacheon.wrong', { pol: mine.toUpperCase() })} ${t('hwacheon.foundDiff', { date: dateText(pass(e.cycle).date), hh: e.hh.toFixed(1), hv: e.hv.toFixed(1), pol: e.pol.toUpperCase() })}</p>
-    <p>${t('hwacheon.foundWhy')}</p>
-    <p>${t('hwacheon.foundStill', { range: range.toFixed(1) })}</p>
-    <p class="fine">${t('hwacheon.foundFine')}</p></div>`;
+  return foundCard({
+    head: `${right ? t('hwacheon.right') : t('hwacheon.wrong', { pol: mine.toUpperCase() })} ${t('hwacheon.foundHead', { pol: e.pol.toUpperCase() })}`,
+    rows: [{ name: 'HH', value: e.hh, cls: e.pol === 'hh' ? '' : 'calm' }, { name: 'HV', value: e.hv, cls: e.pol === 'hv' ? '' : 'calm' }],
+    caption: t('hwacheon.foundCaption', { date: dateText(pass(e.cycle).date) }),
+    body: [t('hwacheon.foundWhy'), t('hwacheon.foundStill', { range: range.toFixed(1) })],
+    more: [t('hwacheon.foundDiff', { date: dateText(pass(e.cycle).date), hh: e.hh.toFixed(1), hv: e.hv.toFixed(1), pol: e.pol.toUpperCase() }), t('hwacheon.foundFine')],
+  });
 }
 
 export function render() {
   const ready = missionReady(ID, state.seen[ID]), got = state.fragments.includes(ID), allowed = canTake(ID, state.fragments, STOPS.map(s => s.id));
   const eye = p => `<button type="button" data-act="see" data-pol="${p}" aria-pressed="${state.pol === p}">${t('hwacheon.see', { pol: p.toUpperCase() })}</button>`;
+  const share = Math.round(state.curtain * 100);
   return `
-    <div class="acts toggle">${eye('hh')}${eye('hv')}</div>
-    <p class="today">${t('hwacheon.now')} <b>${t(NAME[state.pol])}</b></p>
-    ${ready ? '' : `<p class="hint">${t('hwacheon.hint')}</p>
-      <button type="button" class="primary" data-act="pick">${t('hwacheon.pick', { pol: state.pol.toUpperCase() })}</button>`}
+    ${ready ? `<div class="acts toggle">${eye('hh')}${eye('hv')}</div>
+      <p class="today">${t('hwacheon.now')} <b>${t(NAME[state.pol])}</b></p>`
+    : `<div class="eyes" aria-hidden="true"><span class="${wide() === 'hh' ? 'on' : ''}" style="flex:${share}">HH</span><span class="${wide() === 'hv' ? 'on' : ''}" style="flex:${100 - share}">HV</span></div>
+      <p class="hint">${t('hwacheon.hint')}</p>
+      <p class="today">${t('hwacheon.wide')} <b>${t(NAME[wide()])}</b></p>
+      <button type="button" class="primary" data-act="pick">${t('hwacheon.pick', { pol: wide().toUpperCase() })}</button>`}
     ${ready ? result() : ''}
     ${ready && !got ? (allowed ? `<button type="button" class="primary" data-act="take">${t('hwacheon.take')}</button>`
       : `<p class="note no">${t('common.needPrev')}</p>`) : ''}
@@ -35,7 +45,7 @@ export function render() {
 
 export function act(name, el) {
   if (name === 'see') set({ pol: el.dataset.pol });
-  else if (name === 'pick') set({ eyePick: state.pol, seen: addKey(ID, 'eye') });
+  else if (name === 'pick') { blip(784, .18, .3); set({ eyePick: wide(), pol: wide(), seen: addKey(ID, 'eye') }); }   // 고른 눈으로 지도를 보여 준다
   else if (name === 'take' && missionReady(ID, state.seen[ID]) && canTake(ID, state.fragments, STOPS.map(s => s.id))) set({ fragments: [...state.fragments, ID] });
   else if (name === 'next') set({ stop: 'yanggu' });
 }

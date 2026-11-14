@@ -24,6 +24,17 @@ export const state = {
   nightMode: 'film', // 밤하늘 화면의 모습: 'film'(나레이션과 함께 스스로 흐르는 영상) | 'explore'(직접 둘러보기)
   landPlay: false,   // 땅 연주가 켜져 있는가(지도를 쓸면 소리가 난다)
   evidenceAt: null,  // 근거 패널을 연 지역 id. null 이면 닫힘
+  introSeen: [],     // 소개 카드를 넘긴 지역 id
+  cmpPicks: [],      // 철원: 견주기에서 고른 것 [{ a, b, land, ok }]
+  probe: null,       // 양구: 지금 손이 있는 곳 [lng, lat, 변화 정도 0~1]
+  probeTrail: [],    // 양구: 손이 지나간 자국 [[lng, lat, 변화 정도]]
+  hot: null,         // 양구: 찾아낸 곳 [lng, lat]
+  hotHint: false,    // 양구: 가까운 곳을 알려 주는 도움을 켰는가
+  peek: null,        // 패널 머리의 선에서 눌러 설명을 펼친 지역 id. null 이면 닫힘
+  curtain: .5,       // 화천: 커튼의 위치(0~1). 왼쪽은 HH, 오른쪽은 HV
+  riverTrace: [],    // 연천: 강을 따라 그은 자국 [[lng, lat, 강 위면 1]]
+  tags: {},          // 양구: 선에 붙인 이름표 { 선의 구역 id: 이름표의 구역 id }
+  tagPick: null,     // 양구: 지금 손에 든 이름표
   lang: 'ko',        // 화면 문구의 언어: 'ko' | 'en'
 };
 export const data = { boundary: null, rain: null, passes: [], zones: [], layers: null, river: null, glow: null, facts: null, opening: null, landcover: null, paddyCurve: null };

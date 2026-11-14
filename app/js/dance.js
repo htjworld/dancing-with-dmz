@@ -27,7 +27,7 @@ export function initDance(map) {
   const together = togetherDays(data.zones).map(d => d.cycle);
   const line = data.boundary.features[0].geometry.coordinates;
   const shown = ids.map(() => 0);
-  let shownForest = 0, pts = [], dirty = true, raf = 0, W = 0, Hh = 0, tickerCycle = -1;
+  let shownForest = 0, pts = [], dirty = true, raf = 0, W = 0, Hh = 0, tickerCycle = -1, zoomK = 1;
 
   // 선 위의 점이 어느 두 지역 사이에 있는지(지역 중심을 조절점으로 삼아 높이를 부드럽게 잇는다)
   const between = l => {
@@ -43,10 +43,12 @@ export function initDance(map) {
     let dist = 0;
     pts = raw.map((p, j) => {
       if (j) dist += Math.hypot(p.x - raw[j - 1].x, p.y - raw[j - 1].y);
-      const a = raw[Math.max(0, j - 3)], b = raw[Math.min(raw.length - 1, j + 3)], d = Math.hypot(b.x - a.x, b.y - a.y) || 1;
+      const a = raw[Math.max(0, j - 12)], b = raw[Math.min(raw.length - 1, j + 12)], d = Math.hypot(b.x - a.x, b.y - a.y) || 1;
       // 서→동으로 걸을 때의 왼쪽(대체로 북쪽)을 + 로 삼는다. 점마다 뒤집지 않아야 세로 구간에서 선이 꺾이지 않는다
       return { x: p.x, y: p.y, nx: (b.y - a.y) / d, ny: -(b.x - a.x) / d, d: dist, ...between(p.lon) };
     });
+    // 지도를 멀리서 볼수록 선이 분계선에서 덜 떠오르게 한다(화면 픽셀로 고정하면 멀리서는 딴 곳을 지나는 것처럼 보인다)
+    zoomK = Math.max(.28, Math.min(1.1, 2 ** (map.getZoom() - 10.5)));
     dirty = false;
   }
 
@@ -100,6 +102,7 @@ export function initDance(map) {
 
     const rest = finale && isRestAt(H[ids[0]], prog), jump = finale && !calm.matches ? jumpAt(together, prog, n) : 0;
     const wobble = finale && !calm.matches && !rest, beats = elapsed / BEAT;
+    const k = finale ? Math.max(zoomK, .85) : active ? Math.max(zoomK, .5) : zoomK;   // 춤추는 동안에는 멀리서도 움직임이 보여야 한다
     if (finale) caption(prog);
     ticker.hidden = !finale;
     if (!finale) { tickerCycle = -1; say(state.fragments.length === ids.length && (state.finaleDone || lineKey === 'ending.last') ? 'ending.last' : null); }   // 끝난 뒤에는 후렴이 남는다
@@ -108,28 +111,65 @@ export function initDance(map) {
       ctx.beginPath(); let pen = false;
       for (const p of pts) {
         if ((p.w < .5 ? p.i : p.i + 1) !== 2) { pen = false; continue; }
-        const off = shownForest * HEIGHT_PX + jump * JUMP_PX, x = p.x + p.nx * off, y = p.y + p.ny * off;
+        const off = (shownForest * HEIGHT_PX + jump * JUMP_PX) * k, x = p.x + p.nx * off, y = p.y + p.ny * off;
         pen ? ctx.lineTo(x, y) : ctx.moveTo(x, y); pen = true;
       }
       ctx.strokeStyle = 'rgba(160,240,190,.7)'; ctx.lineWidth = 1.3; ctx.setLineDash([4, 5]); ctx.stroke(); ctx.setLineDash([]);
     }
     if (finale || state.fragments.length) {
-      ctx.beginPath(); let pen = false;
+      // 이어진 구간마다 점을 모은다: 분계선 위의 자리(bx, by)와 거기서 떠오른 자리(x, y)
+      const runs = []; let run = null;
       for (const p of pts) {
         const near = p.w < .5 ? p.i : Math.min(ids.length - 1, p.i + 1);
-        if (!lit(ids[near])) { pen = false; continue; }
+        if (!lit(ids[near])) { run = null; continue; }
         const h = shown[p.i] + ((shown[p.i + 1] ?? shown[p.i]) - shown[p.i]) * p.w, slow = near === 3 ? .5 : 1;   // 화천은 반 박자의 느린 왈츠
         const beat = wobble ? Math.sin(p.d * .045 - beats * Math.PI * slow) * WOBBLE_PX : 0;                       // 박자에 맞춘 기본 출렁임(연출)
-        const off = h * HEIGHT_PX + jump * JUMP_PX + beat, x = p.x + p.nx * off, y = p.y + p.ny * off;
-        pen ? ctx.lineTo(x, y) : ctx.moveTo(x, y); pen = true;
+        const off = (h * HEIGHT_PX + jump * JUMP_PX + beat) * k;
+        if (!run) runs.push(run = []);
+        run.push({ x: p.x + p.nx * off, y: p.y + p.ny * off, bx: p.x, by: p.y, d: p.d });
       }
-      ctx.strokeStyle = '#ffe1a2'; ctx.lineWidth = finale ? 3 : 2.6; ctx.lineJoin = 'round'; ctx.shadowColor = '#ebc178'; ctx.shadowBlur = finale ? 20 : 14; ctx.stroke(); ctx.shadowBlur = 0;
+      // 점 사이를 둥글게 잇는다(꺾인 자리가 모나지 않게)
+      const trace = (r, kx, ky, move) => {
+        if (move) ctx.moveTo(r[0][kx], r[0][ky]);
+        for (let j = 1; j < r.length - 1; j++) ctx.quadraticCurveTo(r[j][kx], r[j][ky], (r[j][kx] + r[j + 1][kx]) / 2, (r[j][ky] + r[j + 1][ky]) / 2);
+        ctx.lineTo(r[r.length - 1][kx], r[r.length - 1][ky]);
+      };
+      ctx.lineJoin = ctx.lineCap = 'round';
+      for (const r of runs) {
+        if (r.length < 3) continue;
+        const first = r[0], last = r[r.length - 1];
+        // 양 끝은 스르르 사라진다(뚝 끊기지 않게)
+        const fade = (rgb, alpha) => { const g = ctx.createLinearGradient(first.bx, first.by, last.bx, last.by);
+          g.addColorStop(0, `rgba(${rgb},0)`); g.addColorStop(.05, `rgba(${rgb},${alpha})`); g.addColorStop(.95, `rgba(${rgb},${alpha})`); g.addColorStop(1, `rgba(${rgb},0)`); return g; };
+        // ① 빛의 띠: 멈춘 분계선(점선)과 떠오른 선 사이를 옅게 채운다. 선이 어긋난 것이 아니라 분계선에서 떠오른 것으로 읽히게 한다
+        ctx.beginPath(); trace(r, 'x', 'y', true);
+        for (let j = r.length - 1; j >= 0; j--) ctx.lineTo(r[j].bx, r[j].by);
+        ctx.closePath(); ctx.fillStyle = fade('255,225,162', finale ? .2 : .13); ctx.fill();
+        // ② 번지는 빛 두 겹
+        ctx.beginPath(); trace(r, 'x', 'y', true); ctx.strokeStyle = fade('255,214,140', .1); ctx.lineWidth = finale ? 18 : 13; ctx.stroke();
+        ctx.beginPath(); trace(r, 'x', 'y', true); ctx.strokeStyle = fade('255,225,162', .28); ctx.lineWidth = finale ? 7 : 5.5; ctx.stroke();
+        // ③ 가운데 밝은 줄기
+        ctx.beginPath(); trace(r, 'x', 'y', true); ctx.strokeStyle = fade('255,246,224', 1); ctx.lineWidth = finale ? 2.2 : 1.8;
+        ctx.shadowColor = '#ffd98a'; ctx.shadowBlur = finale ? 16 : 10; ctx.stroke(); ctx.shadowBlur = 0;
+        // ④ 선 위의 별빛: 소리가 나는 동안에만 반짝인다(연출)
+        if (active && !calm.matches) {
+          for (let j = 6; j < r.length - 6; j += 9) {
+            const tw = Math.sin(elapsed * 2.4 + r[j].d * .21);
+            if (tw < .35) continue;
+            ctx.beginPath(); ctx.arc(r[j].x, r[j].y - 5 - tw * 4, .7 + tw * 1.1, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,250,235,${(tw * .9).toFixed(2)})`; ctx.fill();
+          }
+        }
+      }
     }
     if (active || moving) request();
   }
   const request = () => { if (!raf) raf = requestAnimationFrame(draw); };
-  map.on('move', () => { dirty = true; request(); });
-  map.on('resize', () => { dirty = true; request(); });
+  // 지도가 움직이는 그 프레임에 바로 다시 그린다(다음 프레임으로 미루면 확대·축소 중에 선이 한 박자 늦게 따라온다)
+  const now = () => { dirty = true; if (raf) { cancelAnimationFrame(raf); raf = 0; } draw(performance.now()); };
+  map.on('move', now);
+  map.on('resize', now);
+  addEventListener('resize', () => { dirty = true; request(); });
   // 언어가 바뀌면 자막을 지금 언어로 다시 쓴다
   subscribe((s, prev) => { if (s.lang !== prev.lang) { tickerCycle = -1; const k = lineKey; lineKey = null; say(k); } request(); }); request();
 }

@@ -1,9 +1,14 @@
-// 파주 장단 · 시간의 눈: 논이 가장 어두웠던 날과 가장 밝았던 날을 찾는다.
+// 파주 장단 · 시간의 눈: 같은 논을 찍은 사진들이 섞여 놓여 있다. 가장 어두운 장과 가장 밝은 장을 차례로 집는다.
+// 두 장을 찾으면 사진이 날짜순으로 늘어서고 밝기 그래프가 나타난다.
 import { state, set, data, zone, pass, rainAt, addKey } from '../state.js';
 import { STOPS, label } from '../stops.js';
 import { level, change, refOf, togetherDays } from '../calc.js';
 import { extremeDays, judgeExtreme, missionReady } from '../missions.js';
+import { pixelOf } from '../glow.js';
 import { t, dateText, noteText } from '../i18n.js';
+import { foundCard } from './found.js';
+import { crop } from './crop.js';
+import { blip } from '../sound.js';
 
 const ZONE = 'paju-dmz_farm';
 const fmt = v => `${v < 0 ? '−' : '+'}${Math.abs(v).toFixed(1)}`;
@@ -29,6 +34,24 @@ function chart() {
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('paju.chartAria')}">
     ${rest}${ticks}${ends}<path d="${path}" class="line"/>${dots}${flag('dark', t('paju.flagDark'))}${flag('bright', t('paju.flagBright'))}
     <text x="${L}" y="9" class="tick">${t('paju.axis')}</text></svg>`;
+}
+
+// 사진 한 장: 그날 레이더 영상에서 논 구역(둘레를 조금 포함)만 잘라 보여 준다
+function frames(ready) {
+  const L = data.layers.regions.paju, [W, H] = L.size, b = zone(ZONE).bounds;   // [서, 남, 동, 북]
+  const nw = pixelOf(L.corners, L.size, b[0], b[3]) || [0, 0], se = pixelOf(L.corners, L.size, b[2], b[1]) || [W, H];
+  const pad = .12, w0 = se[0] - nw[0], h0 = se[1] - nw[1];
+  const sx = Math.max(0, nw[0] - w0 * pad), sy = Math.max(0, nw[1] - h0 * pad), sw = Math.min(W - sx, w0 * (1 + 2 * pad)), sh = Math.min(H - sy, h0 * (1 + 2 * pad));
+  const cycles = data.passes.filter(x => !x.rest && L.dates.includes(x.date)).map(x => x.cycle);
+  // 찾기 전에는 날짜순이 아닌 순서로 놓는다(순서가 답을 알려 주지 않게). 다 찾으면 날짜순으로 늘어선다
+  const order = ready ? cycles : [...cycles].sort((x, y) => ((x * 5 + 4) % 13) - ((y * 5 + 4) % 13));
+  return `<div class="frames${ready ? ' sorted' : ''}" style="--ar:${(sw / sh).toFixed(3)}">${order.map(c => {
+    const dark = state.marks.dark === c, bright = state.marks.bright === c;
+    return `<button type="button" class="frame${c === state.cycle ? ' now' : ''}${dark ? ' dark' : ''}${bright ? ' bright' : ''}" data-act="frame" data-cycle="${c}"
+      aria-label="${ready ? dateText(pass(c).date) : t('paju.frameAria')}"
+><span class="pic" style="background-image:url('data/layers/paju/${pass(c).date}_hh.webp');background-size:${(W / sw * 100).toFixed(1)}% ${(H / sh * 100).toFixed(1)}%;background-position:${(sx / Math.max(1, W - sw) * 100).toFixed(1)}% ${(sy / Math.max(1, H - sh) * 100).toFixed(1)}%"></span>
+      ${dark ? `<b>${t('paju.flagDark')}</b>` : bright ? `<b>${t('paju.flagBright')}</b>` : ''}${ready ? `<small>${dateText(pass(c).date)}</small>` : ''}</button>`;
+  }).join('')}</div>`;
 }
 
 function mark(want) {
@@ -57,36 +80,47 @@ function mark(want) {
 function discovery() {
   const z = zone(ZONE), ref = refOf(data.zones, z);
   const range = r => { const v = r.observations.map(o => change(r, o.cycle)).filter(x => x != null); return Math.max(...v) - Math.min(...v); };
-  return `<div class="found"><h3>${t('common.found')}</h3>
-    <p>${t('paju.foundRange', { farm: range(z).toFixed(1), forest: range(ref).toFixed(1) })}</p>
-    <p>${t('paju.foundWhy')}</p>
-    <p class="fine">${t('paju.foundFine')}</p></div>`;
+  const farm = range(z), forest = range(ref);
+  // 찾아낸 두 날의 사진을 나란히 놓는다: 가장 어두운 날과 가장 밝은 날
+  const shot = (k, key) => {
+    const c = state.marks[k]; if (c == null) return '';
+    const b = z.bounds, h = (b[3] - b[1]) / 4;   // 세로는 구역의 가운데 절반만 보여 준다
+    const cr = crop('paju', pass(c).date, [b[0], b[1] + h, b[2], b[3] - h], .12);
+    return `<figure><span class="pic" style="aspect-ratio:${cr.ar.toFixed(3)};${cr.style}"></span>
+      <figcaption><b>${t(key)}</b>${dateText(pass(c).date)} · ${fmt(level(z, c))} dB</figcaption></figure>`;
+  };
+  return foundCard({
+    extra: `<div class="twoshots">${shot('dark', 'paju.stepDark')}${shot('bright', 'paju.stepBright')}</div>${chart()}`,
+    head: t('paju.foundHead'),
+    rows: [{ name: t('paju.foundFarm'), value: farm }, { name: t('paju.foundForest'), value: forest, cls: 'calm' }],
+    caption: t('common.foundSwing'),
+    body: [t('paju.foundSub'), t('paju.foundWhy')],
+    more: [t('paju.foundRange', { farm: farm.toFixed(1), forest: forest.toFixed(1) }), t('common.foundNoCause'), t('paju.foundFine')],
+  });
 }
 
 export function render() {
   const seen = state.seen.paju || [], ready = missionReady('paju', seen), got = state.fragments.includes('paju');
-  const o = level(zone(ZONE), state.cycle), p = pass(state.cycle);
-  // 밝기 숫자는 두 날을 모두 맞힌 뒤에만 보여 준다
-  const today = p.rest ? `${dateText(p.date)} · ${t('paju.noData')}` : ready ? `${dateText(p.date)} · ${fmt(o)} dB` : dateText(p.date);
-  const step = k => `<li class="${seen.includes(k) ? 'done' : ''}">${seen.includes(k) ? '✓' : '○'} ${t(k === 'dark' ? 'paju.stepDark' : 'paju.stepBright')}${state.marks[k] != null ? ` · ${dateText(pass(state.marks[k]).date)} · ${fmt(level(zone(ZONE), state.marks[k]))} dB` : ''}</li>`;
-  return `${ready ? chart() : `<p class="hint locked">${t('paju.locked')}</p>`}
-    <p class="today">${t('paju.today')} <b>${today}</b></p>
-    <ul class="steps">${step('dark')}${step('bright')}</ul>
-    ${ready ? '' : `<div class="acts">
-      <button type="button" data-act="mark-dark" ${seen.includes('dark') ? 'disabled' : ''}>${t('paju.markDark')}</button>
-      <button type="button" data-act="mark-bright" ${seen.includes('bright') ? 'disabled' : ''}>${t('paju.markBright')}</button></div>
-      <p class="hint">${t('paju.hint')}</p>`}
-    ${state.note ? `<p class="note ${state.note.ok ? 'ok' : 'no'}" role="status">${noteText(state.note)}</p>` : ''}
+  const want = !seen.includes('dark') ? 'dark' : 'bright';   // 먼저 가장 어두운 장, 그다음 가장 밝은 장
+  const step = k => `<li class="${seen.includes(k) ? 'done' : ''}${!ready && want === k ? ' now' : ''}">${seen.includes(k) ? '✓' : want === k ? '▶' : '○'} ${t(k === 'dark' ? 'paju.stepDark' : 'paju.stepBright')}${state.marks[k] != null ? ` · ${dateText(pass(state.marks[k]).date)} · ${fmt(level(zone(ZONE), state.marks[k]))} dB` : ''}</li>`;
+  return `<ul class="steps">${step('dark')}${step('bright')}</ul>
+    ${ready ? '' : `<p class="hint">${t(want === 'dark' ? 'paju.pickDark' : 'paju.pickBright')}</p>`}
     ${ready ? discovery() : ''}
+    ${ready ? '' : `${frames(false)}
+    ${state.note ? `<p class="note ${state.note.ok ? 'ok' : 'no'}" role="status">${noteText(state.note)}</p>` : ''}
+    <p class="fine">${t('paju.locked')}</p>`}
     ${ready && !got ? `<button type="button" class="primary" data-act="take">${t('paju.take')}</button>` : ''}
     ${got ? `<p class="note ok">${t('paju.got')}</p>
       <p class="fine">${t('paju.gotFine')}</p>
       <button type="button" class="primary" data-act="next">${t('common.next', { name: label(STOPS.find(s => s.id === 'yeoncheon'), 'name') })}</button>` : ''}`;
 }
 
-export function act(name) {
-  if (name === 'mark-dark') mark('dark');
-  else if (name === 'mark-bright') mark('bright');
+export function act(name, el) {
+  if (name === 'frame') {   // 사진을 집으면 지도도 그날로 바뀐다. 아직 찾는 중이면 그 장이 답인지 본다
+    const c = +el.dataset.cycle, seen = state.seen.paju || [];
+    set({ cycle: c, visited: [...state.visited, c], note: null });
+    if (!missionReady('paju', seen)) { mark(!seen.includes('dark') ? 'dark' : 'bright'); blip(state.note?.ok ? 660 : 233, .16, state.note?.ok ? .3 : .16); }   // 맞으면 높은 음, 아니면 낮고 짧은 음
+  }
   else if (name === 'take' && missionReady('paju', state.seen.paju)) set({ fragments: [...state.fragments, 'paju'], note: null });
   else if (name === 'next') set({ stop: 'yeoncheon', note: null });
 }

@@ -1,5 +1,6 @@
 import { state, set, subscribe, data, load, md } from './state.js';
-import { STOPS, label } from './stops.js';
+import { missionReady } from './missions.js';
+import { STOPS, label, INTRO_CLIP } from './stops.js';
 import { initMap, VIEW } from './map.js';
 import { endingScore, pieceChime } from './screens/nightmusic.js';
 import { play, stop, setSound } from './sound.js';
@@ -10,7 +11,9 @@ import { initFilm, startFilm } from './screens/film.js';
 import { initLand } from './screens/land.js';
 import { initProof } from './screens/proof.js';
 import { initDateSlider } from './screens/dateslider.js';
+import { initGameMap } from './screens/gamemap.js';
 import { t } from './i18n.js';
+import { lineSvg } from './views/line.js';
 import * as paju from './views/paju.js';
 import * as yeoncheon from './views/yeoncheon.js';
 import * as cheorwon from './views/cheorwon.js';
@@ -20,14 +23,66 @@ import * as yanggu from './views/yanggu.js';
 const $ = id => document.getElementById(id);
 const VIEWS = { paju, yeoncheon, cheorwon, hwacheon, yanggu };   // 미션 화면이 준비된 지역. 나머지는 안내 문구만 보인다.
 
+
+// 한 지역의 박자: 소개(intro) → 놀기(play) → 결과(result) → 조각을 받은 뒤(done)
+const beatOf = st => (st.fragments.includes(st.stop) ? 'done' : missionReady(st.stop, st.seen[st.stop]) ? 'result' : st.introSeen.includes(st.stop) ? 'play' : 'intro');
+let beatShown = '';
+// 소개 카드: 지역 이름, 한 문장, (있으면) 짧은 영상, 시작 단추
+function intro(s, i, beat) {
+  const el = $('intro'), on = state.screen === 'mission' && beat === 'intro', key = on ? `${s.id}|${state.lang}` : '';
+  el.hidden = !on;
+  if (el.dataset.key === key) return;   // 같은 카드를 다시 그리지 않는다(영상이 처음부터 다시 돌지 않게)
+  el.dataset.key = key; el.dataset.stop = s.id;
+  const clip = INTRO_CLIP[s.id];
+  el.innerHTML = on ? `<div class="card">
+      ${clip ? `<video src="${clip}" autoplay muted loop playsinline></video>` : ''}
+      ${lineSvg({ current: i, label: `${i + 1} / ${STOPS.length}` })}
+      <p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2>
+      <p class="story">${label(s, 'story')}</p>
+      <p class="todo"><b>${t('common.todo')}</b>${label(s, 'todo')}</p>
+      <button type="button" class="primary" data-start="${s.id}">${t('common.start')}</button></div>` : '';
+  if (on) el.querySelector('button')?.focus({ preventScroll: true });
+}
+
+let fragShown = 0, newDot = null, newUntil = 0;   // 방금 받은 조각의 점은 잠깐 튄다(그 사이 창이 다시 그려져도 유지)
+let peekShown = null;   // 방금 그린 설명 풍선의 지역(같은 풍선을 다시 그릴 때는 움직이지 않는다)
 function panel() {
   const s = STOPS.find(x => x.id === state.stop), i = STOPS.indexOf(s), view = VIEWS[s.id];
+  const done = state.fragments.includes(s.id), beat = beatOf(state);
+  document.body.dataset.beat = state.screen === 'mission' ? beat : '';
+  intro(s, i, beat);
+  const arrive = beat !== beatShown && beat === 'result';   // 방금 미션을 풀었다
+  $('panel').classList.toggle('in', arrive); beatShown = beat;
+  if (state.fragments.length > fragShown) { newDot = state.fragments[state.fragments.length - 1]; newUntil = performance.now() + 900; }
+  // 머리: 서쪽에서 동쪽으로 이어 가는 선. 조각을 받은 지역은 채워지고, 지금 지역은 빛난다
+  const track = STOPS.map((x, k) => `<li class="${state.fragments.includes(x.id) ? 'got' : ''}${newDot === x.id && performance.now() < newUntil ? ' new' : ''}${k === i ? ' now' : ''}${state.peek === x.id ? ' open' : ''}"><button type="button" data-peek="${x.id}" aria-expanded="${state.peek === x.id}"><i></i><span>${label(x, 'name').split(' ')[0]}</span></button></li>`).join('');
+  // 선의 지역을 누르면 그 지역의 설명이 펼쳐진다. 앞 조각을 다 모은 지역이면 그리로 갈 수도 있다
+  const pk = STOPS.find(x => x.id === state.peek), pi = STOPS.indexOf(pk);
+  const open = pk && STOPS.slice(0, pi).every(x => state.fragments.includes(x.id));
+  const peek = pk ? `<div class="peek${state.peek !== peekShown ? ' in' : ''}" style="--at:${pi}"><p class="eye">${label(pk, 'name')} · ${label(pk, 'eye')}</p>
+      <p>${label(pk, 'story')}</p>
+      ${pk.id === s.id ? '' : open ? `<button type="button" data-go="${pk.id}">${t('common.goThere')}</button>` : `<p class="fine">${t('common.locked')}</p>`}</div>` : '';
+  peekShown = state.peek; fragShown = state.fragments.length;
+  $('panel').dataset.stop = s.id;
   $('panel').innerHTML = `
-    <p class="eye">${i + 1} / ${STOPS.length} · ${label(s, 'name')} · ${label(s, 'eye')}</p>
-    <h2>${label(s, 'title')}</h2>
-    <p>${label(s, 'story')}</p>
-    <p class="todo">${label(s, 'todo')}</p>
-    ${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}`;
+    ${lineSvg({ current: i, draw: arrive ? i : -1, solved: beat === 'result' ? s.id : null, label: `${i + 1} / ${STOPS.length}` })}
+    <ol class="track">${track}</ol>${peek}
+    <header class="brief"><p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2></header>
+    <p class="todo${done ? ' done' : ''}"><b>${done ? '✓' : t('common.todo')}</b>${label(s, 'todo')}</p>
+    <div class="play">${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}</div>`;
+}
+
+// 조각을 받는 순간 화면 가운데에 잠깐 뜨는 알림: 몇 번째 조각인지, 무엇을 읽는 법인지, 선이 어디까지 이어졌는지
+let toastTimer = 0;
+function pieceToast(id) {
+  const el = $('piece-toast'), n = state.fragments.length, word = t(`${id}.saw`);
+  el.dataset.stop = id;
+  el.innerHTML = `<p class="n">${t('common.piece', { n, total: STOPS.length })}</p><p class="word">${word}</p>
+    ${lineSvg({ current: n - 1, draw: n - 1 })}
+    <p class="to">${t(n === STOPS.length ? 'common.pieceAll' : 'common.pieceTo', { name: label(STOPS.find(x => x.id === id), 'name').split(' ')[0] })}</p>`;
+  el.hidden = false; el.classList.remove('out'); void el.offsetWidth; el.classList.add('in');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.classList.add('out'); setTimeout(() => { el.hidden = true; el.classList.remove('in', 'out'); }, 400); }, 3200);
 }
 
 // ---- 소리와 춤
@@ -85,6 +140,8 @@ async function start() {
   initLand(map);
   initProof();
   initDateSlider();
+  initGameMap(map);
+  $('intro').addEventListener('click', e => { const b = e.target.closest('[data-start]'); if (b) set({ introSeen: [...state.introSeen, b.dataset.start] }); });
   $('to-night').addEventListener('click', () => set({ screen: 'night', nightMode: 'explore' }));   // 게임에서 돌아오면 둘러보기로
   $('lang').addEventListener('click', () => {
     const lang = state.lang === 'ko' ? 'en' : 'ko';
@@ -92,6 +149,9 @@ async function start() {
     set({ lang });
   });
   $('panel').addEventListener('click', e => {
+    const pk = e.target.closest('[data-peek]'), go = e.target.closest('[data-go]');
+    if (pk) return set({ peek: state.peek === pk.dataset.peek ? null : pk.dataset.peek });
+    if (go) return set({ stop: go.dataset.go, peek: null, note: null });
     const b = e.target.closest('[data-act]');
     if (b && !b.disabled) VIEWS[state.stop]?.act(b.dataset.act, b);
   });
@@ -102,7 +162,8 @@ async function start() {
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh' });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
-    if (s.fragments.length > prev.fragments.length) perform('preview', s.fragments);   // 조각을 받으면 지금까지 모은 층이 함께 울린다
+    if (s.fragments.length > prev.fragments.length) { perform('preview', s.fragments); pieceToast(s.fragments[s.fragments.length - 1]); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
+    if (s.stop !== prev.stop) { clearTimeout(toastTimer); $('piece-toast').hidden = true; }   // 다음 지역의 소개 카드와 겹치지 않게 알림을 걷는다
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
     chrome(s);
     const fin = s.playing?.mode === 'finale';
