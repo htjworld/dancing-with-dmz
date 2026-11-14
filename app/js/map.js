@@ -26,7 +26,7 @@ export function initMap() {
   const nobase = new URLSearchParams(location.search).has('nobase');
   // 오른쪽 미션 창과 아래 타임라인에 가리지 않게 여백을 둔다(좁은 화면에서는 줄인다)
   const padding = () => ({ top: 70, bottom: 130, left: 30, right: innerWidth > 900 ? 380 : 30 });
-  const nightPadding = () => (innerWidth > 900 ? { top: 60, bottom: 50, left: 420, right: 40 } : { top: 60, bottom: 300, left: 16, right: 16 });
+  const nightPadding = () => (innerWidth > 900 ? { top: 60, bottom: 50, left: 420, right: state.evidenceAt ? 390 : 40 } : { top: 60, bottom: 300, left: 16, right: 16 });
   const glow = data.glow?.regions || {};
   let nightAt = 'cheorwon';   // 밤사진에서 보고 있는 곳(지역 id 또는 'all')
   const nightView = (duration = 900) => map.fitBounds(nightAt === 'all' || !glow[nightAt] ? VIEW : boundsOf(glow[nightAt].corners), { padding: nightPadding(), duration });
@@ -97,6 +97,7 @@ export function initMap() {
   });
   // 밤사진 설명 창에서 지역을 고르면 그 지역의 변동 지도로 간다
   document.addEventListener('dmz-night-go', e => { nightAt = e.detail.id; nightView(); });
+  subscribe((s, prev) => { if (s.evidenceAt !== prev.evidenceAt && s.screen === 'night' && !s.evidenceAt) nightView(); });
   const focus = id => { const b = STOPS.find(x => x.id === id).bounds; touched = true;
     map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 900 }); };
   const pins = STOPS.map((s, i) => {

@@ -50,7 +50,9 @@ function playRow() {
   if (!nFrames()) return '';
   // frames[k] 는 첫 통과부터 k+2번째 유효 통과까지 쌓은 것이다
   const now = k == null ? '' : `<span class="when">${t('night.playing', { k: k + 2, n: dates.length, from: dateText(dates[0]), to: dateText(dates[k + 1]) })}</span>`;
-  return `<div class="play"><button type="button" data-play aria-pressed="${k != null}">${t(k == null ? 'night.play' : 'night.stop')}</button>${now}</div>`;
+  return `<div class="play"><button type="button" data-play aria-pressed="${k != null}">${t(k == null ? 'night.play' : 'night.stop')}</button>
+    <button type="button" class="land" data-land aria-pressed="${state.landPlay}">${t('land.toggle')}</button>${now}</div>
+    ${state.landPlay ? `<p class="fine">${t('land.hint')}</p>` : ''}`;
 }
 
 function render() {
@@ -75,7 +77,7 @@ function render() {
       <button type="button" data-go="all" aria-pressed="${at === 'all'}">${t('night.all')}</button>
     </div>
     <ul class="caveats">${CAVEATS.map(k => `<li>${t('caveat.' + k)}</li>`).join('')}</ul>
-    <button type="button" class="next" data-next>${t('night.next')}</button>`;
+    <p class="fine">${t('night.pick')}</p>`;
 }
 
 export function initNight() {
@@ -83,16 +85,17 @@ export function initNight() {
     const go = e.target.closest('[data-go]');
     if (go) {
       at = go.dataset.go;
+      set({ evidenceAt: at === 'all' ? null : at });   // 지역을 고르면 그 지역의 근거 패널이 열린다
       document.dispatchEvent(new CustomEvent('dmz-night-go', { detail: { id: at } }));
       return render();
     }
     if (e.target.closest('[data-play]')) return state.nightFrame == null ? playSeason() : stopSeason();
-    if (e.target.closest('[data-next]')) set({ screen: 'mission' });
+    if (e.target.closest('[data-land]')) return set({ landPlay: !state.landPlay });
   });
   subscribe((s, prev) => {
     if (s.screen !== 'night' && prev.screen === 'night') stopSeason();        // 화면을 떠나면 재생을 멈춘다
     if (!s.sound && prev.sound && timer) stop();                              // 소리만 끄면 그림은 계속 간다
-    if (s.screen !== prev.screen || s.lang !== prev.lang || s.nightFrame !== prev.nightFrame) render();
+    if (s.screen !== prev.screen || s.lang !== prev.lang || s.nightFrame !== prev.nightFrame || s.landPlay !== prev.landPlay) render();
   });
   render();
 }

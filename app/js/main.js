@@ -8,6 +8,8 @@ import { play, stop, setSound } from './sound.js';
 import { initDance } from './dance.js';
 import { initNight } from './screens/night.js';
 import { initOpening } from './screens/opening.js';
+import { initLand } from './screens/land.js';
+import { initProof } from './screens/proof.js';
 import { t } from './i18n.js';
 import * as paju from './views/paju.js';
 import * as yeoncheon from './views/yeoncheon.js';
@@ -84,6 +86,8 @@ async function start() {
   initDance(map);
   initNight();
   initOpening();
+  initLand(map);
+  initProof();
   $('to-night').addEventListener('click', () => set({ screen: 'night' }));
   $('timeline').addEventListener('click', e => {
     const b = e.target.closest('[data-cycle]');
