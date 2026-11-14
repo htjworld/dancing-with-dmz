@@ -7,10 +7,13 @@ export const state = {
   seen: {},          // 지역별로 얻은 미션 열쇠 { paju: ['dark'] }
   marks: {},         // 파주: 표시를 붙인 통과 { dark: 0, bright: 5 }
   visited: [],       // 이 지역에서 넘겨 본 통과(밝기 선에 점이 찍힌다)
+  riverPicks: [],    // 연천: 강 위에서 고른 곳 [[lng, lat]]
+  misses: 0,         // 연천: 빗나간 횟수(세 번이면 힌트를 권한다)
+  riverHint: false,  // 연천: 강의 위치를 옅게 보여 준다
   note: null,        // 방금 한 행동에 대한 한 줄 응답 { ok, text }
   mapReady: false,
 };
-export const data = { boundary: null, rain: null, passes: [], zones: [] };
+export const data = { boundary: null, rain: null, passes: [], zones: [], layers: null, river: null };
 
 const listeners = new Set();
 export const subscribe = fn => (listeners.add(fn), () => listeners.delete(fn));
@@ -22,8 +25,9 @@ export function set(patch) {
 
 const json = async path => { const r = await fetch(path); if (!r.ok) throw new Error(`${path} ${r.status}`); return r.json(); };
 export async function load() {
-  const [boundary, rain, regions] = await Promise.all([json('data/dmz.geojson'), json('data/rain.json'), json('data/regions.json')]);
-  Object.assign(data, { boundary, rain, passes: regions.passes, zones: regions.zones });
+  const [boundary, rain, regions, layers, river] = await Promise.all(
+    ['dmz.geojson', 'rain.json', 'regions.json', 'layers.json', 'river.json'].map(f => json(`data/${f}`)));
+  Object.assign(data, { boundary, rain, passes: regions.passes, zones: regions.zones, layers, river });
 }
 export const md = iso => `${+iso.slice(5, 7)}/${+iso.slice(8)}`;
 export const zonesOf = stopId => data.zones.filter(z => z.region === stopId);

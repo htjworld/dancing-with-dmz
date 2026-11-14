@@ -29,8 +29,8 @@ export function initDance(map) {
     const raw = line.map(([x, y]) => ({ ...map.project([x, y]), lon: x }));
     pts = raw.map((p, j) => {
       const a = raw[Math.max(0, j - 3)], b = raw[Math.min(raw.length - 1, j + 3)], d = Math.hypot(b.x - a.x, b.y - a.y) || 1;
-      let nx = -(b.y - a.y) / d, ny = (b.x - a.x) / d;
-      if (ny > 0) { nx = -nx; ny = -ny; }                       // 법선은 화면 위쪽을 + 로 맞춘다
+      // 서→동으로 걸을 때의 왼쪽(대체로 북쪽)을 + 로 삼는다. 점마다 뒤집지 않아야 세로 구간에서 선이 꺾이지 않는다
+      const nx = (b.y - a.y) / d, ny = -(b.x - a.x) / d;
       return { x: p.x, y: p.y, nx, ny, ...between(p.lon) };
     });
     dirty = false;

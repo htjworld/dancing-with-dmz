@@ -1,5 +1,5 @@
 // 지도: 어두운 배경 위에 군사분계선과 다섯 지역의 핀을 올린다.
-import { state, set, subscribe, data } from './state.js';
+import { state, set, subscribe, data, pass } from './state.js';
 import { STOPS, centerOf } from './stops.js';
 
 const BASE = 'https://tiles.openfreemap.org/styles/dark';
@@ -7,6 +7,15 @@ const EMPTY = { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background'
 const VIEW = [[126.45, 37.6], [128.5, 38.75]];
 // 주 구역은 금색, 숲 기준은 초록, 비교 구역은 하늘색
 const ZONE_COLOR = ['match', ['get', 'role'], 'main', '#ffe1a2', 'ref', '#8ff7b9', '#9fd0ff'];
+
+// 지금 고른 지역·날짜·편파의 레이더 영상. 자료가 없는 통과나 그 편파가 없는 지역이면 null
+function radarOf(s) {
+  const L = data.layers.regions[s.stop], p = pass(s.cycle);
+  if (!L || !p || p.rest || !L.dates.includes(p.date)) return null;
+  const pol = L.pols.includes(s.pol) ? s.pol : 'hh';
+  return { url: `data/layers/${s.stop}/${p.date}_${pol}.webp`, coordinates: L.corners };
+}
+const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
 export function initMap() {
   const nobase = new URLSearchParams(location.search).has('nobase');
@@ -27,6 +36,12 @@ export function initMap() {
 
   map.on('style.load', () => {
     if (map.getSource('dmz')) return;
+    // 레이더 영상은 군사분계선과 구역보다 아래에 둔다
+    const r0 = radarOf(state);
+    map.addSource('radar', { type: 'image', url: r0?.url || BLANK, coordinates: (r0 || { coordinates: data.layers.regions[state.stop].corners }).coordinates });
+    map.addLayer({ id: 'radar', type: 'raster', source: 'radar', layout: { visibility: r0 ? 'visible' : 'none' }, paint: { 'raster-opacity': .92, 'raster-fade-duration': 0 } });
+    map.addSource('river', { type: 'geojson', data: { type: 'MultiPoint', coordinates: data.river.points } });
+    map.addLayer({ id: 'river-hint', type: 'circle', source: 'river', layout: { visibility: 'none' }, paint: { 'circle-radius': 2.2, 'circle-color': '#7fe9ff', 'circle-opacity': .55 } });
     map.addSource('dmz', { type: 'geojson', data: data.boundary });
     map.addLayer({ id: 'dmz-glow', type: 'line', source: 'dmz', paint: { 'line-color': '#8ff7b9', 'line-width': 7, 'line-blur': 6, 'line-opacity': .35 } });
     map.addLayer({ id: 'dmz-line', type: 'line', source: 'dmz', paint: { 'line-color': '#bce9c5', 'line-width': 1.6, 'line-dasharray': [2, 2] } });
@@ -40,12 +55,14 @@ export function initMap() {
     set({ mapReady: true });
   });
 
+  const focus = id => { const b = STOPS.find(x => x.id === id).bounds; touched = true;
+    map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 900 }); };
   const pins = STOPS.map((s, i) => {
     const el = document.createElement('button');
     el.className = 'pin'; el.type = 'button'; el.dataset.stop = s.id;
     el.setAttribute('aria-label', `${i + 1}번 ${s.name}`);
     el.innerHTML = `${i + 1}<span class="pin-label">${s.name}</span>`;
-    el.addEventListener('click', e => { e.stopPropagation(); set({ stop: s.id }); });
+    el.addEventListener('click', e => { e.stopPropagation(); if (state.stop === s.id) focus(s.id); else set({ stop: s.id }); });   // 지금 지역의 핀을 다시 누르면 그 지역으로 확대
     new maplibregl.Marker({ element: el }).setLngLat(centerOf(s)).addTo(map);
     return el;
   });
@@ -63,12 +80,28 @@ export function initMap() {
   });
   const showTags = () => tags.forEach(el => { el.hidden = el.dataset.region !== state.stop || map.getZoom() < 9.5; });
   map.on('zoom', showTags); subscribe(showTags); showTags();
+  // 레이더 영상: 지역·날짜·편파가 바뀌면 갈아 끼운다
+  let shownRadar = null;
+  const radar = s => {
+    if (!map.getSource('radar')) return;
+    const r = radarOf(s), k = r?.url || '';
+    if (k !== shownRadar) { shownRadar = k; if (r) map.getSource('radar').updateImage(r); map.setLayoutProperty('radar', 'visibility', r ? 'visible' : 'none'); }
+    map.setLayoutProperty('river-hint', 'visibility', s.stop === 'yeoncheon' && s.riverHint ? 'visible' : 'none');
+  };
+  subscribe(radar);
+  // 연천: 강 위에서 고른 곳의 표식
+  let picks = [];
+  subscribe(s => {
+    if (s.riverPicks.length === picks.length) return;
+    picks.forEach(m => m.remove());
+    picks = s.riverPicks.map((p, i) => { const el = document.createElement('div'); el.className = 'river-mark'; el.textContent = i + 1;
+      return new maplibregl.Marker({ element: el }).setLngLat(p).addTo(map); });
+  });
   // 지역을 바꾸면 그 지역의 창으로 날아가고 구역을 바꿔 보여 준다
   subscribe((s, prev) => {
     if (s.stop === prev.stop && s.mapReady === prev.mapReady) return;
     for (const id of ['zone-fill', 'zone-line']) if (map.getLayer(id)) map.setFilter(id, ['==', ['get', 'region'], s.stop]);
-    if (s.stop !== prev.stop) { const b = STOPS.find(x => x.id === s.stop).bounds; touched = true;
-      map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 900 }); }
+    if (s.stop !== prev.stop) focus(s.stop);
   });
 
   map.on('click', e => document.dispatchEvent(new CustomEvent('dmz-map-click', { detail: { lng: e.lngLat.lng, lat: e.lngLat.lat } })));

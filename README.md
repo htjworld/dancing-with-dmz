@@ -20,6 +20,8 @@ python tools/extract_nisar.py --list        # 사용하는 NISAR 장면 목록
 python tools/extract_nisar.py --workers 4   # 다섯 지역 창을 원격으로 읽어 data/cache 에 저장
 python tools/preview_regions.py             # 구역을 고르기 위한 미리보기 그림(data/cache/_preview)
 python tools/make_regions.py                # tools/zones.py 의 구역별 시계열 -> app/data/regions.json
+python tools/make_layers.py                 # 지도에 올릴 흑백 레이더 영상 -> app/data/layers/
+python tools/make_river.py                  # 연천 강 위의 점과 날짜별 어두운 비율 -> app/data/river.json
 python tools/fetch_rain.py                  # NASA POWER 강수 -> app/data/rain.json
 python tools/make_dmz.py                    # OpenStreetMap 군사분계선 -> app/data/dmz.geojson
 ```

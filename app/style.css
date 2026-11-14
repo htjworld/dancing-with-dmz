@@ -47,7 +47,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .zone-tag.main{color:var(--gold)} .zone-tag.ref{color:#8ff7b9}
 .zone-tag[hidden]{display:none}
 
-#dance{position:absolute;inset:0;pointer-events:none}
+#dance{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
 .chart{width:100%;height:auto;display:block;margin:8px 0 4px;background:rgba(255,255,255,.03);border-radius:8px}
 .chart .line{fill:none;stroke:var(--line);stroke-width:1.6}
 .chart circle{fill:var(--line)} .chart circle.now{fill:var(--gold);stroke:#fff;stroke-width:1.2}
@@ -64,3 +64,12 @@ button{font:inherit;color:inherit;cursor:pointer}
 #panel .note{border-radius:10px;padding:10px 12px;font-size:14px;color:var(--ink);background:rgba(255,255,255,.06)}
 #panel .note.ok{border-left:3px solid var(--gold)} #panel .note.no{border-left:3px solid #9fd0ff}
 #panel .found{border-top:1px solid var(--edge);padding-top:10px;margin-top:6px} #panel .found h3{margin:0 0 6px;font-size:15px}
+
+.river-mark{width:22px;height:22px;border-radius:50%;background:#7fe9ff;color:#04222a;font-size:12px;font-weight:700;display:grid;place-items:center;
+  box-shadow:0 0 10px #7fe9ff;pointer-events:none}
+#panel .dots{font-size:18px;letter-spacing:6px;color:#7fe9ff;margin:0 0 6px}
+#panel .ghost{width:100%;padding:8px;border-radius:10px;border:1px dashed var(--edge);background:transparent;font-size:13px;color:var(--dim);margin-bottom:8px}
+.bars{display:flex;align-items:flex-end;gap:3px;height:90px;margin:8px 0 2px}
+.bars div{flex:1;background:#3b6f78;border-radius:3px 3px 0 0;position:relative;min-height:2px}
+.bars div.wet{background:#7fe9ff} .bars div.now{outline:2px solid var(--gold)}
+.barlabels{display:flex;gap:3px;font-size:9px;color:var(--dim)} .barlabels span{flex:1;text-align:center}

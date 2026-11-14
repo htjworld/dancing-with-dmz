@@ -3,9 +3,10 @@ import { STOPS } from './stops.js';
 import { initMap } from './map.js';
 import { initDance } from './dance.js';
 import * as paju from './views/paju.js';
+import * as yeoncheon from './views/yeoncheon.js';
 
 const $ = id => document.getElementById(id);
-const VIEWS = { paju };   // 미션 화면이 준비된 지역. 나머지는 안내 문구만 보인다.
+const VIEWS = { paju, yeoncheon };   // 미션 화면이 준비된 지역. 나머지는 안내 문구만 보인다.
 
 function panel() {
   const s = STOPS.find(x => x.id === state.stop), i = STOPS.indexOf(s), view = VIEWS[s.id];
@@ -48,8 +49,9 @@ async function start() {
   });
   $('panel').addEventListener('click', e => {
     const b = e.target.closest('[data-act]');
-    if (b && !b.disabled) VIEWS[state.stop]?.act(b.dataset.act);
+    if (b && !b.disabled) VIEWS[state.stop]?.act(b.dataset.act, b);
   });
+  document.addEventListener('dmz-map-click', e => VIEWS[state.stop]?.mapClick?.(e.detail.lng, e.detail.lat));
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null });
     panel();

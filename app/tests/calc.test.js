@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { change, level, forestChange, togetherDays, heights, heightAt, refOf } from '../js/calc.js';
-import { extremeDays, judgeExtreme, missionReady } from '../js/missions.js';
+import { extremeDays, judgeExtreme, missionReady, canTake, riverHit, farEnough, inside, meters } from '../js/missions.js';
 
 // 지어낸 작은 자료: 통과 0~4, 통과 2는 자료 없음
 const zone = (id, region, role, hh) => ({ id, region, role, observations: hh.map((v, cycle) =>
@@ -75,4 +75,33 @@ test('실제 자료에서 파주 미션이 성립한다', () => {
   assert.ok(real.passes.some(p => !p.rest && !answers.has(p.cycle)), '정답이 아닌 날이 있어야 시작점으로 쓸 수 있다');
   for (const id of ['paju', 'yeoncheon', 'cheorwon', 'hwacheon', 'yanggu'])
     assert.ok(real.zones.some(z => z.region === id && z.role === 'main') && real.zones.some(z => z.region === id && z.role === 'ref'), id);
+});
+
+test('강 판정: 반경 안은 인정, 밖은 불인정, 가까운 두 번째 선택은 불인정', () => {
+  const pts = [[127.0, 38.1], [127.01, 38.1]];
+  assert.ok(Math.abs(meters(127.0, 38.1, 127.0, 38.101) - 111.3) < 1);
+  assert.equal(riverHit(pts, 127.0, 38.101), true);        // 약 111 m
+  assert.equal(riverHit(pts, 127.0, 38.103), false);       // 약 334 m
+  assert.equal(farEnough([[127.0, 38.1]], 127.0, 38.103), false);
+  assert.equal(farEnough([[127.0, 38.1]], 127.0, 38.11), true);
+  assert.equal(farEnough([], 127.0, 38.1), true);
+  assert.equal(inside([126.85, 37.98, 127.1, 38.18], 127.0, 38.1), true);
+  assert.equal(inside([126.85, 37.98, 127.1, 38.18], 127.2, 38.1), false);
+});
+
+test('조각은 앞 지역을 모두 모아야 받을 수 있다', () => {
+  const order = ['paju', 'yeoncheon', 'cheorwon'];
+  assert.equal(canTake('paju', [], order), true);
+  assert.equal(canTake('yeoncheon', [], order), false);
+  assert.equal(canTake('cheorwon', ['paju', 'yeoncheon'], order), true);
+});
+
+test('실제 자료에서 연천 미션이 성립한다', () => {
+  const river = JSON.parse(readFileSync(new URL('../data/river.json', import.meta.url), 'utf8'));
+  assert.ok(river.points.length >= 300);
+  // 서로 600 m 이상 떨어진 강 위의 세 곳을 고를 수 있어야 한다
+  const picks = [];
+  for (const p of river.points) if (farEnough(picks, p[0], p[1]) && picks.push(p) === 3) break;
+  assert.equal(picks.length, 3);
+  assert.ok(river.dark_ratio.every(r => r.dark_ratio > 0 && r.dark_ratio < 1));
 });
