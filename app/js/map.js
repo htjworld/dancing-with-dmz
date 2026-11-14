@@ -14,6 +14,9 @@ export const VIEW = [[126.45, 37.6], [128.5, 38.75]];
 const ZONE_COLOR = ['match', ['get', 'role'], 'main', '#ffe1a2', 'ref', '#8ff7b9', '#9fd0ff'];
 
 // 지금 고른 지역·날짜·편파의 레이더 영상. 자료가 없는 통과나 그 편파가 없는 지역이면 null
+// 영상의 네 모서리를 이은 테두리(닫힌 선)
+const frameOf = c => ({ type: 'FeatureCollection', features: c ? [{ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [...c, c[0]] } }] : [] });
+
 function radarOf(s) {
   if (s.screen !== 'mission') return null;   // 오프닝과 밤사진에서는 날짜별 레이더 영상을 걷는다
   const L = data.layers.regions[s.stop], p = pass(s.cycle);
@@ -42,9 +45,14 @@ export function initMap() {
   window.__dmzMap = map;   // (hdk, 밤하늘 영상) 물결 선 캔버스가 지도 좌표를 화면 좌표로 바꿀 때 쓴다. jmj 확인 요청은 plan.md 5절
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
   // 사용자가 지도를 직접 움직이기 전까지는 창 크기가 바뀌면 전체가 보이게 다시 맞춘다
+  const HANDLERS = ['scrollZoom', 'boxZoom', 'dragRotate', 'dragPan', 'keyboard', 'doubleClickZoom', 'touchZoomRotate', 'touchPitch'];
+  const lock = on => { for (const h of HANDLERS) map[h]?.[on ? 'disable' : 'enable'](); };
+  lock(state.screen === 'mission');
+  // 다른 화면의 코드(밤하늘의 땅 연주)가 끌기를 다시 켤 수 있으므로, 상태가 바뀔 때마다 맨 마지막에 한 번 더 잠근다
+  subscribe(s => { if (s.screen === 'mission') queueMicrotask(() => { if (state.screen === 'mission') lock(true); }); });
   let touched = false;
   for (const ev of ['dragstart', 'wheel', 'touchstart']) map.on(ev, () => { touched = true; });
-  map.on('resize', () => { if (state.screen !== 'mission') nightView(0); else if (!touched) map.fitBounds(VIEW, { padding: padding(), duration: 0 }); });
+  map.on('resize', () => { if (state.screen !== 'mission') nightView(0); else { const b = STOPS.find(x => x.id === state.stop).bounds; map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 0 }); } });   // 창 크기가 바뀌어도 그 지역이 화면에 맞게 들어온다
 
   // 배경 지도를 못 받아도 선과 핀은 보이게 한다
   let ready = false;
@@ -57,6 +65,9 @@ export function initMap() {
     const r0 = radarOf(state);
     map.addSource('radar', { type: 'image', url: r0?.url || BLANK, coordinates: (r0 || { coordinates: data.layers.regions[state.stop].corners }).coordinates });
     map.addLayer({ id: 'radar', type: 'raster', source: 'radar', layout: { visibility: r0 ? 'visible' : 'none' }, paint: { 'raster-opacity': .92, 'raster-fade-duration': 0 } });
+    map.addSource('radar-frame', { type: 'geojson', data: frameOf(r0?.coordinates) });
+    map.addLayer({ id: 'radar-frame-glow', type: 'line', source: 'radar-frame', layout: { visibility: r0 ? 'visible' : 'none', 'line-join': 'round' }, paint: { 'line-color': '#a9cdf5', 'line-width': 12, 'line-blur': 10, 'line-opacity': .32 } });
+    map.addLayer({ id: 'radar-frame-line', type: 'line', source: 'radar-frame', layout: { visibility: r0 ? 'visible' : 'none', 'line-join': 'round' }, paint: { 'line-color': '#eaf3ff', 'line-width': 1.1, 'line-opacity': .7 } });
     for (const [id, g] of Object.entries(glow)) {
       map.addSource(`glow-${id}`, { type: 'image', url: `data/${g.color}`, coordinates: g.corners });
       map.addLayer({ id: `glow-${id}`, type: 'raster', source: `glow-${id}`, layout: { visibility: 'none' }, paint: { 'raster-fade-duration': 0 } });
@@ -90,6 +101,7 @@ export function initMap() {
   };
   subscribe((s, prev) => {
     if ((s.screen === 'mission') === (prev.screen === 'mission')) return;
+    lock(s.screen === 'mission');
     screen(s);
     if (s.screen === 'mission') focus(s.stop); else nightView();
   });
@@ -152,10 +164,21 @@ export function initMap() {
   const radar = s => {
     if (!map.getSource('radar')) return;
     const r = s.playing?.mode === 'finale' ? null : radarOf(s), k = r?.url || '';   // 피날레에서는 영상을 걷고 선만 본다
-    if (k !== shownRadar) { shownRadar = k; if (r) map.getSource('radar').updateImage(r); map.setLayoutProperty('radar', 'visibility', r ? 'visible' : 'none'); }
+    if (k !== shownRadar) {
+      shownRadar = k; if (r) map.getSource('radar').updateImage(r); map.setLayoutProperty('radar', 'visibility', r ? 'visible' : 'none');
+      if (r) map.getSource('radar-frame').setData(frameOf(r.coordinates));
+      for (const id of ['radar-frame-glow', 'radar-frame-line']) map.setLayoutProperty(id, 'visibility', r ? 'visible' : 'none');
+    }
     map.setLayoutProperty('river-hint', 'visibility', s.stop === 'yeoncheon' && s.riverHint ? 'visible' : 'none');
   };
   subscribe(radar);
+  // 테두리의 빛이 6초에 한 번 천천히 밝아졌다 어두워진다. 지도가 움직이는 동안과 움직임 줄이기 설정에서는 쉰다
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  setInterval(() => {
+    if (calm.matches || state.screen !== 'mission' || document.hidden || document.body.classList.contains('map-moving') || !map.getLayer('radar-frame-glow')) return;
+    const k = (Math.sin(performance.now() / 6000 * Math.PI * 2) + 1) / 2;
+    map.setPaintProperty('radar-frame-glow', 'line-opacity', .2 + k * .22);
+  }, 160);
   // 연천: 강 위에서 고른 곳의 표식
   let picks = [];
   subscribe(s => {

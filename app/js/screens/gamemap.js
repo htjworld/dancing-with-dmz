@@ -100,7 +100,7 @@ export function initGameMap(map) {
     const tracing = !!dragging();
     if (tracing !== wasTracing) {   // 긋는 동안에는 지도가 끌려가지 않게 한다
       wasTracing = tracing;
-      if (tracing) map.dragPan.disable(); else map.dragPan.enable();
+      // 미션 화면에서는 지도가 늘 고정돼 있다(map.js). 여기서는 손 모양만 바꾼다
       map.getCanvas().style.cursor = tracing ? 'crosshair' : '';
     }
     if (!map.getSource('dmz')) return;   // 지도가 아직 준비되지 않았다

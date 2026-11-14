@@ -526,3 +526,8 @@ body[data-screen=mission][data-beat=result] #date-slider,body[data-screen=missio
 /* ---- 지도가 움직이는 동안: 흐림 효과를 끄고 바탕을 조금 더 짙게(끊김 방지) */
 body.map-moving #panel,body.map-moving #intro .card,body.map-moving #piece-toast{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(13,24,38,.93)}
 #panel,#intro .card,#piece-toast{transition:background-color .2s}
+
+/* ---- 미션 중에는 지도를 그 지역에 고정한다: 확대·축소 단추도 숨긴다 */
+body[data-screen=mission] .maplibregl-ctrl-bottom-right{display:none}
+body[data-screen=mission] .maplibregl-canvas{cursor:default}
+body[data-screen=mission] .maplibregl-canvas-container,body[data-screen=mission] .maplibregl-canvas{touch-action:none}
