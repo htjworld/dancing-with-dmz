@@ -3,7 +3,7 @@
 NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
-- [ ] 전원: 원격 주소 바꾸기 `git remote set-url origin https://github.com/htjworld/dancing-with-dmz.git` — jmj, khs (hdk 완료) · `plan.md` 9절
+- [ ] 전원: 원격 주소 바꾸기 `git remote set-url origin https://github.com/htjworld/dancing-with-dmz.git` — khs (hdk·jmj 완료) · `plan.md` 9절
 - [ ] 제출 준비 체크리스트(영어 Summary, Use of SI 공개, LICENSE, Submit for Judging) — 전원 · `plan.md` 10절
 - [ ] 제출 문구 검토: `submission.md` 초안(Summary 168단어, Details, Use of SI, Data, References) — 전원 · `submission.md`
 - [ ] 기획 확정: jmj 결정 초안 확인 (htj·jmj·hdk 동의함, hdk 의견 `brainstorming/decision_hdk.md`) → 최종 `decision.md` — khs(김현석) · `brainstorming/decision_jmj.md`
