@@ -1,21 +1,67 @@
-// 밤사진 화면: 계절 변동 지도 위에 얹는 설명 창. 지도 레이어는 map.js 가 맡고, 여기서는 문구·숫자·지역 고르기만 한다.
+// 밤사진 화면: 계절 변동 지도 위에 얹는 설명 창과 '한 계절 재생'. 지도 레이어는 map.js 가 맡는다.
 // 숫자는 facts.json(fact())과 glow.json 에서만 가져온다.
 import { state, set, subscribe, data, fact } from '../state.js';
-import { t } from '../i18n.js';
+import { t, dateText } from '../i18n.js';
+import { score, LAYER_OF } from '../music.js';
+import { layerGains, applyRhythm } from '../rhythm.js';
+import { change, mainOf } from '../calc.js';
+import { frameAt } from '../glow.js';
+import { play, stop } from '../sound.js';
 
 const el = document.getElementById('night');
 const ORDER = ['paju', 'yeoncheon', 'cheorwon', 'hwacheon', 'yanggu'];
 const CAVEATS = ['signal_not_cause', 'forest_relative'];   // 이 화면에서 보여 주는 한계 문구(plan.md 2-4절 키)
 let at = 'cheorwon';   // 지도에서 보고 있는 곳. map.js 의 처음 범위와 같다
+let timer = 0, startedAt = 0, duration = 0, preloaded = false;
+
+const nFrames = () => data.glow?.regions?.cheorwon?.frames?.length || 0;
+
+// ---- 한 계절 재생: 곡의 처음~끝이 첫 통과~마지막 통과다. 통과가 쌓일수록 들판이 빛난다.
+function preload() {
+  if (preloaded) return; preloaded = true;
+  for (const g of Object.values(data.glow.regions)) for (const f of g.frames) { const im = new Image(); im.src = `data/${f}`; }
+}
+export function stopSeason() {
+  if (!timer) return;
+  clearInterval(timer); timer = 0; stop();
+  set({ nightFrame: null });
+}
+export function playSeason() {
+  const n = nFrames();
+  if (!n) return;
+  stopSeason(); preload();
+  // 반주 다섯 층의 세기는 미션·피날레와 같은 실측값(지역 주 구역의 신호 변화)을 따른다
+  const passes = data.passes.length;
+  const gains = layerGains(Object.fromEntries(Object.keys(LAYER_OF).map(id => [id, data.passes.map(p => change(mainOf(data.zones, id), p.cycle))])));
+  const plan = applyRhythm(score(), gains, passes);
+  startedAt = play(plan); duration = plan.duration * 1000;
+  const tick = () => {
+    const p = (performance.now() - startedAt) / duration;
+    if (p >= 1) { clearInterval(timer); timer = 0; return set({ nightFrame: null }); }   // 끝나면 완성된 한 장으로 돌아간다
+    const k = frameAt(Math.max(0, p), n);
+    if (k !== state.nightFrame) set({ nightFrame: k });
+  };
+  timer = setInterval(tick, 80);
+  set({ nightFrame: 0 });
+}
+
+function playRow() {
+  const k = state.nightFrame, dates = data.glow?.dates || [];
+  if (!nFrames()) return '';
+  // frames[k] 는 첫 통과부터 k+2번째 유효 통과까지 쌓은 것이다
+  const now = k == null ? '' : `<span class="when">${t('night.playing', { k: k + 2, n: dates.length, from: dateText(dates[0]), to: dateText(dates[k + 1]) })}</span>`;
+  return `<div class="play"><button type="button" data-play aria-pressed="${k != null}">${t(k == null ? 'night.play' : 'night.stop')}</button>${now}</div>`;
+}
 
 function render() {
   const [lo, hi] = data.glow?.scale_db || [0, 0];
-  const unit = data.facts?.july_clear_optical?.unit ?? '';
+  const unit = t('unit.' + (data.facts?.july_clear_optical?.unit ?? ''));
   const regions = ORDER.filter(id => data.glow?.regions?.[id]);
   el.innerHTML = `
     <p class="eye">${t('night.eye', { passes: fact('passes') })}</p>
     <h2>${t('night.title')}</h2>
     <p>${t('night.body')}</p>
+    ${playRow()}
     <div class="pair">
       <div>${t('night.paddy')}<b>${fact('cheorwon_paddy_db')} dB</b></div>
       <div class="still">${t('night.dmz')}<b>${fact('cheorwon_dmz_db')} dB</b></div>
@@ -40,8 +86,13 @@ export function initNight() {
       document.dispatchEvent(new CustomEvent('dmz-night-go', { detail: { id: at } }));
       return render();
     }
+    if (e.target.closest('[data-play]')) return state.nightFrame == null ? playSeason() : stopSeason();
     if (e.target.closest('[data-next]')) set({ screen: 'mission' });
   });
-  subscribe((s, prev) => { if (s.screen !== prev.screen || s.lang !== prev.lang) render(); });
+  subscribe((s, prev) => {
+    if (s.screen !== 'night' && prev.screen === 'night') stopSeason();        // 화면을 떠나면 재생을 멈춘다
+    if (!s.sound && prev.sound && timer) stop();                              // 소리만 끄면 그림은 계속 간다
+    if (s.screen !== prev.screen || s.lang !== prev.lang || s.nightFrame !== prev.nightFrame) render();
+  });
   render();
 }

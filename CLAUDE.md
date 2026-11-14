@@ -4,7 +4,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
 - [ ] 기획 확정: jmj 결정 초안 확인 (htj·jmj 동의함) → 최종 `decision.md` — hdk(황도경), khs(김현석) · `brainstorming/decision_jmj.md`
-- [ ] MVP2~4 프론트 J2~J7 — jmj · `plan.md` 4절
+- [ ] MVP3~4 프론트 J4~J7 (땅 연주, 근거 패널, 영어, 데모) — jmj · `plan.md` 4절
 - [ ] H7(여유): 상승 궤도 125·긴 띠·원자료 판, 그리고 MVP 피드백 반영 — htj · `plan.md` 4·5절
 - [ ] 데이터: 더 긴 띠, 함께 변한 날 원인, 원자료 캐시 공유 — khs · `plan.md` 4절
 - [ ] 대회 전 작업 사용 규정 확인 — 담당 미정 · `brainstorming/decision_jmj.md`
@@ -13,6 +13,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] MVP2 프론트: J2 구름 문지르기 오프닝, J3 밤사진 한 계절 재생(아리랑 반주) — jmj · `plan.md` 4절
 - [x] MVP1 밤사진 한 장: J1 밤사진 화면(변동 지도 레이어, 흰 분계선, 설명 창, i18n 틀) — jmj · `plan.md` 4절
 - [x] 로직·데이터 H1~H6: facts, glow(+프레임), opening, glow·landsound, evidence + 테스트 — htj · `interface.md`
 - [x] 브레인스토밍 4인 + 3단계 정리 + 결정 초안 — 전원 · `brainstorming/`

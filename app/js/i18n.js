@@ -18,6 +18,21 @@ const TEXT = {
     'night.scaleHigh': '많이 변함 {hi} dB 이상',
     'night.all': '전체',
     'night.next': '다섯 지역에서 직접 확인하기 →',
+    'night.play': '▶ 한 계절 재생',
+    'night.stop': '■ 멈춤',
+    'night.playing': '{n}번 중 {k}번째 통과 · {from} ~ {to}',
+    'sound.on': '소리 켜짐', 'sound.off': '소리 꺼짐',
+    'unit.장': '장', 'unit.일': '일', 'unit.회': '회', 'unit.곳': '곳', 'unit.dB': ' dB', 'unit.': '',
+    'opening.eyeOptical': '{date} · 광학 위성(HLS)이 본 철원',
+    'opening.titleOptical': '여름의 광학 위성은<br>구름을 찍었습니다.',
+    'opening.hint': '이 장면(약 110 km 타일) 전체의 구름 비율은 {pct}%입니다. 화면을 문질러 구름을 걷어 보세요.',
+    'opening.reveal': '레이더로 보기',
+    'opening.skip': '건너뛰기',
+    'opening.eyeRadar': '{date} · 레이더 위성(NISAR)이 본 같은 땅',
+    'opening.titleRadar': '구름 아래에서도,<br>레이더는 보고 있었습니다.',
+    'opening.enter': '밤사진 켜기 →',
+    'opening.altOptical': '구름에 덮인 광학 위성 영상. 문지르면 지워집니다.',
+    'opening.altRadar': '같은 범위의 NISAR 레이더 영상',
     'region.paju': '파주', 'region.yeoncheon': '연천', 'region.cheorwon': '철원', 'region.hwacheon': '화천', 'region.yanggu': '양구',
     // plan.md 2-4절의 한계 문구 키
     'caveat.signal_not_cause': '빛남은 레이더 신호가 변한 크기입니다. 생태나 작황을 판정한 것이 아닙니다.',
@@ -42,11 +57,33 @@ const TEXT = {
     'night.scaleHigh': 'changed {hi} dB or more',
     'night.all': 'All',
     'night.next': 'Check it yourself in five places →',
+    'night.play': '▶ Play the season',
+    'night.stop': '■ Stop',
+    'night.playing': 'Pass {k} of {n} · {from} – {to}',
+    'sound.on': 'Sound on', 'sound.off': 'Sound off',
+    'unit.장': '', 'unit.일': ' days', 'unit.회': '', 'unit.곳': '', 'unit.dB': ' dB', 'unit.': '',
+    'opening.eyeOptical': '{date} · Cheorwon seen by an optical satellite (HLS)',
+    'opening.titleOptical': 'In summer, the optical satellite<br>photographed clouds.',
+    'opening.hint': 'Cloud cover over this whole scene (a tile about 110 km wide) was {pct}%. Rub the image to clear the clouds.',
+    'opening.reveal': 'See with radar',
+    'opening.skip': 'Skip',
+    'opening.eyeRadar': '{date} · The same land seen by radar (NISAR)',
+    'opening.titleRadar': 'Under the clouds,<br>radar was still watching.',
+    'opening.enter': 'Turn on the night photo →',
+    'opening.altOptical': 'Optical satellite image covered by cloud. Rub to erase.',
+    'opening.altRadar': 'NISAR radar image of the same area',
     'region.paju': 'Paju', 'region.yeoncheon': 'Yeoncheon', 'region.cheorwon': 'Cheorwon', 'region.hwacheon': 'Hwacheon', 'region.yanggu': 'Yanggu',
     'caveat.signal_not_cause': 'Glow is how much the radar signal changed. It is not a verdict on ecology or harvest.',
     'caveat.forest_relative': 'Change shared by the whole scene was removed using forest zones as the reference.',
   },
 };
+
+// 날짜 표기: 한국어 '7월 26일', 영어 'July 26'
+export function dateText(iso) {
+  if (!iso) return '';
+  const m = +iso.slice(5, 7), d = +iso.slice(8, 10);
+  return state.lang === 'en' ? `${['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][m - 1]} ${d}` : `${m}월 ${d}일`;
+}
 
 export function t(key, vars = {}) {
   const text = TEXT[state.lang]?.[key] ?? TEXT.ko[key] ?? key;

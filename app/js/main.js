@@ -7,6 +7,7 @@ import { change, mainOf } from './calc.js';
 import { play, stop, setSound } from './sound.js';
 import { initDance } from './dance.js';
 import { initNight } from './screens/night.js';
+import { initOpening } from './screens/opening.js';
 import { t } from './i18n.js';
 import * as paju from './views/paju.js';
 import * as yeoncheon from './views/yeoncheon.js';
@@ -62,7 +63,7 @@ function timeline() {
 function chrome(s) {
   document.body.dataset.screen = s.screen;
   document.documentElement.lang = s.lang;
-  $('lead').textContent = t(s.screen === 'night' ? 'night.lead' : 'mission.lead');
+  $('lead').textContent = t(s.screen === 'mission' ? 'mission.lead' : 'night.lead');
   $('to-night').textContent = t('mission.back');
 }
 
@@ -76,11 +77,13 @@ async function start() {
   // 시험용: 화면이 가려져 애니메이션 프레임이 멈추는 환경에서도 그리기를 확인할 수 있게 한다(?timer)
   if (new URLSearchParams(location.search).has('timer')) window.requestAnimationFrame = cb => setTimeout(() => cb(performance.now()), 16);
   await load();
+  if (!data.opening) state.screen = 'night';   // 오프닝 자료가 없으면 밤사진부터 시작한다
   const first = paju.startCycle();
   Object.assign(state, { cycle: first, visited: [first] });
   const map = window.dmzMap = initMap();   // 콘솔에서 살펴볼 수 있게 둔다
   initDance(map);
   initNight();
+  initOpening();
   $('to-night').addEventListener('click', () => set({ screen: 'night' }));
   $('timeline').addEventListener('click', e => {
     const b = e.target.closest('[data-cycle]');
@@ -109,7 +112,7 @@ async function start() {
     const fin = s.playing?.mode === 'finale';
     document.body.classList.toggle('finale', fin);
     $('stage').hidden = !(fin || s.finaleDone && s.fragments.length === STOPS.length && !s.playing && s.stop === 'yanggu');
-    $('sound').textContent = s.sound ? '소리 켜짐' : '소리 꺼짐'; $('sound').setAttribute('aria-pressed', s.sound);
+    $('sound').textContent = t(s.sound ? 'sound.on' : 'sound.off'); $('sound').setAttribute('aria-pressed', s.sound);
   });
   panel(); tray(); timeline(); chrome(state);
 }

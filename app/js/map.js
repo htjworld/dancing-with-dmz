@@ -14,7 +14,7 @@ const ZONE_COLOR = ['match', ['get', 'role'], 'main', '#ffe1a2', 'ref', '#8ff7b9
 
 // 지금 고른 지역·날짜·편파의 레이더 영상. 자료가 없는 통과나 그 편파가 없는 지역이면 null
 function radarOf(s) {
-  if (s.screen === 'night') return null;
+  if (s.screen !== 'mission') return null;   // 오프닝과 밤사진에서는 날짜별 레이더 영상을 걷는다
   const L = data.layers.regions[s.stop], p = pass(s.cycle);
   if (!L || !p || p.rest || !L.dates.includes(p.date)) return null;
   const pol = L.pols.includes(s.pol) ? s.pol : 'hh';
@@ -36,7 +36,7 @@ export function initMap() {
   // 사용자가 지도를 직접 움직이기 전까지는 창 크기가 바뀌면 전체가 보이게 다시 맞춘다
   let touched = false;
   for (const ev of ['dragstart', 'wheel', 'touchstart']) map.on(ev, () => { touched = true; });
-  map.on('resize', () => { if (state.screen === 'night') nightView(0); else if (!touched) map.fitBounds(VIEW, { padding: padding(), duration: 0 }); });
+  map.on('resize', () => { if (state.screen !== 'mission') nightView(0); else if (!touched) map.fitBounds(VIEW, { padding: padding(), duration: 0 }); });
 
   // 배경 지도를 못 받아도 선과 핀은 보이게 한다
   let ready = false;
@@ -68,22 +68,32 @@ export function initMap() {
     map.addLayer({ id: 'zone-line', type: 'line', source: 'zones', filter: only, paint: { 'line-color': ZONE_COLOR, 'line-width': 1.6 } });
     ready = true; clearTimeout(fallback);
     screen(state);
-    if (state.screen === 'night') nightView(0);
+    if (state.screen !== 'mission') nightView(0);
     set({ mapReady: true });
   });
 
   // 화면에 따라 지도 레이어를 갈아 낀다. 밤사진: 변동 지도와 흰 분계선만. 미션: 날짜별 레이더, 구역, 초록 분계선
   const screen = s => {
     if (!map.getLayer('dmz-white')) return;
-    const night = s.screen === 'night', vis = on => (on ? 'visible' : 'none');
+    const night = s.screen !== 'mission', vis = on => (on ? 'visible' : 'none');   // 오프닝 뒤에도 밤사진이 깔려 있다
     for (const id of Object.keys(glow)) map.setLayoutProperty(`glow-${id}`, 'visibility', vis(night));
     map.setLayoutProperty('dmz-white', 'visibility', vis(night));
     for (const id of ['dmz-glow', 'dmz-line', 'zone-fill', 'zone-line']) map.setLayoutProperty(id, 'visibility', vis(!night));
   };
   subscribe((s, prev) => {
-    if (s.screen === prev.screen) return;
+    if ((s.screen === 'mission') === (prev.screen === 'mission')) return;
     screen(s);
-    if (s.screen === 'night') nightView(); else focus(s.stop);
+    if (s.screen === 'mission') focus(s.stop); else nightView();
+  });
+  // 밤사진 재생: 프레임 번호가 바뀌면 다섯 지역의 영상을 그 시점까지 쌓인 것으로 갈아 낀다
+  let shownFrame = null;
+  subscribe(s => {
+    if (s.nightFrame === shownFrame || !map.getLayer('dmz-white')) return;
+    shownFrame = s.nightFrame;
+    for (const [id, g] of Object.entries(glow)) {
+      const file = shownFrame == null ? g.color : g.frames[Math.min(shownFrame, g.frames.length - 1)];
+      if (file) map.getSource(`glow-${id}`).updateImage({ url: `data/${file}`, coordinates: g.corners });
+    }
   });
   // 밤사진 설명 창에서 지역을 고르면 그 지역의 변동 지도로 간다
   document.addEventListener('dmz-night-go', e => { nightAt = e.detail.id; nightView(); });
