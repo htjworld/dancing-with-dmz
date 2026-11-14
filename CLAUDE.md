@@ -4,9 +4,12 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
 - [ ] 기획 확정: jmj 결정 초안 확인 (htj·jmj 동의함) → 최종 `decision.md` — hdk(황도경), khs(김현석) · `brainstorming/decision_jmj.md`
-- [ ] 프론트 J4~J6 전부 완성 (땅 연주, 근거 패널, 영어) ~11/15 13:00 — jmj · `plan.md` 4절
+- [ ] J4 땅 연주 — htj · `plan.md` 4절
+- [ ] J5 근거 패널, J6 영어 ~11/15 13:00 — jmj · `plan.md` 4절
+- [ ] 요청 처리: 오프닝 광학 영상의 창 안 구름 비율 — htj · `plan.md` 5절
+- [ ] 토지피복 대조(ESA WorldCover), 함께 변한 날 원인(강수) — htj · `plan.md` 4절
 - [ ] 팀 전체 피드백 1회 (11/15 13:00~14:00) → 반영 → 18:00 동결 → J7 데모 → 23:00 제출 — 전원 · `plan.md` 진행 방식
-- [ ] H7: 상승 궤도 125·긴 띠·원자료 판(Earthdata 토큰 필요), 피드백 반영 — htj · `plan.md` 4·5절
+- [ ] 막힌 일(H7 토큰, 운영진 문의, 결정 확정) — 각 담당 · `todo.md`
 - [ ] 데이터: 더 긴 띠, 함께 변한 날 원인, 원자료 캐시 공유 — khs · `plan.md` 4절
 - [ ] 대회 전 작업 사용 규정 확인 — 담당 미정 · `brainstorming/decision_jmj.md`
 
