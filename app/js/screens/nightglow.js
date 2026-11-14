@@ -120,17 +120,32 @@ async function recolor(file) {
   return c.toDataURL('image/webp', 0.9);   // 바로 만들어지는 주소(가려진 창에서도 멈추지 않는다)
 }
 
-// 다 칠해지면 지금 지도에 걸려 있는 그림이면 바로 바꿔 끼운다
-function onReady(file, url) {
-  const m = window.__dmzMap; if (!m) return;
+// 지도에 걸린 빛 그림이 다시 칠한 그림인지 맞춘다. 다 칠해졌을 때, 그리고 지도가 다 그려질 때마다(idle) 확인해
+// 원래 그림(보라·노랑)이 한 칸이라도 남지 않게 한다(지도 쪽 갱신과 엇갈리거나 늦게 들어온 경우까지)
+function syncGlow() {
+  const m = window.__dmzMap; if (!m || state.screen !== 'night') return;   // 빛은 밤하늘에서만 보인다
   for (const [id, g] of Object.entries(regions())) {
+    const src = m.getSource(`glow-${id}`); if (!src) continue;
     const k = state.nightFrame, now = k == null ? g.color : g.frames[Math.min(k, g.frames.length - 1)];
-    if (now === file && m.getSource(`glow-${id}`)) m.getSource(`glow-${id}`).updateImage({ url, coordinates: g.corners });
+    const want = cache.get(now);
+    if (want && src.url !== want) src.updateImage({ url: want, coordinates: g.corners });
+    else if (!want) glowUrl(now);   // 아직 안 칠했으면 칠하기 시작한다
   }
 }
+let watching = false;
+function watch() {
+  const m = window.__dmzMap; if (!m || watching) return;
+  watching = true; m.on('idle', syncGlow);
+}
+const tries = new Map();
 function glowUrl(file) {
   const u = cache.get(file); if (u) return u;
-  if (!pending.has(file)) pending.set(file, recolor(file).then(url => { cache.set(file, url); onReady(file, url); }).catch(() => {}));
+  watch();
+  if (!pending.has(file)) pending.set(file, recolor(file).then(url => { cache.set(file, url); syncGlow(); }).catch(() => {
+    // 불러오기가 한 번 실패해도(네트워크 등) 원래 그림으로 영영 남지 않게 잠시 뒤 다시 칠한다(세 번까지)
+    pending.delete(file); const n = (tries.get(file) || 0) + 1; tries.set(file, n);
+    if (n < 3) setTimeout(() => glowUrl(file), 1500 * n);
+  }));
   return null;
 }
 window.__glowUrl = glowUrl;
