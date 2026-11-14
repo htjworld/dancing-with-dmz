@@ -758,3 +758,32 @@ body[data-beat=play] #panel .play > .note.ok:not([role]),body[data-beat=play] #p
 #trace-ink .wet.two{stroke:#b8dcff;stroke-width:1.8;opacity:.7}
 #trace-ink .wet.three{stroke:#6fa9ee;stroke-width:1.5;opacity:.55}
 #trace-ink .dry{stroke:#c9ced6;stroke-width:1.6;opacity:.45;stroke-dasharray:1 5}
+/* 강을 긋는 색연필 선을 1.4배 두껍게 */
+#trace-ink .wet{stroke-width:5.9}
+#trace-ink .wet.two{stroke-width:2.5}
+#trace-ink .wet.three{stroke-width:2.1}
+#trace-ink .dry{stroke-width:2.2}
+
+/* ---- 디자인 점검에서 고친 것 */
+/* 소개 카드: 화면이 낮아도 '시작하기'가 잘리지 않게 한다. 카드가 화면보다 길어지면 안에서 넘기고, 단추는 늘 아래에 붙어 보인다 */
+#intro .card{max-height:calc(100% - 8px);overflow:auto;scrollbar-width:thin}
+#intro video{max-height:32vh;height:auto}
+#intro .primary{position:sticky;bottom:0;box-shadow:0 -14px 18px 6px rgba(13,24,38,.92)}
+@media (max-height:760px){
+  #intro .card{padding:14px 22px 18px}
+  #intro video{max-height:27vh;margin-bottom:10px}
+  #intro .dmz-line{max-height:44px;margin-bottom:8px}
+  #intro h2{font-size:22px;margin-bottom:8px}
+  #intro .story{font-size:14.5px;margin-bottom:10px}
+  #intro .todo{margin-bottom:12px;padding:9px 12px}
+}
+/* 중간 너비 화면: 넓힌 오른쪽 창이 지도를 너무 덮지 않게 원래 너비로 돌리고, 단추 줄도 그에 맞춘다 */
+@media (max-width:1180px){
+  #panel{width:350px}
+  #scrub .time{left:calc((100% - 380px) / 2);width:min(520px,calc(100% - 430px))}
+  #piece-toast{left:calc(50% - 190px)}
+  body[data-screen=mission] #sound{right:372px} body[data-screen=mission] #to-night{right:470px} body[data-screen=mission] #lang{right:590px}
+}
+@media (max-width:900px){#scrub .time{left:50%;width:calc(100% - 32px)} #piece-toast{left:50%}}
+/* 미션 화면에서 왼쪽 위의 안내 한 줄이 단추 줄과 겹치는 너비에서는 그 줄을 숨긴다(제목은 남긴다) */
+@media (max-width:1480px){body[data-screen=mission] #top p{display:none}}

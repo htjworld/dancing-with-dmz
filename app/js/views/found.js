@@ -1,11 +1,9 @@
-// '여기서 알게 된 것' 카드: 한 줄 결론 → 숫자 막대 → 쉬운 한두 문장 → (접어 둔) 관련 영상. 영상 아래에 자세한 숫자와 단서를 작게 둔다.
+// '여기서 알게 된 것' 카드: 한 줄 결론 → 숫자 막대 → 쉬운 한두 문장. 자세한 숫자와 단서는 카드 머리의 ? 단추에 둔다.
 // 다섯 지역이 같은 모양을 쓴다. 문구와 숫자는 각 미션 화면이 넘긴다.
 import { t } from '../i18n.js';
-import { state } from '../state.js';
-import { RESULT_CLIP } from '../stops.js';
 
-let open = false, whyOpen = false;   // '관련 영상 보기'를 펼쳐 두었는가(창이 다시 그려져도 유지)
-if (typeof document !== 'undefined') document.addEventListener('toggle', e => { if (e.target.matches?.('.found details.clip')) open = e.target.open; else if (e.target.matches?.('.found details.why')) whyOpen = e.target.open; }, true);
+let whyOpen = false;   // '관련 영상 보기'를 펼쳐 두었는가(창이 다시 그려져도 유지)
+if (typeof document !== 'undefined') document.addEventListener('toggle', e => { if (e.target.matches?.('.found details.why')) whyOpen = e.target.open; }, true);
 
 // rows: [{ name, value, text?, cls? }]  value 는 막대 길이를 정하는 수, text 는 옆에 적는 글(없으면 'x.x dB')
 export function foundCard({ head, rows = [], caption = '', body = [], extra = '', more = [] }) {
@@ -20,7 +18,5 @@ export function foundCard({ head, rows = [], caption = '', body = [], extra = ''
     ${caption ? `<p class="fine cap">${caption}</p>` : ''}
     ${body.filter(Boolean).map(x => `<p>${x}</p>`).join('')}
     ${extra}
-    <details class="clip"${open ? ' open' : ''}><summary>${t('common.foundMore')}</summary>
-      ${RESULT_CLIP[state.stop] ? `<video src="${RESULT_CLIP[state.stop]}" controls playsinline preload="none"></video>` : `<p class="fine soon">${t('common.clipSoon')}</p>`}
-    </details></div>`;
+    </div>`;
 }
