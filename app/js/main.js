@@ -62,7 +62,7 @@ function retry(id) {
   VIEWS[id]?.reset?.();
   const seen = { ...state.seen, [id]: [] };
   const clear = { paju: { marks: {} }, yeoncheon: { riverTrace: [], misses: 0, riverHint: false }, cheorwon: { cmpPicks: [], revealed: false }, hwacheon: { eyePick: null }, yanggu: { quizPick: null } }[id] || {};
-  set({ ...clear, seen, retry: id, note: null, visited: [], peek: null });
+  set({ ...clear, seen, retry: id, note: null, visited: [], peek: null, scrubbed: null });
 }
 
 // 엔딩이 끝난 뒤 남는 한 장: 후렴, 읽은 다섯 가지, 쓴 자료, 다음에 할 수 있는 일
@@ -230,7 +230,7 @@ async function start() {
   $('sound').addEventListener('click', () => { const on = !state.sound; setSound(on); set({ sound: on }); });
   document.addEventListener('dmz-map-click', e => VIEWS[state.stop]?.mapClick?.(e.detail.lng, e.detail.lat));
   subscribe((s, prev) => {
-    if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh', retry: null });   // 지역을 옮기면 눈은 HH 로 돌아간다
+    if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh', retry: null, scrubbed: null });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
     if (s.fragments.length > prev.fragments.length) { perform('preview', s.fragments); pieceToast(s.fragments[s.fragments.length - 1]); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop) { clearTimeout(toastTimer); $('piece-toast').hidden = true; }   // 다음 지역의 소개 카드와 겹치지 않게 알림을 걷는다

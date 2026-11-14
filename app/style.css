@@ -965,3 +965,9 @@ body[data-beat=play] #to-night,body[data-beat=intro] #to-night{display:none}
 #ending-line{order:2}
 #stage-note{order:4}
 @media (prefers-reduced-motion:reduce){#ticker .dots i{transition:none}}
+
+/* ---- 파주: 아직 넘겨 보지 않은 날의 자리(빈 칸) */
+#panel .frame.empty{display:block;border:1.5px dashed var(--night-edge);background:rgba(255,255,255,.03)}
+#panel .frame:not(.empty){animation:frame-in .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes frame-in{from{opacity:.2;transform:scale(.92)}}
+@media (prefers-reduced-motion:reduce){#panel .frame:not(.empty){animation:none}}

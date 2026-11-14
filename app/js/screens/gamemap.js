@@ -196,7 +196,7 @@ export function initGameMap(map) {
     const c = cyc[Math.max(0, Math.min(cyc.length - 1, i))];
     if (c === state.cycle && state.visited.includes(c)) return;
     blip(294 * 2 ** SCRUB[who].tone(c), .13, .2);
-    set({ cycle: c, visited: [...new Set([...state.visited, c])], note: null });
+    set({ cycle: c, visited: [...new Set([...state.visited, c])], note: null, scrubbed: who });
   };
   const at = x => { const r = rail.getBoundingClientRect(); return Math.round(Math.max(0, Math.min(1, (x - r.left) / r.width)) * (cyc.length - 1)); };
   let scrubbing = false;

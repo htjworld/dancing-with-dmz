@@ -41,19 +41,22 @@ function chart() {
 export const cycles = () => { const d = data.layers.regions.paju.dates; return data.passes.filter(x => !x.rest && d.includes(x.date)).map(x => x.cycle); };
 export const tone = c => { const z = zone(ZONE), all = cycles().map(k => level(z, k)).filter(v => v != null), lo = Math.min(...all), hi = Math.max(...all), v = level(z, c); return v == null ? 0 : (v - lo) / ((hi - lo) || 1); };
 export const askReady = () => false;
+// 날짜 바로 넘겨 봐서 사진이 놓인 날의 수
+const shownCount = () => cycles().filter((c, i) => i === 0 || (state.scrubbed === 'paju' && state.visited.includes(c))).length;
 
 function frames(ready) {
   const L = data.layers.regions.paju, b = zone(ZONE).bounds;   // [서, 남, 동, 북]
   const look = { contrast: 1.7, bright: .82 }, pic = c => crop('paju', pass(c).date, b, .12, 'hh', look);
   const cycles = data.passes.filter(x => !x.rest && L.dates.includes(x.date)).map(x => x.cycle);
-  // 찾기 전에는 날짜순이 아닌 순서로 놓는다(순서가 답을 알려 주지 않게). 다 찾으면 날짜순으로 늘어선다
-  const order = ready ? cycles : [...cycles].sort((x, y) => ((x * 5 + 4) % 13) - ((y * 5 + 4) % 13));
-  return `<div class="frames${ready ? ' sorted' : ''}" style="--ar:${pic(cycles[0]).ar.toFixed(3)}">${order.map(c => {
+  // 날짜순으로 자리를 잡아 두고, 날짜 바로 넘겨 본 날의 사진만 채운다(같은 곳을 다시 찍을 때마다 한 장씩 쌓인다). 처음에는 첫 날 한 장만 있다
+  const seen = c => ready || c === cycles[0] || (state.scrubbed === 'paju' && state.visited.includes(c));   // 첫 날(6월 23일)의 사진은 처음부터 놓여 있다
+  return `<div class="frames${ready ? ' sorted' : ''}" style="--ar:${pic(cycles[0]).ar.toFixed(3)}">${cycles.map(c => {
+    if (!seen(c)) return '<span class="frame empty" aria-hidden="true"></span>';
     const dark = state.marks.dark === c, bright = state.marks.bright === c;
     return `<button type="button" class="frame${c === state.cycle ? ' now' : ''}${dark ? ' dark' : ''}${bright ? ' bright' : ''}" data-act="frame" data-cycle="${c}"
-      aria-label="${ready ? dateText(pass(c).date) : t('paju.frameAria')}"
+      aria-label="${dateText(pass(c).date)}"
 ><span class="pic" style="${pic(c).style}"></span>
-      ${dark ? `<b>${t('paju.flagDark')}</b>` : bright ? `<b>${t('paju.flagBright')}</b>` : ''}${ready ? `<small>${dateText(pass(c).date)}</small>` : ''}</button>`;
+      ${dark ? `<b>${t('paju.flagDark')}</b>` : bright ? `<b>${t('paju.flagBright')}</b>` : ''}<small>${dateText(pass(c).date)}</small></button>`;
   }).join('')}</div>`;
 }
 
@@ -107,7 +110,7 @@ export function render() {
   const want = !seen.includes('dark') ? 'dark' : 'bright';   // 먼저 가장 어두운 장, 그다음 가장 밝은 장
   const step = k => `<li class="${seen.includes(k) ? 'done' : ''}${!ready && want === k ? ' now' : ''}">${seen.includes(k) ? '✓' : want === k ? '▶' : '○'} ${t(k === 'dark' ? 'paju.stepDark' : 'paju.stepBright')}${state.marks[k] != null ? ` · ${dateText(pass(state.marks[k]).date)} · ${fmt(level(zone(ZONE), state.marks[k]))} dB` : ''}</li>`;
   return `<ul class="steps">${step('dark')}${step('bright')}</ul>
-    ${ready ? '' : `<p class="hint">${t(want === 'dark' ? 'paju.pickDark' : 'paju.pickBright')}</p>`}
+    ${ready ? '' : `<p class="hint">${t(shownCount() < cycles().length ? 'paju.reveal' : want === 'dark' ? 'paju.pickDark' : 'paju.pickBright', { n: shownCount(), total: cycles().length })}</p>`}
     ${ready ? discovery() : ''}
     ${ready ? '' : `${frames(false)}
     ${state.note ? `<p class="note ${state.note.ok ? 'ok' : 'no'}" role="status">${noteText(state.note)}</p>` : ''}
@@ -121,7 +124,7 @@ export function render() {
 export function act(name, el) {
   if (name === 'frame') {   // 사진을 집으면 지도도 그날로 바뀐다. 아직 찾는 중이면 그 장이 답인지 본다
     const c = +el.dataset.cycle, seen = state.seen.paju || [];
-    set({ cycle: c, visited: [...state.visited, c], note: null });
+    set({ cycle: c, visited: [...state.visited, c], note: null, scrubbed: 'paju' });
     if (!missionReady('paju', seen)) { mark(!seen.includes('dark') ? 'dark' : 'bright'); blip(state.note?.ok ? 660 : 233, .16, state.note?.ok ? .3 : .16); }   // 맞으면 높은 음, 아니면 낮고 짧은 음
   }
   else if (name === 'take' && missionReady('paju', state.seen.paju)) set({ fragments: [...state.fragments, 'paju'], note: null });
