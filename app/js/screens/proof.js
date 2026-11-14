@@ -36,16 +36,24 @@ function render() {
   const id = state.evidenceAt;
   el.hidden = !(id && state.screen === 'night');
   if (el.hidden) return;
-  const e = evidence(data.zones, id);
+  const e = evidence(data.zones, id, { landcover: data.landcover, rain: data.rain });
   // 구역 이름은 자료의 한국어 이름을 쓰고, 영어 화면에서는 분계선 기준 위치로 부른다
   const label = l => zoneName(data.zones.find(z => z.id === l.zoneId)) ?? l.name;
+  // 토지피복: 비율이 큰 순서로 둘까지(5% 이상만)
+  const cover = l => (l.cover ? Object.entries(l.cover).filter(([, v]) => v >= 5).sort((a, b) => b[1] - a[1]).slice(0, 2)
+    .map(([k, v]) => `${t('cover.' + k)} ${v.toFixed(0)}%`).join(' · ') : '');
+  const anyCover = e.lines.some(l => l.cover);
+  // 함께 변한 통과와 그 직전 3일 강수
+  const shared = (e.shared || []).map(x => (x.rain_mm_3day == null ? t('proof.rainUnknown', { day: dateText(x.date) })
+    : t('proof.rain', { day: dateText(x.date), mm: x.rain_mm_3day < 10 ? x.rain_mm_3day.toFixed(1) : x.rain_mm_3day.toFixed(0) }))).join(', ');
   el.innerHTML = `
     <button type="button" class="close" data-close aria-label="${t('proof.close')}">×</button>
     <p class="eye">${t('region.' + id)} · ${t('proof.eye')}</p>
     <h2>${t('proof.title')}</h2>
     ${chart(e)}
-    <ul class="ranges">${e.lines.map(l => `<li><i style="background:${colorOf(e, l)}"></i><span>${label(l)}<small>${t('place.' + l.place)}</small></span><b>${e.ranges[l.zoneId] ?? '–'} dB</b></li>`).join('')}</ul>
-    <p class="fine">${t('proof.rangeNote')}${e.excluded.length ? ' ' + t('proof.sharedNote') : ''}</p>
+    <ul class="ranges">${e.lines.map(l => `<li><i style="background:${colorOf(e, l)}"></i><span>${label(l)}<small>${t('place.' + l.place)}${cover(l) ? `<br>${cover(l)}` : ''}</small></span><b>${e.ranges[l.zoneId] ?? '–'} dB</b></li>`).join('')}</ul>
+    <p class="fine">${t('proof.rangeNote')}${anyCover ? ' ' + t('proof.coverNote') : ''}</p>
+    ${e.excluded.length ? `<p class="fine">${t('proof.sharedNote')} ${shared ? t('proof.shared', { list: shared }) : ''}</p>` : ''}
     <ul class="caveats">${e.caveats.map(k => `<li>${t('caveat.' + k, { passes: fact('passes'), prov: fact('passes_provisional') })}</li>`).join('')}</ul>
     <button type="button" class="next" data-mission>${t('proof.mission', { region: t('region.' + id) })}</button>`;
 }
