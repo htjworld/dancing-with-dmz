@@ -10,6 +10,7 @@ import { initNight } from './screens/night.js';
 import { initOpening } from './screens/opening.js';
 import { initLand } from './screens/land.js';
 import { initProof } from './screens/proof.js';
+import { initDateSlider } from './screens/dateslider.js';
 import { t } from './i18n.js';
 import * as paju from './views/paju.js';
 import * as yeoncheon from './views/yeoncheon.js';
@@ -55,12 +56,6 @@ function finale() {
   perform('finale', STOPS.map(s => s.id));
 }
 
-function timeline() {
-  $('timeline').innerHTML = data.passes.map(p =>
-    `<button type="button" data-cycle="${p.cycle}" class="${p.rest ? 'rest' : ''}" aria-pressed="${p.cycle === state.cycle}"
-       title="${p.rest ? t('timeline.rest') : p.date}">${md(p.date)}${p.rest ? ' ·' : ''}</button>`).join('');
-}
-
 // 화면(밤사진 / 미션)에 따라 바뀌는 바깥 틀: 본문 클래스, 머리말, 돌아가기 단추
 function chrome(s) {
   document.body.dataset.screen = s.screen;
@@ -71,7 +66,7 @@ function chrome(s) {
   $('lang').textContent = t('lang.other'); $('lang').setAttribute('aria-label', t('lang.aria'));
   $('stage-note').textContent = t('stage.note');
   $('map').setAttribute('aria-label', t('map.aria'));
-  $('tray').setAttribute('aria-label', t('tray.aria')); $('timeline').setAttribute('aria-label', t('timeline.aria'));
+  $('tray').setAttribute('aria-label', t('tray.aria'));
 }
 
 function fail(e) {
@@ -97,15 +92,12 @@ async function start() {
   initOpening();
   initLand(map);
   initProof();
+  initDateSlider();
   $('to-night').addEventListener('click', () => set({ screen: 'night' }));
   $('lang').addEventListener('click', () => {
     const lang = state.lang === 'ko' ? 'en' : 'ko';
     try { localStorage.setItem('dmz-lang', lang); } catch { /* 저장이 막힌 환경에서도 전환은 된다 */ }
     set({ lang });
-  });
-  $('timeline').addEventListener('click', e => {
-    const b = e.target.closest('[data-cycle]');
-    if (b) set({ cycle: +b.dataset.cycle, visited: [...state.visited, +b.dataset.cycle], note: null });
   });
   $('panel').addEventListener('click', e => {
     const b = e.target.closest('[data-act]');
@@ -122,7 +114,6 @@ async function start() {
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh' });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
-    if (s.cycle !== prev.cycle || s.lang !== prev.lang) timeline();
     if (s.fragments !== prev.fragments || s.finaleDone !== prev.finaleDone || s.lang !== prev.lang) tray();
     if (s.fragments.length > prev.fragments.length) perform('preview', s.fragments);   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
@@ -132,6 +123,6 @@ async function start() {
     $('stage').hidden = !(fin || s.finaleDone && s.fragments.length === STOPS.length && !s.playing && s.stop === 'yanggu');
     $('sound').textContent = t(s.sound ? 'sound.on' : 'sound.off'); $('sound').setAttribute('aria-pressed', s.sound);
   });
-  panel(); tray(); timeline(); chrome(state);
+  panel(); tray(); chrome(state);
 }
 start().catch(fail);
