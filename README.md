@@ -1,6 +1,8 @@
 # Dancing with DMZ
 
-**Live: https://htjworld.github.io/dancing-with-dmz/** (deploys automatically from `main`; being set up on 11/14)
+### ▶ [Open the app — htjworld.github.io/dancing-with-dmz](https://htjworld.github.io/dancing-with-dmz/)
+
+No login needed. Deployed automatically by GitHub Actions on every push to `main`.
 
 NASA Space Apps Challenge 2026 · Challenge: **Dancing with the SARs** · Team: Seoul
 

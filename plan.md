@@ -224,7 +224,7 @@ git pull --rebase origin main 하고 CLAUDE.md, plan.md, interface.md를 읽어.
 
 ### 처음 한 번만
 
-저장소를 cen04088(jmj) → **htjworld로 이관**한다(11/14 19:39 jmj 동의). 관리자 설정을 htj가 직접 하기 위해서다.
+저장소를 cen04088(jmj) → **htjworld로 이관**했다(11/14). 1~4, 6은 끝났다(공개, Pages 켜짐, 협업자 3명 그대로). **남은 것: 5번 원격 주소 바꾸기(각자).**
 
 1. jmj: Settings → General → Danger Zone → Transfer ownership → `htjworld`
 2. htj: 이관 요청 수락(하루 안)

@@ -3,7 +3,7 @@
 NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
-- [ ] 배포: 저장소 이관(jmj→htjworld) → 공개 + Pages 켜기 → main 푸시마다 자동 배포 — jmj, htj · `plan.md` 9절
+- [ ] 전원: 원격 주소 바꾸기 `git remote set-url origin https://github.com/htjworld/dancing-with-dmz.git` — jmj, hdk, khs · `plan.md` 9절
 - [ ] 제출 준비 체크리스트(영어 Summary, Use of SI 공개, LICENSE, Submit for Judging) — 전원 · `plan.md` 10절
 - [ ] 제출 문구 검토: `submission.md` 초안(Summary 168단어, Details, Use of SI, Data, References) — 전원 · `submission.md`
 - [ ] 기획 확정: jmj 결정 초안 확인 (htj·jmj·hdk 동의함, hdk 의견 `brainstorming/decision_hdk.md`) → 최종 `decision.md` — khs(김현석) · `brainstorming/decision_jmj.md`
@@ -16,6 +16,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 저장소 이관(htjworld), 공개 전환, GitHub Pages(Actions) 배포: https://htjworld.github.io/dancing-with-dmz/ — htj · `plan.md` 9절
 - [x] 미션 화면 아래의 조각 줄과 악기 이름(킥·하이햇 등) 제거. 피날레 단추는 양구 미션 창 안으로 — jmj · `app/js/main.js`, `views/yanggu.js`
 - [x] 미션 날짜 선택: 다섯 지역 모두 날짜 단추 대신 슬라이더(자료 없는 7/29 제외). 파주는 밝기 숫자·그래프를 두 날을 모두 맞힌 뒤에 공개 — jmj · `app/js/screens/dateslider.js`, `views/paju.js`
 - [x] 방향 점검(공식 심사 기준): 유지, 약점은 Impact·Validity 마감 — htj · `brainstorming/direction_check_htj.md`
