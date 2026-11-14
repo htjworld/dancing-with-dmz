@@ -2,7 +2,7 @@
 // DMZ의 한 계절이 쌓여 가는 것을 보여 준다. 끝나면 다섯 지역 미션(게임)으로 넘어간다.
 // 지도 레이어와 카메라는 map.js 가 맡고, 여기서는 시간표·자막·단추만 다룬다. 숫자는 facts.json 에서만 가져온다.
 import { state, set, subscribe, data, fact } from '../state.js';
-import { t, dateText } from '../i18n.js';
+import { t } from '../i18n.js';
 import { filmScore } from './nightmusic.js';
 import { frameAt } from '../glow.js';
 import { play, stop } from '../sound.js';
@@ -33,11 +33,6 @@ function caption() {
   const c = CUES[cue];
   el.querySelector('.cap').innerHTML = c ? `<p>${t(c.cap, vars())}</p>` : '';
 }
-// 통과가 쌓이는 동안 자막 위에 날짜를 보여 준다
-function when() {
-  const k = state.nightFrame, dates = data.glow?.dates || [], place = CUES[cue]?.cam, on = k != null && place && place !== 'all' && CUES[cue].at >= GROW[0];
-  el.querySelector('.when').textContent = on ? `${t('region.' + place)} · ${t('night.playing', { k: k + 2, n: dates.length, from: dateText(dates[0]), to: dateText(dates[k + 1]) })}` : '';
-}
 function buttons() {
   const ended = cue === CUES.length - 1;
   el.querySelector('.acts').innerHTML = ended
@@ -58,7 +53,7 @@ function tick() {
   const s = (performance.now() - startedAt) / 1000, n = data.glow?.regions?.cheorwon?.frames?.length || 0;
   // 자막과 카메라
   let k = 0; while (k + 1 < CUES.length && s >= CUES[k + 1].at) k++;
-  if (k !== cue) { const from = CUES[cue]?.cam; cue = k; if (CUES[k].cam && CUES[k].cam !== from) go(CUES[k].cam, k === 0 ? 0 : 3200); caption(); buttons(); when(); }
+  if (k !== cue) { const from = CUES[cue]?.cam; cue = k; if (CUES[k].cam && CUES[k].cam !== from) go(CUES[k].cam, k === 0 ? 0 : 3200); caption(); buttons(); }
   // 빛: 처음에는 없다가 스며들고, 통과가 쌓이며 밝아지고, 끝에는 완성된 한 장
   glow(s < FADE[0] ? 0 : s >= FADE[1] ? 1 : Math.round((s - FADE[0]) / (FADE[1] - FADE[0]) * 20) / 20);
   const frame = !n || s >= GROW[1] ? null : s < GROW[0] ? 0 : frameAt((s - GROW[0]) / (GROW[1] - GROW[0]), n);
@@ -83,7 +78,7 @@ export function startFilm() {
 }
 
 export function initFilm() {
-  el.innerHTML = `<div class="when" aria-hidden="true"></div><div class="cap" aria-live="polite"></div>
+  el.innerHTML = `<div class="cap" aria-live="polite"></div>
     <div class="acts"></div><div class="bar" aria-hidden="true"><i></i></div>`;
   el.addEventListener('click', e => {
     if (e.target.closest('[data-game]')) { stopFilm(); return set({ screen: 'mission' }); }
@@ -95,7 +90,6 @@ export function initFilm() {
   subscribe((s, prev) => {
     if (timer && (s.screen !== 'night' || s.nightMode !== 'film')) stopFilm();   // 화면을 떠나면 멈춘다
     if (s.lang !== prev.lang && cue >= 0) { caption(); buttons(); }
-    if (s.nightFrame !== prev.nightFrame || s.lang !== prev.lang) when();
     if (!s.sound && prev.sound && timer) stop();                                  // 소리만 끄면 그림은 계속 간다
   });
   // 오프닝 없이 밤하늘에서 시작하는 경우(오프닝 자료가 없을 때)에는 곧바로 튼다
