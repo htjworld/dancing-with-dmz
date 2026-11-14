@@ -35,7 +35,7 @@ const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAI
 export function initMap() {
   const nobase = new URLSearchParams(location.search).has('nobase');
   // 오른쪽 미션 창과 아래 타임라인에 가리지 않게 여백을 둔다(좁은 화면에서는 줄인다)
-  const padding = () => ({ top: 70, bottom: 130, left: 30, right: innerWidth > 900 ? 380 : 30 });
+  const padding = () => ({ top: 70, bottom: 130, left: 30, right: innerWidth > 900 ? 468 : 30 });
   // 영상 모드에서는 설명 창이 없으니 가운데에 두고 아래 자막 자리만 비운다
   const nightPadding = () => (state.nightMode === 'film' || state.screen === 'opening' ? { top: 70, bottom: 190, left: 40, right: 40 }
     : innerWidth > 900 ? { top: 60, bottom: 50, left: 420, right: state.evidenceAt ? 390 : 40 } : { top: 60, bottom: 300, left: 16, right: 16 });

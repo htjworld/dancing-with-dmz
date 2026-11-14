@@ -38,7 +38,7 @@ function trace({ lng, lat, phase }) {
     const now = performance.now();
     if (now - lastBlip > 110) { lastBlip = now; blip(392 * 2 ** progress(), .16, .18); }   // 따라갈수록 음이 올라간다
   }
-  const next = [...tr.slice(-500), [lng, lat, on ? 1 : 0]];
+  const next = [...tr.slice(-700), [lng, lat, on ? 1 : 0, phase === 'start' ? 1 : 0]];   // 넷째 칸: 새 획의 첫 점인가
   if (progress() >= 1) set({ riverTrace: next, seen: { ...state.seen, [ID]: ['river1', 'river2', 'river3'] }, riverHint: false, note: note(true, 'yeoncheon.hitAll') });
   else set({ riverTrace: next, note: on ? null : state.note });   // 강 위에 올라서면 앞서 받은 한마디를 걷는다
 }
@@ -88,6 +88,9 @@ export function render() {
     ${got ? `<p class="note ok">${t('yeoncheon.got')}</p>
       <button type="button" class="primary" data-act="next">${t('common.next', { name: label(STOPS.find(s => s.id === 'cheorwon'), 'name') })}</button>` : ''}`;
 }
+
+// 다시 해 볼 때: 지나간 강의 기록을 지운다
+export function reset() { covered.clear(); strokeOn = strokeN = 0; }
 
 export function bind() {
   document.addEventListener('dmz-map-trace', e => trace(e.detail));

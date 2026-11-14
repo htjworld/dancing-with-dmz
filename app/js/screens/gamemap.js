@@ -108,28 +108,40 @@ export function initGameMap(map) {
   const end = () => { if (down) { down = false; send({ phase: 'end' }); } };
   map.on('mousedown', begin); map.on('mousemove', drag); map.on('mouseup', end); map.on('mouseout', end);
   map.on('touchstart', begin); map.on('touchmove', drag); map.on('touchend', end); map.on('touchcancel', end);
-  // 그은 자국: 강 위는 하늘색, 벗어난 곳은 회색 점
-  let drawn = null;
+  // 그은 자국: 파란 색연필로 강을 따라 칠한 것처럼 그린다. 강 위를 지난 구간은 진하게 세 겹, 벗어난 구간은 옅은 회색 한 겹
+  const pen = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  pen.id = 'trace-ink'; pen.setAttribute('aria-hidden', 'true'); host.append(pen);
+  let drawn = null, drawnAt = '';
+  // 점들을 둥글게 이은 길. 겹마다 조금씩 어긋나게(shift) 해서 색연필을 여러 번 그은 느낌을 낸다
+  const stroke = (pts, shift) => {
+    if (pts.length < 2) return '';
+    const q = pts.map((p, i) => ({ x: p.x + Math.sin(i * 1.7 + shift * 2.1) * shift, y: p.y + Math.cos(i * 1.3 + shift * 3.3) * shift }));
+    let d = `M${q[0].x.toFixed(1)},${q[0].y.toFixed(1)}`;
+    for (let i = 1; i < q.length - 1; i++) d += `Q${q[i].x.toFixed(1)},${q[i].y.toFixed(1)} ${((q[i].x + q[i + 1].x) / 2).toFixed(1)},${((q[i].y + q[i + 1].y) / 2).toFixed(1)}`;
+    return `${d}L${q[q.length - 1].x.toFixed(1)},${q[q.length - 1].y.toFixed(1)}`;
+  };
   const syncTrace = () => {
     const tracing = !!dragging();
-    if (tracing !== wasTracing) {   // 긋는 동안에는 지도가 끌려가지 않게 한다
+    if (tracing !== wasTracing) {
       wasTracing = tracing;
       // 미션 화면에서는 지도가 늘 고정돼 있다(map.js). 여기서는 손 모양만 바꾼다
       map.getCanvas().style.cursor = tracing ? 'crosshair' : '';
     }
-    if (!map.getSource('dmz')) return;   // 지도가 아직 준비되지 않았다
-    if (!map.getSource('trace')) {
-      map.addSource('trace', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
-      map.addLayer({ id: 'trace', type: 'circle', source: 'trace', paint: { 'circle-radius': ['case', ['==', ['get', 'on'], 1], 6, 4],
-        'circle-color': ['case', ['==', ['get', 'on'], 1], '#7fe9ff', '#7d8c88'], 'circle-opacity': ['case', ['==', ['get', 'on'], 1], .9, .55], 'circle-blur': .35 } });
-      drawn = null;
-    }
-    const show = state.screen === 'mission' && state.stop === 'yeoncheon' ? state.riverTrace : [];
-    if (show !== drawn) {
-      drawn = show;
-      map.getSource('trace').setData({ type: 'FeatureCollection', features: show.map(p => ({ type: 'Feature', properties: { on: p[2] }, geometry: { type: 'Point', coordinates: [p[0], p[1]] } })) });
-    }
+    const show = inGame('yeoncheon') ? state.riverTrace : [], c = map.getCenter(), at = `${c.lng.toFixed(5)},${c.lat.toFixed(5)},${map.getZoom().toFixed(3)}`;
+    if (show === drawn && at === drawnAt) return;
+    drawn = show; drawnAt = at;
+    // 획과, 강 위·강 밖이 바뀌는 자리에서 끊어 구간으로 나눈다(이웃 구간과는 한 점을 겹쳐 이어 보이게)
+    const runs = [];
+    show.forEach((p, i) => {
+      const last = runs[runs.length - 1], xy = map.project([p[0], p[1]]);
+      if (!last || p[3] || last.on !== p[2]) { const run = { on: p[2], pts: [] }; if (last && !p[3]) run.pts.push(last.pts[last.pts.length - 1]); runs.push(run); }
+      runs[runs.length - 1].pts.push(xy);
+    });
+    pen.innerHTML = runs.length ? PENCIL + `<g filter="url(#pencil)">${runs.map(r => (r.on
+      ? `<path d="${stroke(r.pts, 0)}" class="pen wet"/><path d="${stroke(r.pts, 2.2)}" class="pen wet two"/><path d="${stroke(r.pts, 3.4)}" class="pen wet three"/>`
+      : `<path d="${stroke(r.pts, 0)}" class="pen dry"/>`)).join('')}</g>` : '';
   };
+  map.on('move', syncTrace);
 
   // ---- 시간 돌리기(파주, 철원, 양구): 지도 아래의 손잡이를 끌어 날짜를 넘긴다. 철원에서는 이름을 가린 두 땅(가, 나)의 테두리도 지도 위에 그린다
   const SCRUB = { paju: pajuView, cheorwon: cheorwonView, yanggu: yangguView }, LANDS = cheorwonView.LANDS;

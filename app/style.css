@@ -717,3 +717,44 @@ body[data-screen=mission] #date-slider,body[data-screen=mission][data-stop=paju]
 #piece-toast [data-close]:hover{background:rgba(255,255,255,.16)}
 #piece-toast .n{padding:0 30px}
 #piece-toast [data-close]{width:22px;height:22px;font-size:14px;top:9px;right:9px}
+
+/* ---- 오른쪽 창을 4분의 1 넓힌다(350 → 438). 지도 여백, 날짜 손잡이, 특징 카드의 자리도 그만큼 옮긴다 */
+#panel{width:438px}
+#scrub .time{left:calc((100% - 468px) / 2);width:min(520px,calc(100% - 520px))}
+#piece-toast{left:calc(50% - 234px)}
+@media (max-width:900px){#scrub .time{left:50%;width:calc(100% - 32px)} #piece-toast{left:50%}}
+/* 넓어진 오른쪽 창만큼 위쪽 단추 줄도 왼쪽으로 옮긴다 */
+body[data-screen=mission] #sound{right:460px}
+body[data-screen=mission] #to-night{right:558px}
+body[data-screen=mission] #lang{right:678px}
+
+/* ---- 푼 미션 다시 해 보기 */
+#panel .again{margin:10px 0 0}
+/* 다시 푸는 동안에는 '조각을 받았습니다'와 다음 지역 단추를 잠깐 숨긴다 */
+body[data-beat=play] #panel .play > .note.ok:not([role]),body[data-beat=play] #panel .play > [data-act=next],body[data-beat=play] #panel .play > [data-act=finale],body[data-beat=play] #panel .play > .note.ok:not([role]) + .fine{display:none}
+
+/* ---- 지도 위 지역 표시: 선에 꿰인 구슬. 조각을 받은 곳은 금빛으로 빛나고, 아직인 곳은 빈 고리다. 번호는 읽어 주는 이름(aria-label)에만 남긴다 */
+.pin{width:12px;height:12px;border-radius:50%;border:1.5px solid #8a97a8;background:#0d1522;box-shadow:none;font-size:0;color:transparent;padding:0}
+.pin.done{border-color:#fff6e0;background:#fff6e0;box-shadow:0 0 0 5px rgba(255,225,162,.22),0 0 14px 4px rgba(255,214,140,.55)}
+.pin.current{border-color:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.16)}
+.pin.current.done{border-color:#fff6e0;box-shadow:0 0 0 6px rgba(255,225,162,.28),0 0 18px 6px rgba(255,214,140,.65)}
+.pin-label{top:17px;font-family:var(--serif);font-size:13px;font-weight:500;color:#8a97a8;background:none;padding:0;text-shadow:0 1px 4px #000,0 0 8px #000}
+.pin.done .pin-label{color:var(--gold)}
+.pin.current .pin-label{color:#fff}
+
+/* ---- '이 미션 다시 해 보기' 단추: 주 단추(금색으로 채운 알약) 아래의 보조 단추. 같은 알약 모양에 금색 테두리만 두르고, 되돌리는 화살표를 붙인다 */
+#panel .again{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:10px 0 0;padding:11px 16px;border-radius:999px;
+  border:1px solid rgba(255,225,162,.5);background:rgba(255,225,162,.05);color:var(--gold);font-size:14px;font-weight:700;letter-spacing:.01em;
+  transition:transform .1s ease-out,background-color .15s,border-color .15s}
+#panel .again::before{content:"\21BA";font-size:16px;line-height:1;font-weight:400;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+#panel .again:hover{background:rgba(255,225,162,.13);border-color:rgba(255,225,162,.85)}
+#panel .again:hover::before{transform:rotate(-180deg)}
+@media (prefers-reduced-motion:reduce){#panel .again::before{transition:none}}
+
+/* ---- 연천: 강을 따라 그은 자국은 파란 색연필 선 */
+#trace-ink{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
+#trace-ink .pen{fill:none;stroke-linecap:round;stroke-linejoin:round}
+#trace-ink .wet{stroke:#8fc4ff;stroke-width:4.2;opacity:.95}
+#trace-ink .wet.two{stroke:#b8dcff;stroke-width:1.8;opacity:.7}
+#trace-ink .wet.three{stroke:#6fa9ee;stroke-width:1.5;opacity:.55}
+#trace-ink .dry{stroke:#c9ced6;stroke-width:1.6;opacity:.45;stroke-dasharray:1 5}

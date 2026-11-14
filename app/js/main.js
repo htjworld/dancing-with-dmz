@@ -26,7 +26,8 @@ const VIEWS = { paju, yeoncheon, cheorwon, hwacheon, yanggu };   // 미션 화�
 
 
 // 한 지역의 박자: 소개(intro) → 놀기(play) → 결과(result) → 조각을 받은 뒤(done)
-const beatOf = st => (st.fragments.includes(st.stop) ? 'done' : missionReady(st.stop, st.seen[st.stop]) ? 'result' : st.introSeen.includes(st.stop) ? 'play' : 'intro');
+// 다시 해 보는 중이면 조각을 이미 받았어도 놀기 → 결과로 간다
+const beatOf = st => (st.retry === st.stop ? (missionReady(st.stop, st.seen[st.stop]) ? 'result' : 'play') : st.fragments.includes(st.stop) ? 'done' : missionReady(st.stop, st.seen[st.stop]) ? 'result' : st.introSeen.includes(st.stop) ? 'play' : 'intro');
 let beatShown = '';
 // 화면이 바뀐 직후의 누르기는 받지 않는다. 강을 긋거나 사진을 고르던 손이, 그 자리에 새로 뜬 단추(조각 받기, 다음 지역, 시작하기)를
 // 연달아 눌러 지역이 저절로 넘어가는 일을 막는다
@@ -55,6 +56,14 @@ function intro(s, i, beat) {
   if (on) el.querySelector('button')?.focus({ preventScroll: true });
 }
 
+// 푼 미션을 다시 해 본다: 그 지역의 풀이 기록만 지우고, 받은 조각과 이어진 선은 그대로 둔다
+function retry(id) {
+  VIEWS[id]?.reset?.();
+  const seen = { ...state.seen, [id]: [] };
+  const clear = { paju: { marks: {} }, yeoncheon: { riverTrace: [], misses: 0, riverHint: false }, cheorwon: { cmpPicks: [], revealed: false }, hwacheon: { eyePick: null }, yanggu: { quizPick: null } }[id] || {};
+  set({ ...clear, seen, retry: id, note: null, visited: [], peek: null });
+}
+
 let fragShown = 0, newDot = null, newUntil = 0;   // 방금 받은 조각의 점은 잠깐 튄다(그 사이 창이 다시 그려져도 유지)
 let peekShown = null;   // 방금 그린 설명 풍선의 지역(같은 풍선을 다시 그릴 때는 움직이지 않는다)
 function panel() {
@@ -81,7 +90,8 @@ function panel() {
     <ol class="track">${track}</ol>${peek}
     <header class="brief"><p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2></header>
     <p class="todo${done ? ' done' : ''}"><b>${done ? '✓' : t('common.todo')}</b>${label(s, 'todo')}</p>
-    <div class="play">${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}</div>`;
+    <div class="play">${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}</div>
+    ${missionReady(s.id, state.seen[s.id]) ? `<button type="button" class="ghost again" data-retry="${s.id}">${t('common.retry')}</button>` : ''}`;
 }
 
 // 조각을 받는 순간 화면 가운데에 잠깐 뜨는 알림: 몇 번째 조각인지, 무엇을 읽는 법인지, 선이 어디까지 이어졌는지
@@ -176,6 +186,8 @@ async function start() {
     set({ lang });
   });
   $('panel').addEventListener('click', e => {
+    const again = e.target.closest('[data-retry]');
+    if (again) return retry(again.dataset.retry);
     const pk = e.target.closest('[data-peek]'), go = e.target.closest('[data-go]');
     if (pk) return set({ peek: state.peek === pk.dataset.peek ? null : pk.dataset.peek });
     if (go) return set({ stop: go.dataset.go, peek: null, note: null });
@@ -187,7 +199,7 @@ async function start() {
   $('sound').addEventListener('click', () => { const on = !state.sound; setSound(on); set({ sound: on }); });
   document.addEventListener('dmz-map-click', e => VIEWS[state.stop]?.mapClick?.(e.detail.lng, e.detail.lat));
   subscribe((s, prev) => {
-    if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh' });   // 지역을 옮기면 눈은 HH 로 돌아간다
+    if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh', retry: null });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
     if (s.fragments.length > prev.fragments.length) { perform('preview', s.fragments); pieceToast(s.fragments[s.fragments.length - 1]); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop) { clearTimeout(toastTimer); $('piece-toast').hidden = true; }   // 다음 지역의 소개 카드와 겹치지 않게 알림을 걷는다
