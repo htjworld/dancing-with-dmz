@@ -48,10 +48,12 @@ export function render() {
     ${ready ? result() : ''}
     ${ready && !got ? (allowed ? `<button type="button" class="primary" data-act="take">${t('yanggu.take')}</button>`
       : `<p class="note no">${t('common.needPrev')}</p>`) : ''}
-    ${got ? `<p class="note ok">${t('yanggu.got')}</p>` : ''}`;
+    ${got ? `<p class="note ok">${t('yanggu.got')}</p>
+      ${state.fragments.length === STOPS.length ? `<button type="button" class="primary" data-act="finale">${t(state.finaleDone ? 'finale.again' : 'finale.go')}</button>` : ''}` : ''}`;
 }
 
 export function act(name, el) {
   if (name === 'pick') set({ quizPick: el.dataset.zone, seen: addKey(ID, 'picked') });
   else if (name === 'take' && missionReady(ID, state.seen[ID]) && canTake(ID, state.fragments, STOPS.map(s => s.id))) set({ fragments: [...state.fragments, ID] });
+  else if (name === 'finale') document.dispatchEvent(new Event('dmz-finale'));   // main.js 가 듣고 피날레를 시작한다
 }

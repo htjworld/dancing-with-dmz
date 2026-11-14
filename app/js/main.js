@@ -31,15 +31,6 @@ function panel() {
     ${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}`;
 }
 
-function tray() {
-  const n = state.fragments.length;
-  $('tray').innerHTML = STOPS.map(s => {
-    const on = state.fragments.includes(s.id);
-    return `<button type="button" class="piece${on ? ' on' : ''}" data-piece="${s.id}" ${on ? '' : 'disabled'} title="${t(on ? 'tray.solo' : 'tray.locked')}">${on ? '♪' : '·'} ${label(s, 'name')}<br><small>${label(s, 'layer')}</small></button>`;
-  }).join('') + (n >= 2 && n < STOPS.length ? `<button type="button" class="piece on" data-piece="all">♪♪ ${t('tray.sofar')}<br><small>${t('tray.together')}</small></button>` : '')
-    + (n === STOPS.length ? `<button type="button" class="piece go" data-piece="finale">▶ ${t('tray.finale')}<br><small>${t(state.finaleDone ? 'tray.again' : 'tray.join')}</small></button>` : '');
-}
-
 // ---- 소리와 춤: 반주 층의 세기와 선의 움직임이 같은 실측값을 따른다
 let gains = null, timer = 0;
 function perform(mode, ids) {
@@ -66,7 +57,6 @@ function chrome(s) {
   $('lang').textContent = t('lang.other'); $('lang').setAttribute('aria-label', t('lang.aria'));
   $('stage-note').textContent = t('stage.note');
   $('map').setAttribute('aria-label', t('map.aria'));
-  $('tray').setAttribute('aria-label', t('tray.aria'));
 }
 
 function fail(e) {
@@ -104,17 +94,12 @@ async function start() {
     if (b && !b.disabled) VIEWS[state.stop]?.act(b.dataset.act, b);
   });
   for (const v of Object.values(VIEWS)) v.bind?.($('panel'));
-  $('tray').addEventListener('click', e => {
-    const b = e.target.closest('[data-piece]'); if (!b || b.disabled) return;
-    const id = b.dataset.piece;
-    id === 'finale' ? finale() : perform('preview', id === 'all' ? state.fragments : [id]);
-  });
+  document.addEventListener('dmz-finale', finale);   // 양구 미션 창의 '춤추는 DMZ' 단추
   $('sound').addEventListener('click', () => { const on = !state.sound; setSound(on); set({ sound: on }); });
   document.addEventListener('dmz-map-click', e => VIEWS[state.stop]?.mapClick?.(e.detail.lng, e.detail.lat));
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh' });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
-    if (s.fragments !== prev.fragments || s.finaleDone !== prev.finaleDone || s.lang !== prev.lang) tray();
     if (s.fragments.length > prev.fragments.length) perform('preview', s.fragments);   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
     chrome(s);
@@ -123,6 +108,6 @@ async function start() {
     $('stage').hidden = !(fin || s.finaleDone && s.fragments.length === STOPS.length && !s.playing && s.stop === 'yanggu');
     $('sound').textContent = t(s.sound ? 'sound.on' : 'sound.off'); $('sound').setAttribute('aria-pressed', s.sound);
   });
-  panel(); tray(); chrome(state);
+  panel(); chrome(state);
 }
 start().catch(fail);
