@@ -1,7 +1,7 @@
 # 3단계 평가 — htj 의견
 
 작성: htj + Claude, 2026-11-14. 네 명 파일(hdk, htj, jmj, khs)과 `ref/02_finalists_2024_2025_benchmark.md`를 읽고 같은 잣대(공식 심사 기준 5개 + 운영진 피드백 4개)로 매겼다.
-jmj의 `stage3_summary.md`, `decision.md`(초안)와 결론이 같다. 이 문서는 htj 쪽 점수와 의견을 남기는 용도다.
+jmj의 `stage3_summary_jmj.md`, `decision_jmj.md`(초안)와 결론이 같다. 이 문서는 htj 쪽 점수와 의견을 남기는 용도다.
 주의: htj A는 htj가 낸 안이라 후하게 볼 위험이 있어, 약점부터 적었다.
 
 ## 판을 바꾸는 사실 (팀원 조사)
@@ -48,7 +48,7 @@ jmj의 `stage3_summary.md`, `decision.md`(초안)와 결론이 같다. 이 문�
 | 상승 궤도 125 | hdk | 밤사진을 더 촘촘하게(시간 남으면) |
 | 출입 금지 땅 비교, 전문가 도구 | hdk A, khs | 확장 계획 한 줄 |
 
-## `decision.md` 초안에 대한 htj 의견
+## `decision_jmj.md` 초안에 대한 htj 의견
 
 - 통합안에 동의한다. 타깃을 외국인 관람객으로 세우는 데 동의한다.
 - 숫자는 숲 대비 값(2.1 dB 대 0.7 dB)으로 통일하는 데 동의한다.
