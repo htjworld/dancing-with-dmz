@@ -4,6 +4,10 @@ export const state = {
   cycle: 0,          // 타임라인에서 고른 통과(0 = 첫 관측)
   pol: 'hh',
   fragments: [],     // 모은 조각(지역 id, 서→동 순서)
+  seen: {},          // 지역별로 얻은 미션 열쇠 { paju: ['dark'] }
+  marks: {},         // 파주: 표시를 붙인 통과 { dark: 0, bright: 5 }
+  visited: [],       // 이 지역에서 넘겨 본 통과(밝기 선에 점이 찍힌다)
+  note: null,        // 방금 한 행동에 대한 한 줄 응답 { ok, text }
   mapReady: false,
 };
 export const data = { boundary: null, rain: null, passes: [], zones: [] };
@@ -24,3 +28,7 @@ export async function load() {
 export const md = iso => `${+iso.slice(5, 7)}/${+iso.slice(8)}`;
 export const zonesOf = stopId => data.zones.filter(z => z.region === stopId);
 export const zone = id => data.zones.find(z => z.id === id);
+export const pass = cycle => data.passes.find(p => p.cycle === cycle);
+export const rainAt = (stopId, cycle) => data.rain?.regions?.[stopId]?.passes.find(r => r.date === pass(cycle)?.date)?.mm_3day ?? null;
+export const addKey = (stopId, key) => ({ ...state.seen, [stopId]: [...new Set([...(state.seen[stopId] || []), key])] });
+export const mdK = iso => `${+iso.slice(5, 7)}월 ${+iso.slice(8)}일`;

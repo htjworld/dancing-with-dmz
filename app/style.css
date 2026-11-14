@@ -46,3 +46,21 @@ button{font:inherit;color:inherit;cursor:pointer}
 .zone-tag{font-size:12px;padding:1px 6px;border-radius:6px;background:rgba(7,16,14,.8);color:#9fd0ff;white-space:nowrap;pointer-events:none}
 .zone-tag.main{color:var(--gold)} .zone-tag.ref{color:#8ff7b9}
 .zone-tag[hidden]{display:none}
+
+#dance{position:absolute;inset:0;pointer-events:none}
+.chart{width:100%;height:auto;display:block;margin:8px 0 4px;background:rgba(255,255,255,.03);border-radius:8px}
+.chart .line{fill:none;stroke:var(--line);stroke-width:1.6}
+.chart circle{fill:var(--line)} .chart circle.now{fill:var(--gold);stroke:#fff;stroke-width:1.2}
+.chart .rest{fill:rgba(255,255,255,.06)}
+.chart .grid{stroke:rgba(255,255,255,.1);stroke-width:1}
+.chart .tick{fill:var(--dim);font-size:9px} .chart .flag{fill:var(--gold);font-size:10px;text-anchor:middle;font-weight:700}
+#panel .today{color:var(--ink);margin:4px 0 6px}
+#panel .steps{list-style:none;margin:0 0 10px;padding:0;font-size:14px;color:var(--dim)} #panel .steps .done{color:var(--gold)}
+#panel .acts{display:flex;gap:8px;margin-bottom:6px}
+#panel .acts button,#panel .primary{flex:1;padding:10px 8px;border-radius:10px;border:1px solid var(--line);background:rgba(188,233,197,.1);font-size:14px}
+#panel .acts button:disabled{opacity:.4;cursor:default}
+#panel .primary{width:100%;background:var(--gold);border-color:var(--gold);color:#2a1e05;font-weight:700;margin-top:4px}
+#panel .hint,#panel .fine{font-size:12px;color:var(--dim)}
+#panel .note{border-radius:10px;padding:10px 12px;font-size:14px;color:var(--ink);background:rgba(255,255,255,.06)}
+#panel .note.ok{border-left:3px solid var(--gold)} #panel .note.no{border-left:3px solid #9fd0ff}
+#panel .found{border-top:1px solid var(--edge);padding-top:10px;margin-top:6px} #panel .found h3{margin:0 0 6px;font-size:15px}
