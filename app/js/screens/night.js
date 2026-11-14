@@ -2,9 +2,7 @@
 // 숫자는 facts.json(fact())과 glow.json 에서만 가져온다.
 import { state, set, subscribe, data, fact } from '../state.js';
 import { t, dateText } from '../i18n.js';
-import { score, LAYER_OF } from '../music.js';
-import { layerGains, applyRhythm } from '../rhythm.js';
-import { change, mainOf } from '../calc.js';
+import { nightScore } from './nightmusic.js';
 import { frameAt } from '../glow.js';
 import { play, stop } from '../sound.js';
 
@@ -16,7 +14,7 @@ let timer = 0, startedAt = 0, duration = 0, preloaded = false;
 
 const nFrames = () => data.glow?.regions?.cheorwon?.frames?.length || 0;
 
-// ---- 한 계절 재생: 곡의 처음~끝이 첫 통과~마지막 통과다. 통과가 쌓일수록 들판이 빛난다.
+// ---- 한 계절 재생: 곡의 처음~끝이 첫 통과~마지막 통과다. 통과가 쌓일수록 들판이 빛나고 별 소리가 늘어난다.
 function preload() {
   if (preloaded) return; preloaded = true;
   for (const g of Object.values(data.glow.regions)) for (const f of g.frames) { const im = new Image(); im.src = `data/${f}`; }
@@ -30,10 +28,8 @@ export function playSeason() {
   const n = nFrames();
   if (!n) return;
   stopSeason(); preload();
-  // 반주 다섯 층의 세기는 미션·피날레와 같은 실측값(지역 주 구역의 신호 변화)을 따른다
-  const passes = data.passes.length;
-  const gains = layerGains(Object.fromEntries(Object.keys(LAYER_OF).map(id => [id, data.passes.map(p => change(mainOf(data.zones, id), p.cycle))])));
-  const plan = applyRhythm(score(), gains, passes);
+  // 밤사진에는 이 화면을 위해 지은 잔잔한 곡을 쓴다(nightmusic.js). 미션의 조각과 피날레 음악은 music.js 가 맡는다
+  const plan = nightScore();
   startedAt = play(plan); duration = plan.duration * 1000;
   const tick = () => {
     const p = (performance.now() - startedAt) / duration;
@@ -52,7 +48,8 @@ function playRow() {
   const now = k == null ? '' : `<span class="when">${t('night.playing', { k: k + 2, n: dates.length, from: dateText(dates[0]), to: dateText(dates[k + 1]) })}</span>`;
   return `<div class="play"><button type="button" data-play aria-pressed="${k != null}">${t(k == null ? 'night.play' : 'night.stop')}</button>
     <button type="button" class="land" data-land aria-pressed="${state.landPlay}">${t('land.toggle')}</button>${now}</div>
-    ${state.landPlay ? `<p class="fine">${t('land.hint')}</p>` : ''}`;
+    ${state.landPlay ? `<p class="fine">${t('land.hint')}</p>` : ''}
+    ${k != null ? `<p class="fine">${t('night.musicNote')}</p>` : ''}`;
 }
 
 function render() {

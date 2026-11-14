@@ -47,7 +47,7 @@
 
 ## 이미 있는 것 (4단계의 "데모까지 만들 수 있나" 판단용)
 
-- 앱 1차: 다섯 지역 미션, 아리랑 반주, 피날레 춤 (`app/`)
+- 앱 1차: 다섯 지역 미션, 반주, 피날레 춤 (`app/`)
 - 계절 변동 지도 시제품 다섯 장 (`brainstorming/img/*_change.jpg`, `tools/proto_change_map.py`)
 - HLS 구름량 집계 (`tools/hls_cloud.py`, htj 파일 8절)
 - NISAR 장면 목록 확인: 하강 133과 상승 125가 다섯 지역을 모두 덮음, 11/2 통과까지 있음 (hdk 파일 7절)

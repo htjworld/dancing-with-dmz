@@ -17,11 +17,11 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - [x] J6 한·영 전환: 모든 화면(오프닝, 밤사진, 땅 연주, 근거, 다섯 미션, 피날레 자막, 구역 이름표)이 영어로 나온다. `?lang=en` — jmj · `app/js/i18n.js`
 - [x] 요청 처리: 창 안 구름 측정(`hls_window.py`), 오프닝 `window_cloud_pct`, 7월 근거로 좁힘 — htj · `plan.md` 5절
 - [x] MVP3 프론트: J4 땅 연주(지도를 쓸면 소리, 고요한 땅은 쉼), J5 근거 패널(숲 대비 곡선, 변동 폭, 한계 문구, 미션 진입) — jmj · `plan.md` 4절
-- [x] MVP2 프론트: J2 구름 문지르기 오프닝, J3 밤사진 한 계절 재생(아리랑 반주) — jmj · `plan.md` 4절
+- [x] MVP2 프론트: J2 구름 문지르기 오프닝, J3 밤사진 한 계절 재생(밤하늘에 어울리는 잔잔한 곡, `app/js/screens/nightmusic.js`) — jmj · `plan.md` 4절
 - [x] MVP1 밤사진 한 장: J1 밤사진 화면(변동 지도 레이어, 흰 분계선, 설명 창, i18n 틀) — jmj · `plan.md` 4절
 - [x] 로직·데이터 H1~H6: facts, glow(+프레임), opening, glow·landsound, evidence + 테스트 — htj · `interface.md`
 - [x] 브레인스토밍 4인 + 3단계 정리 + 결정 초안 — 전원 · `brainstorming/`
-- [x] 앱 1차: 다섯 지역 미션 + 아리랑 반주 + 피날레 춤 — `app/`
+- [x] 앱 1차: 다섯 지역 미션 + 반주 + 피날레 춤 — `app/`
 - [x] 참고 자료: 챌린지 원문, 2025 수상작, 직전 SAR 챌린지 — `ref/`
 - [x] 브레인스토밍 템플릿 — `brainstorming/`
 
