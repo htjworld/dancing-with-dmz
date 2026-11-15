@@ -52,7 +52,9 @@ function drawSweep(m) {
   cx.fillStyle = `rgba(255,214,140,${(0.35 * fade).toFixed(3)})`;
   cx.beginPath(); cx.arc(x, y - 52, 7, 0, 6.283); cx.fill();
 }
-function loop() { draw(); if (on) timer = requestAnimationFrame(loop); }
+// 별 반짝임은 느린 움직임이라 초당 30번만 다시 그린다(빛줄기가 지나가는 동안만 매 프레임). 가만히 둔 화면에서 그리기 부하를 절반으로(jmj 제안, 로컬 시험)
+let drawnAt = 0;
+function loop() { const n = performance.now(); if (sweep || n - drawnAt >= 30) { drawnAt = n; draw(); } if (on) timer = requestAnimationFrame(loop); }
 function apply() {
   const want = state.screen === 'night' && state.nightMode === 'explore';
   if (want === on) return;

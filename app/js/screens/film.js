@@ -257,7 +257,7 @@ function jump(toT) {   // 장면 처음으로: 시계를 옮기고, 자막·카�
   titleAt = 0; titleEl.classList.remove('on'); left = -1; held = false;
   if (!paused) music(toT);
 }
-let jumped = false;
+let jumped = false, waveAt = 0;
 const fitAll = ms => mapOf()?.fitBounds([[125.8, 37.15], [129.1, 39.0]], { padding: { top: 70, bottom: 190, left: 40, right: 40 }, duration: ms });   // 한반도 전체(마무리 장면)
 function skipToEnd() {   // 건너뛰기: 게임으로 바로 가지 않고 제목과 세 단추가 있는 마지막 장면에 멈춘다
   jump(intro.LEN + CUES[CUES.length - 1].at); held = true;   // held: 저절로 게임으로 넘어가지 않는다
@@ -288,6 +288,7 @@ function tick() {
     el.querySelector('.bar i').style.width = '0%';
     return;
   }
+  { const n = performance.now(); if (n - waveAt < 30) return; waveAt = n; }   // 물결 장면은 초당 30번만 다시 그린다(지구 도입은 매 프레임 그대로). 그리기 부하를 절반으로(jmj 제안, 로컬 시험)
   intro.frame(T); tint.style.opacity = mapSaved ? 0.18 : 1;
   const s = T - L;
   let k = 0; while (k + 1 < CUES.length && s >= CUES[k + 1].at) k++;
@@ -340,7 +341,7 @@ export async function startFilm() {
 
 // 왼쪽 위 제목(#top h1): 영상 끝에서 춤추던 큰 제목이 이 자리에 앉은 뒤에도, 같은 실측 리듬(다섯 지역 물결의 평균)으로
 // 글자마다 아주 작게 오르내린다. 게임과 둘러보기에서만, 움직임 줄이기 설정이면 멈춘 채로 둔다(hdk)
-let cornerRaf = 0, cornerLetters = null;
+let cornerRaf = 0, cornerLetters = null, cornerAt = 0;
 function cornerSetup() {
   const h = document.querySelector('#top h1'); if (!h || cornerLetters) return;
   const text = h.textContent.trim(); h.setAttribute('aria-label', text);
@@ -350,7 +351,8 @@ function cornerSetup() {
 function cornerTick() {
   cornerRaf = requestAnimationFrame(cornerTick);
   if (!CH || !cornerLetters) return;
-  const tt = performance.now() / 1000 / (LOOP * 1.6);   // 영상 끝 제목보다 조금 느리게
+  const n = performance.now(); if (n - cornerAt < 30) return; cornerAt = n;   // 작은 흔들림이라 초당 30번이면 충분하다(jmj 제안, 로컬 시험)
+  const tt = n / 1000 / (LOOP * 1.6);   // 영상 끝 제목보다 조금 느리게
   cornerLetters.forEach((el, i) => {
     const a = CH[i % 5], p = ((tt + i * 0.35) % SLOTS + SLOTS) % SLOTS, i0 = Math.floor(p), f = p - i0;
     const v = a[i0] + (a[(i0 + 1) % SLOTS] - a[i0]) * ((1 - Math.cos(Math.PI * f)) / 2);
