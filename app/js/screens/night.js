@@ -225,7 +225,7 @@ function showPlace(p) {
   pick = new maplibregl.Popup({ closeButton: false, closeOnClick: false, className: 'glow-pick', offset: 12, maxWidth: '300px' })
     .setLngLat(p.lonlat).setHTML(`<b>${t(k + '.title')}</b><span>${t(k + '.place')}</span>
       <p class="body">${t(k + '.body', { r: p.r_km, share: pc(p.share), west: pc(p.west_share ?? 0), west_km: p.west_km ?? 35, around: pc(p.around_share ?? 0), a0: p.around_km?.[0], a1: p.around_km?.[1] })}</p>
-      <p class="fine">${t(own ? 'night.ex.limit2' : 'night.ex.limit', { db: whole ? whole.strongDb.toFixed(2) : '0.66' })}</p>`).addTo(m);   // 출처 링크는 뺐다(팀 피드백, 11/15). 출처는 README·팀 페이지에 둔다
+      ${own ? '' : `<p class="fine">${t('night.ex.limit', { db: whole ? whole.strongDb.toFixed(2) : '0.66' })}</p>`}`).addTo(m);   // 출처 링크는 뺐다(팀 피드백, 11/15). 출처는 README·팀 페이지에 둔다
 }
 
 export function initNight() {
