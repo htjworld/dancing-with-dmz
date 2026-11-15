@@ -3,6 +3,8 @@
 NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
+- [ ] 앱 동결: 정한 시각(제안 11/15 20:00) 뒤로 main 푸시 금지, 동결 직전 끝까지 한 번 해 보기 — 전원 · `brainstorming/metacognition_htj.md` 5절
+- [ ] 3등 안 목표: Impact 슬라이드 한 장(누가·무엇을, 영어 초안 있음), 여유 있으면 Details도 고치고 Submit for Judging 다시 — jmj · `brainstorming/metacognition_htj.md` 6절
 - [ ] 전원: 원격 주소 바꾸기 `git remote set-url origin https://github.com/htjworld/dancing-with-dmz.git` — khs (hdk·jmj 완료) · `plan.md` 9절
 - [ ] 제출 준비 체크리스트(영어 Summary, Use of SI 공개, LICENSE, Submit for Judging) — 전원 · `plan.md` 10절
 - [ ] 제출 문구 검토: `submission.md` 초안(Summary 168단어, Details, Use of SI, Data, References) — 전원 · `submission.md`
@@ -17,6 +19,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 메타인지 정리: 해커톤과 서비스의 본질, 다섯 기준 점검(약 22/25, 약점은 Impact), 수상 가능성, 3등 안에 들기 위해 꼭 할 것만 — htj · `brainstorming/metacognition_htj.md`
 - [x] 영상에서 DMZ를 소개하는 문장을 '그 길 아래, 닿기 어려운 땅. DMZ.'로, 화면에 쓰이지 않던 `night.eye` 문구 삭제 — hdk · `i18n.js`
 - [x] 군더더기 문구 정리: 결과 카드 머리말 '여기서 알게 된 것' 삭제, 조각 받은 뒤 '○○ 조각을 받았습니다…선이 이어졌습니다' 삭제, '다 봤습니다' 삭제, 엔딩 카드 제목 '당신이 모은 다섯 조각의 이야기'(가늘게) — hdk · `i18n.js`, `style.css`, `views/found.js`(jmj 확인 요청은 `plan.md` 보드)
 - [x] 줄바꿈 정리: 미션 제목이 가운데서 끊기지 않게, 숫자·단위·날짜·'DMZ 안' 등이 갈라지지 않게(데스크톱·휴대폰, 한·영 전 화면 검사) — hdk · `i18n.js`, `style.css`, `main.js`·`stops.js`(jmj 확인 요청은 `plan.md` 보드)
