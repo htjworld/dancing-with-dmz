@@ -38,7 +38,7 @@ export const state = {
   riverTrace: [],    // 연천: 강을 따라 그은 자국 [[lng, lat, 강 위면 1]]
   tags: {},          // 양구: 선에 붙인 이름표 { 선의 구역 id: 이름표의 구역 id }
   tagPick: null,     // 양구: 지금 손에 든 이름표
-  lang: 'ko',        // 화면 문구의 언어: 'ko' | 'en'
+  lang: 'en',        // 화면 문구의 언어: 'ko' | 'en'. 처음 들어오면 영어(제출 심사용). 고른 언어는 저장되고 ?lang=ko 로도 연다
 };
 export const data = { boundary: null, rain: null, passes: [], zones: [], layers: null, river: null, glow: null, corridor: null, facts: null, opening: null, landcover: null, paddyCurve: null };
 

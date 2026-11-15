@@ -1058,3 +1058,83 @@ body[data-screen=night][data-night=explore] #night .words{position:relative;z-in
   text-shadow:0 0 2px #050916,0 0 4px #050916,0 0 8px rgba(5,9,22,.9),0 1px 12px rgba(0,0,0,.8)}
 /* 구역 이름표 3: 밝은 글자 + 왼쪽에 구역 색 막대, 얇고 각진 어두운 바탕(알약보다 지도 주석에 가깝게) */
 .ev-tag{padding:2px 7px 2px 6px;border-left:3px solid;border-radius:2px;background:rgba(5,9,22,.8);color:#f6f3ea;font:600 12.5px Pretendard,system-ui,sans-serif;text-shadow:none}
+/* ===== 게임 화면 톤 맞추기(hdk): 밤하늘 둘러보기와 같은 남색 창·Pretendard·크림 단추. 동작·문구는 그대로, 모습만 덧씌운다 ===== */
+body[data-screen=mission]{--night:rgba(8,14,32,.95);--night-edge:rgba(154,167,195,.22);--serif:Pretendard,"Noto Sans KR",system-ui,sans-serif;--dim:#9aa7c3;--ink:#f6f3ea}
+body[data-screen=mission] #panel,body[data-screen=mission] #intro .card,body[data-screen=mission] #piece-toast{background:var(--night);border:1px solid var(--night-edge);border-top:1px solid var(--night-edge);border-radius:14px;
+  box-shadow:0 18px 50px rgba(0,0,0,.55);backdrop-filter:none;-webkit-backdrop-filter:none;font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif}
+body[data-screen=mission][data-beat=result] #panel{box-shadow:0 0 0 200vmax rgba(3,7,14,.5),0 30px 80px rgba(0,0,0,.6)}
+/* 제목 위 라벨은 금색 강조 대신 옅은 한 줄로 */
+body[data-screen=mission] #panel .eye,body[data-screen=mission] #intro .eye{color:#9aa7c3;font-weight:500;letter-spacing:0;font-size:12.5px}
+body[data-screen=mission] #panel h2,body[data-screen=mission] #intro h2,body[data-screen=mission] #piece-toast .word,body[data-screen=mission] #panel .found .lead{letter-spacing:-.03em;color:#f6f3ea}
+body[data-screen=mission] #panel h2{font-size:21px}
+body[data-screen=mission] #intro h2{font-size:25px}
+/* '할 일' 알약 대신 글머리 한 줄 */
+body[data-screen=mission] #panel .todo,body[data-screen=mission] #intro .todo{background:none;border:none;border-left:2px solid #ffd68c;border-radius:0;padding:2px 0 2px 12px}
+body[data-screen=mission] #panel .todo b,body[data-screen=mission] #intro .todo b{border:none;padding:0;background:none;color:#ffd68c;font-size:12.5px;font-weight:700}
+body[data-screen=mission] #panel .todo.done{border-left-color:var(--night-edge)}
+/* 주 단추: 둘러보기와 같은 크림색 */
+body[data-screen=mission] #panel .primary,body[data-screen=mission] #intro .primary{background:#f6f3ea;border:none;color:#0b1530;font-weight:600;border-radius:999px}
+body[data-screen=mission] #panel .acts button{border-color:var(--night-edge);background:rgba(154,167,195,.08);border-radius:999px}
+body[data-screen=mission] #panel .found{background:rgba(255,214,140,.05);border-color:rgba(255,214,140,.35);border-radius:12px}
+body[data-screen=mission] #panel .found h3,body[data-screen=mission] #panel .found summary{color:#ffd68c}
+body[data-screen=mission] #panel .note{background:rgba(154,167,195,.08)}
+/* 소개 카드 뒤 어둠과 날짜 바 */
+body[data-screen=mission] #intro{background:rgba(3,7,18,.6)}
+body[data-screen=mission] #scrub .time{background:var(--night);border:1px solid var(--night-edge);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.5);backdrop-filter:none}
+body[data-screen=mission] #scrub .time,body[data-screen=mission] #scrub .time *{font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif}
+/* 위쪽 단추(언어·소리·밤하늘로)도 남색으로 */
+body[data-screen=mission] #lang,body[data-screen=mission] #sound,body[data-screen=mission] #to-night{background:rgba(8,14,32,.9);border-color:var(--night-edge);color:#dfe5f2}
+/* 미션 창에서는 제목 위 '지역 · 특징' 줄을 뺀다(지역은 위 진행 줄에, 특징은 소개 카드와 조각 알림에 있다) */
+body[data-screen=mission] #panel .brief .eye{display:none}
+
+/* 미션 화면 위쪽 단추: 오른쪽 창 바로 왼쪽에 [밤하늘로] [English] [소리] 순서로 붙여 한 줄로(사이가 벌어지거나 창에 닿지 않게) */
+@media (min-width:901px){
+  body[data-screen=mission] #sound{right:464px}
+  body[data-screen=mission] #lang{right:548px}
+  body[data-screen=mission] #to-night{right:625px}
+}
+@media (min-width:901px) and (max-width:1180px){
+  body[data-screen=mission] #sound{right:378px}
+  body[data-screen=mission] #lang{right:462px}
+  body[data-screen=mission] #to-night{right:539px}
+}
+/* '처음으로'(영상 끝 제목 장면으로)는 미션을 푸는 동안에도 보인다 */
+body[data-screen=mission][data-beat] #to-night{display:inline-block}
+/* 줄바꿈(전 화면): 한국어 낱말 중간에서 끊지 않고(keep-all), 마지막 줄에 낱말 하나만 남지 않게(pretty). 제목은 줄 길이를 고르게 */
+body{word-break:keep-all;overflow-wrap:break-word}
+p,li,figcaption,summary,label,dd,dt{text-wrap:pretty}
+h1,h2,h3{text-wrap:balance}
+/* 미션 창 머리의 선 아래에 모은 조각 수(hdk). 이 선과 지역 이름 줄이 곧 조각 판이다 */
+#panel .pieces{margin:0 0 6px;text-align:center;font:500 12.5px Pretendard,system-ui,sans-serif;color:#9aa7c3}
+#panel .pieces b{color:#ffd68c;font-weight:700}
+/* 첫 소개 카드의 목표 한 줄(hdk) */
+#intro .goal{margin:4px 0 2px;text-align:center;font:700 18px/1.4 Pretendard,system-ui,sans-serif;color:#ffd68c;letter-spacing:-.02em}
+
+/* 소개 카드·미션 창의 스크롤 막대를 숨긴다(내용이 길면 휠·손가락으로 그대로 내려간다) */
+#intro .card,#panel{scrollbar-width:none;-ms-overflow-style:none}
+#intro .card::-webkit-scrollbar,#panel::-webkit-scrollbar{display:none}
+#intro .goal{text-wrap:balance}
+/* 미션 제목 앞 번호(hdk) */
+#intro h2 .mn,#panel h2 .mn{color:#ffd68c}
+
+/* 할 일 줄의 '미션' 라벨은 숨긴다(제목에 '미션 n.'이 있다). 푼 뒤의 ✓ 표시는 남긴다 */
+#intro .todo b,#panel .todo:not(.done) b{display:none}
+/* ===== 미션 결과 카드 가독성(hdk): 뒤 지도가 비치지 않게 더 불투명, 카드 속 카드 없애기, 본문 글자 밝고 크게, 막대 색을 금빛/회청으로 ===== */
+body[data-screen=mission] #panel{background:rgba(8,14,32,.985)}
+body[data-screen=mission] #panel .steps{font-size:13.5px;color:#c9d2e8;margin-bottom:6px}
+body[data-screen=mission] #panel .steps .done{color:#dfe5f2}
+body[data-screen=mission] #panel .found{background:none;border:none;border-top:1px solid rgba(154,167,195,.2);border-radius:0;padding:16px 0 0;margin:14px 0 12px}
+body[data-screen=mission] #panel .found h3{font-size:12.5px;font-weight:600;color:#ffd68c;margin:0 0 6px}
+body[data-screen=mission] #panel .found .lead{font-size:18px;line-height:1.45;color:#f6f3ea;margin:0 0 14px}
+body[data-screen=mission] #panel .found p{font-size:14.5px;line-height:1.7;color:#c9d2e8;margin:0 0 10px}
+body[data-screen=mission] #panel .found .cap,body[data-screen=mission] #panel .found .fine{font-size:12.5px;line-height:1.55;color:#8f9bb8}
+body[data-screen=mission] #panel .found .versus{font-size:13.5px;color:#dfe5f2;gap:8px 10px;margin-bottom:6px}
+body[data-screen=mission] #panel .found .versus i{height:8px;background:rgba(154,167,195,.15)}
+body[data-screen=mission] #panel .found .versus u{background:#ffd68c}
+body[data-screen=mission] #panel .found .versus u.calm{background:#8fa0c8}
+body[data-screen=mission] #panel .found .versus u.far{background:#e9a650}
+body[data-screen=mission] #panel .found .versus b{color:#f6f3ea;font-size:16px}
+body[data-screen=mission] #panel .twoshots figcaption{font-size:12.5px;color:#9aa7c3}
+body[data-screen=mission] #panel .twoshots figcaption b{color:#f6f3ea}
+body[data-screen=mission] #panel .found details.why summary{color:#ffd68c;border-color:rgba(255,214,140,.5)}
+body[data-screen=mission] #panel .found .notes p{font-size:13px;color:#b3bdd4}

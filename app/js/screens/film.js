@@ -251,7 +251,7 @@ function skipToEnd() {   // 건너뛰기: 게임으로 바로 가지 않고 제�
 }
 function chapters() {   // [이름, 영상 시각(초)]
   const L = intro.LEN, at = id => L + CUES.find(c => c.ch === id).at;
-  return [['지구', 0.01], ['파주', at('paju')], ['연천', at('yeoncheon')], ['철원', at('cheorwon')], ['화천', at('hwacheon')], ['양구', at('yanggu')], ['전체', at('end')]];
+  return [[t('film.chGlobe'), 0.01], ...['paju', 'yeoncheon', 'cheorwon', 'hwacheon', 'yanggu'].map(id => [t('region.' + id), at(id)]), [t('night.all'), at('end')]];
 }
 function ctrl() {
   const box = el.querySelector('.ctrl'); if (!box) return;
@@ -259,7 +259,7 @@ function ctrl() {
   let cur = 0; cs.forEach(([, at], i) => { if (T >= at - 0.05) cur = i; });
   const icon = paused ? '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>'
     : '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="1.5" width="2.4" height="9" rx=".6" fill="currentColor"/><rect x="7.1" y="1.5" width="2.4" height="9" rx=".6" fill="currentColor"/></svg>';
-  box.innerHTML = `<button type="button" class="pp" data-pause aria-label="${paused ? '재생' : '멈춤'}">${icon}</button>`
+  box.innerHTML = `<button type="button" class="pp" data-pause aria-label="${t(paused ? 'film.resume' : 'film.pause')}">${icon}</button>`
     + cs.map(([n, at], i) => `<button type="button" class="chap${i === cur ? ' now' : ''}" data-jump="${at}" aria-current="${i === cur}">${n}</button>`).join('');
   box.dataset.cur = cur;
 }
@@ -306,6 +306,12 @@ function tick() {
   }
 }
 
+// 게임에서 '처음으로': 영상의 마지막 제목 장면(제목과 게임 시작·영상 다시 보기·밤하늘 둘러보기)으로 돌아간다
+export async function openTitle() {
+  await startFilm();
+  if (state.screen === 'night' && state.nightMode === 'film') skipToEnd();
+}
+
 export async function startFilm() {
   if (state.screen !== 'night' || state.nightMode !== 'film') set({ screen: 'night', nightMode: 'film', evidenceAt: null, landPlay: false });
   stopFilm();
@@ -325,7 +331,7 @@ export function initFilm() {
   document.body.append(ticks);
   resize(); addEventListener('resize', resize);
   el.innerHTML = `<div class="cap" aria-live="polite"></div>
-    <div class="acts"></div><div class="ctrl" aria-label="영상 조작"></div><div class="bar" aria-hidden="true"><i></i></div>`;
+    <div class="acts"></div><div class="ctrl" aria-label="${t('film.ctrlAria')}"></div><div class="bar" aria-hidden="true"><i></i></div>`;
   el.addEventListener('click', e => {
     if (e.target.closest('[data-game]')) return toGame();
     if (e.target.closest('[data-replay]')) return startFilm();
@@ -338,7 +344,7 @@ export function initFilm() {
   el.addEventListener('pointerenter', () => { if (cue === CUES.length - 1 && !held) { held = true; buttons(); } }, true);
   subscribe((s, prev) => {
     if (raf && (s.screen !== 'night' || s.nightMode !== 'film')) stopFilm();   // 화면을 떠나면 멈춘다
-    if (s.lang !== prev.lang) { const k = capKey; capKey = ''; caption(k); buttons(); }
+    if (s.lang !== prev.lang) { const k = capKey; capKey = ''; caption(k); buttons(); ctrl(); el.querySelector('.ctrl')?.setAttribute('aria-label', t('film.ctrlAria')); }   // 장면 이름·단추 설명도 언어를 따른다
     if (!s.sound && prev.sound && raf) stop();                                  // 소리만 끄면 그림은 계속 간다
   });
   load();

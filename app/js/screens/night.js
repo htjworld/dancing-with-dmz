@@ -180,6 +180,15 @@ function evZones() {
   });
 }
 
+// 게임 화면의 레이더 영상 테두리: 흰 빛 번짐 대신 얇은 선 하나(map.js 의 층 모양만 바꾼다. 켜고 끄기는 map.js 가 그대로 맡는다)
+function gameTone() {
+  const m = window.__dmzMap; if (!m) return;
+  let ready = false; try { ready = !!m.getStyle()?.layers; } catch { ready = false; }
+  if (!ready) { m.once('idle', gameTone); return; }
+  if (m.getLayer('radar-frame-glow')) m.setPaintProperty('radar-frame-glow', 'line-opacity', 0);
+  if (m.getLayer('radar-frame-line')) { m.setPaintProperty('radar-frame-line', 'line-color', '#c9d2e8'); m.setPaintProperty('radar-frame-line', 'line-opacity', 0.45); m.setPaintProperty('radar-frame-line', 'line-width', 1); }
+}
+
 // 고요한 띠 안의 예외: 지도에 작은 점과 이름, 누르면 설명(숫자는 section.json 의 places, tools/make_section.py)
 let marks = null;
 async function placeMarks() {
@@ -230,7 +239,9 @@ export function initNight() {
     if (s.evidenceAt !== prev.evidenceAt || ex !== was || s.lang !== prev.lang) evZones();
     if (!ex || s.landPlay) closePick();
     if (ex) { const m = window.__dmzMap; if (m?.getLayer('corridor-edges')) m.setLayoutProperty('corridor-edges', 'visibility', 'none'); }   // 관측 범위 점선은 둘러보기에서 숨긴다(빛이 분계선에서 멀어질수록 옅어져 경계를 대신한다)
-    if (!ex && was && !(s.screen === 'night' && s.nightMode === 'film')) nightMap(false);   // 영상으로 가면 영상이 맡는다
+    // 바탕 지도의 밤 톤은 게임(미션)에서도 이어 간다. 영상으로 가면 영상이 맡고, 그 밖(오프닝 등)으로 갈 때만 되돌린다
+    if (!ex && was && !(s.screen === 'night' && s.nightMode === 'film') && s.screen !== 'mission') nightMap(false);
+    if (s.screen === 'mission' && prev.screen !== 'mission') { nightMap(true); gameTone(); }
     if ((s.screen !== 'night' || s.nightMode !== 'explore') && timer) stopSeason();   // 화면이나 모드를 떠나면 재생을 멈춘다
     if (!s.sound && prev.sound && timer) stop();                              // 소리만 끄면 그림은 계속 간다
     if (s.screen !== prev.screen || s.lang !== prev.lang || s.nightFrame !== prev.nightFrame || s.landPlay !== prev.landPlay || s.evidenceAt !== prev.evidenceAt) render();

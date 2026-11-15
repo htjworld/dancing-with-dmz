@@ -7,7 +7,7 @@ import { play, stop, setSound } from './sound.js';
 import { initDance } from './dance.js';
 import { initNight } from './screens/night.js';
 import { initOpening } from './screens/opening.js';
-import { initFilm, startFilm } from './screens/film.js';
+import { initFilm, startFilm, openTitle } from './screens/film.js';
 import { initLand } from './screens/land.js';
 import { initProof } from './screens/proof.js';
 import { initDateSlider } from './screens/dateslider.js';
@@ -49,8 +49,9 @@ function intro(s, i, beat) {
   el.innerHTML = on ? `<div class="card">
       ${i === 0 && !state.fragments.length ? `<p class="leadin">${t('mission.leadIn')}</p>` : ''}
       ${clip ? `<figure class="clip"><video src="${clip}" autoplay muted loop playsinline></video><figcaption>${t('common.aiClip')}</figcaption></figure>` : ''}
+      ${i === 0 && !state.fragments.length ? `<p class="goal">${t('mission.goal')}</p>` : ''}
       ${lineSvg({ current: i, label: `${i + 1} / ${STOPS.length}` })}
-      <p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2>
+      <h2><span class="mn">${t('mission.n', { n: i + 1 })}</span> ${label(s, 'title')}</h2>
       <p class="story">${label(s, 'story')}</p>
       <p class="todo"><b>${t('common.todo')}</b>${label(s, 'todo')}</p>
       <button type="button" class="primary" data-start="${s.id}">${t('common.start')}</button></div>` : '';
@@ -108,8 +109,9 @@ function panel() {
   $('panel').dataset.stop = s.id;
   $('panel').innerHTML = `
     ${lineSvg({ current: i, draw: arrive ? i : -1, solved: beat === 'result' ? s.id : null, label: `${i + 1} / ${STOPS.length}` })}
+    <p class="pieces" aria-label="${t('common.piece', { n: state.fragments.length, total: STOPS.length })}"><b>${state.fragments.length}</b> / ${STOPS.length}</p>
     <ol class="track">${track}</ol>${peek}
-    <header class="brief"><p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2></header>
+    <header class="brief"><p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2><span class="mn">${t('mission.n', { n: i + 1 })}</span> ${label(s, 'title')}</h2></header>
     <p class="todo${done ? ' done' : ''}"><b>${done ? '✓' : t('common.todo')}</b>${label(s, 'todo')}</p>
     <div class="play">${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}</div>
     ${state.fragments.length === STOPS.length && s.id !== 'yanggu' && beat === 'done' ? `<button type="button" class="primary" data-finale>${t(state.finaleDone ? 'finale.again' : 'finale.go')}</button>` : ''}
@@ -209,7 +211,7 @@ async function start() {
     else if (act === 'explore') set({ endCard: false, screen: 'night', nightMode: 'explore' });
   });
   $('intro').addEventListener('click', e => { const b = e.target.closest('[data-start]'); if (b) set({ introSeen: [...state.introSeen, b.dataset.start] }); });
-  $('to-night').addEventListener('click', () => set({ screen: 'night', nightMode: 'explore' }));   // 게임에서 돌아오면 둘러보기로
+  $('to-night').addEventListener('click', () => openTitle());   // 게임에서 '처음으로': 영상 끝의 제목 장면으로(hdk)
   $('lang').addEventListener('click', () => {
     const lang = state.lang === 'ko' ? 'en' : 'ko';
     try { localStorage.setItem('dmz-lang', lang); } catch { /* 저장이 막힌 환경에서도 전환은 된다 */ }
@@ -233,7 +235,7 @@ async function start() {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh', retry: null, scrubbed: null });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
     if (s.fragments.length > prev.fragments.length) { perform('preview', s.fragments); pieceToast(s.fragments[s.fragments.length - 1]); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
-    if (s.stop !== prev.stop) { clearTimeout(toastTimer); $('piece-toast').hidden = true; }   // 다음 지역의 소개 카드와 겹치지 않게 알림을 걷는다
+    if (s.stop !== prev.stop || (s.screen !== prev.screen && s.screen !== 'mission')) { clearTimeout(toastTimer); $('piece-toast').hidden = true; }   // 다음 지역의 소개 카드와 겹치지 않게, 게임 밖(처음으로 등)으로 나가도 알림을 걷는다
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
     chrome(s);
     const fin = s.playing?.mode === 'finale';
