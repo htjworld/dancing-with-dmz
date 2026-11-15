@@ -22,6 +22,8 @@ function ensure() {
     return true;
   } catch { ctx = null; return false; }   // 소리를 낼 수 없는 환경에서도 미션과 춤은 그대로 간다
 }
+// 오디오 장치는 처음 열 때 느린 노트북에서 0.2초쯤 멈춘다. 첫 터치(오프닝 문지르기·단추)에 미리 열어, 영상이 시작되는 순간 멈칫하지 않게 한다
+globalThis.addEventListener?.('pointerdown', ensure, { once: true, capture: true });
 const hz = midi => 440 * 2 ** ((midi - 69) / 12);
 
 function env(t, dur, peak, attack = .005) {
