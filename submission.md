@@ -1,7 +1,7 @@
 # Submission (Space Apps project page)
 
 **제출 완료: 2026-11-15 11:59 KST, "Project Submitted for Judging" 확인.** 이 문서는 실제로 제출한 내용의 기록이다.
-공개 페이지: https://www.spaceappschallenge.org/2026/find-a-team/nct/?tab=project (팀 NASSAFY)
+공개 페이지: https://www.spaceappschallenge.org/2026/find-a-team/nct/?tab=project (팀 Nasafy)
 
 초안 htj(11/14), 개정·입력·제출 jmj(11/15). 숫자는 `app/data/facts.json`에서 왔다(띠 단면 숫자만 `app/data/section.json`).
 **양식을 고치면 Save Progress만으로는 공개되지 않는다. Submit for Judging을 다시 눌러야 한다(마감 11/15 23:59).** 고치면 이 문서도 같이 고친다.

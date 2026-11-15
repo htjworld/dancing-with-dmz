@@ -6,7 +6,7 @@
 
 No login, no install. English: add [`?lang=en`](https://htjworld.github.io/dancing-with-dmz/?lang=en). Deployed automatically by GitHub Actions on every push to `main`.
 
-NASA Space Apps Challenge 2026 · Challenge: **Dancing with the SARs** · Team **NASSAFY** (Seoul) · [Team page](https://www.spaceappschallenge.org/2026/find-a-team/nct/?tab=project)
+NASA Space Apps Challenge 2026 · Challenge: **Dancing with the SARs** · Team **Nasafy** (Seoul) · [Team page](https://www.spaceappschallenge.org/2026/find-a-team/nct/?tab=project)
 
 ![Opening: a cloudy July optical image that you rub away to reveal radar](demo/screens/01_opening.jpg)
 

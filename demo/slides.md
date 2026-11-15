@@ -12,7 +12,7 @@
 
 - **Title:** Dancing with DMZ
 - **Tagline:** Reading a land no one can visit, with NISAR radar
-- **Small line:** NASA Space Apps Challenge 2026 · Seoul · Challenge: Dancing with the SARs · Team [TEAM NAME]
+- **Small line:** NASA Space Apps Challenge 2026 · Seoul · Challenge: Dancing with the SARs · Team Nasafy
 - **Visual (full bleed):** 밤하늘 둘러보기 화면. 금빛 들판 사이로 어두운 DMZ 띠와 흰 분계선이 보이는 철원 구간
 - **Link (작게):** htjworld.github.io/dancing-with-dmz
 
@@ -90,6 +90,6 @@
 - [ ] 6번 장의 한계 줄은 줄이더라도 지우지 않는다(`plan.md` 8절)
 - [ ] 북쪽 땅은 "appears to be farmland" 또는 "north of the line"으로만 부른다
 - [ ] 생성 영상 캡처를 슬라이드에 쓰면 그 캡처에도 "SI-generated video" 표시가 보여야 한다(소개 카드를 통째로 찍으면 보인다)
-- [ ] `[TEAM NAME]` 채우기
+- [x] 팀 이름 채우기(Nasafy)
 - [ ] 올린 뒤 시크릿 창에서 링크가 열리는지 확인하고, 그 링크를 `submission.md` 2번 칸에 적는다
 - [ ] htj 숫자 검수
