@@ -163,7 +163,7 @@ function chrome(s) {
   document.documentElement.lang = s.lang;
   $('lead').textContent = t(s.screen === 'mission' ? 'mission.lead' : 'night.lead');
   $('to-night').textContent = t('mission.back');
-  $('lang').setAttribute('aria-label', t('lang.aria')); $('lang').title = t('lang.aria');   // 바꿀 언어의 국기(흰색 단색)를 보여 준다. 그림은 index.html, 고르기는 style.css
+  $('lang').textContent = t('lang.other'); $('lang').setAttribute('aria-label', t('lang.aria')); $('lang').title = t('lang.aria');   // 바꿀 언어를 짧게(EN / 한)
   $('stage-note').textContent = t('stage.note');
   $('map').setAttribute('aria-label', t('map.aria'));
 }

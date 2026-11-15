@@ -17,7 +17,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
-- [x] 언어·소리 단추를 흰색 아이콘으로(둥근 단색 국기 EmojiOne Monotone, 스피커 Lucide), 음소거는 곡을 멈추지 않고 볼륨만 0 — htj · `index.html`·`style.css`(hdk 확인), `main.js`·`film.js`(jmj 확인), `night.js`, `sound.js`, `media/icons/`
+- [x] 언어 단추는 `EN` / `한` 글자, 소리 단추는 흰색 스피커 아이콘(Lucide), 두 단추 같은 알약 크기. 음소거는 곡을 멈추지 않고 볼륨만 0 — htj · `index.html`·`style.css`(hdk 확인), `main.js`·`i18n.js`·`film.js`(jmj 확인), `night.js`, `sound.js`, `media/icons/`
 - [x] 엔딩 모으기 장면에서 선이 구간째 뚝뚝 켜지지 않고 한 줄기로 자라나게 — hdk · `dance.js`(jmj 확인 요청은 `plan.md` 보드)
 - [x] 밤하늘·게임 다듬기: 둘러보기 위쪽 밤하늘 별과 재생 때 지나가는 위성(연출), 단면 팝업 글자 밝게, 게임 구역 표시를 뷰파인더+스포트라이트로, 양구·철원 답 단추 처음부터 보이되 잠금, 핀 화살표 크게, 왼쪽 위 제목이 실측 리듬으로 작게 춤춤, 중간 폭 조작 줄 겹침 — hdk · `screens/nightsky.js`(새), `night.js`, `nightglow.js`, `film.js`, `style.css`, `i18n.js`, `zones.js`·`gamemap.js`·`views/yanggu.js`·`views/cheorwon.js`(jmj 확인 요청은 `plan.md` 보드)
 - [x] 마무리 손질: Pretendard 글꼴 실제로 불러오기, 휴대폰 미션 창 아래 시트와 지도 여백, 엔딩 카드 영어 지역 이름 줄바꿈, 한국어 영상 표시, 둘러보기 들어올 때 띠 전체 보기 — hdk · `index.html`·`map.js`(jmj 확인 요청은 `plan.md` 보드), `style.css`, `i18n.js`, `night.js`
