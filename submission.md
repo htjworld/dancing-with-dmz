@@ -1,6 +1,6 @@
 # Submission (Space Apps project page)
 
-**제출 완료: 2026-11-15 11:59 KST, "Project Submitted for Judging" 확인.** 이 문서는 실제로 제출한 내용의 기록이다.
+**제출 완료: 2026-11-15 11:59 KST, "Project Submitted for Judging" 확인.** 오후에 다시 제출했다(데모 링크, Details 일부, Pretendard). 이 문서는 실제로 제출한 내용의 기록이고, 11/15 21:35에 공개 페이지와 대조해 맞췄다.
 공개 페이지: https://www.spaceappschallenge.org/2026/find-a-team/nct/?tab=project (팀 Nasafy)
 
 초안 htj(11/14), 개정·입력·제출 jmj(11/15). 숫자는 `app/data/facts.json`에서 왔다(띠 단면 숫자만 `app/data/section.json`).
@@ -22,7 +22,7 @@
 
 **남은 것**
 
-- [ ] 데모 링크가 로그인하지 않은 상태에서 열리는지 팀원 한 명이 더 확인한다(jmj는 시크릿 창에서 확인했다)
+- [x] 데모 링크(구글 슬라이드)가 로그인하지 않은 상태에서 열리는지 확인했다(11/15 21:35, 7장)
 - [ ] 출석: 개인 체크인 5번 중 4번, 팀 미팅 전원 1회
 - [ ] 마감 뒤에는 양식과 슬라이드를 고치지 않는다
 
@@ -48,10 +48,11 @@
 
 ## 2. Project Demo
 
-> https://www.miricanvas.com/v2/ko/design2/v/f8087dac-ed37-48a5-beae-be03e35a9318
+> https://docs.google.com/presentation/d/1HaGRBBsnQl_0NrK0rvPpiqhg2xJEaTzJ/edit?usp=sharing
 
-- 미리캔버스 7장 슬라이드(제목 포함, 영어, 밤하늘 톤). 보기 전용 공유 링크다. 편집 주소(`/design2/<id>`)는 로그인이 필요하므로 쓰지 않는다.
-- 슬라이드를 고치면 이 링크에 바로 반영된다. 구성: 제목 / Two barriers / Five places. One line. / Rub. Play. Explore. / NASA data / The evidence. / Next steps
+- 구글 드라이브에 올린 7장 슬라이드(`Dancing with DMZ — Nasafy.pptx`, 제목 포함, 영어, 밤하늘 톤). 팀 페이지에 실제로 들어간 주소는 뒤에 `&ouid=…&rtpof=true&sd=true`가 더 붙어 있다(`ouid`는 공유한 사람의 구글 계정 번호라 여기에는 적지 않는다).
+- 11/15 21:35 확인(jmj): 로그인하지 않은 상태에서 열리고 7장이다. 구성: 제목 / Two barriers. / Five places. One line. / Rub. Play. Explore. / NASA data / The evidence. / Who it helps
+- 처음(11:59 제출)에는 미리캔버스 보기 링크(`https://www.miricanvas.com/v2/ko/design2/v/f8087dac-ed37-48a5-beae-be03e35a9318`)였고, 오후에 다시 제출하며 위 주소로 바꿨다.
 
 ## 3. Final Project
 
@@ -64,7 +65,7 @@
 
 **Problem.** The DMZ is hidden twice. People cannot visit it, and in the monsoon month even optical satellites cannot see it: in July 2026, Landsat looked at our five DMZ windows 19 times and got 0 clear views. NISAR radar data is free and sees through cloud, but a radar image does not look like a photo, so most people cannot read it.
 
-**Who it is for.** Visitors who stand at the DMZ observatories and can only look across. Paju's Third Tunnel alone had 530,223 visitors in 2025, 77% of them from abroad. The app is in Korean and English.
+**Who it is for.** Visitors who stand at the DMZ observatories and can only look across. Paju's Third Tunnel alone had 530,223 visitors in 2025, 77% of them from abroad. The app opens in English, with Korean one tap away.
 
 **What we built.** A static web app that tells one story in five steps.
 
@@ -77,13 +78,13 @@
    - Hwacheon — *two polarizations*: slide a curtain between HH and HV over forest and flat land.
    - Yanggu — *radar works at night*: NISAR passes at 19:25 local time; of our 11 images, 3 were taken in daylight, 2 at dusk and 6 after dark.
 4. **Ending.** The five regional curves join into one line from west to east, and the line moves with the measured values, pass by pass. It closes on the July comparison: optical 0 clear of 19 looks, radar 11 of 12 passes.
-5. **Explore.** The seasonal-change map as a continuous strip along the demarcation line, a cross-section chart, and an evidence panel for each region with forest-relative curves, land cover, rain and limits.
+5. **Explore.** The seasonal-change map as a continuous strip along the demarcation line. A cross-section chart shows how much of the land changed strongly at each distance from the line; tap anywhere on the strip to see the cross-section for that stretch. Pick a region to open its evidence: a one-line conclusion worked out from the data, forest-relative curves labelled at their ends, the matching zones outlined on the map, and land cover, rain and limits one tap away.
 
 **How it works.**
 - NISAR L2 GCOV (track 133; frames 069 and 070), 11 passes from 2026-06-23 to 11-02, HH and HV. The ~6 GB scenes are read remotely with HTTP range requests, so only the needed pixels are downloaded.
 - For every pixel: HH backscatter minus the same-day forest mean (this removes scene-wide effects such as a wet day), then the spread over the season. Bright means a large seasonal change.
 - Checks from independent sources: cloud measured inside each window from HLS Landsat browse images; land cover of each zone from ESA WorldCover 2021; NASA POWER rain in the three days before each pass.
-- Every number on screen comes from one generated file (`facts.json`), and the build stops if a stated claim no longer matches the data. Automated tests run on every push, and GitHub Actions deploys to GitHub Pages only when they pass.
+- Every number on screen comes from generated data files: `facts.json` for the mission and evidence numbers, and `section.json` for the strip cross-section and the Daeseong-dong figures. The build stops if a claim in `facts.json` no longer matches the data. Automated tests run on every push, and GitHub Actions deploys to GitHub Pages only when they pass.
 - No server: a Python pipeline prepares the data and a static site draws it in the browser.
 
 **What the data says.**
@@ -91,6 +92,7 @@
 - Paju, two zones both inside the DMZ: farmed 2.1 dB, unfarmed 0.6 dB. The glow follows farming, not the line itself.
 - Land cover agrees: the Cheorwon paddy zone is 78.7% cropland, the DMZ lowland 0.6% (99.2% tree and grass), the northern zone 82.9%.
 - Along the whole strip, the share of strongly changing land is 10% within 2 km of the line, 15% at 2–10 km south and 29% north.
+- Near Daeseong-dong, a village inside the DMZ whose residents grow rice, 51% of the strip within 1.5 km of the village changed strongly, against 32% in the rest of the westernmost 35 km. This data cannot tell which pixels are the village paddies, but it points the same way: the glow follows farming, even inside the DMZ.
 
 **Benefits and impact.**
 - Visitors and guides at the DMZ observatories: 530,223 people visited Paju's Third Tunnel in 2025, 77% from abroad, and they can only look across. Five short missions show what radar sees in that land. No install, no login, Korean and English.
@@ -112,7 +114,7 @@
 
 **Physical drivers (hypotheses).** Flooded paddies are dark (smooth water reflects the signal away); growing rice raises L-band backscatter; harvest lowers it. On 8/22 every zone brightened after 39 mm of rain (wet surfaces). On 10/21 every zone brightened with 0.2 mm of rain, which we cannot yet explain (possibly product calibration).
 
-**Limits.** 10 of the 11 passes are PROVISIONAL products. The glow map is built from display layers and is coarser than the 30 m source. One season only. Zones are rectangles we chose on the radar image; WorldCover is from 2021. The demarcation line is an approximate OpenStreetMap geometry.
+**Limits.** 10 of the 11 passes are PROVISIONAL products. The glow map is built from display layers and is coarser than the 30 m source. One season only. Zones are rectangles we chose on the radar image; WorldCover is from 2021. The demarcation line is an approximate OpenStreetMap geometry. The cross-section and Daeseong-dong shares are counted on the display layers (about 126 m sampling), not on the 30 m source.
 
 **Next steps.** Rebuild the change map from the 30 m source; add a second track (125) for twice the views; a second season; test the app with visitors at an observatory; apply the same method to other places no one can enter.
 
@@ -149,8 +151,8 @@
 | OpenFreeMap (OSM data, ODbL): base map | https://openfreemap.org/ |
 | Natural Earth 110m land (public domain): dot globe in the night-sky film | https://www.naturalearthdata.com/ |
 | MapLibre GL JS (BSD-3-Clause): map rendering | https://maplibre.org/ |
-| Google Fonts, Noto Serif KR and Inter Tight (SIL Open Font License): typography | https://fonts.google.com/ |
-| Pretendard (SIL Open Font License): typography, body text — 11/15 오후 hdk가 팀 페이지에 추가해 다시 제출(링크 문구는 페이지의 것과 다를 수 있다) | https://github.com/orioncactus/pretendard |
+| Google Fonts, Noto Serif KR, Inter Tight and Nanum Pen Script (SIL Open Font License): typography | https://fonts.google.com/ |
+| Pretendard (SIL Open Font License): body typography — 11/15 오후 hdk가 팀 페이지에 추가해 다시 제출(목록의 맨 끝에 있다) | https://github.com/orioncactus/pretendard |
 | NOAA Solar Calculator (public domain): sun height at each pass, Yanggu mission | https://gml.noaa.gov/grad/solcalc/ |
 | Paju City survey report 2014: Daeseong-dong village inside the DMZ | https://ggcf.kr/attachment/8614/download |
 | Gyeonggi Province DMZ guide: Daeseong-dong village inside the DMZ | https://dmz.gg.go.kr/all-about-the-dmz/human-environment-of-the-dmz |
