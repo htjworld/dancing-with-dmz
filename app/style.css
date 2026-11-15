@@ -1284,3 +1284,11 @@ body[data-screen=mission] #scrub .time{border-color:rgba(255,214,140,.6);box-sha
 /* ---- 결과 카드의 ? 단추: 펼쳐져 있으면 '다시 올리기'(위쪽 꺾쇠)로 바뀐다(jmj) */
 body[data-screen=mission] #panel .found details.why[open] summary{font-size:0;color:#2a1e05}
 #panel .found details.why[open] summary::before{content:"";width:8px;height:8px;border-left:2.2px solid #2a1e05;border-top:2.2px solid #2a1e05;border-radius:1px;transform:translateY(2px) rotate(45deg)}
+/* 영상 끝 단추(htj 배치) 휴대폰: 가운데 세 칸이 좁아 양옆 글자가 서너 줄로 접힌다. 미션 시작을 윗줄 가운데, 두 흐린 단추를 아랫줄 양쪽에 둔다(hdk) */
+@media (max-width:600px){
+  #film .acts{grid-template-columns:1fr 1fr;row-gap:2px}
+  #film .acts .primary{grid-column:1/-1;grid-row:1;justify-self:center}
+  #film .acts [data-replay]{grid-row:2;justify-self:end}
+  #film .acts [data-explore]{grid-row:2;justify-self:start}
+  #film .acts .quiet{white-space:nowrap}
+}
