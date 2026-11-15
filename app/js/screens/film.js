@@ -65,7 +65,8 @@ const glow = value => document.dispatchEvent(new CustomEvent('dmz-glow-opacity',
 const vars = () => ({ passes: fact('passes') });
 
 function resize() {
-  const r = devicePixelRatio || 1;
+  if (!raf) { cv.width = cv.height = 0; return; }   // 영상이 돌지 않을 때는 화면 크기의 그림판을 붙잡아 두지 않는다(jmj 제안, 로컬 시험)
+  const r = Math.min(1.5, devicePixelRatio || 1);   // 배율 2배 화면에서도 1.5배까지만(그릴 화소 44% 감소)
   cv.width = innerWidth * r; cv.height = innerHeight * r; cv.style.width = innerWidth + 'px'; cv.style.height = innerHeight + 'px';
   cx.setTransform(r, 0, 0, r, 0, 0);
 }
@@ -160,14 +161,16 @@ function drawWaves(s) {
   }
   // 분계선: 지도 위에 직접 그린다. "흰 선" 자막 때 한 번 굵어진다
   const lp = linePulse ? (performance.now() - linePulse) / 1000 : 9, k = lp < 3.2 ? Math.sin(Math.min(1, lp / 3.2) * Math.PI) : 0;
-  cx.strokeStyle = '#ffffff'; cx.lineWidth = 1.6 + 2.4 * k; cx.shadowColor = 'rgba(255,255,255,.9)'; cx.shadowBlur = 4 + 14 * k;
+  // 번짐(shadowBlur)은 매 프레임 화면 가로 전체를 흐리게 처리해 무겁다. 굵고 옅은 선 두 겹을 먼저 깔아 같은 빛무리를 낸다(jmj 제안, 로컬 시험)
+  const core = 1.6 + 2.4 * k, halo = 4 + 14 * k; cx.lineJoin = cx.lineCap = 'round';
+  const dmzPath = new Path2D();
   // 분계선의 수천 점을 프레임마다 지도에 묻지 않는다: 두 점만 물어 축척을 구하고 나머지는 같은 식(메르카토르)으로 계산한다. 지도가 돌거나 기울면 예전 방식(jmj 제안, 로컬 시험)
   const flat = !m.getBearing() && !m.getPitch(), o = m.project([127, 38]), e = m.project([128, 38]), kx = e.x - o.x, ky = kx * 180 / Math.PI, y38 = mercY(38);
   mdlM ??= mdl.map(line => line.map(p => [p[0] - 127, mercY(p[1])]));
-  mdl.forEach((line, li) => { cx.beginPath(); line.forEach((p, n) => {
+  mdl.forEach((line, li) => { line.forEach((p, n) => {
     let x, y; if (flat) { const q = mdlM[li][n]; x = o.x + q[0] * kx; y = o.y - (q[1] - y38) * ky; } else { const q = m.project(p); x = q.x; y = q.y; }
-    n ? cx.lineTo(x, y) : cx.moveTo(x, y); }); cx.stroke(); });
-  cx.shadowBlur = 0;
+    n ? dmzPath.lineTo(x, y) : dmzPath.moveTo(x, y); }); });
+  for (const [w, a] of [[core + halo * 1.1, 0.10], [core + halo * 0.5, 0.20], [core, 1]]) { cx.strokeStyle = `rgba(255,255,255,${a})`; cx.lineWidth = w; cx.stroke(dmzPath); }
   return st.slot;
 }
 
@@ -236,7 +239,7 @@ function setTicks(slot) { [...ticks.children].forEach((e, i) => { e.classList.to
 export function stopFilm() {
   titleAt = 0; titleEl.classList.remove('on', 'leaving'); titleEl.querySelector('h2').style.transform = '';
   if (!raf) return;
-  cancelAnimationFrame(raf); raf = 0; stop();
+  cancelAnimationFrame(raf); raf = 0; stop(); resize();
   glow(1); set({ nightFrame: null }); nightMap(false);
 }
 
@@ -336,7 +339,7 @@ export async function startFilm() {
   await load();
   if (state.screen !== 'night' || state.nightMode !== 'film') return;
   startedAt = playing;
-  raf = requestAnimationFrame(tick);
+  raf = requestAnimationFrame(tick); resize();
 }
 
 // 왼쪽 위 제목(#top h1): 영상 끝에서 춤추던 큰 제목이 이 자리에 앉은 뒤에도, 같은 실측 리듬(다섯 지역 물결의 평균)으로

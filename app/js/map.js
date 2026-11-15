@@ -68,7 +68,13 @@ export function initMap() {
   subscribe(s => { if (s.screen === 'mission') queueMicrotask(() => { if (state.screen === 'mission') lock(true); }); });
   let touched = false;
   for (const ev of ['dragstart', 'wheel', 'touchstart']) map.on(ev, () => { touched = true; });
-  map.on('resize', () => { if (state.screen !== 'mission') nightView(0); else if (state.playing?.mode === 'finale') map.fitBounds(VIEW, { padding: { top: 90, bottom: 230, left: 30, right: 30 }, duration: 0 });   // 엔딩 중에는 선 전체가 보이는 화면을 지킨다
+  // 밤하늘·오프닝에서는 지도 해상도를 1.5배까지만 쓴다(배율 2배 화면의 내장 그래픽 부담을 던다). 게임 화면은 원래 해상도 그대로
+  let ratioChange = false;
+  const fitRatio = () => { const want = state.screen === 'mission' ? devicePixelRatio : Math.min(1.5, devicePixelRatio);
+    if (map.getPixelRatio() !== want) { ratioChange = true; map.setPixelRatio(want); ratioChange = false; } };
+  fitRatio(); subscribe((s, prev) => { if (s.screen !== prev.screen) fitRatio(); });
+  map.on('resize', () => { if (ratioChange) return;   // 해상도만 바꾼 것이면 화면을 다시 맞추지 않는다
+    if (state.screen !== 'mission') nightView(0); else if (state.playing?.mode === 'finale') map.fitBounds(VIEW, { padding: { top: 90, bottom: 230, left: 30, right: 30 }, duration: 0 });   // 엔딩 중에는 선 전체가 보이는 화면을 지킨다
     else { const b = STOPS.find(x => x.id === state.stop).bounds; map.fitBounds([[b[0], b[1]], [b[2], b[3]]], { padding: padding(), duration: 0 }); } });   // 창 크기가 바뀌어도 그 지역이 화면에 맞게 들어온다
 
   // 배경 지도를 못 받아도 선과 핀은 보이게 한다

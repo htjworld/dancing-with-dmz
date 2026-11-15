@@ -3,9 +3,9 @@
 // 지도의 첫 화면과 같은 축척·위치에서 끝난다. 궤도 고리의 높이, 비추는 폭, 도는 속도, 은하수는 설명·분위기용 연출이다.
 // 지구본 점 자료(data/globe_dots.json)는 Natural Earth 110m 땅에서 고른 점이다.
 // 은하수 그림(오프닝과 지구본 도입이 같은 하늘을 쓴다). 화면보다 1.3배 큰 캔버스를 돌려준다. 씨앗이 같아 언제나 같은 모습이다
-export function paintSky(W, H) {
+export function paintSky(W, H, r = devicePixelRatio || 1) {
   W = Math.max(W, 16); H = Math.max(H, 16);   // 창 크기가 아직 0이면(숨은 탭 등) 작게라도 그린다
-  const w = Math.ceil(W * 1.3), h = Math.ceil(H * 1.3), r = devicePixelRatio || 1;
+  const w = Math.ceil(W * 1.3), h = Math.ceil(H * 1.3);
   const sky = document.createElement('canvas'); sky.width = w * r; sky.height = h * r;
   const s = sky.getContext('2d'); s.setTransform(r, 0, 0, r, 0, 0);
   let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
@@ -114,14 +114,17 @@ export function createIntro() {
   let sky = null;
   // 은하수: 안개 덩어리 대신 아주 작은 별 알갱이 수천 개가 대각선 띠로 모인 모습. 가운데에 가늘고 옅은 빛, 그 위를 어두운 먼지 결이 가른다.
   // 알갱이는 지구 점(1~2 px, 밝음)보다 훨씬 작고 어둡게 해서 지구 윤곽과 섞이지 않게 한다. 한 번만 그려 두고 천천히 흘린다
-  function buildSky() { sky = paintSky(W, H); }
+  const DPR = () => Math.min(1.5, devicePixelRatio || 1);   // 배율 2배 화면에서도 1.5배까지만(jmj 제안, 로컬 시험)
+  function buildSky() { sky = paintSky(W, H, DPR()); }
   function resize() {
-    const r = devicePixelRatio || 1; W = innerWidth; H = innerHeight;
+    const r = DPR(); W = innerWidth; H = innerHeight;
     cv.width = W * r; cv.height = H * r; cv.style.width = W + 'px'; cv.style.height = H + 'px'; cx.setTransform(r, 0, 0, r, 0, 0);
     if (useGalaxy) buildSky();
   }
 
-  addEventListener('resize', resize); resize();
+  // 도입이 끝나면 그림판과 은하수 그림을 비우고, 다시 시작할 때 만든다(안 보이는 동안 화면 크기 그림 두 장을 붙잡아 두지 않는다)
+  const free = () => { if (cv.width) { cv.width = cv.height = 0; sky = null; } };
+  addEventListener('resize', () => { if (cv.width) resize(); else { W = innerWidth; H = innerHeight; } }); W = innerWidth; H = innerHeight; cv.width = cv.height = 0;   // 새 그림판의 기본 크기(300x150)가 아니라 '비어 있음'에서 시작한다
 
   async function init(lines, targetFn) {
     target = targetFn;
@@ -152,7 +155,8 @@ export function createIntro() {
     if (T < prevT) { if (window.__introFrom) prepare(); else { from = null; photo = null; } }   // 새로 시작할 때(시각이 되돌아갈 때)만 정한다
     prevT = T;
     const A = from ? ARR : 0, t = T - A;   // t: 원래 도입의 시각(도착 단계 동안은 음수)
-    if (t >= LEN) { cv.style.display = 'none'; return false; }
+    if (t >= LEN) { cv.style.display = 'none'; free(); return false; }
+    if (!cv.width) resize();
     cv.style.display = 'block';
     if (!land.length) return true;
     if (T < 0.05) reset();

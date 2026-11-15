@@ -20,7 +20,7 @@ function makeStars() {   // 화면 비율(0~1) 좌표. 위쪽일수록 촘촘하
   return (stars = out);
 }
 function size() {
-  const d = Math.min(2, devicePixelRatio || 1);
+  const d = Math.min(1.5, devicePixelRatio || 1);   // 1.5배까지만(jmj 제안, 로컬 시험)
   cv.width = innerWidth * d; cv.height = innerHeight * d; cv.style.width = innerWidth + 'px'; cv.style.height = innerHeight + 'px';
   cx.setTransform(d, 0, 0, d, 0, 0);
 }
@@ -59,7 +59,7 @@ function apply() {
   const want = state.screen === 'night' && state.nightMode === 'explore';
   if (want === on) return;
   on = want; cv.hidden = !on;
-  if (on) { size(); timer = requestAnimationFrame(loop); } else { cancelAnimationFrame(timer); cx.clearRect(0, 0, innerWidth, innerHeight); sweep = null; }
+  if (on) { size(); timer = requestAnimationFrame(loop); } else { cancelAnimationFrame(timer); sweep = null; cv.width = cv.height = 0; }   // 안 보일 때는 그림판을 비운다
 }
 // 재생 중 관측 하나가 쌓이는 시간 안에 한 번 훑는다
 export function passSweep(ms) { if (on) sweep = { start: performance.now(), ms: Math.max(1200, Math.min(3200, ms * 0.95)) }; }   // 관측 하나 사이를 거의 다 써서 천천히
