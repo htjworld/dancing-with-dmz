@@ -93,7 +93,7 @@
 - Along the whole strip, the share of strongly changing land is 10% within 2 km of the line, 15% at 2–10 km south and 29% north.
 
 **Benefits and impact.**
-- A first-time visitor leaves able to read five things in any SAR image: repeat passes, dark water, change maps, polarization and night imaging.
+- A first-time visitor collects five pieces, one per mission, and is walked through five things to look for in any SAR image: repeat passes, dark water, change maps, polarization and night imaging.
 - A place that cannot be visited, in a season cameras cannot see, becomes readable from open data.
 - For teachers and guides: the missions are short, need no install or login, and run in Korean and English.
 - The method needs only NISAR GCOV and a nearby forest as reference, so it can be repeated for other places where access is closed.
@@ -107,7 +107,7 @@
 **Design choices.**
 - "Glow" and "still" describe only the size of the radar signal change. We do not claim ecological recovery or crop condition, and land north of the line is described only as "appears to be farmland".
 - The dancing line shows change in backscatter, not ground movement. The music and the sky colours are staging; the height, pauses and jumps of the line follow the measurements, and the screen says so.
-- Each mission teaches exactly one radar feature, so a first-time visitor leaves with five things they can read in any SAR image.
+- Each mission teaches exactly one radar feature, so a first-time visitor meets five things to look for in any SAR image, one at a time.
 - Causes are written as possible explanations. Detailed numbers and caveats are one tap away on every result card.
 
 **Physical drivers (hypotheses).** Flooded paddies are dark (smooth water reflects the signal away); growing rice raises L-band backscatter; harvest lowers it. On 8/22 every zone brightened after 39 mm of rain (wet surfaces). On 10/21 every zone brightened with 0.2 mm of rain, which we cannot yet explain (possibly product calibration).
