@@ -89,18 +89,30 @@
 
 - **5. NASA data — 상자 세 개, 번호 단계.** 카드 제목이 큰 `01` `02` `03`이고, 본문 첫마디가 단계 이름이다(Measure change / Cross-check / Stay honest). 아이콘: 위성, 체크리스트, 방패.
 - **6. The evidence — 상자 없음, 큰 숫자.** 카드 상자 세 개를 지웠다. 금색 큰 숫자 `2.1 dB`(농사짓는 곳: 철원 남쪽 논 2.1, 북쪽 2.0, 경작지 78.7%·82.9%)와 `0.7 dB`(DMZ 안: 경작지 0.6%, 숲·초지 99.2%, 파주도 2.1 대 0.6), 셋째 칸은 Limits. 아이콘: 벼, 지도 핀, 경고.
-- **7. Who it helps — 넓은 판 하나에 세 칸.** 카드 상자 하나를 슬라이드 폭으로 넓혀 세 칸을 한 판에 담았다(작년 SAR 결선작 TengriSpacers의 마지막 장처럼 결론을 한 덩어리로). 첫 칸 제목이 금색 큰 `530,223`, 둘째 칸 Closed land, 셋째 칸 Try it(주소·자료·SI 도구). 아이콘: 화살표, 데이터베이스, 링크.
+- **7. Who it helps — 넓은 판 하나에 세 칸.** 카드 상자 하나를 슬라이드 폭으로 넓혀 세 칸을 한 판에 담았다(작년 SAR 결선작 TengriSpacers의 마지막 장처럼 결론을 한 덩어리로). 첫 칸 제목이 금색 큰 `530,223`, 둘째 칸 Classrooms, 셋째 칸 Closed land. 주소는 오른쪽 위로 옮겼다. 아이콘: 화살표, 데이터베이스, 링크(둘째·셋째 아이콘은 바뀐 제목과 맞지 않는다).
+
+## 11/15 저녁 문구 다듬기 (미리캔버스 실제 슬라이드 기준)
+
+학습 효과 주장("teaches", "learns to read")을 모두 "shows"로 바꾸고, 7번 장을 세 사용자 묶음으로 맞췄다. 새 숫자는 없다.
+
+- **1번 설명:** An interactive web app that shows anyone how to read radar, using a land no one can visit. Built on 11 NISAR passes over the Korean DMZ, June to November 2026.
+- **2번 왼쪽 원(No way in):** Land no one could walk into. Closed to the public for over 70 years; visitors can only look across.
+- **2번 오른쪽 원(No clear view):** Or see from above. July 2026: Landsat looked 19 times at five DMZ windows and got 0 clear views. NISAR radar saw it every 12 days, through cloud and after dark. Few people can read a radar image.
+- **4번:** 둘째 설명 "Each mission shows one radar feature. The short intro clips are SI-generated and labelled." · 셋째 제목 "3. The evidence"
+- **5번 `03`:** Stay honest. Every number on screen is generated from the data, and the build stops if a claim no longer matches. SI tools used: Claude Code, Codex, Higgsfield (labelled clips).
+- **6번 오른쪽 위:** Seasonal change of the radar signal, relative to nearby forest. / Why (hypotheses): flooded paddies look dark, growing rice brightens L-band, harvest darkens it. Signal change, not a crop or ecology judgment.
 
 ## 7. Who it helps (Impact)
 
-미리캔버스 실제 슬라이드와 같은 내용이다(11/15 오후 피드백 반영: Impact 보강, `brainstorming/metacognition_htj.md` 6절 초안 기준). 새 숫자는 없다.
+미리캔버스 실제 슬라이드와 같은 내용이다(`brainstorming/metacognition_htj.md` 6절과 hdk의 세 사용자 묶음 기준).
 
 - **Headline:** Who it helps
-- **Top right:** Radar data is free, but few people can read it. Next: test with visitors at an observatory and count who can read a radar image before and after.
-- **Card 1 — Visitors:** 530,223 people visited the Third Tunnel in 2025, 77% from abroad. In a few minutes a first-time visitor learns to read five things in any radar image. No install, no login, Korean and English.
-- **Card 2 — Closed land:** For anyone watching land they cannot enter, in seasons cameras cannot see. Free NISAR data and a nearby forest are enough: on the DMZ the method already separates farmed land (2.1 dB) from unfarmed land (0.6–0.7 dB).
-- **Card 3 — Try it:** Live app htjworld.github.io/dancing-with-dmz · Code (Apache 2.0) github.com/htjworld/dancing-with-dmz · Data: NISAR (NASA/ISRO, ASF DAAC), HLS, NASA POWER, ESA WorldCover, © OpenStreetMap · SI tools: Claude Code, Codex, Higgsfield.
-- 둘째 카드는 "같은 방법을 되풀이할 수 있다"는 뜻으로만 쓴다. 그 사용자를 실제로 만나 본 적은 없다.
+- **Top right:** App: htjworld.github.io/dancing-with-dmz · Code: github.com/htjworld/dancing-with-dmz · Next: test with visitors and count who can read a radar image before and after.
+- **칸 1 — 530,223:** people visited the Third Tunnel in 2025, 77% from abroad. Five short missions show visitors and guides what radar sees in land they can only look across at. No install, no login, Korean and English.
+- **칸 2 — Classrooms:** For teachers and students: a ready-made lesson, one radar concept per mission (repeat passes, dark water, change maps, polarization, night). Open source.
+- **칸 3 — Closed land:** For anyone following land they cannot enter, in seasons cameras cannot see. Free NISAR data and a nearby forest already separate farmed land (2.1 dB) from unfarmed land (0.6–0.7 dB); the same steps can be repeated elsewhere.
+- 셋째 칸은 "같은 방법을 되풀이할 수 있다"는 뜻으로만 쓴다. 그 사용자를 실제로 만나 본 적은 없다.
+- 자료 출처 줄(NISAR, HLS, POWER, WorldCover, OpenStreetMap)은 이 장에서 빠졌다. 5번 장과 제출 양식의 링크 목록에 있다.
 
 ---
 
