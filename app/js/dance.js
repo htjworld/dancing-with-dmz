@@ -144,13 +144,15 @@ export function initDance(map) {
     let cNow = 0, cPrev = 0, sweepU = 2;
     if (dancing) { const pos = prog * n, c = Math.min(n - 1, Math.floor(pos)); cNow = c; cPrev = Math.max(0, c - 1); sweepU = H[ids[0]][c] == null ? -1 : (pos - c) / SWEEP; }
     const total = pts.length ? pts[pts.length - 1].d || 1 : 1;
+    // 모으기 동안 선이 구간째 뚝뚝 켜지지 않고, 서쪽 끝에서 동쪽 끝까지 한 줄기로 스르르 자라난다(hdk). 끝은 부드럽게 번진다
+    const gk = gather ? Math.min(1, elapsed / (GATHER * .92)) : 1, revealD = total * gk * gk * (3 - 2 * gk);
     const hOf = (p, c) => { const a = heightAt(H[ids[p.i]], c), b = heightAt(H[ids[Math.min(ids.length - 1, p.i + 1)]], c); return a + (b - a) * p.w; };
     if (finale || state.fragments.length) {
       // 이어진 구간마다 점을 모은다: 분계선 위의 자리(bx, by)와 거기서 떠오른 자리(x, y)
       const runs = []; let run = null;
       for (const p of pts) {
         const near = p.w < .5 ? p.i : Math.min(ids.length - 1, p.i + 1);
-        if (!lit(ids[near])) { run = null; continue; }
+        if (gather ? p.d > revealD : !lit(ids[near])) { run = null; continue; }
         let h = shown[p.i] + ((shown[p.i + 1] ?? shown[p.i]) - shown[p.i]) * p.w; const slow = near === 3 ? .5 : 1;
         if (dancing) {   // 위성이 지나간 서쪽은 오늘의 높이, 아직 안 지나간 동쪽은 지난번의 높이
           const m = Math.max(0, Math.min(1, (sweepU * 1.06 - p.d / total) / .07)), ease = m * m * (3 - 2 * m);
