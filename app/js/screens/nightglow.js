@@ -92,6 +92,8 @@ function ramp(v) {
   return RAMP[RAMP.length - 1][1];
 }
 const regions = () => (data.corridor || data.glow)?.regions || {};
+const LUT = { a: new Float64Array(256), c: new Uint8ClampedArray(768) };
+for (let r = 0; r < 256; r++) { const v = r / 255, col = ramp(v); LUT.a[r] = smooth(LO, HI, v); LUT.c.set(col, r * 3); }
 
 async function recolor(file) {
   const id = Object.keys(regions()).find(k => { const r = regions()[k]; return r.color === file || r.frames.includes(file); });
@@ -111,13 +113,14 @@ async function recolor(file) {
     const i0 = Math.min(n - 1, Math.floor(gu)), j0 = Math.min(n - 1, Math.floor(gv)), fu = gu - i0, fv = gv - j0, N = n + 1;
     const fade = (g[j0 * N + i0] * (1 - fu) + g[j0 * N + i0 + 1] * fu) * (1 - fv) + (g[(j0 + 1) * N + i0] * (1 - fu) + g[(j0 + 1) * N + i0 + 1] * fu) * fv;
     const sea = coast ? seaKeep(lon0 + (px + 0.5) / w * (lon1 - lon0), coast[py]) : 1;
-    const v = d[i] / 255, a = smooth(LO, HI, v) * fade * sea;
+    const r = d[i], a = LUT.a[r] * fade * sea;   // 빨강 값은 256가지뿐이라 색과 투명도를 표에서 읽는다(결과는 같다)
     if (a <= 0.004) { d[i + 3] = 0; continue; }
-    const col = ramp(v);
-    d[i] = col[0]; d[i + 1] = col[1]; d[i + 2] = col[2]; d[i + 3] = Math.round(a * 255);
+    d[i] = LUT.c[r * 3]; d[i + 1] = LUT.c[r * 3 + 1]; d[i + 2] = LUT.c[r * 3 + 2]; d[i + 3] = Math.round(a * 255);
   }
   x.putImageData(img, 0, 0);
-  return c.toDataURL('image/webp', 0.9);   // 바로 만들어지는 주소(가려진 창에서도 멈추지 않는다)
+  // 그림을 주소로 바꾸는 일(webp 압축)은 화면을 멈추지 않게 뒤에서 한다. 실패하면 예전처럼 바로 만든다
+  const blob = await new Promise(ok => c.toBlob(ok, 'image/webp', 0.9));
+  return blob ? URL.createObjectURL(blob) : c.toDataURL('image/webp', 0.9);
 }
 
 // 지도에 걸린 빛 그림이 다시 칠한 그림인지 맞춘다. 다 칠해졌을 때, 그리고 지도가 다 그려질 때마다(idle) 확인해
@@ -235,5 +238,7 @@ export async function prewarmGlow() {
   if (warmed) return; warmed = true;
   const files = [];
   for (const g of Object.values(regions())) { files.push(g.color); for (const f of g.frames) files.push(f); }
-  for (const f of files) { glowUrl(f); await pending.get(f); }
+  // 한 장 칠할 때마다 화면이 쉴 틈을 준다(끌기·확대가 끊기지 않게)
+  const rest = () => new Promise(ok => { const t = setTimeout(ok, 250); if (window.requestIdleCallback) requestIdleCallback(() => { clearTimeout(t); ok(); }, { timeout: 200 }); });
+  for (const f of files) { glowUrl(f); await pending.get(f); await rest(); }
 }

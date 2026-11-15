@@ -111,6 +111,8 @@ function curve(pts, pxDb) {
   for (let n = 1; n < pts.length - 1; n++) { const a = pts[n], b = pts[n + 1]; cx.quadraticCurveTo(a[0], y(a), (a[0] + b[0]) / 2, (y(a) + y(b)) / 2); }
   const l = pts[pts.length - 1]; cx.lineTo(l[0], y(l));
 }
+const mercY = lat => Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360));
+let mdlM = null;   // 분계선 점의 메르카토르 좌표(한 번만 계산)
 function drawWaves(s) {
   cx.clearRect(0, 0, innerWidth, innerHeight);
   const m = mapOf(); if (!m || !R) return -1;
@@ -124,7 +126,15 @@ function drawWaves(s) {
       const p0 = m.project(geo(c, .5, .5 / r.ny)), p1 = m.project(geo(c, .5, 1.5 / r.ny));
       const rowPx = Math.hypot(p1.x - p0.x, p1.y - p0.y), step = Math.max(1, Math.ceil(5.5 / rowPx));
       const pxDb = Math.min(60, Math.max(5, rowPx * step * 2.2));
+      r.hmax ??= Math.max(...r.wave.flat(2).map(v => Math.abs(v ?? 0)));   // 이 지역 선이 오르내리는 최대 폭(화면 밖 줄을 거를 때 쓴다)
+      const W = innerWidth, H = innerHeight, my = r.hmax * pxDb + 20, n1 = r.nx - 1;
       for (let j = 0; j < r.ny; j += step) {
+        // 줄의 양 끝만 지도 좌표로 바꾸고 사이는 고르게 나눈다(한 줄 안에서는 직선과의 차이가 0.01px 아래). 화면 밖은 그리지 않는다(jmj 제안, 로컬 시험)
+        const A = m.project(geo(c, .5 / r.nx, (j + .5) / r.ny)), B = m.project(geo(c, (n1 + .5) / r.nx, (j + .5) / r.ny));
+        if (Math.max(A.y, B.y) < -my || Math.min(A.y, B.y) > H + my || Math.max(A.x, B.x) < -40 || Math.min(A.x, B.x) > W + 40) continue;
+        const dx = (B.x - A.x) / n1, dy = (B.y - A.y) / n1;
+        let i0 = 0, i1 = n1;
+        if (Math.abs(dx) > 1e-6) { const t0 = (-40 - A.x) / dx, t1 = (W + 40 - A.x) / dx; i0 = Math.max(0, Math.floor(Math.min(t0, t1)) - 2); i1 = Math.min(n1, Math.ceil(Math.max(t0, t1)) + 2); }
         let seg = [];
         const flush = () => {
           if (seg.length > 2) {
@@ -138,11 +148,10 @@ function drawWaves(s) {
           }
           seg = [];
         };
-        for (let i = 0; i < r.nx; i++) {
+        for (let i = i0; i <= i1; i++) {
           const h = heightAt(r, j, i, st);
           if (h == null) { flush(); continue; }
-          const q = m.project(geo(c, (i + .5) / r.nx, (j + .5) / r.ny));
-          seg.push([q.x, q.y, h]);
+          seg.push([A.x + dx * i, A.y + dy * i, h]);
         }
         flush();
       }
@@ -152,7 +161,12 @@ function drawWaves(s) {
   // 분계선: 지도 위에 직접 그린다. "흰 선" 자막 때 한 번 굵어진다
   const lp = linePulse ? (performance.now() - linePulse) / 1000 : 9, k = lp < 3.2 ? Math.sin(Math.min(1, lp / 3.2) * Math.PI) : 0;
   cx.strokeStyle = '#ffffff'; cx.lineWidth = 1.6 + 2.4 * k; cx.shadowColor = 'rgba(255,255,255,.9)'; cx.shadowBlur = 4 + 14 * k;
-  for (const line of mdl) { cx.beginPath(); line.forEach((p, n) => { const q = m.project(p); n ? cx.lineTo(q.x, q.y) : cx.moveTo(q.x, q.y); }); cx.stroke(); }
+  // 분계선의 수천 점을 프레임마다 지도에 묻지 않는다: 두 점만 물어 축척을 구하고 나머지는 같은 식(메르카토르)으로 계산한다. 지도가 돌거나 기울면 예전 방식(jmj 제안, 로컬 시험)
+  const flat = !m.getBearing() && !m.getPitch(), o = m.project([127, 38]), e = m.project([128, 38]), kx = e.x - o.x, ky = kx * 180 / Math.PI, y38 = mercY(38);
+  mdlM ??= mdl.map(line => line.map(p => [p[0] - 127, mercY(p[1])]));
+  mdl.forEach((line, li) => { cx.beginPath(); line.forEach((p, n) => {
+    let x, y; if (flat) { const q = mdlM[li][n]; x = o.x + q[0] * kx; y = o.y - (q[1] - y38) * ky; } else { const q = m.project(p); x = q.x; y = q.y; }
+    n ? cx.lineTo(x, y) : cx.moveTo(x, y); }); cx.stroke(); });
   cx.shadowBlur = 0;
   return st.slot;
 }
