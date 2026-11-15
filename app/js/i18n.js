@@ -213,7 +213,7 @@ const TEXT = {
     'yeoncheon.meterAria': '강을 따라간 정도',
     'yeoncheon.clear': '지우고 다시 긋기',
     'yeoncheon.strokeMiss': '방금 그은 곳은 강이 아닌\u00a0것 같습니다. 검고 구불구불한 띠를 찾아보세요.',
-    'hwacheon.wide': '지금 더 넓게 보이는 눈:',
+    'hwacheon.wide': '고른 눈:',
     
     'paju.locked': '밝기 숫자는 두 장을 모두 찾으면 나타납니다.',
     'paju.take': '파주 조각 받기',
@@ -279,8 +279,8 @@ const TEXT = {
     'hwacheon.foundCaption': '막대는 {date}에 두 구역의 밝기가 벌어진 정도입니다.',
     'hwacheon.foundStill': '그리고 이 숲은 한 계절 내내 {range} dB밖에 변하지 않았습니다.',
     'hwacheon.foundFine': 'HH와\u00a0HV가 물과 식물을 각각 전용으로 보는\u00a0것은 아닙니다. 산지에서는 레이더 그림자와 왜곡이 생기며, 신호의 차이가 숲의 건강 차이를 뜻하지 않습니다. 북쪽 구역은 영상에서 평지로 보이는 곳입니다.',
-    'hwacheon.hint': '커튼 왼쪽은 HH, 오른쪽은 HV입니다. 노란 고리는 DMZ\u00a0안 숲이고, 하늘색 고리는 북쪽의 평지로 보이는 곳입니다. 두 곳이 더 뚜렷이 갈리는 눈을 넓게 두세요.',
-    'hwacheon.pick': '{pol}로 정하기',
+    'hwacheon.hint': '커튼 왼쪽은 HH, 오른쪽은 HV입니다. 노란 고리는 DMZ\u00a0안 숲이고, 하늘색 고리는 북쪽의 평지로 보이는 곳입니다. 커튼을 밀어 견줘 보고, 두 곳이 더 뚜렷이 갈리는 눈을 아래에서 고르세요.',
+    'hwacheon.pick': '{pol}로 정하기', 'hwacheon.pickNone': 'HH와 HV 중 하나를 고르세요',
     'hwacheon.take': '화천 조각 받기',
     'hwacheon.got': 'NISAR는 HH와\u00a0HV, 두 가지로 찍습니다. 한쪽에서 안 갈리던 땅이 다른 쪽에서 갈립니다.',
     // 양구
@@ -538,7 +538,7 @@ const TEXT = {
     'yeoncheon.meterAria': 'How much of the river you followed',
     'yeoncheon.clear': 'Erase and draw again',
     'yeoncheon.strokeMiss': 'That stroke does not look like the river. Look for a dark, winding band.',
-    'hwacheon.wide': 'Eye with more room now:',
+    'hwacheon.wide': 'Your pick:',
     
     'paju.locked': 'The brightness numbers appear once you have found both.',
     'paju.take': 'Get the Paju piece',
@@ -601,8 +601,8 @@ const TEXT = {
     'hwacheon.foundCaption': 'Each bar is the brightness gap between the two zones on {date}.',
     'hwacheon.foundStill': 'And this forest changed by only {range}\u00a0dB over the whole season.',
     'hwacheon.foundFine': 'HH and\u00a0HV are not dedicated to water and to plants. In mountains radar shadow and distortion occur, and a difference in signal does not mean a difference in forest health. The northern zone is land that appears flat in the imagery.',
-    'hwacheon.hint': 'Left of the curtain is HH, right is HV. The yellow ring is forest inside the\u00a0DMZ. The sky-blue ring is land to the north that appears flat. Give more room to the eye in which the two stand apart more clearly.',
-    'hwacheon.pick': 'Go with {pol}',
+    'hwacheon.hint': 'Left of the curtain is HH, right is HV. The yellow ring is forest inside the\u00a0DMZ. The sky-blue ring is land to the north that appears flat. Slide the curtain to compare, then pick below the eye in which the two stand apart more clearly.',
+    'hwacheon.pick': 'Go with {pol}', 'hwacheon.pickNone': 'Pick HH or HV first',
     'hwacheon.take': 'Get the Hwacheon piece',
     'hwacheon.got': 'NISAR records two channels, HH and\u00a0HV. Land that looks alike in one can stand apart in the other.',
     

@@ -325,9 +325,10 @@ body[data-screen=night][data-night=film][data-film-part=intro] #film{bottom:22px
 #curtain .bar i::after{content:"◀ ▶";position:absolute;inset:0;display:grid;place-items:center;font-size:10px;color:#07100e;letter-spacing:1px}
 #curtain .bar b{position:absolute;top:84px;padding:4px 10px;border-radius:999px;background:rgba(6,12,11,.85);color:#fff;font-size:13px;white-space:nowrap}
 #curtain .bar .l{right:calc(50% + 12px)} #curtain .bar .r{left:calc(50% + 12px)}
-#panel .eyes{display:flex;height:26px;border-radius:8px;overflow:hidden;margin:6px 0 8px;font-size:12px;font-weight:700}
-#panel .eyes span{display:grid;place-items:center;min-width:34px;background:rgba(255,255,255,.08);color:var(--dim)}
-#panel .eyes span.on{background:var(--gold);color:#2a1e05}
+#panel .eyes{display:flex;gap:8px;margin:8px 0 8px;font-size:14px;font-weight:700}
+#panel .eyes button{flex:1;height:44px;padding:0;border-radius:10px;border:1.5px solid var(--edge);background:rgba(255,255,255,.08);color:var(--ink);font:inherit;cursor:pointer}
+#panel .eyes button:hover{border-color:#fff}
+#panel .eyes button.on{border-color:var(--gold);background:var(--gold);color:#2a1e05}
 /* ---- 게임: 양구 이름표 붙이기 */
 #panel .slots{display:grid;gap:6px;margin:6px 0 8px}
 #panel .slot{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1.5px dashed var(--edge);font-size:13px;color:var(--dim);cursor:pointer}
@@ -358,7 +359,6 @@ body[data-screen=night][data-night=film][data-film-part=intro] #film{bottom:22px
 #panel .peek.in{animation:peek-in .22s cubic-bezier(.2,.8,.2,1)}
 @keyframes peek-in{from{opacity:0;transform:scale(.94)}}
 #panel .meter i{transition:width .12s linear}
-#panel .eyes span{transition:none}
 /* 이름표: 손에 붙어 따라오는 복사본 */
 #panel .tag{touch-action:none;user-select:none;-webkit-user-select:none}
 #panel .tag.lifted{opacity:.25}
