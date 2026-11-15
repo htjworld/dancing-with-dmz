@@ -1254,3 +1254,16 @@ body.finale .pin.current .pin-label,body.endcard .pin.current .pin-label{color:v
 #intro h2 .tt,#panel h2 .tt{display:inline-block;text-wrap:balance}
 /* 결과 카드에서 '여기서 알게 된 것' 머리말을 뺐으므로, 결론 한 줄이 오른쪽 위 ? 단추와 겹치지 않게 비켜 둔다(hdk) */
 #panel .found .why + .lead{padding-right:40px}
+
+/* ---- 날짜 바(jmj): 눌러야 하는 것임이 보이게. 밝은 테두리와 안내 한 줄, 손대기 전에는 손잡이가 숨 쉬듯 빛난다 */
+body[data-screen=mission] #scrub .time{background:rgba(14,22,46,.97);border-color:rgba(255,214,140,.55);box-shadow:0 12px 36px rgba(0,0,0,.5),0 0 0 1px rgba(255,214,140,.12)}
+#scrub .day{margin:0 0 2px;color:#fff}
+#scrub .nudge{margin:0 0 6px;text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--gold);white-space:nowrap}
+#scrub:not(.todo) .nudge{color:var(--dim);font-weight:400}
+#scrub .rail::before{background:rgba(255,255,255,.28)}
+#scrub .dots i{background:#8b97b4}
+#scrub .ends{color:rgba(246,243,234,.78)}
+#scrub .knob{box-shadow:0 3px 12px rgba(0,0,0,.6),0 0 0 4px rgba(255,214,140,.35)}
+#scrub.fresh .knob{animation:knob-call 1.5s ease-in-out infinite}
+@keyframes knob-call{0%,100%{box-shadow:0 3px 12px rgba(0,0,0,.6),0 0 0 4px rgba(255,214,140,.35)}50%{box-shadow:0 3px 12px rgba(0,0,0,.6),0 0 0 11px rgba(255,214,140,.08),0 0 18px rgba(255,214,140,.7)}}
+@media (prefers-reduced-motion:reduce){#scrub.fresh .knob{animation:none}}

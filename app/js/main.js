@@ -288,6 +288,8 @@ async function start() {
   document.addEventListener('dmz-map-click', e => VIEWS[state.stop]?.mapClick?.(e.detail.lng, e.detail.lat));
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh', retry: null, scrubbed: null });   // 지역을 옮기면 눈은 HH 로 돌아간다
+    // 게임 밖(처음으로, 밤하늘)으로 나가면 엔딩은 거기서 끝난다: 도는 중이면 멈추고, 엔딩 카드도 걷는다. 안 그러면 '미션 시작'으로 돌아왔을 때 엔딩이 다시 뜬다
+    if (s.screen !== prev.screen && s.screen !== 'mission' && (state.playing || state.endCard)) { stop(); clearTimeout(timer); set({ playing: null, endCard: false }); }
     panel();
     if (s.fragments.length > prev.fragments.length) { const id = s.fragments[s.fragments.length - 1]; pieceFly(id, () => { if (state.stop === id && state.screen === 'mission' && state.playing?.mode !== 'finale' && !state.endCard) {   /* 조각이 날아가는 사이 엔딩을 시작했으면 알림·미리 듣기를 다시 띄우지 않는다(hdk) */ perform('preview', state.fragments); pieceToast(id); } }); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop || (s.screen !== prev.screen && s.screen !== 'mission')) { clearTimeout(toastTimer); $('piece-toast').hidden = true; document.querySelectorAll('.shard').forEach(e => e.remove()); if (s.landing) set({ landing: null }); }   // 다음 지역의 소개 카드와 겹치지 않게, 게임 밖(처음으로 등)으로 나가도 알림을 걷는다

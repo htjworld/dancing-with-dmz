@@ -148,7 +148,7 @@ export function initGameMap(map) {
   const scrub = document.createElement('div');
   scrub.id = 'scrub'; scrub.hidden = true;
   scrub.innerHTML = `<svg class="lands" aria-hidden="true"><g class="spotg"></g>${LANDS.map(l => `<g class="${l.key}" data-land="${l.key}"><ellipse/><g class="loop"></g><text></text></g>`).join('')}</svg>
-    <div class="time"><b class="day"></b>
+    <div class="time"><b class="day"></b><p class="nudge"></p>
       <div class="rail" role="slider" tabindex="0" aria-valuemin="0"><i class="fill"></i><span class="dots"></span><b class="knob"></b></div>
       <div class="ends"><span></span><span></span></div></div>`;
   host.append(scrub);
@@ -189,6 +189,11 @@ export function initGameMap(map) {
     [...scrub.querySelectorAll('.dots i')].forEach((d, k) => d.classList.toggle('seen', state.visited.includes(cyc[k])));
     for (const l of LANDS) scrub.querySelector(`.lands .${l.key} text`).textContent = t(l.name);
     scrub.classList.toggle('ask', who === 'cheorwon' && SCRUB[who].askReady());
+    // 아직 손대지 않았으면 손잡이가 숨 쉬듯 빛나고, 다 넘겨 볼 때까지 무엇을 할지 한 줄로 알려 준다
+    const seenN = cyc.filter(c => state.visited.includes(c)).length;
+    scrub.classList.toggle('fresh', state.scrubbed !== who);
+    scrub.classList.toggle('todo', seenN < cyc.length);
+    scrub.querySelector('.nudge').textContent = seenN < cyc.length ? t('scrub.nudge', { n: seenN, total: cyc.length }) : t('scrub.done');
     placeLands();
   };
   map.on('move', placeLands); map.on('resize', placeLands);
