@@ -140,7 +140,7 @@
 | NASA POWER daily precipitation: rain before each pass | https://power.larc.nasa.gov/ |
 | NASA Earthdata Search and CMR: data discovery | https://search.earthdata.nasa.gov/ |
 
-## 7. Space Agency Partner & Other Data — 링크 15개
+## 7. Space Agency Partner & Other Data — 링크 16개
 
 | Link Text | Link Url |
 |---|---|
@@ -150,6 +150,7 @@
 | Natural Earth 110m land (public domain): dot globe in the night-sky film | https://www.naturalearthdata.com/ |
 | MapLibre GL JS (BSD-3-Clause): map rendering | https://maplibre.org/ |
 | Google Fonts, Noto Serif KR and Inter Tight (SIL Open Font License): typography | https://fonts.google.com/ |
+| Pretendard (SIL Open Font License): typography, body text — 11/15 오후 hdk가 팀 페이지에 추가해 다시 제출(링크 문구는 페이지의 것과 다를 수 있다) | https://github.com/orioncactus/pretendard |
 | NOAA Solar Calculator (public domain): sun height at each pass, Yanggu mission | https://gml.noaa.gov/grad/solcalc/ |
 | Paju City survey report 2014: Daeseong-dong village inside the DMZ | https://ggcf.kr/attachment/8614/download |
 | Gyeonggi Province DMZ guide: Daeseong-dong village inside the DMZ | https://dmz.gg.go.kr/all-about-the-dmz/human-environment-of-the-dmz |

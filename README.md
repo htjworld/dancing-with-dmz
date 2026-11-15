@@ -76,6 +76,7 @@ For every pixel we take HH backscatter minus the same-day forest mean (this remo
 | Natural Earth 110m land | Dot globe in the night-sky film | Public domain |
 | MapLibre GL JS | Map rendering | BSD-3-Clause |
 | Google Fonts: Noto Serif KR, Inter Tight | Typography | SIL Open Font License |
+| Pretendard (via jsDelivr) | Typography, body text | SIL Open Font License |
 | NOAA solar position approximation | Sun height at each pass (Yanggu mission) | US Government public domain |
 | Paju City survey report (2014), Gyeonggi Province DMZ guide | Daeseong-dong village inside the DMZ (explore screen) | Public reports |
 
@@ -165,7 +166,7 @@ Earthdata Login 토큰을 `.env` 의 `EARTHDATA_TOKEN` 에 넣어야 한다(`.en
 - 강수: NASA POWER 일 강수량(PRECTOTCORR). 약 50 km 격자라 파주와 연천은 같은 값이다.
 - 군사분계선: © OpenStreetMap contributors (ODbL). 표시용 개략 기하다.
 - 배경 지도: OpenFreeMap, © OpenStreetMap contributors.
-- 지구본 점: Natural Earth 110m. 글꼴: Noto Serif KR, Inter Tight (Google Fonts).
+- 지구본 점: Natural Earth 110m. 글꼴: Noto Serif KR, Inter Tight (Google Fonts), Pretendard (jsDelivr, SIL OFL).
 
 ## AI(SI) 사용
 

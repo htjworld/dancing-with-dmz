@@ -18,7 +18,7 @@
 
 ## 2. The problem: a land hidden twice
 
-- **Headline:** This land is hidden twice
+- **Headline:** Land no one could walk into, or see from above (앱 오프닝 문장과 같게)
 - **Left — "Closed to people":** Closed to the public for over 70 years. Visitors can only look across from an observatory.
 - **Right — "Closed to cameras":** July 2026: Landsat looked at five DMZ windows **19** times. Clear views: **0**.
 - **Bottom line:** NISAR radar saw it every 12 days, through cloud and at night. But a radar image does not look like a photo, so few people can read it.
@@ -72,11 +72,12 @@
 
 ## 7. Impact and next steps
 
-- **Headline:** The land was never unseen. Now anyone can read it
-- **Impact (세 줄):**
-  - A visitor leaves knowing five things they can read in any SAR image
-  - A place no one can enter, in a season no camera can see, becomes readable
-  - The method works anywhere access is closed: cloud-covered, remote or restricted land
+- **Headline:** The land was never unseen. Now people can learn to read it
+- **Impact (세 줄, 누가 / 무엇을 할 수 있게 되나):**
+  - **Visitors and guides at the observatories:** five short missions show what radar sees in land they can only look across at. No install, no login, Korean and English.
+  - **Teachers and students:** a ready-made lesson, one radar concept per mission (repeat passes, dark water, change maps, polarization, night). Open source.
+  - **Anyone following land they cannot enter:** free NISAR GCOV plus a nearby forest already separates farmed land (2.1 dB) from unfarmed land (0.6–0.7 dB); the same steps can be repeated for other closed areas.
+- **쓸 때 지킬 것:** 학습 효과("배운다", "leaves able to read")는 시험해 본 적이 없으니 쓰지 않는다. 전망대 전후 질문을 실제로 해 보면 그 결과로 바꾼다. 세 번째 줄은 실제 사용자가 아니라 "되풀이할 수 있다"까지만 쓴다.
 - **Next:** rebuild from the 30 m source · add a second track for twice the views · a second season · test with visitors at an observatory
 - **Links:** Live app htjworld.github.io/dancing-with-dmz · Code github.com/htjworld/dancing-with-dmz
 - **Credits (맨 아래 작게):** Data: NISAR (NASA/ISRO, ASF DAAC), HLS (NASA LP DAAC), NASA POWER, ESA WorldCover 2021, © OpenStreetMap contributors. Built with SI (AI) tools: Claude Code, OpenAI Codex; intro clips are SI-generated (Higgsfield) and labelled.

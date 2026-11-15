@@ -19,6 +19,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 문서 맞추기: 슬라이드 원고 2번 장 제목·7번 장 Impact 세 줄, README·submission 글꼴 출처에 Pretendard — hdk · `demo/slides.md`(htj 확인 요청은 `plan.md` 보드), `README.md`, `submission.md`
 - [x] 열려 있는 조각 알림도 언어 단추를 따라 바뀜(모바일 한·영 전 화면 점검 중 발견) — hdk · `main.js`(jmj 확인 요청은 `plan.md` 보드)
 - [x] 오프닝 구름 화면 제목 '들어갈 수도, 내려다볼 수도 없던 땅.'과 아랫줄 다듬기(한·영) — hdk · `i18n.js`(jmj 확인 요청은 `plan.md` 보드)
 - [x] 메타인지 정리: 해커톤과 서비스의 본질, 다섯 기준 점검(약 22/25, 약점은 Impact), 수상 가능성, 3등 안에 들기 위해 꼭 할 것만 — htj · `brainstorming/metacognition_htj.md`
