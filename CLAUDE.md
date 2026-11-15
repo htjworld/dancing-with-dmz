@@ -17,6 +17,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] **제출 완료(11/15 11:59, Project Submitted for Judging)**: Summary·Details·NASA Data 4건·Other Data 15건·데모 링크(미리캔버스 7장). 띠 단면 숫자와 하강 궤도 표기를 다시 확인함 — jmj · `submission.md`
 - [x] 게임 위쪽 단추 줄 자리: 미션 창이 보이면 그 왼쪽, 엔딩·결과 카드처럼 창이 숨으면 오른쪽 위 구석(실제 단추 폭으로 간격 계산) — hdk · `screens/night.js`
 - [x] 게임 화면 톤 맞추기와 문구 정리: 밤 지도·남색 창·Pretendard, 미션 n. 제목과 첫 카드 목표 한 줄, 조각 수 n / 5, '← 처음으로'(영상 끝 제목 장면으로), 미션 시작 문구, 결과 카드 가독성, 전 화면 줄바꿈, 기본 언어 영어, 영상 장면 줄 영어 — hdk · `style.css`, `main.js`·`i18n.js`(jmj 확인 요청은 `plan.md` 보드), `film.js`, `night.js`, `state.js`, `index.html`
 - [x] README를 현재 앱 흐름·제출 양식에 맞춰 개정(다섯 단계, SI 사용 고지에 Higgsfield 영상, 팀 NASSAFY, 라이선스, 화면 캡처 3장). 궤도 방향 표기와 띠 단면 숫자는 htj 확인 전이라 뺌 — jmj · `README.md`, `demo/screens/`

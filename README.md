@@ -66,7 +66,7 @@ For every pixel we take HH backscatter minus the same-day forest mean (this remo
 
 | Data | Use | License / terms |
 |---|---|---|
-| NISAR L2 GCOV (NASA/ISRO), via ASF DAAC — track 133, frames 069/070, HH/HV, 2026-06-23 to 11-02 | Seasonal change, layers, missions | NASA open data |
+| NISAR L2 GCOV (NASA/ISRO), via ASF DAAC — track 133 (descending), frames 069/070, HH/HV, 2026-06-23 to 11-02 | Seasonal change, layers, missions | NASA open data |
 | HLS L30/S30 v2.0 (NASA LP DAAC), CMR metadata and browse images | Cloud over each window, opening image | NASA open data |
 | NASA POWER daily precipitation | Rain before each pass | NASA open data |
 | ESA WorldCover 2021 v200 | Land cover check of each zone | CC BY 4.0 |
@@ -158,7 +158,7 @@ Earthdata Login 토큰을 `.env` 의 `EARTHDATA_TOKEN` 에 넣어야 한다(`.en
 
 ## 데이터와 출처
 
-- NISAR L2 GCOV (NASA/ISRO), ASF DAAC 제공. 궤도 133, 프레임 069(띠는 070으로 빈 곳을 채움), HH/HV 후방산란.
+- NISAR L2 GCOV (NASA/ISRO), ASF DAAC 제공. 궤도 133(하강), 프레임 069(띠는 070으로 빈 곳을 채움), HH/HV 후방산란.
 - 2026-06-23 ~ 11-02 의 11개 통과(7월 29일 통과는 자료가 없다). 11월 2일 장면만 정식판(V1) 컬렉션이고 나머지는 PROVISIONAL 이다. 처리 버전이 달라 값의 기준이 조금 다를 수 있다.
 - 강수: NASA POWER 일 강수량(PRECTOTCORR). 약 50 km 격자라 파주와 연천은 같은 값이다.
 - 군사분계선: © OpenStreetMap contributors (ODbL). 표시용 개략 기하다.
