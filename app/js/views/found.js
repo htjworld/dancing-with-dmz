@@ -12,7 +12,7 @@ export function foundCard({ head, rows = [], caption = '', body = [], extra = ''
   // 자세한 숫자와 단서는 카드 머리의 ? 단추에 둔다
   const why = notes.length ? `<details class="why"${whyOpen ? ' open' : ''}><summary aria-label="${t('common.foundWhy')}" title="${t('common.foundWhy')}">?</summary>
       <div class="notes"><b>${t('common.foundWhy')}</b>${notes.map(x => `<p class="fine">${x}</p>`).join('')}</div></details>` : '';
-  return `<div class="found">${why}<h3>${t('common.found')}</h3>
+  return `<div class="found">${why}
     <p class="lead">${head}</p>
     ${rows.length ? `<div class="versus">${rows.map(r => `<span>${r.name}</span><i><u class="${r.cls || ''}" style="width:${Math.max(3, r.value / top * 100).toFixed(0)}%"></u></i><b>${r.text ?? `${r.value.toFixed(1)} dB`}</b>`).join('')}</div>` : ''}
     ${caption ? `<p class="fine cap">${caption}</p>` : ''}

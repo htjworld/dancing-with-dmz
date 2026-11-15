@@ -206,7 +206,7 @@ const TEXT = {
     
     'paju.locked': '밝기 숫자는 두 장을 모두 찾으면 나타납니다.',
     'paju.take': '파주 조각 받기',
-    'paju.got': '파주 조각을 받았습니다. 레이더 영상은 여러 날을 견줘야 변화가 보입니다. 날짜를 넘기면 이 구간의 선이 그날의 신호 변화만큼 움직입니다.',
+    'paju.got': '레이더 영상은 여러 날을 견줘야 변화가 보입니다. 날짜를 넘기면 이 구간의 선이 그날의 신호 변화만큼 움직입니다.',
     'paju.gotFine': '선의 높이는 레이더 신호의 변화입니다. 땅이 실제로 움직인\u00a0것이 아닙니다.',
     // 연천
     'yeoncheon.hitAll': '강을 따라왔습니다. 잔잔한 물은 전파를 위성 반대쪽으로 튕겨 보내서 검게 찍힙니다.',
@@ -226,7 +226,7 @@ const TEXT = {
     'yeoncheon.hintBtn': '찾기 어려우면 강의 자리를 옅게 보기',
     'yeoncheon.take': '연천 조각 받기',
     'yeoncheon.needPaju': '먼저 파주 조각을 모아 주세요. 조각은 서쪽부터 차례로 이어집니다.',
-    'yeoncheon.got': '연천 조각을 받았습니다. 레이더 영상에서 검은 띠가 보이면 물일\u00a0수\u00a0있습니다. 선이 연천까지 이어졌습니다.',
+    'yeoncheon.got': '레이더 영상에서 검은 띠가 보이면 물일\u00a0수\u00a0있습니다.',
     // 철원
     'cheorwon.chartAria': '남쪽 논과 DMZ\u00a0안 땅, 숲의 한 계절 신호 변화',
     'cheorwon.legendPaddy': '나 땅, 남쪽 논', 'cheorwon.legendDmz': '가 땅, DMZ\u00a0안 저지대', 'cheorwon.legendForest': '숲',
@@ -247,7 +247,7 @@ const TEXT = {
     'cheorwon.foundWho': '가 땅은 DMZ\u00a0안의 땅이고, 나 땅은 사람이 농사짓는 남쪽 논이었습니다.',
     'cheorwon.seen': '{total}일 가운데 {n}일을 봤습니다.',
     'cheorwon.seenAria': '넘겨 본 날짜 수',
-    'cheorwon.ask': '다 봤습니다. 색이 더 많이 든 땅을 지도에서 누르세요.',
+    'cheorwon.ask': '색이 더 많이 든 땅을 지도에서 누르세요.',
     'cheorwon.nowAria': '6월 23일과 견줘 두 땅의 밝기가 달라진 정도',
     'cheorwon.nowFine': '막대는 6월 23일과 견줘 밝기가 달라진 정도입니다.',
     'cheorwon.colorSame': '회색은 그대로',
@@ -257,7 +257,7 @@ const TEXT = {
     'cheorwon.foundFine': '구역은 팀이 레이더 영상에서 고른 사각형입니다. "논", "저지대", "경작지"는 영상에서 그렇게 보인다는 뜻이며 현장에서 확인한\u00a0것이 아닙니다.',
     'cheorwon.hint': '지도 아래의 손잡이를 끌어 날짜를 넘겨 보세요. 6월 23일과 달라진 곳에 색이 듭니다.',
     'cheorwon.take': '철원 조각 받기',
-    'cheorwon.got': '철원 조각을 받았습니다. 두 날짜의 영상을 겹치면 변한 곳에만 색이 듭니다. 철원에서는 사람이 농사짓는 논에 색이 들었습니다. 선이 철원까지 이어졌습니다.',
+    'cheorwon.got': '두 날짜의 영상을 겹치면 변한 곳에만 색이 듭니다. 철원에서는 사람이 농사짓는 논에 색이 들었습니다.',
     // 화천
     'hwacheon.eyeHH': 'HH, 가로로 쏘고 가로로 받는 눈', 'hwacheon.eyeHV': 'HV, 가로로 쏘고 세로로 받는 눈',
     'hwacheon.right': '맞습니다.',
@@ -271,7 +271,7 @@ const TEXT = {
     'hwacheon.hint': '커튼 왼쪽은 HH, 오른쪽은 HV입니다. 노란 고리는 DMZ\u00a0안 숲이고, 하늘색 고리는 북쪽의 평지로 보이는 곳입니다. 두 곳이 더 뚜렷이 갈리는 눈을 넓게 두세요.',
     'hwacheon.pick': '{pol}로 정하기',
     'hwacheon.take': '화천 조각 받기',
-    'hwacheon.got': '화천 조각을 받았습니다. NISAR는 HH와\u00a0HV, 두 가지로 찍습니다. 한쪽에서 안 갈리던 땅이 다른 쪽에서 갈립니다. 선이 화천까지 이어졌습니다.',
+    'hwacheon.got': 'NISAR는 HH와\u00a0HV, 두 가지로 찍습니다. 한쪽에서 안 갈리던 땅이 다른 쪽에서 갈립니다.',
     // 양구
     
     
@@ -287,7 +287,7 @@ const TEXT = {
     'yanggu.shotsFine': '왼쪽은 그날의 실제 레이더 영상입니다. 오른쪽은 같은 영상을 해의 높이만큼 어둡게\u00a0한 연출입니다.',
     'yanggu.seen': '{total}일 가운데 {n}일을 봤습니다.',
     'yanggu.seenAria': '넘겨 본 날짜 수',
-    'yanggu.ask': '다 봤습니다. 해가 떠\u00a0있던 날과 캄캄한 밤, 레이더 영상은 어느\u00a0쪽이 더 선명했나요?',
+    'yanggu.ask': '해가 떠\u00a0있던 날과 캄캄한 밤, 레이더 영상은 어느\u00a0쪽이 더 선명했나요?',
     'yanggu.q': '해가 떠\u00a0있던 날과 캄캄한 밤, 레이더 영상은 어느\u00a0쪽이 더 선명했을까요?',
     'yanggu.answer.day': '해가 떠\u00a0있던 날',
     'yanggu.answer.night': '캄캄한 밤',
@@ -304,11 +304,11 @@ const TEXT = {
     
     'yanggu.hint': '지도 아래의 손잡이를 끌어 날짜를 넘겨 보세요.',
     'yanggu.take': '마지막 조각 받기',
-    'yanggu.got': '양구 조각을 받았습니다. NISAR는 스스로 전파를 쏘고 되돌아온\u00a0것을 받습니다. 그래서 해가 져도 찍습니다. 다섯 조각이 모두 모여 선이 서쪽 끝에서 동쪽 끝까지 이어졌습니다.',
+    'yanggu.got': 'NISAR는 스스로 전파를 쏘고 되돌아온\u00a0것을 받습니다. 그래서 해가 져도 찍습니다.',
     // 피날레 자막
     'ending.start': '다섯 가지로 읽은 땅이, 하나의 선으로 이어집니다.',
     'ending.cloud': '7월, 빛으로 찍는 위성은 {looks}번 찍어 맑은 날이 {clear}번이었습니다.<br>레이더는 {total}번 가운데 {passes}번 보았습니다.',
-    'ending.cardEyebrow': '당신이 모은 다섯 조각',
+    'ending.cardEyebrow': '당신이 모은 다섯 조각의 이야기',
     'ending.cardData': 'NISAR L밴드 레이더가 {from}부터 {to}까지 {passes}번 지나며 찍은 자료입니다.',
     'ending.explore': '밤하늘 직접 둘러보기',
     'ending.last': '보이지 않는 땅을,<br>NISAR는 볼\u00a0수\u00a0있었고, 보고 있었습니다.',
@@ -521,7 +521,7 @@ const TEXT = {
     
     'paju.locked': 'The brightness numbers appear once you have found both.',
     'paju.take': 'Get the Paju piece',
-    'paju.got': 'You have the Paju piece. Change in radar images shows only when you compare several days. Step through the dates and this stretch of the line moves by that day\'s signal change.',
+    'paju.got': 'Change in radar images shows only when you compare several days. Step through the dates and this stretch of the line moves by that day\'s signal change.',
     'paju.gotFine': 'The height of the line is the change in the radar signal. The ground itself did not move.',
     'yeoncheon.hitAll': 'You followed the river. Calm water bounces the radar pulse away from the satellite, so it comes out black.',
     'yeoncheon.obsRange': 'The share of pixels that looked dark on and around the river was {lo} on the lowest day and {hi} on the highest. ',
@@ -540,7 +540,7 @@ const TEXT = {
     'yeoncheon.hintBtn': 'Hard to find? Show the river faintly',
     'yeoncheon.take': 'Get the Yeoncheon piece',
     'yeoncheon.needPaju': 'Collect the Paju piece first. Pieces join in order from the west.',
-    'yeoncheon.got': 'You have the Yeoncheon piece. A black band in a radar image may be water. The line now reaches Yeoncheon.',
+    'yeoncheon.got': 'A black band in a radar image may be water.',
     'cheorwon.chartAria': 'Signal change over the season for the southern paddies, the land inside the\u00a0DMZ, and the forest',
     'cheorwon.legendPaddy': 'Land B, southern paddies', 'cheorwon.legendDmz': 'Land A, lowland inside the\u00a0DMZ', 'cheorwon.legendForest': 'Forest',
     'cheorwon.foundApart': 'The lowland inside the\u00a0DMZ moved almost with the forest. Its range relative to forest was {dmz}\u00a0dB. The paddies moved a lot on their own, by {paddy}\u00a0dB.',
@@ -560,7 +560,7 @@ const TEXT = {
     'cheorwon.foundWho': 'Land A is the land inside the\u00a0DMZ. Land B is the paddies people farm to the south.',
     'cheorwon.seen': 'You have seen {n} of {total} days.',
     'cheorwon.seenAria': 'Days you have stepped through',
-    'cheorwon.ask': 'You have seen them all. Tap the land that took on more colour on the map.',
+    'cheorwon.ask': 'Tap the land that took on more colour on the map.',
     'cheorwon.nowAria': 'How far each land has moved from June 23',
     'cheorwon.nowFine': 'Each bar is how far the brightness has moved from June 23.',
     'cheorwon.colorSame': 'Grey: no change',
@@ -570,7 +570,7 @@ const TEXT = {
     'cheorwon.foundFine': 'Zones are rectangles the team picked from the radar imagery. "Paddy", "lowland" and "farmland" mean the land looks that way in the imagery. Nothing was checked on the ground.',
     'cheorwon.hint': 'Drag the handle below the map to step through the dates. Places that differ from June 23 take on colour.',
     'cheorwon.take': 'Get the Cheorwon piece',
-    'cheorwon.got': 'You have the Cheorwon piece. Overlay two dates and only what changed takes on colour. In Cheorwon the paddies people farm took on colour. The line now reaches Cheorwon.',
+    'cheorwon.got': 'Overlay two dates and only what changed takes on colour. In Cheorwon the paddies people farm took on colour.',
     'hwacheon.eyeHH': 'HH, sent horizontal and received horizontal', 'hwacheon.eyeHV': 'HV, sent horizontal and received vertical',
     'hwacheon.right': 'Right:',
     'hwacheon.wrong': 'You picked {pol}, but',
@@ -583,7 +583,7 @@ const TEXT = {
     'hwacheon.hint': 'Left of the curtain is HH, right is HV. The yellow ring is forest inside the\u00a0DMZ. The sky-blue ring is land to the north that appears flat. Give more room to the eye in which the two stand apart more clearly.',
     'hwacheon.pick': 'Go with {pol}',
     'hwacheon.take': 'Get the Hwacheon piece',
-    'hwacheon.got': 'You have the Hwacheon piece. NISAR records two channels, HH and\u00a0HV. Land that looks alike in one can stand apart in the other. The line now reaches Hwacheon.',
+    'hwacheon.got': 'NISAR records two channels, HH and\u00a0HV. Land that looks alike in one can stand apart in the other.',
     
     
     
@@ -598,7 +598,7 @@ const TEXT = {
     'yanggu.shotsFine': 'Left is the real radar image from that day. Right is the same image darkened by the height of the sun, as an illustration.',
     'yanggu.seen': 'You have seen {n} of {total} days.',
     'yanggu.seenAria': 'Days you have stepped through',
-    'yanggu.ask': 'You have seen them all. Was the radar image clearer on the days with the sun up, or in the dark of night?',
+    'yanggu.ask': 'Was the radar image clearer on the days with the sun up, or in the dark of night?',
     'yanggu.q': 'Was the radar image clearer with the sun up, or in the dark of night?',
     'yanggu.answer.day': 'With the sun up',
     'yanggu.answer.night': 'In the dark',
@@ -615,10 +615,10 @@ const TEXT = {
     
     'yanggu.hint': 'Drag the handle below the map to step through the dates.',
     'yanggu.take': 'Get the last piece',
-    'yanggu.got': 'You have the Yanggu piece. NISAR sends its own radio pulse and records what comes back. That is why it works after sunset. All five pieces are collected, and the line now runs from the western end to the eastern end.',
+    'yanggu.got': 'NISAR sends its own radio pulse and records what comes back. That is why it works after sunset.',
     'ending.start': 'The land you read in five ways joins into one line.',
     'ending.cloud': 'In July the optical satellite looked {looks} times and had {clear} clear days.<br>Radar saw the land on {passes} of {total} passes.',
-    'ending.cardEyebrow': 'The five pieces you gathered',
+    'ending.cardEyebrow': 'The story of the five pieces you gathered',
     'ending.cardData': 'Data from {passes} passes of the NISAR L-band radar, {from} to {to}.',
     'ending.explore': 'Explore the night sky yourself',
     'ending.last': 'The land we cannot see.<br>NISAR could, and it was watching.',
