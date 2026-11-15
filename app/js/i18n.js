@@ -322,7 +322,7 @@ const TEXT = {
     'ending.cardEyebrow': '당신이 모은 다섯 조각의 이야기',
     'ending.cardData': 'NISAR L밴드 레이더가 {from}부터 {to}까지 {passes}번 지나며 찍은 자료입니다.',
     'ending.explore': '밤하늘 직접 둘러보기',
-    'ending.last': '보이지 않는 땅을,<br>NISAR는 볼\u00a0수\u00a0있었고, 보고 있었습니다.',
+    'ending.last': '보이지 않는 땅을<br>NISAR는 볼\u00a0수\u00a0있었고, 보고 있었습니다.',
     'ending.cloudAlt': '오프닝에서 본 7월의 구름 영상',
     'ending.pairTitle': '같은 7월, 같은 철원',
     'ending.pairOptical': '광학 위성 · {date}',
