@@ -89,8 +89,8 @@ function endCard() {
       <h2>${t('ending.cardEyebrow')}</h2>
       <ol>${STOPS.map(s => `<li><span>${label(s, 'name').split(' ')[0]}</span>${t(`${s.id}.feature`)}</li>`).join('')}</ol>
       <p class="fine">${t('ending.cardData', { from: dateText(first.date), to: dateText(last.date), passes: fact('passes') })}</p>
-      <div class="acts"><button type="button" class="primary" data-end="again">${t('finale.again')}</button>
-        <button type="button" class="again" data-end="explore">${t('ending.explore')}</button></div></div>` : '';
+      <div class="acts"><button type="button" class="primary" data-end="explore">${t('ending.explore')}</button>
+        <button type="button" class="again" data-end="again">${t('finale.again')}</button></div></div>` : '';
   if (on) el.querySelector('.primary').focus({ preventScroll: true });
 }
 
