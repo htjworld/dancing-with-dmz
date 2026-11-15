@@ -189,6 +189,21 @@ function gameTone() {
   if (m.getLayer('radar-frame-line')) { m.setPaintProperty('radar-frame-line', 'line-color', '#c9d2e8'); m.setPaintProperty('radar-frame-line', 'line-opacity', 0.45); m.setPaintProperty('radar-frame-line', 'line-width', 1); }
 }
 
+// 게임 화면 위쪽 단추 줄([처음으로][English][소리]): 오른쪽 미션 창이 보이면 그 왼쪽에, 엔딩처럼 창이 숨으면 오른쪽 위 구석에
+// 실제 단추 폭을 재서 10px 간격으로 붙인다(언어마다 글자 폭이 달라서). 게임 밖에서는 손대지 않는다(CSS 가 맡는다)
+function placeTopButtons() {
+  const ids = ['sound', 'lang', 'to-night'], els = ids.map(id => document.getElementById(id));
+  if (state.screen !== 'mission') { els.forEach(e => e && (e.style.right = '')); return; }
+  const panel = document.getElementById('panel'), shown = panel && getComputedStyle(panel).display !== 'none' && panel.getBoundingClientRect().width > 0
+    && !document.body.classList.contains('finale') && document.body.dataset.beat !== 'result' && innerWidth > 900;
+  let right = shown ? innerWidth - panel.getBoundingClientRect().left + 10 : 16;
+  for (const e of els) {
+    if (!e || getComputedStyle(e).display === 'none') continue;
+    e.style.right = `${Math.round(right)}px`;
+    right += e.getBoundingClientRect().width + 10;
+  }
+}
+
 // 고요한 띠 안의 예외: 지도에 작은 점과 이름, 누르면 설명(숫자는 section.json 의 places, tools/make_section.py)
 let marks = null;
 async function placeMarks() {
@@ -213,6 +228,7 @@ function showPlace(p) {
 }
 
 export function initNight() {
+  subscribe(() => requestAnimationFrame(placeTopButtons)); addEventListener('resize', placeTopButtons);   // 화면·언어·엔딩이 바뀔 때마다 단추 줄 자리를 다시 잰다
   if (data.corridor) at = 'all';
   sectionAll().then(s => { whole = s; if (s) render(); });
   document.addEventListener('dmz-map-click', e => {
