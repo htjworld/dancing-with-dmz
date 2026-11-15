@@ -4,7 +4,6 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
 - [ ] 앱 동결: 정한 시각(제안 11/15 20:00) 뒤로 main 푸시 금지, 동결 직전 끝까지 한 번 해 보기 — 전원 · `brainstorming/metacognition_htj.md` 5절
-- [ ] 3등 안 목표: Impact 슬라이드는 됨(7번 장 Who it helps). 남은 것: 공식 페이지 Details의 Benefits 문단 교체와 줄바꿈 한 곳, 고치면 23:59 전 Submit for Judging 다시 — jmj · `brainstorming/metacognition_htj.md` 8절
 - [ ] 전원: 원격 주소 바꾸기 `git remote set-url origin https://github.com/htjworld/dancing-with-dmz.git` — khs (hdk·jmj 완료) · `plan.md` 9절
 - [ ] 제출 준비 체크리스트(영어 Summary, Use of SI 공개, LICENSE, Submit for Judging) — 전원 · `plan.md` 10절
 - [ ] 제출 문구 검토: `submission.md` 초안(Summary 168단어, Details, Use of SI, Data, References) — 전원 · `submission.md`
@@ -19,6 +18,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 공식 페이지 Details 수정 후 다시 제출(11/15 17:25 Project Submitted for Judging): Benefits 문단을 슬라이드 7번 장의 세 사용자로, 대성동 줄바꿈. Impact 슬라이드는 7번 장 — htj · `submission.md`(jmj 확인), `brainstorming/metacognition_htj.md` 8절
 - [x] 대성동 팝업에서 출처 링크 줄 삭제(팀 피드백: 경기도 DMZ 안내 주소가 404). 출처는 README·팀 페이지에 남는다. 팀 페이지·`submission.md`·`section.json`의 그 주소는 아직 예전 것(새 주소: dmz.gg.go.kr/contents/contents.do?ciIdx=8&menuId=15) — hdk · `night.js`
 - [x] 팀 페이지 Project Details에서 시험하지 않은 학습 효과 두 문장('leaves able to read', 'leaves with five things they can read')을 'is walked through / meets five things to look for'로 바꿔 11/15 오후 다시 제출, 공개 페이지 반영 확인 — hdk · `submission.md`
 - [x] 문서 맞추기: 슬라이드 원고 2번 장 제목·7번 장 Impact 세 줄, README·submission 글꼴 출처에 Pretendard — hdk · `demo/slides.md`(htj 확인 요청은 `plan.md` 보드), `README.md`, `submission.md`

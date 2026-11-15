@@ -93,10 +93,10 @@
 - Along the whole strip, the share of strongly changing land is 10% within 2 km of the line, 15% at 2–10 km south and 29% north.
 
 **Benefits and impact.**
-- A first-time visitor collects five pieces, one per mission, and is walked through five things to look for in any SAR image: repeat passes, dark water, change maps, polarization and night imaging.
-- A place that cannot be visited, in a season cameras cannot see, becomes readable from open data.
-- For teachers and guides: the missions are short, need no install or login, and run in Korean and English.
-- The method needs only NISAR GCOV and a nearby forest as reference, so it can be repeated for other places where access is closed.
+- Visitors and guides at the DMZ observatories: 530,223 people visited Paju's Third Tunnel in 2025, 77% from abroad, and they can only look across. Five short missions show what radar sees in that land. No install, no login, Korean and English.
+- Teachers and students: a ready-made lesson with one radar concept per mission (repeat passes, dark water, change maps, polarization, night imaging). Open source under Apache 2.0.
+- Anyone following land they cannot enter, in seasons cameras cannot see: free NISAR GCOV and a nearby forest as reference already separate farmed land (2.1 dB) from unfarmed land (0.6–0.7 dB). The same steps can be repeated for other closed areas.
+- Next: test with visitors at an observatory and count how many can read a radar image before and after.
 
 **What is creative.**
 - It starts from what a visitor already knows, a cloudy photo, and lets them rub it away with their own hand to meet radar.
