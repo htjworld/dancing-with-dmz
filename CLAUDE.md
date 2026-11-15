@@ -18,6 +18,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 팀 로고 임무 패치 1번(반복 궤도) 세트: SVG 원본 + PNG 6종, 기존 로고는 그대로 — hdk · `demo/logo/patch/`(htj 확인 요청은 `plan.md` 보드)
 - [x] 영상 끝 제목 장면 단추: 미션 시작을 가운데 크게, 영상 다시 보기·밤하늘 둘러보기는 양옆에 테두리 없는 흐린 글자(한 줄) — htj · `screens/film.js`, `style.css`(hdk 확인)
 - [x] 공식 페이지 Details 수정 후 다시 제출(11/15 17:25 Project Submitted for Judging): Benefits 문단을 슬라이드 7번 장의 세 사용자로, 대성동 줄바꿈. Impact 슬라이드는 7번 장 — htj · `submission.md`(jmj 확인), `brainstorming/metacognition_htj.md` 8절
 - [x] 대성동 팝업에서 출처 링크 줄 삭제(팀 피드백: 경기도 DMZ 안내 주소가 404). 출처는 README·팀 페이지에 남는다. 팀 페이지·`submission.md`·`section.json`의 그 주소는 아직 예전 것(새 주소: dmz.gg.go.kr/contents/contents.do?ciIdx=8&menuId=15) — hdk · `night.js`

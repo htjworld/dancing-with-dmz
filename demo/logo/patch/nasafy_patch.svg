@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img">
+  <title>NASAFY — Repeated Orbit mission patch</title>
+  <circle cx="512" cy="512" r="474" fill="#0d1226" stroke="#e6c46a" stroke-width="17"/>
+  <circle cx="512" cy="512" r="446" fill="none" stroke="#e6c46a" stroke-width="4"/>
+  <path d="M133 512h38m682 0h38" fill="none" stroke="#e6c46a" stroke-width="10" stroke-linecap="round"/>
+
+    <path d="M245 538H779" fill="none" stroke="#8f9bb8" stroke-width="15" stroke-linecap="round"/>
+    <ellipse cx="512" cy="512" rx="168" ry="244" transform="rotate(39 512 512)"
+             fill="none" stroke="#e6c46a" stroke-width="25"/>
+    <circle cx="659" cy="318" r="31" fill="#f3eee2" stroke="#0d1226" stroke-width="11"/>
+    <path d="M512 511l27 27-27 27-27-27Z" fill="#e6c46a" stroke="#0d1226" stroke-width="9"/>
+
+  <g fill="none" stroke="#f3eee2" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path transform="translate(327.26 198.37) rotate(-30.50) scale(1.18) translate(-24 -32)" d="M4 62V2L44 62V2"/>
+    <path transform="translate(397.71 166.41) rotate(-18.30) scale(1.18) translate(-24 -32)" d="M3 62L24 2L45 62M10 42H38"/>
+    <path transform="translate(473.32 150.06) rotate(-6.10) scale(1.18) translate(-24 -32)" d="M43 7Q37 2 24 2H18Q5 2 5 15V20Q5 28 16 31L33 35Q44 38 44 47V50Q44 62 30 62H17Q9 62 4 57"/>
+    <path transform="translate(550.68 150.06) rotate(6.10) scale(1.18) translate(-24 -32)" d="M3 62L24 2L45 62M10 42H38"/>
+    <path transform="translate(626.29 166.41) rotate(18.30) scale(1.18) translate(-24 -32)" d="M5 62V2H45M5 29H36"/>
+    <path transform="translate(696.74 198.37) rotate(30.50) scale(1.18) translate(-24 -32)" d="M2 2L24 32L46 2M24 32V62"/>
+  </g>
+  <g fill="none" stroke="#8f9bb8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path transform="translate(187.36 691.58) rotate(61.05) scale(0.61) translate(-24 -32)" d="M5 2H23Q43 2 43 22V42Q43 62 23 62H5Z"/>
+    <path transform="translate(206.25 722.14) rotate(55.50) scale(0.61) translate(-24 -32)" d="M3 62L24 2L45 62M10 42H38"/>
+    <path transform="translate(228.01 750.72) rotate(49.95) scale(0.61) translate(-24 -32)" d="M4 62V2L44 62V2"/>
+    <path transform="translate(252.42 777.07) rotate(44.40) scale(0.61) translate(-24 -32)" d="M44 9Q38 2 23 2Q5 2 5 22V42Q5 62 23 62Q38 62 44 55"/>
+    <path transform="translate(279.28 800.93) rotate(38.85) scale(0.61) translate(-24 -32)" d="M11 2H37M24 2V62M11 62H37"/>
+    <path transform="translate(308.31 822.08) rotate(33.30) scale(0.61) translate(-24 -32)" d="M4 62V2L44 62V2"/>
+    <path transform="translate(339.26 840.33) rotate(27.75) scale(0.61) translate(-24 -32)" d="M43 10Q37 2 24 2Q5 2 5 22V42Q5 62 24 62Q37 62 44 56V34H27"/>
+    <path transform="translate(405.70 867.45) rotate(16.65) scale(0.61) translate(-24 -32)" d="M0 2L10 62L24 22L38 62L48 2"/>
+    <path transform="translate(440.57 876.06) rotate(11.10) scale(0.61) translate(-24 -32)" d="M11 2H37M24 2V62M11 62H37"/>
+    <path transform="translate(476.12 881.26) rotate(5.55) scale(0.61) translate(-24 -32)" d="M2 2H46M24 2V62"/>
+    <path transform="translate(512.00 883.00) rotate(-0.00) scale(0.61) translate(-24 -32)" d="M5 2V62M43 2V62M5 32H43"/>
+    <path transform="translate(583.43 876.06) rotate(-11.10) scale(0.61) translate(-24 -32)" d="M5 2H23Q43 2 43 22V42Q43 62 23 62H5Z"/>
+    <path transform="translate(618.30 867.45) rotate(-16.65) scale(0.61) translate(-24 -32)" d="M3 62V2L24 39L45 2V62"/>
+    <path transform="translate(652.18 855.50) rotate(-22.20) scale(0.61) translate(-24 -32)" d="M4 2H44L4 62H44"/>
+    <path transform="translate(715.69 822.08) rotate(-33.30) scale(0.61) translate(-24 -32)" d="M24 32h.01"/>
+    <path transform="translate(771.58 777.07) rotate(-44.40) scale(0.61) translate(-24 -32)" d="M5 14Q8 2 25 2Q43 2 43 16Q43 26 33 35L5 60V62H44"/>
+    <path transform="translate(795.99 750.72) rotate(-49.95) scale(0.61) translate(-24 -32)" d="M24 2Q5 2 5 20V44Q5 62 24 62Q43 62 43 44V20Q43 2 24 2Z"/>
+    <path transform="translate(817.75 722.14) rotate(-55.50) scale(0.61) translate(-24 -32)" d="M5 14Q8 2 25 2Q43 2 43 16Q43 26 33 35L5 60V62H44"/>
+    <path transform="translate(836.64 691.58) rotate(-61.05) scale(0.61) translate(-24 -32)" d="M42 8Q36 2 24 2Q5 2 5 24V45Q5 62 24 62Q43 62 43 46V42Q43 28 26 28Q13 28 5 36"/>
+  </g>
+</svg>

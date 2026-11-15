@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img">
+  <title>NASAFY — Repeated Orbit icon</title>
+  <circle cx="512" cy="512" r="474" fill="#0d1226" stroke="#e6c46a" stroke-width="17"/>
+
+  <g transform="translate(512 512) scale(1.27) translate(-512 -512)">
+    <path d="M245 538H779" fill="none" stroke="#8f9bb8" stroke-width="15" stroke-linecap="round"/>
+    <ellipse cx="512" cy="512" rx="168" ry="244" transform="rotate(39 512 512)"
+             fill="none" stroke="#e6c46a" stroke-width="25"/>
+    <circle cx="659" cy="318" r="31" fill="#f3eee2" stroke="#0d1226" stroke-width="11"/>
+    <path d="M512 511l27 27-27 27-27-27Z" fill="#e6c46a" stroke="#0d1226" stroke-width="9"/>
+  </g>
+
+</svg>
