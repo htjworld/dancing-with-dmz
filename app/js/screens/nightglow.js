@@ -20,7 +20,7 @@ function lineKm() {
   LINE = c.filter((_, i) => i % step === 0 || i === c.length - 1);
   return LINE;
 }
-function distKm(lon, lat) {
+export function distKm(lon, lat) {   // 분계선까지의 거리(km)
   const L = lineKm(); if (L.length < 2) return 0;
   const kx = 111.32 * Math.cos(lat * Math.PI / 180), ky = 110.57;
   let best = Infinity;

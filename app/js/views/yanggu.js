@@ -74,8 +74,9 @@ function play() {
     ${shots(c)}
     <p class="fine cap">${t('yanggu.shotsFine')}</p>
     <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${seen}" aria-label="${t('yanggu.seenAria')}"><i style="width:${(seen / n * 100).toFixed(0)}%"></i></div>
-    <p class="hint">${ask ? t('yanggu.ask') : `${t('yanggu.seen', { n: seen, total: n })} ${t('yanggu.hint')}`}</p>
-    ${ask ? `<div class="acts three">${['day', 'night', 'same'].map(a => `<button type="button" data-act="pick" data-answer="${a}">${t(`yanggu.answer.${a}`)}</button>`).join('')}</div>` : ''}`;
+    <p class="hint">${t(ask ? 'yanggu.ask' : 'yanggu.hint')}</p>
+    ${ask ? '' : `<p class="locked">${t('yanggu.q')}<br>${t('common.askLocked', { n: seen, total: n })}</p>`}
+    <div class="acts three${ask ? '' : ' wait'}">${['day', 'night', 'same'].map(a => `<button type="button" data-act="pick" data-answer="${a}"${ask ? '' : ' disabled'}>${t(`yanggu.answer.${a}`)}</button>`).join('')}</div>`;   // 고를 단추는 처음부터 보이고, 날짜를 다 본 뒤에 풀린다(hdk)
 }
 
 function result() {

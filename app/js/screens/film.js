@@ -324,7 +324,34 @@ export async function startFilm() {
   raf = requestAnimationFrame(tick);
 }
 
+// 왼쪽 위 제목(#top h1): 영상 끝에서 춤추던 큰 제목이 이 자리에 앉은 뒤에도, 같은 실측 리듬(다섯 지역 물결의 평균)으로
+// 글자마다 아주 작게 오르내린다. 게임과 둘러보기에서만, 움직임 줄이기 설정이면 멈춘 채로 둔다(hdk)
+let cornerRaf = 0, cornerLetters = null;
+function cornerSetup() {
+  const h = document.querySelector('#top h1'); if (!h || cornerLetters) return;
+  const text = h.textContent.trim(); h.setAttribute('aria-label', text);
+  h.innerHTML = [...text].map(ch => (ch === ' ' ? ' ' : `<span class="cl" aria-hidden="true">${ch}</span>`)).join('');
+  cornerLetters = [...h.querySelectorAll('.cl')];
+}
+function cornerTick() {
+  cornerRaf = requestAnimationFrame(cornerTick);
+  if (!CH || !cornerLetters) return;
+  const tt = performance.now() / 1000 / (LOOP * 1.6);   // 영상 끝 제목보다 조금 느리게
+  cornerLetters.forEach((el, i) => {
+    const a = CH[i % 5], p = ((tt + i * 0.35) % SLOTS + SLOTS) % SLOTS, i0 = Math.floor(p), f = p - i0;
+    const v = a[i0] + (a[(i0 + 1) % SLOTS] - a[i0]) * ((1 - Math.cos(Math.PI * f)) / 2);
+    el.style.transform = `translateY(${(-v * 6).toFixed(2)}px)`;
+    el.style.opacity = (0.6 + v * 0.4).toFixed(2);
+  });
+}
+function cornerApply() {
+  const on = (state.screen === 'mission' || (state.screen === 'night' && state.nightMode === 'explore')) && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (on && !cornerRaf) { cornerSetup(); load(); cornerTick(); }
+  else if (!on && cornerRaf) { cancelAnimationFrame(cornerRaf); cornerRaf = 0; cornerLetters?.forEach(e => { e.style.transform = ''; e.style.opacity = ''; }); }
+}
+
 export function initFilm() {
+  subscribe((s, prev) => { if (s.screen !== prev.screen || s.nightMode !== prev.nightMode) cornerApply(); });
   document.body.append(tint, cv, titleEl, skipEl);
   skipEl.addEventListener('click', () => skipToEnd());
   ticks.innerHTML = LABELS.map(l => `<div class="t" title="${l}"><i></i></div>`).join('');   // 날짜 글자 없이 눈금만(통과 11번)

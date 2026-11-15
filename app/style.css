@@ -1158,3 +1158,49 @@ html[lang=en] #ending-card li{grid-template-columns:6.2em 1fr}
 #panel .sky .stars{inset:0 0 30px}
 #panel .sky .sun{z-index:0}
 #panel .sky .ridge{z-index:1}
+/* 밤하늘 둘러보기의 별·위성 그림판(hdk): 지도 위, 글과 조작 줄 아래. 누르기는 지도로 통과 */
+#night-sky{position:fixed;inset:0;z-index:0;pointer-events:none}
+#night-sky[hidden]{display:none}
+/* 위쪽은 밤하늘처럼 더 짙게 */
+body[data-screen=night][data-night=explore] #night .scrim{background:linear-gradient(180deg,rgba(3,6,18,.86) 0,rgba(3,6,18,.55) 14%,rgba(3,6,18,0) 30%),linear-gradient(90deg,rgba(5,9,22,.78) 0,rgba(5,9,22,.5) 340px,rgba(5,9,22,0) 620px),linear-gradient(0deg,rgba(5,9,22,.8) 0,rgba(5,9,22,0) 190px)}
+
+/* 중간 폭(영어 지역 이름이 길 때): 아래 조작 줄이 왼쪽 눈금·오른쪽 단추와 겹치지 않게 한 줄 위로 */
+@media (min-width:901px) and (max-width:1240px){ body[data-screen=night][data-night=explore] #night .dock{bottom:96px} }
+/* 팀 피드백(11/15): 게임 지도 핀 옆 화살표가 작아 찾기 어렵다 → 키우고 대비를 높인다 */
+.pin-nav{width:26px;height:26px;margin-top:-13px;font-size:16px;font-weight:600;border:1.5px solid rgba(255,214,140,.85);background:rgba(8,14,32,.92);color:#ffd68c;box-shadow:0 0 0 3px rgba(255,214,140,.14)}
+.pin-nav.prev{right:calc(100% + 12px)} .pin-nav.next{left:calc(100% + 12px)}
+/* 팀 피드백(11/15): 둘러보기 단면 팝업 글자가 잘 안 보인다 → 더 불투명한 바탕, 흰 굵은 제목, 설명도 밝게 */
+.glow-pick .maplibregl-popup-content{background:rgba(6,12,28,.97)}
+.glow-pick .maplibregl-popup-tip{border-top-color:rgba(6,12,28,.97);border-bottom-color:rgba(6,12,28,.97)}
+.glow-pick .maplibregl-popup-content>b{color:#f6f3ea;font-size:17px;font-weight:700}
+.glow-pick .axis{font-size:12px;font-weight:500;color:#c9d2e8}
+.glow-pick .fine{font-size:12.5px;font-weight:500;color:#dfe5f2}
+.glow-pick .fine:last-child{font-weight:700;color:#f6f3ea}
+.glow-pick .maplibregl-popup-content>span{color:#c9d2e8;font-weight:500}
+/* ===== 게임 구역 표시(hdk, 11/15): 연필 고리 → 뷰파인더 꺾쇠 + 부드러운 스포트라이트, 이름은 가는 흰 글자 ===== */
+#ink .spot,#scrub .lands .spot{fill:rgba(5,9,24,.42);pointer-events:none}
+.af,.af-halo{fill:none;stroke-linecap:square}
+.af-halo{stroke:rgba(4,8,20,.55);stroke-width:3.2}
+.af{stroke:var(--af,#fff);stroke-width:1.5}
+.af.draw{animation:af-in .5s ease-out backwards}
+@keyframes af-in{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+#ink .af,#scrub .lands .af{transform-box:fill-box;transform-origin:center}
+#ink text,#scrub .lands text{font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.03em;fill:rgba(255,255,255,.96) !important;stroke:none;paint-order:normal;filter:drop-shadow(0 .6px 1.6px rgba(5,9,22,.95))}
+/* 철원에서 땅을 고를 차례: 꺾쇠와 이름이 금빛으로 깜박인다(타원 칠하기 대신) */
+#scrub.ask .lands ellipse{fill:transparent !important;animation:none}
+#scrub.ask .lands .af{stroke:#ffd68c;animation:af-ask 1.6s ease-in-out infinite}
+#scrub.ask .lands text{fill:#ffd68c !important}
+#scrub.ask .lands g:hover .af{stroke-width:2.4}
+@keyframes af-ask{50%{opacity:.45}}
+@media (prefers-reduced-motion:reduce){.af.draw,#scrub.ask .lands .af{animation:none}}
+
+/* 아주 좁은 화면: 위쪽 단추 줄이 제목과 겹치니 게임에서는 제목을 숨기고, 진행 줄의 지역 이름은 작게 */
+@media (max-width:600px){
+  body[data-screen=mission] #top{display:none}
+  #panel .track span{font-size:10px;letter-spacing:-.02em;white-space:nowrap}
+}
+/* 왼쪽 위 제목의 글자 하나하나(작게 춤춘다, film.js cornerTick) */
+#top h1 .cl{display:inline-block;will-change:transform}
+/* 잠긴 답 단추(날짜를 다 넘겨 보기 전): 흐리게 보이고 눌리지 않는다. 위에 남은 날짜 수 */
+#panel .locked{margin:6px 0 8px !important;font-size:13px;line-height:1.55;color:#c9d2e8}
+#panel .acts.wait button,#panel .acts button:disabled{opacity:.38;cursor:not-allowed}

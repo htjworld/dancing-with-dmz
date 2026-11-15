@@ -66,8 +66,9 @@ function play() {
     ${now()}
     <p class="fine cap">${t('cheorwon.nowFine')}</p>
     <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${seen}" aria-label="${t('cheorwon.seenAria')}"><i style="width:${(seen / n * 100).toFixed(0)}%"></i></div>
-    <p class="hint">${ask ? '' : t('cheorwon.seen', { n: seen, total: n })} ${t(ask ? 'cheorwon.ask' : 'cheorwon.hint')}</p>
-    ${ask ? `<div class="acts">${LANDS.map(l => `<button type="button" data-act="pick" data-land="${l.key}">${t(l.name)}</button>`).join('')}</div>` : ''}`;
+    <p class="hint">${t(ask ? 'cheorwon.ask' : 'cheorwon.hint')}</p>
+    ${ask ? '' : `<p class="locked">${t('common.askLocked', { n: seen, total: n })}</p>`}
+    <div class="acts${ask ? '' : ' wait'}">${LANDS.map(l => `<button type="button" data-act="pick" data-land="${l.key}"${ask ? '' : ' disabled'}>${t(l.name)}</button>`).join('')}</div>`;   // 고를 단추는 처음부터 보이고, 날짜를 다 본 뒤에 풀린다(hdk)
 }
 
 function discovery() {

@@ -8,6 +8,7 @@ import { play, stop } from '../sound.js';
 import { nightMap } from './film.js';
 import { prewarmGlow, valueAt, sectionAt, sectionAll, places } from './nightglow.js';
 import { regionZones } from './proof.js';
+import { initNightSky, passSweep } from './nightsky.js';
 
 const el = document.getElementById('night');
 const ORDER = ['paju', 'yeoncheon', 'cheorwon', 'hwacheon', 'yanggu'];
@@ -39,10 +40,10 @@ export function playSeason() {
     const p = (performance.now() - startedAt) / duration;
     if (p >= 1) { clearInterval(timer); timer = 0; return set({ nightFrame: null }); }   // 끝나면 완성된 한 장으로 돌아간다
     const k = frameAt(Math.max(0, p), n);
-    if (k !== state.nightFrame) set({ nightFrame: k });
+    if (k !== state.nightFrame) { set({ nightFrame: k }); passSweep(duration / n); }   // 관측이 하나 쌓일 때마다 위성이 지나간다(연출)
   };
   timer = setInterval(tick, 80);
-  set({ nightFrame: 0 });
+  set({ nightFrame: 0 }); passSweep(duration / n);
 }
 
 // 아이콘(그림 문자 대신 SVG): 재생, 멈춤, 땅 연주(소리 물결)
@@ -62,7 +63,7 @@ function render() {
   const regions = ORDER.filter(id => data.glow?.regions?.[id]);
   const k = state.nightFrame, dates = (data.corridor || data.glow)?.dates || [];
   const when = k == null ? '' : t('night.playing', { k: k + 2, n: dates.length, from: dateText(dates[0]), to: dateText(dates[k + 1]) });
-  const note = state.landPlay ? t('land.hint') : k != null ? t('night.musicNote') : t('night.pickHint');
+  const note = state.landPlay ? t('land.hint') : k != null ? `${t('night.musicNote')} ${t('night.satNote')}` : t('night.pickHint');
   el.classList.toggle('zoomed', !!state.evidenceAt);   // 지역 근거 창이 열려 있으면 왼쪽은 제목만(내용은 오른쪽 창이 맡는다)
   el.innerHTML = `
     <div class="scrim" aria-hidden="true"></div>
@@ -228,6 +229,7 @@ function showPlace(p) {
 }
 
 export function initNight() {
+  initNightSky();   // 띠 바깥의 별, 재생 때 지나가는 위성
   subscribe(() => requestAnimationFrame(placeTopButtons)); addEventListener('resize', placeTopButtons);   // 화면·언어·엔딩이 바뀔 때마다 단추 줄 자리를 다시 잰다
   if (data.corridor) at = 'all';
   sectionAll().then(s => { whole = s; if (s) render(); });

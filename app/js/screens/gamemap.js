@@ -9,7 +9,7 @@ import * as cheorwonView from '../views/cheorwon.js';
 import * as yangguView from '../views/yanggu.js';
 import { t, dateText } from '../i18n.js';
 import { blip } from '../sound.js';
-import { loopSvg, PENCIL } from './zones.js';
+import { loopSvg, spotSvg, PENCIL } from './zones.js';
 
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
@@ -147,7 +147,7 @@ export function initGameMap(map) {
   const SCRUB = { paju: pajuView, cheorwon: cheorwonView, yanggu: yangguView }, LANDS = cheorwonView.LANDS;
   const scrub = document.createElement('div');
   scrub.id = 'scrub'; scrub.hidden = true;
-  scrub.innerHTML = `<svg class="lands" aria-hidden="true">${PENCIL}${LANDS.map(l => `<g class="${l.key}" data-land="${l.key}"><ellipse/><g class="loop" filter="url(#pencil)"></g><text></text></g>`).join('')}</svg>
+  scrub.innerHTML = `<svg class="lands" aria-hidden="true"><g class="spotg"></g>${LANDS.map(l => `<g class="${l.key}" data-land="${l.key}"><ellipse/><g class="loop"></g><text></text></g>`).join('')}</svg>
     <div class="time"><b class="day"></b>
       <div class="rail" role="slider" tabindex="0" aria-valuemin="0"><i class="fill"></i><span class="dots"></span><b class="knob"></b></div>
       <div class="ends"><span></span><span></span></div></div>`;
@@ -157,15 +157,17 @@ export function initGameMap(map) {
   let cyc = [], who = null;
   const placeLands = () => {
     if (scrub.hidden || who !== 'cheorwon') return;
+    const boxes = [];
     for (const l of LANDS) {
       const b = zone(l.id)?.bounds; if (!b) continue;
       const g = scrub.querySelector(`.lands .${l.key}`), q = [[b[0], b[3]], [b[2], b[3]], [b[2], b[1]], [b[0], b[1]]].map(c => map.project(c));
-      const L = loopSvg(q, l.id, '#fff');
+      const L = loopSvg(q, l.id, '#fff'); boxes.push(L.box);
       g.querySelector('.loop').innerHTML = L.html;
       // 고리 안쪽은 눌리는 자리(보이지 않는 타원)
       const el = g.querySelector('ellipse'); el.setAttribute('cx', L.cx.toFixed(1)); el.setAttribute('cy', L.cy.toFixed(1)); el.setAttribute('rx', L.rx.toFixed(1)); el.setAttribute('ry', L.ry.toFixed(1));
-      const tx = g.querySelector('text'); tx.setAttribute('x', (L.cx + L.rx * .62).toFixed(1)); tx.setAttribute('y', (L.cy - L.ry - 6).toFixed(1));
+      const tx = g.querySelector('text'); tx.setAttribute('x', (L.box[0] + 1).toFixed(1)); tx.setAttribute('y', (L.box[1] - 7).toFixed(1));   // 왼쪽 위 꺾쇠 바로 위
     }
+    scrub.querySelector('.lands .spotg').innerHTML = spotSvg('lands-spot', boxes);
   };
   const syncScrub = () => {
     const now = Object.keys(SCRUB).find(inGame) || null;
