@@ -17,6 +17,8 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 제출 원고를 현재 앱 흐름에 맞춰 다시 채움(Use of SI에 Higgsfield 생성 영상 공개), 7장 슬라이드 원고 — jmj · `submission.md`, `demo/slides.md`
+- [x] 소개 영상 오른쪽 아래에 "SI-generated video" 표시(생성 영상 표시 규정) — jmj · `app/js/main.js`, `i18n.js`, `style.css`
 - [x] 밤하늘 빛 한 칸이 원래 색(보라·노랑)으로 남던 문제: 지도가 다 그려질 때마다 다시 칠한 그림으로 맞추고, 불러오기 실패 시 다시 칠함 — hdk · `screens/nightglow.js`
 - [x] 근거 창 개편(지역 단추): 카드 없이 오른쪽 어둠 위 결론 제목·선 끝 이름표·금빛/회청 색, 지도에 같은 색 구역 테두리와 이름표, 지역을 고르면 왼쪽 글은 제목만, 왼쪽·아래 가장자리 어둠 — hdk · `screens/proof.js`(jmj 확인 요청), `night.js`, `style.css`, `i18n.js`
 - [x] 밤하늘 둘러보기 3판: 밤 지도 + 금빛 빛(분계선에서 멀어질수록·띠 끝·바다 위 옅게, 물 면은 빛 위로), 카드 없는 글·아래 조작 줄, 띠 전체 단면 그래프(분계선 2 km 안 10% / 남 15% / 북 29%), 누르면 그 구간 단면, 대성동 예외 표시, 자료와 한계 패널. 영상: 건너뛰기는 제목 장면에서 멈춤, 장면 이동 때 앞 자막 지우기. 단추 이름 '밤하늘 둘러보기' — hdk · `screens/night.js`, `nightglow.js`, `film.js`, `style.css`, `i18n.js`, `tools/make_section.py`, `data/section.json` (map.js 두 줄 jmj 확인 요청, 숫자 출처 htj 확인 요청은 `plan.md` 보드)
