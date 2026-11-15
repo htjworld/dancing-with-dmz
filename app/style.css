@@ -243,11 +243,13 @@ body[data-screen=night][data-night=film] #night,body[data-screen=night][data-nig
   text-shadow:0 1px 10px #000;animation:film-in .9s ease both}
 #film .cap b{color:var(--gold)}
 @keyframes film-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-#film .acts{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:12px;min-height:40px}
+#film .acts{display:grid;grid-template-columns:1fr auto 1fr;gap:6px 14px;align-items:center;margin-top:12px;min-height:40px}   /* 게임 시작이 정확히 가운데, 양옆에 흐린 글자 단추 */
+#film .acts [data-replay]{justify-self:end}#film .acts [data-explore]{justify-self:start}
 #film .acts button{padding:9px 16px;border-radius:999px;border:1px solid var(--edge);background:var(--card);font-size:13px}
-#film .acts .primary{background:var(--gold);border-color:var(--gold);color:#2a1e05;font-weight:700;font-size:15px;padding:11px 22px}
-#film .acts .quiet{background:transparent;color:var(--dim)}
-#film .acts .soon{font-size:12px;color:var(--dim)}
+#film .acts .primary{background:var(--gold);border-color:var(--gold);color:#2a1e05;font-weight:700;font-size:16px;padding:13px 28px;white-space:nowrap}
+#film .acts .quiet{background:transparent;border-color:transparent;color:var(--dim);padding:9px 4px;text-wrap:balance}
+#film .acts .quiet:hover{color:var(--ink)}
+#film .acts .soon{grid-column:1/-1;text-align:center;font-size:12px;color:var(--dim)}
 #film .bar{height:2px;margin:12px auto 0;width:min(420px,70vw);background:rgba(255,255,255,.14);border-radius:2px;overflow:hidden}
 #film .bar i{display:block;height:100%;width:0;background:var(--gold)}
 #night .ends2{display:flex;gap:8px;margin-top:4px} #night .ends2 .next{flex:1}

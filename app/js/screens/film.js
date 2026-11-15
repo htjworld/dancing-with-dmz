@@ -210,9 +210,9 @@ function toGame() {
 function buttons() {
   const ended = cue === CUES.length - 1;
   el.querySelector('.acts').innerHTML = ended
-    ? `<button type="button" class="primary" data-game>${t('film.start')}</button>
-       <button type="button" data-replay>${t('film.replay')}</button>
-       <button type="button" data-explore>${t('film.explore')}</button>
+    ? `<button type="button" class="quiet" data-replay>${t('film.replay')}</button>
+       <button type="button" class="primary" data-game>${t('film.start')}</button>
+       <button type="button" class="quiet" data-explore>${t('film.explore')}</button>
        <span class="soon">${held || left < 0 ? '' : t('film.soon', { n: left })}</span>`
     : '';
   skipEl.textContent = t('film.skipShort'); skipEl.hidden = ended;   // 영상 중에는 오른쪽 아래 구석의 작은 '건너뛰기'
