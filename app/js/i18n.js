@@ -138,7 +138,7 @@ const TEXT = {
     // 다섯 미션 화면이 함께 쓰는 문구
     'common.todo': '미션',
     'common.start': '시작하기',
-    'common.aiClip': 'SI-generated video',
+    'common.aiClip': 'AI로 만든 영상',
     'common.goThere': '이 지역으로 가기',
     'common.locked': '앞 지역의 조각을 모으면 열립니다.',
     'common.piece': '레이더의 특징 {n} / {total}',

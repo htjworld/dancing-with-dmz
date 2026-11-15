@@ -250,7 +250,13 @@ export function initNight() {
   });
   subscribe((s, prev) => {
     const ex = s.screen === 'night' && s.nightMode === 'explore', was = prev.screen === 'night' && prev.nightMode === 'explore';
-    if (ex && !was) { nightMap(true); prewarmGlow(); placeMarks(); waterOnTop(true); }
+    if (ex && !was) {
+      nightMap(true); prewarmGlow(); placeMarks(); waterOnTop(true);
+      // 들어올 때는 영상·게임에서 보던 확대 그대로가 아니라 띠 전체가 보이게(지역 근거 창도 닫는다)
+      at = data.corridor ? 'all' : at; if (s.evidenceAt) set({ evidenceAt: null });
+      document.dispatchEvent(new CustomEvent('dmz-night-go', { detail: { id: at, duration: 1200 } }));
+      render();
+    }
     if (!ex && was) waterOnTop(false);
     if (s.evidenceAt !== prev.evidenceAt || ex !== was || s.lang !== prev.lang) evZones();
     if (!ex || s.landPlay) closePick();
