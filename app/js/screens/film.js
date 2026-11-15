@@ -372,7 +372,6 @@ export function initFilm() {
   subscribe((s, prev) => {
     if (raf && (s.screen !== 'night' || s.nightMode !== 'film')) stopFilm();   // 화면을 떠나면 멈춘다
     if (s.lang !== prev.lang) { const k = capKey; capKey = ''; caption(k); buttons(); ctrl(); el.querySelector('.ctrl')?.setAttribute('aria-label', t('film.ctrlAria')); }   // 장면 이름·단추 설명도 언어를 따른다
-    if (!s.sound && prev.sound && raf) stop();                                  // 소리만 끄면 그림은 계속 간다
   });
   load();
   // 오프닝 없이 밤하늘에서 시작하는 경우(오프닝 자료가 없을 때)에는 곧바로 튼다

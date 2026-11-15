@@ -1204,3 +1204,12 @@ body[data-screen=night][data-night=explore] #night .scrim{background:linear-grad
 /* 잠긴 답 단추(날짜를 다 넘겨 보기 전): 흐리게 보이고 눌리지 않는다. 위에 남은 날짜 수 */
 #panel .locked{margin:6px 0 8px !important;font-size:13px;line-height:1.55;color:#c9d2e8}
 #panel .acts.wait button,#panel .acts button:disabled{opacity:.38;cursor:not-allowed}
+
+/* 언어·소리 단추: 글자 대신 흰색 아이콘(media/icons. 국기 = EmojiOne Monotone, 스피커 = Lucide). 언어는 바꿀 언어의 국기, 소리는 지금 상태 */
+#lang,#sound{display:inline-flex;align-items:center;justify-content:center;width:40px;height:30px;padding:0;color:#fff}
+#lang img{height:18px} #sound img{height:18px}
+/* 국기는 알약 단추 안에 작게 넣지 않고, 둥근 국기 자체를 단추로 크게 쓴다 */
+#lang,body[data-screen=mission] #lang{width:32px;height:32px;border:0;border-radius:50%;background:none}
+#lang img{height:32px;filter:drop-shadow(0 1px 4px rgba(0,0,0,.6))}
+html[lang=ko] #lang .to-ko,html[lang=en] #lang .to-en,#sound[aria-pressed=true] .off,#sound[aria-pressed=false] .on{display:none}
+body:not([data-screen=mission]) #sound{right:64px}

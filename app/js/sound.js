@@ -2,13 +2,20 @@
 // 음마다 붙은 gain(rhythm.applyRhythm) 이 그 층의 세기다. gain 이 0 인 음은 내지 않는다.
 let ctx = null, master = null, noise = null, live = [];
 export let soundOn = true;
-export const setSound = on => { soundOn = on; if (!on) stop(); };
+// 소리 끄기는 곡을 멈추지 않고 볼륨만 0으로 내린다. 곡은 그대로 흐르므로 다시 켜면 그 자리부터 들린다
+const VOL = .5;
+export const setSound = on => {
+  soundOn = on;
+  if (!ctx) return;
+  if (on && ctx.state === 'suspended') ctx.resume().catch(() => {});
+  master.gain.setTargetAtTime(on ? VOL : 0, ctx.currentTime, .03);
+};
 
 function ensure() {
   if (ctx) return true;
   try {
     ctx = new (window.AudioContext || window.webkitAudioContext)();
-    master = ctx.createGain(); master.gain.value = .5;
+    master = ctx.createGain(); master.gain.value = soundOn ? VOL : 0;
     const comp = ctx.createDynamicsCompressor(); master.connect(comp); comp.connect(ctx.destination);
     noise = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
     const d = noise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
@@ -41,11 +48,11 @@ const VOICE = {
   lead(e, t, k) { const g = env(t, e.dur, .3 * k, .02); osc('triangle', hz(e.midi), t, e.dur, g); osc('square', hz(e.midi), t, e.dur, env(t, e.dur, .05 * k, .02)); },
 };
 
-// plan = { duration, events:[{ type, time, gain, ... }] }. 시작한 시각(performance.now 기준 ms)을 돌려준다. 소리가 꺼져 있어도 시각은 돌려준다.
+// plan = { duration, events:[{ type, time, gain, ... }] }. 시작한 시각(performance.now 기준 ms)을 돌려준다. 소리가 꺼져 있어도 곡은 볼륨 0으로 흐른다.
 export function play(plan) {
   stop();
   const startedAt = performance.now() + 80;
-  if (!soundOn || !ensure()) return startedAt;
+  if (!ensure()) return startedAt;
   if (ctx.state === 'suspended') ctx.resume().catch(() => {});
   const t0 = ctx.currentTime + .08;
   for (const e of plan.events) { const k = e.gain ?? 1; if (k > 0 && VOICE[e.type]) VOICE[e.type](e, t0 + e.time, k); }
@@ -53,7 +60,7 @@ export function play(plan) {
 }
 // 짧은 음 하나. play() 와 달리 울리고 있는 곡을 멈추지 않는다(땅 연주용).
 export function blip(freq, gain = .25, dur = .28) {
-  if (!soundOn || !ensure()) return;
+  if (!ensure()) return;
   if (ctx.state === 'suspended') ctx.resume().catch(() => {});
   const t = ctx.currentTime + .01, g = env(t, dur, gain, .004);
   osc('triangle', freq, t, dur, g); osc('sine', freq * 2, t, dur * .6, env(t, dur * .6, gain * .25, .004));

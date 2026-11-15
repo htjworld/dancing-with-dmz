@@ -267,7 +267,6 @@ export function initNight() {
     if (!ex && was && !(s.screen === 'night' && s.nightMode === 'film') && s.screen !== 'mission') nightMap(false);
     if (s.screen === 'mission' && prev.screen !== 'mission') { nightMap(true); gameTone(); }
     if ((s.screen !== 'night' || s.nightMode !== 'explore') && timer) stopSeason();   // 화면이나 모드를 떠나면 재생을 멈춘다
-    if (!s.sound && prev.sound && timer) stop();                              // 소리만 끄면 그림은 계속 간다
     if (s.screen !== prev.screen || s.lang !== prev.lang || s.nightFrame !== prev.nightFrame || s.landPlay !== prev.landPlay || s.evidenceAt !== prev.evidenceAt) render();
   });
   render();

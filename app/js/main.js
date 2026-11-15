@@ -163,7 +163,7 @@ function chrome(s) {
   document.documentElement.lang = s.lang;
   $('lead').textContent = t(s.screen === 'mission' ? 'mission.lead' : 'night.lead');
   $('to-night').textContent = t('mission.back');
-  $('lang').textContent = t('lang.other'); $('lang').setAttribute('aria-label', t('lang.aria'));
+  $('lang').setAttribute('aria-label', t('lang.aria')); $('lang').title = t('lang.aria');   // 바꿀 언어의 국기(흰색 단색)를 보여 준다. 그림은 index.html, 고르기는 style.css
   $('stage-note').textContent = t('stage.note');
   $('map').setAttribute('aria-label', t('map.aria'));
 }
@@ -241,7 +241,7 @@ async function start() {
     const fin = s.playing?.mode === 'finale';
     document.body.classList.toggle('finale', fin);
     $('stage').hidden = !fin;   // 자막과 안내문은 엔딩이 도는 동안에만 보인다
-    $('sound').textContent = t(s.sound ? 'sound.on' : 'sound.off'); $('sound').setAttribute('aria-pressed', s.sound);
+    $('sound').title = t(s.sound ? 'sound.on' : 'sound.off'); $('sound').setAttribute('aria-label', $('sound').title); $('sound').setAttribute('aria-pressed', s.sound);
   });
   panel(); chrome(state);
 }
