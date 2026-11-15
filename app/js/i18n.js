@@ -138,6 +138,7 @@ const TEXT = {
     // 다섯 미션 화면이 함께 쓰는 문구
     'common.todo': '미션',
     'common.askLocked': '날짜를 모두 넘겨 보면 고를\u00a0수\u00a0있어요 ({n}\u00a0/\u00a0{total})',
+    'common.toAnswer': '답 고르러 내려가기',
     'common.start': '시작하기',
     'common.aiClip': 'AI로 만든 영상',
     'common.goThere': '이 지역으로 가기',
@@ -453,6 +454,7 @@ const TEXT = {
     'caveat.missing_pass': 'The July 29 pass has no data.',
     'common.todo': 'Mission',
     'common.askLocked': 'Step through every date to unlock your answer ({n}\u00a0/\u00a0{total})',
+    'common.toAnswer': 'Go down to the answer',
     'common.start': 'Start',
     'common.aiClip': 'SI-generated video',
     'common.goThere': 'Go to this place',

@@ -106,8 +106,9 @@ function panel() {
   const arrive = beat !== beatShown && beat === 'result';   // 방금 미션을 풀었다
   $('panel').classList.toggle('in', arrive); beatShown = beat;
   if (state.fragments.length > fragShown) { newDot = state.fragments[state.fragments.length - 1]; newUntil = performance.now() + 900; }
+  if (beat === 'play' && state.peek && state.peek !== s.id) state.peek = null;   // 미션을 푸는 동안에는 다른 지역의 설명을 열지 않는다(단추도 눌리지 않는다)
   // 머리: 서쪽에서 동쪽으로 이어 가는 선. 조각을 받은 지역은 채워지고, 지금 지역은 빛난다
-  const track = STOPS.map((x, k) => `<li class="${state.fragments.includes(x.id) ? 'got' : ''}${newDot === x.id && performance.now() < newUntil ? ' new' : ''}${k === i ? ' now' : ''}${state.peek === x.id ? ' open' : ''}"><button type="button" data-peek="${x.id}" aria-expanded="${state.peek === x.id}"><i></i><span>${label(x, 'name').split(' ')[0]}</span></button></li>`).join('');
+  const track = STOPS.map((x, k) => `<li class="${state.fragments.includes(x.id) ? 'got' : ''}${newDot === x.id && performance.now() < newUntil ? ' new' : ''}${k === i ? ' now' : ''}${state.peek === x.id ? ' open' : ''}"><button type="button" data-peek="${x.id}" aria-expanded="${state.peek === x.id}"${beat === 'play' && k !== i ? ' disabled' : ''}><i></i><span>${label(x, 'name').split(' ')[0]}</span></button></li>`).join('');
   // 선의 지역을 누르면 그 지역의 설명이 펼쳐진다. 앞 조각을 다 모은 지역이면 그리로 갈 수도 있다
   const pk = STOPS.find(x => x.id === state.peek), pi = STOPS.indexOf(pk);
   const open = pk && STOPS.slice(0, pi).every(x => state.fragments.includes(x.id));
@@ -125,6 +126,24 @@ function panel() {
     <div class="play">${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}</div>
     ${state.fragments.length === STOPS.length && s.id !== 'yanggu' && beat === 'done' ? `<button type="button" class="primary" data-finale>${t(state.finaleDone ? 'finale.again' : 'finale.go')}</button>` : ''}
     ${missionReady(s.id, state.seen[s.id]) ? `<button type="button" class="ghost again" data-retry="${s.id}">${t('common.retry')}</button>` : ''}`;
+  answerArrow();
+}
+
+// 답을 고를 단추가 풀렸는데 창 아래로 밀려 안 보이면, 창 아래쪽에 아래 화살표를 띄운다. 누르면 단추까지 내려간다
+let arrowEl = null;
+const answerActs = () => $('panel').querySelector('.play .acts:not(.wait)');
+function answerArrow() {
+  if (!arrowEl) {
+    arrowEl = document.createElement('button'); arrowEl.id = 'answer-arrow'; arrowEl.type = 'button'; arrowEl.hidden = true;
+    arrowEl.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v10M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.append(arrowEl);
+    arrowEl.addEventListener('click', () => answerActs()?.scrollIntoView({ block: 'end', behavior: 'smooth' }));
+    document.addEventListener('scroll', answerArrow, true); addEventListener('resize', answerArrow);
+  }
+  const acts = answerActs(), r = $('panel').getBoundingClientRect(), floor = Math.min(r.bottom, innerHeight);
+  const on = state.screen === 'mission' && document.body.dataset.beat === 'play' && !state.playing && !!acts && acts.getBoundingClientRect().top > floor - 24;
+  arrowEl.hidden = !on;
+  if (on) { arrowEl.style.left = `${r.left + r.width / 2}px`; arrowEl.style.top = `${floor - 60}px`; arrowEl.title = t('common.toAnswer'); arrowEl.setAttribute('aria-label', arrowEl.title); }
 }
 
 // 조각을 받는 순간 화면 가운데에 잠깐 뜨는 알림: 몇 번째 조각인지, 무엇을 읽는 법인지, 선이 어디까지 이어졌는지

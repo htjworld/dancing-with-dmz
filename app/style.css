@@ -1267,3 +1267,14 @@ body[data-screen=mission] #scrub .time{border-color:rgba(255,214,140,.6);box-sha
 @media (prefers-reduced-motion:reduce){#scrub.fresh .knob{animation:none}}
 /* 날짜 바는 구역 밖을 어둡게 누르는 덮개(#ink .spot, z 2)보다 위에 둔다. 아래에 깔리면 카드 전체가 어둡게 보인다 */
 #scrub{z-index:3}
+
+/* ---- 답 단추가 창 아래로 밀려 안 보일 때 뜨는 아래 화살표(jmj). 누르면 단추까지 내려간다 */
+#answer-arrow{position:fixed;z-index:30;width:44px;height:44px;margin-left:-22px;padding:0;border-radius:50%;border:1px solid rgba(255,214,140,.7);background:var(--gold);color:#1a1405;
+  display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 6px rgba(255,214,140,.14);animation:arrow-bob 1.2s ease-in-out infinite}
+#answer-arrow[hidden]{display:none}
+#answer-arrow svg{width:20px;height:20px}
+@keyframes arrow-bob{50%{transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){#answer-arrow{animation:none}}
+
+/* ---- 미션을 푸는 동안 다른 지역의 이름은 눌리지 않는다(jmj) */
+#panel .track button:disabled{cursor:default;pointer-events:none}
