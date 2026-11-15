@@ -66,6 +66,15 @@ function retry(id) {
   set({ ...clear, seen, retry: id, note: null, visited: [], peek: null, scrubbed: null });
 }
 
+// 엔딩 카드(hdk, 11/15): 오프닝의 7월 구름 사진과 같은 범위의 레이더를 나란히 다시 꺼내 처음과 끝을 잇는다.
+// 후렴('보이지 않는 땅을…')은 엔딩 마지막 문장으로 막 지나갔으므로 카드에서는 되풀이하지 않는다
+function pairHtml() {
+  const o = data.opening; if (!o?.optical?.file || !o?.radar?.file) return '';
+  return `<figure class="pair"><figcaption>${t('ending.pairTitle')}</figcaption>
+      <div><img src="data/${o.optical.file}" alt="${t('ending.cloudAlt')}"><span>${t('ending.pairOptical', { date: dateText(o.optical.date) })}</span></div>
+      <div><img src="data/${o.radar.file}" alt="${t('opening.altRadar')}"><span>${t('ending.pairRadar', { date: dateText(o.radar.date) })}</span></div></figure>`;
+}
+
 // 엔딩이 끝난 뒤 남는 한 장: 후렴, 읽은 다섯 가지, 쓴 자료, 다음에 할 수 있는 일
 function endCard() {
   const el = $('ending-card'), on = state.endCard && state.screen === 'mission' && !state.playing, key = on ? state.lang : '';
@@ -76,7 +85,7 @@ function endCard() {
   el.innerHTML = on ? `<div class="card">
       <button type="button" data-end="close" aria-label="${t('common.close')}" title="${t('common.close')}">×</button>
       ${lineSvg({ current: -1 })}
-      <h2>${t('ending.last')}</h2>
+      ${pairHtml()}
       <p class="eye">${t('ending.cardEyebrow')}</p>
       <ol>${STOPS.map(s => `<li><span>${label(s, 'name').split(' ')[0]}</span>${t(`${s.id}.feature`)}</li>`).join('')}</ol>
       <p class="fine">${t('ending.cardData', { from: dateText(first.date), to: dateText(last.date), passes: fact('passes') })}</p>
@@ -190,6 +199,7 @@ function perform(mode, ids) {
   set({ playing: { mode, at, duration: plan.duration, ids } });
 }
 function finale() {
+  { const el = $('piece-toast'); clearTimeout(toastTimer); el.hidden = true; el.classList.remove('in', 'out'); }   // 어느 단추로 시작하든 조각 알림을 걷는다(hdk)
   window.dmzMap.fitBounds(VIEW, { padding: { top: 90, bottom: 230, left: 30, right: 30 }, duration: 1000 });
   perform('finale', STOPS.map(s => s.id));
 }

@@ -76,7 +76,7 @@ export function initDance(map) {
     cloud.hidden = !back;
   }
   const lineFor = c => (restCycle < 0 ? (c < n - 2 ? 'ending.start' : 'ending.last')
-    : c < restCycle ? 'ending.start' : c === restCycle ? 'ending.rest' : c <= restCycle + 3 ? 'ending.resume' : c <= n - 3 ? 'ending.cloud' : 'ending.last');
+    : c < restCycle ? 'ending.start' : c <= n - 3 ? 'ending.cloud' : 'ending.last');   // 쉼표에서 바로 '12번 가운데 11번'으로 넘어간다('단 하루' 두 줄은 이 문장과 겹쳐 뺐다, hdk)
 
   function caption(prog) {
     const c = cycleAt(prog, n);

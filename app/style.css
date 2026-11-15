@@ -1233,3 +1233,18 @@ body:not([data-screen=mission]) #sound{right:64px}
 .pin.lit{animation:pin-lit .9s cubic-bezier(.2,1.4,.4,1)}
 @keyframes pin-lit{0%{scale:1} 30%{scale:2.6;box-shadow:0 0 0 8px rgba(255,225,162,.35),0 0 40px 16px rgba(255,214,140,.9)} 100%{scale:1}}
 @media (prefers-reduced-motion:reduce){.pin.lit{animation:none}}
+/* ===== 엔딩 카드(hdk, 11/15): 오프닝의 구름 ↔ 레이더 한 쌍 ===== */
+#ending-card .pair{margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#ending-card .pair figcaption{grid-column:1/-1;font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--gold)}
+#ending-card .pair div{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--night-edge);aspect-ratio:3/2;background:#0a1220}
+#ending-card .pair img{display:block;width:100%;height:100%;object-fit:cover}
+#ending-card .pair span{position:absolute;left:0;right:0;bottom:0;padding:14px 9px 6px;font-size:11.5px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(4,8,18,.85))}
+#ending-card .pair div:last-child{border-color:rgba(255,225,162,.45)}
+/* 한 쌍이 들어간 만큼 760px 높이 화면에서도 스크롤 없이 들어가게 줄인다 */
+#ending-card .pair{margin-bottom:16px}
+#ending-card ol{gap:4px;margin-bottom:10px}
+#ending-card li{padding-bottom:4px;font-size:15px}
+#ending-card .card > svg:first-of-type{max-height:74px}
+@media (max-width:600px){#ending-card .pair span{font-size:10.5px;padding:10px 7px 5px}}
+/* 엔딩에서는 다섯 곳을 모두 모은 뒤라, 지금 있는 지역(흰 글씨)도 다른 곳처럼 금빛으로 */
+body.finale .pin.current .pin-label,body.endcard .pin.current .pin-label{color:var(--gold)}
