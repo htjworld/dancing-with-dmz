@@ -1250,3 +1250,5 @@ body:not([data-screen=mission]) #sound{right:64px}
 body.finale .pin.current .pin-label,body.endcard .pin.current .pin-label{color:var(--gold)}
 /* 목록 제목 '당신이 모은 다섯 조각'을 카드의 큰 제목으로(작은 금빛 머리말 대신) */
 #ending-card .pair + h2{margin:2px 0 12px;font-size:22px;line-height:1.4}
+/* 미션 제목: 'Mission n.' 옆에 다 들어가지 않으면 제목 전체가 다음 줄로 내려가 한 덩어리로 줄을 고른다(제목 가운데서 끊기지 않게, hdk) */
+#intro h2 .tt,#panel h2 .tt{display:inline-block;text-wrap:balance}

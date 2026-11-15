@@ -51,7 +51,7 @@ function intro(s, i, beat) {
       ${clip ? `<figure class="clip"><video src="${clip}" autoplay muted loop playsinline></video><figcaption>${t('common.aiClip')}</figcaption></figure>` : ''}
       ${i === 0 && !state.fragments.length ? `<p class="goal">${t('mission.goal')}</p>` : ''}
       ${lineSvg({ current: i, label: `${i + 1} / ${STOPS.length}` })}
-      <h2><span class="mn">${t('mission.n', { n: i + 1 })}</span> ${label(s, 'title')}</h2>
+      <h2><span class="mn">${t('mission.n', { n: i + 1 })}</span> <span class="tt">${label(s, 'title')}</span></h2>
       <p class="story">${label(s, 'story')}</p>
       <p class="todo"><b>${t('common.todo')}</b>${label(s, 'todo')}</p>
       <button type="button" class="primary" data-start="${s.id}">${t('common.start')}</button></div>` : '';
@@ -120,7 +120,7 @@ function panel() {
     ${lineSvg({ current: i, draw: arrive ? i : -1, solved: beat === 'result' ? s.id : null, label: `${i + 1} / ${STOPS.length}` })}
     <p class="pieces" aria-label="${t('common.piece', { n: state.fragments.length, total: STOPS.length })}"><b>${state.fragments.length}</b> / ${STOPS.length}</p>
     <ol class="track">${track}</ol>${peek}
-    <header class="brief"><p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2><span class="mn">${t('mission.n', { n: i + 1 })}</span> ${label(s, 'title')}</h2></header>
+    <header class="brief"><p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2><span class="mn">${t('mission.n', { n: i + 1 })}</span> <span class="tt">${label(s, 'title')}</span></h2></header>
     <p class="todo${done ? ' done' : ''}"><b>${done ? '✓' : t('common.todo')}</b>${label(s, 'todo')}</p>
     <div class="play">${view ? view.render() : `<p class="hint">${t('mission.soon')}</p>`}</div>
     ${state.fragments.length === STOPS.length && s.id !== 'yanggu' && beat === 'done' ? `<button type="button" class="primary" data-finale>${t(state.finaleDone ? 'finale.again' : 'finale.go')}</button>` : ''}
