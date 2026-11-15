@@ -129,14 +129,19 @@ function panel() {
 
 // 조각을 받는 순간 화면 가운데에 잠깐 뜨는 알림: 몇 번째 조각인지, 무엇을 읽는 법인지, 선이 어디까지 이어졌는지
 let toastTimer = 0;
-function pieceToast(id) {
-  const el = $('piece-toast'), n = state.fragments.length, word = t(`${id}.feature`);
-  el.dataset.stop = id;
+// 알림의 글. 열려 있는 동안 언어를 바꾸면 이 함수로 다시 쓴다(선 그리기는 처음 한 번만, hdk)
+function fillToast(el, id, draw = true) {
+  const n = state.fragments.length, word = t(`${id}.feature`);
   el.innerHTML = `<p class="n">${t('common.piece', { n, total: STOPS.length })}</p><p class="word">${word}</p><p class="saw">${t(`${id}.saw`)}</p>
-    ${lineSvg({ current: n - 1, draw: n - 1 })}
+    ${lineSvg({ current: n - 1, draw: draw ? n - 1 : -1 })}
     <p class="to">${t(n === STOPS.length ? 'common.pieceAll' : 'common.pieceTo', { name: label(STOPS.find(x => x.id === id), 'name').split(' ')[0] })}</p>
     ${n === STOPS.length ? `<button type="button" class="go" data-finale>${t('finale.go')}</button>` : ''}
     <button type="button" data-close aria-label="${t('common.close')}" title="${t('common.close')}">×</button>`;
+}
+function pieceToast(id) {
+  const el = $('piece-toast');
+  el.dataset.stop = id;
+  fillToast(el, id);
   el.hidden = false; el.classList.remove('out'); void el.offsetWidth; el.classList.add('in');
   // 저절로 사라지지 않는다. 닫기를 눌러야 닫힌다(다음 지역으로 넘어가면 함께 걷힌다)
   clearTimeout(toastTimer);
@@ -286,6 +291,7 @@ async function start() {
     panel();
     if (s.fragments.length > prev.fragments.length) { const id = s.fragments[s.fragments.length - 1]; pieceFly(id, () => { if (state.stop === id && state.screen === 'mission' && state.playing?.mode !== 'finale' && !state.endCard) {   /* 조각이 날아가는 사이 엔딩을 시작했으면 알림·미리 듣기를 다시 띄우지 않는다(hdk) */ perform('preview', state.fragments); pieceToast(id); } }); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop || (s.screen !== prev.screen && s.screen !== 'mission')) { clearTimeout(toastTimer); $('piece-toast').hidden = true; document.querySelectorAll('.shard').forEach(e => e.remove()); if (s.landing) set({ landing: null }); }   // 다음 지역의 소개 카드와 겹치지 않게, 게임 밖(처음으로 등)으로 나가도 알림을 걷는다
+    { const el = $('piece-toast'); if (s.lang !== prev.lang && !el.hidden && el.dataset.stop) fillToast(el, el.dataset.stop, false); }   // 열린 알림도 언어를 따라 바뀐다(hdk)
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
     chrome(s);
     const fin = s.playing?.mode === 'finale';
