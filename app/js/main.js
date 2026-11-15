@@ -86,7 +86,7 @@ function endCard() {
       <button type="button" data-end="close" aria-label="${t('common.close')}" title="${t('common.close')}">×</button>
       ${lineSvg({ current: -1 })}
       ${pairHtml()}
-      <p class="eye">${t('ending.cardEyebrow')}</p>
+      <h2>${t('ending.cardEyebrow')}</h2>
       <ol>${STOPS.map(s => `<li><span>${label(s, 'name').split(' ')[0]}</span>${t(`${s.id}.feature`)}</li>`).join('')}</ol>
       <p class="fine">${t('ending.cardData', { from: dateText(first.date), to: dateText(last.date), passes: fact('passes') })}</p>
       <div class="acts"><button type="button" class="primary" data-end="again">${t('finale.again')}</button>
@@ -284,7 +284,7 @@ async function start() {
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh', retry: null, scrubbed: null });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
-    if (s.fragments.length > prev.fragments.length) { const id = s.fragments[s.fragments.length - 1]; pieceFly(id, () => { if (state.stop === id && state.screen === 'mission') { perform('preview', state.fragments); pieceToast(id); } }); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
+    if (s.fragments.length > prev.fragments.length) { const id = s.fragments[s.fragments.length - 1]; pieceFly(id, () => { if (state.stop === id && state.screen === 'mission' && state.playing?.mode !== 'finale' && !state.endCard) {   /* 조각이 날아가는 사이 엔딩을 시작했으면 알림·미리 듣기를 다시 띄우지 않는다(hdk) */ perform('preview', state.fragments); pieceToast(id); } }); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
     if (s.stop !== prev.stop || (s.screen !== prev.screen && s.screen !== 'mission')) { clearTimeout(toastTimer); $('piece-toast').hidden = true; document.querySelectorAll('.shard').forEach(e => e.remove()); if (s.landing) set({ landing: null }); }   // 다음 지역의 소개 카드와 겹치지 않게, 게임 밖(처음으로 등)으로 나가도 알림을 걷는다
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
     chrome(s);

@@ -17,6 +17,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 양구에서 조각이 날아가는 사이 엔딩을 시작하면 알림이 엔딩 위에 다시 뜨던 문제 수정, 엔딩 카드 큰 제목 '당신이 모은 다섯 조각' — hdk · `main.js`(jmj 확인 요청은 `plan.md` 보드), `style.css`
 - [x] 엔딩 다듬기: 오른쪽 창 단추로 엔딩을 시작해도 조각 알림이 닫힘, 겹치는 '단 하루' 내레이션 두 줄 삭제, 엔딩 카드에 오프닝의 7월 구름 ↔ 레이더 한 쌍·'당신이 모은 다섯 조각'·후렴 제목 중복 제거, 연출 안내 한 문장으로, 엔딩 중 지역 이름 모두 금빛 — hdk · `main.js`·`dance.js`(jmj 확인 요청은 `plan.md` 보드), `i18n.js`, `index.html`, `style.css`
 - [x] 조각 받기 보상: 받기 단추에서 빛 조각이 떠올라 지도 위 그 지역 점(예: 연천 임진강)으로 날아가 꽂히면 점과 그 구간 선이 켜지고 춤춘다. 알림은 왼쪽 위로. 조각을 받을 때 지도가 물러나지 않던 오류 수정 — htj · `main.js`·`map.js`·`dance.js`·`state.js`(jmj 확인), `style.css`(hdk 확인)
 - [x] 언어 단추는 `EN` / `한` 글자, 소리 단추는 흰색 스피커 아이콘(Lucide), 두 단추 같은 알약 크기. 음소거는 곡을 멈추지 않고 볼륨만 0 — htj · `index.html`·`style.css`(hdk 확인), `main.js`·`i18n.js`·`film.js`(jmj 확인), `night.js`, `sound.js`, `media/icons/`
