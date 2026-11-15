@@ -1278,3 +1278,7 @@ body[data-screen=mission] #scrub .time{border-color:rgba(255,214,140,.6);box-sha
 
 /* ---- 미션을 푸는 동안 다른 지역의 이름은 눌리지 않는다(jmj) */
 #panel .track button:disabled{cursor:default;pointer-events:none}
+
+/* ---- 결과 카드의 ? 단추: 펼쳐져 있으면 '다시 올리기'(위쪽 꺾쇠)로 바뀐다(jmj) */
+body[data-screen=mission] #panel .found details.why[open] summary{font-size:0;color:#2a1e05}
+#panel .found details.why[open] summary::before{content:"";width:8px;height:8px;border-left:2.2px solid #2a1e05;border-top:2.2px solid #2a1e05;border-radius:1px;transform:translateY(2px) rotate(45deg)}
