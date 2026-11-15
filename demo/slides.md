@@ -83,6 +83,25 @@
 - **Credits (맨 아래 작게):** Data: NISAR (NASA/ISRO, ASF DAAC), HLS (NASA LP DAAC), NASA POWER, ESA WorldCover 2021, © OpenStreetMap contributors. Built with SI (AI) tools: Claude Code, OpenAI Codex; intro clips are SI-generated (Higgsfield) and labelled.
 - **Visual:** 엔딩의 춤추는 선(파주에서 양구까지)
 
+## 5·6·7번 장의 실제 구성 (11/15 오후, 세 장이 같은 모양이던 것을 구분)
+
+미리캔버스 슬라이드는 아래처럼 바뀌었다. 위 5·6번 원고와 다르면 이 절이 기준이다.
+
+- **5. NASA data — 상자 세 개, 번호 단계.** 카드 제목이 큰 `01` `02` `03`이고, 본문 첫마디가 단계 이름이다(Measure change / Cross-check / Stay honest). 아이콘: 위성, 체크리스트, 방패.
+- **6. The evidence — 상자 없음, 큰 숫자.** 카드 상자 세 개를 지웠다. 금색 큰 숫자 `2.1 dB`(농사짓는 곳: 철원 남쪽 논 2.1, 북쪽 2.0, 경작지 78.7%·82.9%)와 `0.7 dB`(DMZ 안: 경작지 0.6%, 숲·초지 99.2%, 파주도 2.1 대 0.6), 셋째 칸은 Limits. 아이콘: 벼, 지도 핀, 경고.
+- **7. Who it helps — 넓은 판 하나에 세 칸.** 카드 상자 하나를 슬라이드 폭으로 넓혀 세 칸을 한 판에 담았다(작년 SAR 결선작 TengriSpacers의 마지막 장처럼 결론을 한 덩어리로). 첫 칸 제목이 금색 큰 `530,223`, 둘째 칸 Closed land, 셋째 칸 Try it(주소·자료·SI 도구). 아이콘: 화살표, 데이터베이스, 링크.
+
+## 7. Who it helps (Impact)
+
+미리캔버스 실제 슬라이드와 같은 내용이다(11/15 오후 피드백 반영: Impact 보강, `brainstorming/metacognition_htj.md` 6절 초안 기준). 새 숫자는 없다.
+
+- **Headline:** Who it helps
+- **Top right:** Radar data is free, but few people can read it. Next: test with visitors at an observatory and count who can read a radar image before and after.
+- **Card 1 — Visitors:** 530,223 people visited the Third Tunnel in 2025, 77% from abroad. In a few minutes a first-time visitor learns to read five things in any radar image. No install, no login, Korean and English.
+- **Card 2 — Closed land:** For anyone watching land they cannot enter, in seasons cameras cannot see. Free NISAR data and a nearby forest are enough: on the DMZ the method already separates farmed land (2.1 dB) from unfarmed land (0.6–0.7 dB).
+- **Card 3 — Try it:** Live app htjworld.github.io/dancing-with-dmz · Code (Apache 2.0) github.com/htjworld/dancing-with-dmz · Data: NISAR (NASA/ISRO, ASF DAAC), HLS, NASA POWER, ESA WorldCover, © OpenStreetMap · SI tools: Claude Code, Codex, Higgsfield.
+- 둘째 카드는 "같은 방법을 되풀이할 수 있다"는 뜻으로만 쓴다. 그 사용자를 실제로 만나 본 적은 없다.
+
 ---
 
 ## 만들 때 확인
