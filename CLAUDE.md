@@ -4,7 +4,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 
 ## 진행 중
 - [ ] 앱 동결: 정한 시각(제안 11/15 20:00) 뒤로 main 푸시 금지, 동결 직전 끝까지 한 번 해 보기 — 전원 · `brainstorming/metacognition_htj.md` 5절
-- [ ] 3등 안 목표: Impact 슬라이드 한 장(누가·무엇을, 영어 초안 있음), 여유 있으면 Details도 고치고 Submit for Judging 다시 — jmj · `brainstorming/metacognition_htj.md` 6절
+- [ ] 3등 안 목표: Impact 슬라이드는 됨(7번 장 Who it helps). 남은 것: 공식 페이지 Details의 Benefits 문단 교체와 줄바꿈 한 곳, 고치면 23:59 전 Submit for Judging 다시 — jmj · `brainstorming/metacognition_htj.md` 8절
 - [ ] 전원: 원격 주소 바꾸기 `git remote set-url origin https://github.com/htjworld/dancing-with-dmz.git` — khs (hdk·jmj 완료) · `plan.md` 9절
 - [ ] 제출 준비 체크리스트(영어 Summary, Use of SI 공개, LICENSE, Submit for Judging) — 전원 · `plan.md` 10절
 - [ ] 제출 문구 검토: `submission.md` 초안(Summary 168단어, Details, Use of SI, Data, References) — 전원 · `submission.md`

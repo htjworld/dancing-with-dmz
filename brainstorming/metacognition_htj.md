@@ -3,6 +3,7 @@
 작성: htj + Claude, 2026-11-15 오후(제출 11:59 뒤, 마감 23:59 전).
 근거: `ref/00_challenge_dancing_with_the_sars.md`(챌린지 원문), `ref/01_organizer_feedback.md`(운영진 피드백), `ref/02_finalists_2024_2025_benchmark.md`·`ref/2025_winners/`(수상작), `ref/03_nasa_seoul_guide.md`(심사 기준), `submission.md`(실제 제출 내용), `brainstorming/direction_check_htj.md`(어제의 방향 점검).
 다른 팀의 결과물은 모른다. 아래 가능성은 우리 쪽 근거만 본 추정이다.
+11/15 저녁 갱신: 서울 팀 목록(Find a Team, Seoul 필터 115팀)으로 경쟁 구도(4-1절)를, 실제 공식 페이지로 고칠 곳(8절)을 더했다. 팀 페이지의 프로젝트 내용은 로그인해야 보여서, 다른 팀은 챌린지 이름만 보고 판단했다.
 
 ## 1. 이 해커톤의 본질
 
@@ -43,7 +44,33 @@
 | 서울 최우수 3팀 | 중간 | 다섯 기준 합계로 순위를 매긴다. Impact가 강한 팀과의 경쟁이다 |
 | 글로벌 | 낮음~중간 | 2024·2025 글로벌 수상작은 대부분 "누가 무엇을 결정하는 데 쓰나"가 분명했다(관개, 물 부족, 산불, 파종) |
 
-**3등 안에 들려면 Impact를 3에서 4로 올리면 된다.** 나머지는 이미 상한에 가깝다. 앱을 고쳐서 오를 점수는 거의 없다.
+### 4-1. 서울 115팀 경쟁 구도 (11/15 저녁, 등록 기준, 제출 여부는 모름)
+
+| 챌린지 | 팀 | 우리와의 관계 |
+|---|---|---|
+| Health Monitoring for Astronauts | 15 | 겹치지 않음 |
+| Martian Map | 15 | 겹치지 않음 |
+| Flame in Freefall (미세중력 연소) | 11 | 겹치지 않음 |
+| Space Mission Design Game | 11 | **스토리텔링·게임 경쟁**(Best Storytelling 등) |
+| Junior Astronaut Mission Trainer | 10 | **교육 경쟁**(Impact를 "교육"으로 내세울 팀들) |
+| Earth System Trend Detective | 10 | **지구 관측 자료 경쟁** |
+| Lunar Landing Site Navigator | 9 | 겹치지 않음 |
+| Field Shift: Farms with NASA Data | 9 | **가장 가까운 경쟁**: 농사 + NASA 자료, "농부가 무엇을 결정한다"는 Impact가 원래 분명하다 |
+| Abandoned but not Forgotten (스토리텔링) | 8 | 스토리텔링 경쟁 |
+| MODIS·VIIRS Hot Spots (산불) | 6 | 지구 관측. 재난 대응이라 Impact가 분명하다 |
+| Planet X and SPHEREx | 5 | 겹치지 않음 |
+| Moon·Mars Analog | 3 | 겹치지 않음 |
+| **Dancing with the SARs** | **2** | 우리와 KimchiBoys(구인 중으로 표시) |
+| Earth Information Jukebox | 1 | 겹치지 않음 |
+
+읽은 것:
+- **서울 시상은 챌린지 구분 없이 115팀을 한 줄로 세운다.** SAR 팀이 둘뿐이라 Relevance에서 비교당할 상대는 거의 없다. 대신 3등 다툼 상대는 다른 챌린지의 강한 팀이다.
+- **희소성은 Creativity에 유리하다.** 심사위원은 비슷한 화성 지도와 우주인 건강 앱을 15개씩 본다. 그 사이에서 "출입 금지 땅 + 레이더 + 춤"은 기억에 남는다.
+- **Impact 약점이 상대적으로 더 아프다.** 지구 관측 자료를 쓰는 25팀(Field Shift, Trend Detective, Hot Spots)은 "누가 무엇을 결정하는가"가 챌린지 문구에 이미 들어 있다. 교육으로 Impact를 내세울 팀도 21팀(Junior Trainer, Mission Game)이다. 그래서 "교육" 한 줄만으로는 차별이 안 된다. 우리 Impact의 차별점은 **실측 자료로 보여 주는 교육**과 **530,223명이라는 실제 현장**이다.
+- **심사위원 4명이 모두 과학·데이터·CS 배경**(천문연, AWS 우주위성, 서울대 데이터사이언스, 연세대 CS)이다. 실측 숫자, 검증, 한계 공개가 다른 게임·교육 팀보다 앞서는 지점이다. Validity를 깎는 과장은 피한다.
+- 특별상 중 덜 붐빌 곳: **Research Communication**(Validity+Presentation), **Scientific Excellence**(Validity+Relevance). Best Storytelling은 게임·스토리텔링 팀 약 30팀과 겨룬다.
+
+**3등 안에 들려면 Impact를 3에서 4로 올리면 된다.** (11/15 저녁: 7번 장 "Who it helps"가 세 사용자 묶음으로 바뀌어 슬라이드 쪽은 됐다. 남은 곳은 공식 페이지 Details의 Benefits 문단이다. 8절 참고) 나머지는 이미 상한에 가깝다. 앱을 고쳐서 오를 점수는 거의 없다.
 
 ## 5. 3등 안에 들기 위해 꼭 할 것 (이것만)
 
@@ -83,3 +110,23 @@
 2. 출입할 수 없는 땅의 작물 계절 추적으로 쓰임새를 넓히기(표현은 지금처럼 "농경지로 보이는 땅" 수준으로 중립을 지킨다).
 3. Validity 마감: 원자료(30 m) 변동 지도, 125번 궤도 추가, 두 번째 계절.
 4. 다른 출입 금지 지역에 같은 틀 적용.
+
+## 8. 공식 페이지 점검 (11/15 저녁, 실제 제출본 기준)
+
+결론: **고칠 가치가 있는 건 Details 두 곳뿐이다.** 효과는 작지만, 가장 약한 기준(Impact)을 심사위원이 실제로 읽는 글에서 올린다. 고치면 23:59 전에 **Submit for Judging을 다시 누르고 "Project Submitted for Judging"이 보이는지 확인**해야 한다(jmj). 다시 제출할 여유가 없으면 고치지 않는다. 슬라이드 7번 장이 이미 같은 내용을 담고 있다.
+
+| 곳 | 지금 | 고칠 것 | 효과 |
+|---|---|---|---|
+| Details · Benefits and impact | 네 줄. 누가 쓰는지 흐리고 530,223은 앞 문단에만 있음 | 아래 문단으로 바꿈(슬라이드 7번 장과 같은 세 사용자) | Impact 소폭 상승 |
+| Details · What the data says | `29% north.Near Daeseong-dong` (줄바꿈 빠짐) | `north.` 뒤에 줄바꿈 | 보기만 |
+| Summary | "teaches anyone to read radar", "each teaching one way" | 바꾸지 않음. 고친다면 "helps anyone read radar", "each showing one way"(단어 수 199 그대로) | 아주 작음(학습 효과 과장 줄이기) |
+| Other Data · Google Fonts | 앱에서 더는 쓰지 않는 Noto Serif KR, Inter Tight, Nanum Pen Script | 그대로 둔다(출처를 빠뜨린 게 아니라 더 적었을 뿐이라 문제없다) | 없음 |
+
+Benefits and impact 바꿀 글(새 숫자 없음, 모두 `submission.md`·슬라이드 7번 장에 있는 것):
+
+> Benefits and impact.
+>
+> - Visitors and guides at the DMZ observatories: 530,223 people visited Paju's Third Tunnel in 2025, 77% from abroad, and they can only look across. Five short missions show what radar sees in that land. No install, no login, Korean and English.
+> - Teachers and students: a ready-made lesson with one radar concept per mission (repeat passes, dark water, change maps, polarization, night imaging). Open source under Apache 2.0.
+> - Anyone following land they cannot enter, in seasons cameras cannot see: free NISAR GCOV and a nearby forest as reference already separate farmed land (2.1 dB) from unfarmed land (0.6–0.7 dB). The same steps can be repeated for other closed areas.
+> - Next: test with visitors at an observatory and count how many can read a radar image before and after.
