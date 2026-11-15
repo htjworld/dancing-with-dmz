@@ -151,19 +151,30 @@ function pieceFly(id, land) {
   const x0 = from.left + from.width / 2, y0 = from.top + from.height / 2, el = document.createElement('i');
   el.className = 'shard'; el.dataset.stop = id; el.style.left = `${x0}px`; el.style.top = `${y0}px`;
   document.body.append(el);
+  // 꽂히는 자리: 지도 위 그 지역의 점(map.js 의 .pin, 예: '연천 임진강'). 날아가는 동안 매 프레임 다시 재서, 지도가 움직여도 점을 따라간다
+  const target = () => {
+    const pin = document.querySelector(`.pin[data-stop="${id}"]`)?.getBoundingClientRect();
+    if (pin?.width) return { x: pin.left + pin.width / 2, y: pin.top + pin.height / 2 };
+    const box = map.getContainer().getBoundingClientRect(), q = map.project(centerOf(STOPS.find(x => x.id === id)));
+    return { x: box.left + q.x, y: box.top + q.y };
+  };
+  const FLY = 850;
   setTimeout(() => {
     if (!el.isConnected) return;
-    // 꽂히는 자리: 지도 위 그 지역의 점(map.js 의 .pin). 점이 안 보이면 그 지역 가운데
-    const pin = document.querySelector(`.pin[data-stop="${id}"]`)?.getBoundingClientRect(), box = map.getContainer().getBoundingClientRect();
-    const c = pin?.width ? { x: pin.left + pin.width / 2, y: pin.top + pin.height / 2 } : (q => ({ x: box.left + q.x, y: box.top + q.y }))(map.project(centerOf(STOPS.find(x => x.id === id))));
-    const dx = c.x - x0, dy = c.y - y0 + 36;   // +36: 떠오를 때 올라간 만큼(style.css 의 shard-rise)
-    el.animate([{ transform: 'translate(0,0)' }, { transform: `translate(${dx * .5}px,${dy * .5 - 140}px)`, offset: .5 }, { transform: `translate(${dx}px,${dy}px) scale(.5)` }],
-      { duration: 800, easing: 'cubic-bezier(.45,0,.55,1)', fill: 'forwards' }).finished.then(() => {
+    const t0 = performance.now(), sx = x0, sy = y0 - 36;   // -36: 떠오를 때 올라간 자리(style.css 의 shard-rise)
+    el.style.translate = '0 0'; el.style.animation = 'none'; el.style.scale = '1.2';
+    const step = now => {
+      if (!el.isConnected) return;
+      const k = Math.min(1, (now - t0) / FLY), e = k < .5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2, c = target();
+      // 포물선: 출발점과 지금의 도착점 사이를 잇고, 가운데에서 140px 위로 솟는다
+      el.style.left = `${sx + (c.x - sx) * e}px`; el.style.top = `${sy + (c.y - sy) * e - 140 * 4 * e * (1 - e)}px`; el.style.scale = String(1.2 - .7 * e);
+      if (k < 1) return requestAnimationFrame(step);
       const ring = document.createElement('i'); ring.className = 'shard-burst'; ring.dataset.stop = id;
       ring.style.left = `${c.x}px`; ring.style.top = `${c.y}px`;
       ring.addEventListener('animationend', () => ring.remove()); document.body.append(ring);
       el.remove(); set({ landing: null }); land();
-    });
+    };
+    requestAnimationFrame(step);
   }, FLY_AFTER);
 }
 

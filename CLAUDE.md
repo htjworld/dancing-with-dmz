@@ -17,6 +17,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 조각 받기 보상: 받기 단추에서 빛 조각이 떠올라 지도 위 그 지역 점(예: 연천 임진강)으로 날아가 꽂히면 점과 그 구간 선이 켜지고 춤춘다. 알림은 왼쪽 위로. 조각을 받을 때 지도가 물러나지 않던 오류 수정 — htj · `main.js`·`map.js`·`dance.js`·`state.js`(jmj 확인), `style.css`(hdk 확인)
 - [x] 언어 단추는 `EN` / `한` 글자, 소리 단추는 흰색 스피커 아이콘(Lucide), 두 단추 같은 알약 크기. 음소거는 곡을 멈추지 않고 볼륨만 0 — htj · `index.html`·`style.css`(hdk 확인), `main.js`·`i18n.js`·`film.js`(jmj 확인), `night.js`, `sound.js`, `media/icons/`
 - [x] 엔딩 모으기 장면에서 선이 구간째 뚝뚝 켜지지 않고 한 줄기로 자라나게 — hdk · `dance.js`(jmj 확인 요청은 `plan.md` 보드)
 - [x] 밤하늘·게임 다듬기: 둘러보기 위쪽 밤하늘 별과 재생 때 지나가는 위성(연출), 단면 팝업 글자 밝게, 게임 구역 표시를 뷰파인더+스포트라이트로, 양구·철원 답 단추 처음부터 보이되 잠금, 핀 화살표 크게, 왼쪽 위 제목이 실측 리듬으로 작게 춤춤, 중간 폭 조작 줄 겹침 — hdk · `screens/nightsky.js`(새), `night.js`, `nightglow.js`, `film.js`, `style.css`, `i18n.js`, `zones.js`·`gamemap.js`·`views/yanggu.js`·`views/cheorwon.js`(jmj 확인 요청은 `plan.md` 보드)
