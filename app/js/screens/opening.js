@@ -148,8 +148,6 @@ export function initOpening() {
   });
   subscribe((s, prev) => {
     if (s.screen === 'opening' && (prev.screen !== 'opening' || s.lang !== prev.lang)) build();
-    // 오프닝을 떠나면 하늘·구름 그림판을 비운다(돌아오면 build 가 다시 그린다)
-    if (s.screen !== 'opening' && prev.screen === 'opening') for (const c of el.querySelectorAll('canvas')) c.width = c.height = 0;
   });
   if (state.screen === 'opening') build();
 }
