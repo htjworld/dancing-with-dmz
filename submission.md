@@ -9,7 +9,7 @@
 - [x] 소개 영상 5개(`app/media/intro/*.mp4`)를 만든 도구: Higgsfield (jmj 확인, 11/15)
 - [x] 소개 영상의 SI 생성 표시: 앱 화면에서 영상 위에 글자를 겹쳐 보여 준다(11/15 jmj). mp4 파일 자체에는 표시가 없으니, 시간이 되면 영상에 직접 새겨 다시 내보낸다
 - [ ] README의 "No AI-generated images, audio or video are used"를 5번 칸과 같게 고친다 — htj
-- [ ] `LICENSE` 파일(안 정하면 Apache 2.0) → 7번 표 마지막 줄
+- [x] `LICENSE`: Apache License 2.0 (11/15 jmj가 추가. 팀이 다른 라이선스를 원하면 바꾼다)
 - [ ] 띠 단면 숫자(10% / 15% / 29%)를 htj가 확인했는지 (`plan.md` 5절 hdk→htj). 확인 전이면 4번 칸의 해당 문장을 뺀다
 - [ ] 팀 이름, 데모 링크
 
@@ -21,9 +21,17 @@
 
 ## 1. High-Level Summary (50–200 words)
 
-> Dancing with DMZ lets anyone read a land that no one can visit. The Korean Demilitarized Zone has been closed to the public for over 70 years, and in July 2026 optical satellites were blind as well: across five DMZ windows, Landsat looked 19 times and never got a clear view. NISAR's L-band radar imaged the same land every 12 days, through cloud and after dark. From 11 NISAR passes (June–November 2026) we built a "night photo" of how much each pixel changed over the season, relative to nearby forest. Farmed fields on both sides of the demarcation line glow; the strip between them stays still. In our web app, visitors rub away a cloudy July image to reveal the radar view, watch the season build up, then play five short missions from Paju to Yanggu. Each mission teaches one way to read radar: repeat passes, dark water, change maps, polarization and night imaging. The five measured curves then join into one line that dances. Independent checks agree: Cheorwon's glowing paddy is 78.7% cropland, the dark DMZ lowland 0.6%. Every number on screen is generated from the data, with its limits stated.
+> Dancing with DMZ is an interactive web app that teaches anyone to read radar, using a land no one can visit.
+>
+> The Korean Demilitarized Zone has been closed to the public for over 70 years, and in July 2026 optical satellites were blind: Landsat looked at five DMZ windows 19 times and got no clear view. NISAR's L-band radar imaged it every 12 days, through cloud and after dark.
+>
+> From 11 NISAR passes (June–November 2026) we track one season of surface change across paddies, a river, forest and a mountain basin. Our map shows how much each pixel changed, relative to nearby forest. Where people farm, the land glows; the unfarmed strip stays still. In Cheorwon the glowing paddy is 78.7% cropland, the still DMZ lowland 0.6%.
+>
+> Visitors rub away a cloudy image to reveal radar, then play five missions, each teaching one way to read it: repeat passes, dark water, change maps, polarization and night imaging; their curves join into one dancing line.
+>
+> Radar data is free, but few people can read it. We turn it into something a student or a tourist at a DMZ observatory can understand. Every number comes from the data, with limits stated.
 
-(약 190단어)
+(199단어, 1140자. 양식 칸은 1,500자 제한)
 
 ## 2. Project Demo
 
@@ -56,7 +64,7 @@
 5. **Explore.** The seasonal-change map as a continuous strip along the demarcation line, a cross-section chart, and an evidence panel for each region with forest-relative curves, land cover, rain and limits.
 
 **How it works.**
-- NISAR L2 GCOV (track 133, descending; frames 069 and 070), 11 passes from 2026-06-23 to 11-02, HH and HV. The ~6 GB scenes are read remotely with HTTP range requests, so only the needed pixels are downloaded.
+- NISAR L2 GCOV (track 133; frames 069 and 070), 11 passes from 2026-06-23 to 11-02, HH and HV. The ~6 GB scenes are read remotely with HTTP range requests, so only the needed pixels are downloaded.
 - For every pixel: HH backscatter minus the same-day forest mean (this removes scene-wide effects such as a wet day), then the spread over the season. Bright means a large seasonal change.
 - Checks from independent sources: cloud measured inside each window from HLS Landsat browse images; land cover of each zone from ESA WorldCover 2021; NASA POWER rain in the three days before each pass.
 - Every number on screen comes from one generated file (`facts.json`), and the build stops if a stated claim no longer matches the data. Automated tests run on every push, and GitHub Actions deploys to GitHub Pages only when they pass.
@@ -68,6 +76,18 @@
 - Land cover agrees: the Cheorwon paddy zone is 78.7% cropland, the DMZ lowland 0.6% (99.2% tree and grass), the northern zone 82.9%.
 - Along the whole strip, the share of strongly changing land is 10% within 2 km of the line, 15% at 2–10 km south and 29% north.
 
+**Benefits and impact.**
+- A first-time visitor leaves able to read five things in any SAR image: repeat passes, dark water, change maps, polarization and night imaging.
+- A place that cannot be visited, in a season cameras cannot see, becomes readable from open data.
+- For teachers and guides: the missions are short, need no install or login, and run in Korean and English.
+- The method needs only NISAR GCOV and a nearby forest as reference, so it can be repeated for other places where access is closed.
+
+**What is creative.**
+- It starts from what a visitor already knows, a cloudy photo, and lets them rub it away with their own hand to meet radar.
+- One mission, one radar feature. Each place along the line was chosen because it shows that feature best.
+- The challenge's "dance" is literal: the measured curves of five regions join into one line that moves with the data.
+- Honesty is part of the design: the day we cannot explain is shown, not hidden.
+
 **Design choices.**
 - "Glow" and "still" describe only the size of the radar signal change. We do not claim ecological recovery or crop condition, and land north of the line is described only as "appears to be farmland".
 - The dancing line shows change in backscatter, not ground movement. The music and the sky colours are staging; the height, pauses and jumps of the line follow the measurements, and the screen says so.
@@ -78,11 +98,11 @@
 
 **Limits.** 10 of the 11 passes are PROVISIONAL products. The glow map is built from display layers and is coarser than the 30 m source. One season only. Zones are rectangles we chose on the radar image; WorldCover is from 2021. The demarcation line is an approximate OpenStreetMap geometry.
 
-**Next steps.** Rebuild the change map from the 30 m source; add the ascending track (125) for twice the views; a second season; test the app with visitors at an observatory; apply the same method to other places no one can enter.
+**Next steps.** Rebuild the change map from the 30 m source; add a second track (125) for twice the views; a second season; test the app with visitors at an observatory; apply the same method to other places no one can enter.
 
 **Tools.** Python (NumPy, SciPy, Pillow, pyproj, h5py, tifffile), JavaScript (ES modules, no framework), MapLibre GL JS, Canvas, Web Audio API, Node test runner, GitHub Actions and GitHub Pages.
 
-**Code.** https://github.com/htjworld/dancing-with-dmz
+**Code and license.** https://github.com/htjworld/dancing-with-dmz (open source, Apache License 2.0)
 
 ## 5. Use of SI (AI tools)
 
@@ -129,7 +149,7 @@
 | Paju Third Tunnel visitor numbers — https://www.m-i.kr/news/articleView.html?idxno=1399626 | Target users | News article |
 | NASA Space Apps Challenge mark (favicon) — https://www.spaceappschallenge.org/ | Browser tab icon | Event mark, used as provided by the Seoul organizers |
 | Claude Code (Anthropic), OpenAI Codex, Higgsfield | See "Use of SI" | — |
-| Our code — https://github.com/htjworld/dancing-with-dmz | — | [LICENSE: Apache 2.0 unless the team decides otherwise] |
+| Our code — https://github.com/htjworld/dancing-with-dmz | — | Apache License 2.0 (`LICENSE`) |
 
 ## 제출 직전 확인 (안내 13·14·30·31쪽)
 

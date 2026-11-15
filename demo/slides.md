@@ -77,7 +77,7 @@
   - A visitor leaves knowing five things they can read in any SAR image
   - A place no one can enter, in a season no camera can see, becomes readable
   - The method works anywhere access is closed: cloud-covered, remote or restricted land
-- **Next:** rebuild from the 30 m source · add the ascending track for twice the views · a second season · test with visitors at an observatory
+- **Next:** rebuild from the 30 m source · add a second track for twice the views · a second season · test with visitors at an observatory
 - **Links:** Live app htjworld.github.io/dancing-with-dmz · Code github.com/htjworld/dancing-with-dmz
 - **Credits (맨 아래 작게):** Data: NISAR (NASA/ISRO, ASF DAAC), HLS (NASA LP DAAC), NASA POWER, ESA WorldCover 2021, © OpenStreetMap contributors. Built with SI (AI) tools: Claude Code, OpenAI Codex; intro clips are SI-generated (Higgsfield) and labelled.
 - **Visual:** 엔딩의 춤추는 선(파주에서 양구까지)
