@@ -38,7 +38,7 @@ export const STOPS = [
       todo: 'Drag the handle through the dates, then pick the land that takes on more colour.' },
     bounds: [127.15, 38.15, 127.55, 38.42] },
   { id: 'hwacheon', name: '화천 백암산', eye: '편파',
-    title: '숲과 평지는 어느\u00a0쪽에서 더 잘 갈릴까요?',
+    title: '숲과 평지는 어느\u00a0쪽에서 더 뚜렷할까요?',
     story: 'NISAR는 전파를 주고받는 방향을 바꿔 두 가지로 찍습니다. HH와\u00a0HV라고 부릅니다.',
     todo: '지도 위의 커튼을 좌우로 밀어 HH와\u00a0HV를 견줘 보세요.',
     en: { name: 'Hwacheon Baegam-san', eye: 'Polarisation',
