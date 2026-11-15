@@ -1147,3 +1147,14 @@ html[lang=en] #ending-card li{grid-template-columns:6.2em 1fr}
   body[data-screen=mission] #scrub .time{bottom:calc(48vh + 22px)}
   body[data-screen=mission] #panel h2{font-size:18px}
 }
+/* 생성 영상 표시의 글자를 줄인다(10.5px → 7px) */
+#intro .clip figcaption{font-size:7px;right:8px;bottom:6px}
+
+/* ---- 양구의 하늘: 검은 띠 대신 산등성이. 해가 가운데 골짜기 뒤로 넘어간다(펀치볼은 산에 둘러싸인 분지다) */
+#panel .sky{height:96px}
+#panel .sky .ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:46px;display:block}
+#panel .sky .ridge .far{fill:#1c2a40;opacity:.9}
+#panel .sky .ridge .near{fill:#070b12}
+#panel .sky .stars{inset:0 0 30px}
+#panel .sky .sun{z-index:0}
+#panel .sky .ridge{z-index:1}

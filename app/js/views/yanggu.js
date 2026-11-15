@@ -51,9 +51,11 @@ export function sky(e) {
 }
 
 function scene(c) {
-  const e = sunElev(c) ?? 0, y = Math.max(-40, Math.min(70, e * 6));   // 해의 자리(지평선에서 위아래로)
+  const e = sunElev(c) ?? 0, y = Math.max(-40, Math.min(70, e * 6));   // 해의 자리(산등성이에서 위아래로). 해는 산 뒤로 넘어간다
   return `<div class="sky ${kind(e)}" style="background:${sky(e)}" role="img" aria-label="${t('yanggu.skyAria')}">
-      <i class="stars" style="opacity:${Math.max(0, Math.min(1, (-e - 3) / 9)).toFixed(2)}"></i><i class="sun" style="bottom:${(26 + y).toFixed(0)}px"></i><i class="land"></i></div>
+      <i class="stars" style="opacity:${Math.max(0, Math.min(1, (-e - 3) / 9)).toFixed(2)}"></i><i class="sun" style="bottom:${(26 + y).toFixed(0)}px"></i><svg class="ridge" viewBox="0 0 300 46" preserveAspectRatio="none" aria-hidden="true">
+        <path class="far" d="M0 46V24L22 15L44 22L70 9L96 20L120 14L140 23L160 17L186 8L212 19L236 12L262 21L284 13L300 19V46Z"/>
+        <path class="near" d="M0 46V31L18 24L36 30L58 19L80 28L104 22L126 31L150 34L172 30L196 21L218 29L240 20L262 28L282 23L300 29V46Z"/></svg></div>
     <p class="today">${t('yanggu.shotAt', { time: clock(c) })} ${t(e > .5 ? 'yanggu.sunUp' : e > -1 ? 'yanggu.sunEdge' : 'yanggu.sunDown', { deg: Math.abs(e).toFixed(0) })}</p>`;
 }
 // 같은 자리를 레이더로 찍은 것(실측)과, 빛으로 찍는 카메라였다면 어땠을지(연출: 해의 높이만큼 어둡게)
