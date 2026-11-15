@@ -48,7 +48,7 @@ function intro(s, i, beat) {
   const clip = INTRO_CLIP[s.id];
   el.innerHTML = on ? `<div class="card">
       ${i === 0 && !state.fragments.length ? `<p class="leadin">${t('mission.leadIn')}</p>` : ''}
-      ${clip ? `<video src="${clip}" autoplay muted loop playsinline></video>` : ''}
+      ${clip ? `<figure class="clip"><video src="${clip}" autoplay muted loop playsinline></video><figcaption>${t('common.aiClip')}</figcaption></figure>` : ''}
       ${lineSvg({ current: i, label: `${i + 1} / ${STOPS.length}` })}
       <p class="eye">${label(s, 'name')} · ${label(s, 'eye')}</p><h2>${label(s, 'title')}</h2>
       <p class="story">${label(s, 'story')}</p>

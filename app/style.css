@@ -410,7 +410,10 @@ body[data-screen=night][data-night=film][data-film-part=intro] #film{bottom:22px
   backdrop-filter:blur(26px) saturate(170%);-webkit-backdrop-filter:blur(26px) saturate(170%);
   box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.1);animation:card-in .4s cubic-bezier(.2,.8,.2,1)}
 @keyframes card-in{from{opacity:0;transform:translateY(14px) scale(.96);filter:blur(6px)}}
-#intro video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;margin:0 0 16px;background:#000}
+#intro .clip{position:relative;margin:0 0 16px}
+#intro video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;background:#000}
+/* 생성 영상 표시: 제출 규정상 SI로 만든 영상에는 눈에 보이는 표시가 있어야 한다. 영상이 도는 동안 항상 보인다 */
+#intro .clip figcaption{position:absolute;right:10px;bottom:7px;color:rgba(255,255,255,.9);font-size:10.5px;font-weight:500;letter-spacing:.02em;text-shadow:0 1px 2px rgba(0,0,0,.8);pointer-events:none}
 #intro .brief{display:flex;gap:14px;align-items:center;margin:0 0 12px}
 #intro .badge{flex:0 0 54px;height:54px;border-radius:15px;display:grid;place-items:center;font-size:29px;line-height:1;color:#07100e;background:var(--acc)}
 #intro .eye{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--acc)}

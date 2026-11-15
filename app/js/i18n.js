@@ -137,6 +137,7 @@ const TEXT = {
     // 다섯 미션 화면이 함께 쓰는 문구
     'common.todo': '할 일',
     'common.start': '시작하기',
+    'common.aiClip': 'SI-generated video',
     'common.goThere': '이 지역으로 가기',
     'common.locked': '앞 지역의 조각을 모으면 열립니다.',
     'common.piece': '레이더의 특징 {n} / {total}',
@@ -445,6 +446,7 @@ const TEXT = {
     'caveat.missing_pass': 'The July 29 pass has no data.',
     'common.todo': 'To do',
     'common.start': 'Start',
+    'common.aiClip': 'SI-generated video',
     'common.goThere': 'Go to this place',
     'common.locked': 'Opens after you collect the pieces before it.',
     'common.piece': 'Radar feature {n} of {total}',
