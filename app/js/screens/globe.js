@@ -263,7 +263,7 @@ export function createIntro() {
     const corner = i => P(vec(...from.corners[i]));
     const drawPhoto = alpha => {
       if (!photo || alpha <= 0.003) return;
-      const [a0, a1, a3] = [corner(0), corner(1), corner(3)], r = devicePixelRatio || 1, iw = photo.width, ih = photo.height;
+      const [a0, a1, a3] = [corner(0), corner(1), corner(3)], r = DPR(), iw = photo.width, ih = photo.height;   // 그림판과 같은 배율(1.5배 상한)로 붙인다
       cx.save(); cx.globalAlpha = fade * alpha;
       cx.setTransform(r * (a1[0] - a0[0]) / iw, r * (a1[1] - a0[1]) / iw, r * (a3[0] - a0[0]) / ih, r * (a3[1] - a0[1]) / ih, r * a0[0], r * a0[1]);
       cx.drawImage(photo, 0, 0); cx.restore();
