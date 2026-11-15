@@ -177,7 +177,9 @@ export function initMap() {
   });
   const paint = () => pins.forEach(el => {
     el.classList.toggle('current', el.dataset.stop === state.stop);
-    el.classList.toggle('done', state.fragments.includes(el.dataset.stop));
+    const on = state.fragments.includes(el.dataset.stop) && state.landing !== el.dataset.stop;   // 날아오는 조각이 꽂혀야 불이 켜진다(main.js pieceFly)
+    if (on && !el.classList.contains('done') && state.screen === 'mission') { el.classList.remove('lit'); void el.offsetWidth; el.classList.add('lit'); }
+    el.classList.toggle('done', on);
     const i = STOPS.findIndex(x => x.id === el.dataset.stop);
     el.dataset.prev = i > 0 ? '1' : '0';
     el.dataset.next = i < STOPS.length - 1 && STOPS.slice(0, i + 1).every(x => state.fragments.includes(x.id)) ? '1' : '0';
@@ -218,16 +220,17 @@ export function initMap() {
   });
   // 지역을 바꾸면 그 지역의 창으로 날아가고 구역을 바꿔 보여 준다
   subscribe((s, prev) => {
-    if (s.stop === prev.stop && s.mapReady === prev.mapReady) return;
-    for (const id of ['zone-fill', 'zone-line']) if (map.getLayer(id)) map.setFilter(id, ['==', ['get', 'region'], s.stop]);
-    if (s.stop !== prev.stop) { clearTimeout(pieceBack); focus(s.stop); }
-    // 조각을 받는 순간: 서쪽 끝에서 이 지역까지 이어진 선이 한눈에 보이게 물러났다가, 잠시 뒤 돌아온다
+    // 조각을 받는 순간: 서쪽 끝에서 이 지역까지 이어진 선이 한눈에 보이게 물러났다가, 잠시 뒤 돌아온다.
+    // 조각을 받아도 지역은 그대로이므로 아래의 '지역이 그대로면 돌아간다'보다 먼저 본다. 날아온 조각이 꽂히는 자리는 main.js(pieceFly)
     if (s.screen === 'mission' && s.fragments.length > prev.fragments.length) {
       const id = s.fragments[s.fragments.length - 1], a = STOPS[0].bounds, b = STOPS.find(x => x.id === id).bounds;
       map.fitBounds([[a[0] - .1, Math.min(a[1], b[1]) - .06], [b[2] + .1, Math.max(a[3], b[3]) + .06]], { padding: padding(), duration: 1100 });
       clearTimeout(pieceBack);
-      pieceBack = setTimeout(() => { if (state.screen === 'mission' && state.stop === id && state.playing?.mode !== 'finale') focus(id); }, 3800);
+      pieceBack = setTimeout(() => { if (state.screen === 'mission' && state.stop === id && state.playing?.mode !== 'finale') focus(id); }, 6000);
     }
+    if (s.stop === prev.stop && s.mapReady === prev.mapReady) return;
+    for (const id of ['zone-fill', 'zone-line']) if (map.getLayer(id)) map.setFilter(id, ['==', ['get', 'region'], s.stop]);
+    if (s.stop !== prev.stop) { clearTimeout(pieceBack); focus(s.stop); }
   });
 
   map.on('click', e => document.dispatchEvent(new CustomEvent('dmz-map-click', { detail: { lng: e.lngLat.lng, lat: e.lngLat.lat } })));

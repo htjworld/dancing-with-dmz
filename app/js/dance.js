@@ -103,7 +103,7 @@ export function initDance(map) {
     // 마지막 STAR 초는 별자리 장면이다. 그 앞까지가 한 계절을 훑는 춤
     const starK = finale ? Math.max(0, Math.min(1, (elapsed - (play.duration - STAR)) / 1.6)) : 0, dancing = finale && !gather;
     const prog = finale ? Math.max(0, Math.min(.9999, (elapsed - GATHER) / (play.duration - GATHER - STAR))) : active ? Math.max(0, elapsed / play.duration) : state.cycle / n + 1e-6;
-    const lit = id => (finale ? ids.indexOf(id) <= gathered : state.fragments.includes(id));
+    const lit = id => (finale ? ids.indexOf(id) <= gathered : state.fragments.includes(id) && state.landing !== id);
     let moving = false;
     ids.forEach((id, i) => {
       // 미리 듣기 동안에는 듣는 구간만 한 계절을 한 번 훑고, 그 밖에는 타임라인에서 고른 날짜의 높이를 따른다

@@ -1,9 +1,9 @@
 import { state, set, subscribe, data, load, md, fact } from './state.js';
 import { missionReady } from './missions.js';
-import { STOPS, label, INTRO_CLIP } from './stops.js';
+import { STOPS, label, INTRO_CLIP, centerOf } from './stops.js';
 import { initMap, VIEW } from './map.js';
 import { endingScore, pieceChime } from './screens/nightmusic.js';
-import { play, stop, setSound } from './sound.js';
+import { play, stop, setSound, blip } from './sound.js';
 import { initDance } from './dance.js';
 import { initNight } from './screens/night.js';
 import { initOpening } from './screens/opening.js';
@@ -139,6 +139,34 @@ function pieceToast(id) {
   el.querySelector('[data-close]').focus({ preventScroll: true });
 }
 
+// 조각을 받는 순간: 받기 단추에서 빛 조각이 떠오르고, 지도가 물러나 선을 보여 주면(map.js) 지도 위 그 지역의 점으로 날아가 꽂힌다.
+// 꽂히는 순간 그 지역 점에 불이 켜지고, 그 구간의 선이 실측 값으로 춤추고(perform) 알림이 뜬다. 움직임을 줄인 환경이나 단추를 모를 때는 바로 꽂힌다
+let takeFrom = null;
+const FLY_AFTER = 1150;   // map.js 가 물러나는 시간(1100ms) 뒤에 날아간다. 날아가는 동안 지도가 멈춰 있어야 꽂힐 자리가 맞는다
+function pieceFly(id, land) {
+  const map = window.dmzMap, from = takeFrom; takeFrom = null;
+  if (!map || !from || matchMedia('(prefers-reduced-motion: reduce)').matches) return land();
+  set({ landing: id });
+  blip(880, .18, .35);
+  const x0 = from.left + from.width / 2, y0 = from.top + from.height / 2, el = document.createElement('i');
+  el.className = 'shard'; el.dataset.stop = id; el.style.left = `${x0}px`; el.style.top = `${y0}px`;
+  document.body.append(el);
+  setTimeout(() => {
+    if (!el.isConnected) return;
+    // 꽂히는 자리: 지도 위 그 지역의 점(map.js 의 .pin). 점이 안 보이면 그 지역 가운데
+    const pin = document.querySelector(`.pin[data-stop="${id}"]`)?.getBoundingClientRect(), box = map.getContainer().getBoundingClientRect();
+    const c = pin?.width ? { x: pin.left + pin.width / 2, y: pin.top + pin.height / 2 } : (q => ({ x: box.left + q.x, y: box.top + q.y }))(map.project(centerOf(STOPS.find(x => x.id === id))));
+    const dx = c.x - x0, dy = c.y - y0 + 36;   // +36: 떠오를 때 올라간 만큼(style.css 의 shard-rise)
+    el.animate([{ transform: 'translate(0,0)' }, { transform: `translate(${dx * .5}px,${dy * .5 - 140}px)`, offset: .5 }, { transform: `translate(${dx}px,${dy}px) scale(.5)` }],
+      { duration: 800, easing: 'cubic-bezier(.45,0,.55,1)', fill: 'forwards' }).finished.then(() => {
+      const ring = document.createElement('i'); ring.className = 'shard-burst'; ring.dataset.stop = id;
+      ring.style.left = `${c.x}px`; ring.style.top = `${c.y}px`;
+      ring.addEventListener('animationend', () => ring.remove()); document.body.append(ring);
+      el.remove(); set({ landing: null }); land();
+    });
+  }, FLY_AFTER);
+}
+
 // ---- 소리와 춤
 // 음악은 밤하늘의 주제를 쓴다(screens/nightmusic.js). 엔딩에서는 그 주제에 가락이 얹혀 완성되고, 조각을 받을 때는 한 마디가 울린다.
 // 음악은 연출이다. 실측을 따르는 것은 선의 움직임이다(dance.js).
@@ -225,6 +253,7 @@ async function start() {
     if (pk) return set({ peek: state.peek === pk.dataset.peek ? null : pk.dataset.peek });
     if (go) return set({ stop: go.dataset.go, peek: null, note: null });
     const b = e.target.closest('[data-act]');
+    if (b?.dataset.act === 'take') takeFrom = b.getBoundingClientRect();   // 조각이 떠오르는 자리
     if (b && !b.disabled) VIEWS[state.stop]?.act(b.dataset.act, b);
   });
   for (const v of Object.values(VIEWS)) v.bind?.($('panel'));
@@ -234,8 +263,8 @@ async function start() {
   subscribe((s, prev) => {
     if (s.stop !== prev.stop) Object.assign(state, { visited: [s.cycle], note: null, pol: 'hh', retry: null, scrubbed: null });   // 지역을 옮기면 눈은 HH 로 돌아간다
     panel();
-    if (s.fragments.length > prev.fragments.length) { perform('preview', s.fragments); pieceToast(s.fragments[s.fragments.length - 1]); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
-    if (s.stop !== prev.stop || (s.screen !== prev.screen && s.screen !== 'mission')) { clearTimeout(toastTimer); $('piece-toast').hidden = true; }   // 다음 지역의 소개 카드와 겹치지 않게, 게임 밖(처음으로 등)으로 나가도 알림을 걷는다
+    if (s.fragments.length > prev.fragments.length) { const id = s.fragments[s.fragments.length - 1]; pieceFly(id, () => { if (state.stop === id && state.screen === 'mission') { perform('preview', state.fragments); pieceToast(id); } }); }   // 조각을 받으면 지금까지 모은 층이 함께 울린다
+    if (s.stop !== prev.stop || (s.screen !== prev.screen && s.screen !== 'mission')) { clearTimeout(toastTimer); $('piece-toast').hidden = true; document.querySelectorAll('.shard').forEach(e => e.remove()); if (s.landing) set({ landing: null }); }   // 다음 지역의 소개 카드와 겹치지 않게, 게임 밖(처음으로 등)으로 나가도 알림을 걷는다
     if (s.stop !== prev.stop && s.playing) { stop(); clearTimeout(timer); state.playing = null; }
     chrome(s);
     const fin = s.playing?.mode === 'finale';

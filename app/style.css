@@ -1211,3 +1211,25 @@ body[data-screen=night][data-night=explore] #night .scrim{background:linear-grad
 #lang{font-size:13px;font-weight:600;letter-spacing:.02em}   /* 바꿀 언어를 글자로(EN / 한), 스피커와 같은 알약 단추 */
 #sound[aria-pressed=true] .off,#sound[aria-pressed=false] .on{display:none}
 body:not([data-screen=mission]) #sound{right:64px}
+
+/* ---- 조각이 지도로 날아가 꽂힌다(main.js pieceFly): 받기 단추에서 떠올라 → 분계선 위 그 지역 자리로 → 꽂히는 자리에 빛 고리 */
+.shard,.shard-burst{position:fixed;z-index:40;pointer-events:none;--acc:var(--gold)}
+.shard[data-stop=yeoncheon],.shard-burst[data-stop=yeoncheon]{--acc:#7fe9ff} .shard[data-stop=cheorwon],.shard-burst[data-stop=cheorwon]{--acc:#bce9c5}
+.shard[data-stop=hwacheon],.shard-burst[data-stop=hwacheon]{--acc:#c9b8ff} .shard[data-stop=yanggu],.shard-burst[data-stop=yanggu]{--acc:#ffb3a1}
+.shard{width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:2px;background:#fff;rotate:45deg;
+  box-shadow:0 0 0 2px var(--acc),0 0 14px 4px var(--acc),0 0 34px 10px color-mix(in srgb,var(--acc) 45%,transparent);animation:shard-rise 1.1s cubic-bezier(.2,.9,.3,1) forwards}
+@keyframes shard-rise{from{scale:0;opacity:0;rotate:-135deg} 35%{scale:1.8;opacity:1} to{scale:1.2;rotate:45deg;translate:0 -36px}}
+.shard-burst{width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;border:2px solid var(--acc);box-shadow:0 0 18px var(--acc),inset 0 0 10px var(--acc);
+  animation:shard-burst .9s cubic-bezier(.1,.7,.3,1) forwards}
+@keyframes shard-burst{from{scale:.4;opacity:1} to{scale:6;opacity:0}}
+/* 알림은 가운데를 가리지 않게 왼쪽 위로 옮긴다. 물러난 지도의 선이 보여야 한다 */
+#piece-toast{left:20px;top:76px;transform:none}
+#piece-toast.out{transform:scale(.96)}
+#piece-toast.in{animation:toast-in2 .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes toast-in2{from{opacity:0;transform:translateY(-10px) scale(.96);filter:blur(6px)}}
+@media (max-width:900px){#piece-toast{left:16px;right:16px;top:64px}}
+@media (prefers-reduced-motion:reduce){#piece-toast.out{transform:none}}
+/* 조각이 꽂힌 지역의 점: 불이 켜지며 한 번 크게 부푼다 */
+.pin.lit{animation:pin-lit .9s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pin-lit{0%{scale:1} 30%{scale:2.6;box-shadow:0 0 0 8px rgba(255,225,162,.35),0 0 40px 16px rgba(255,214,140,.9)} 100%{scale:1}}
+@media (prefers-reduced-motion:reduce){.pin.lit{animation:none}}

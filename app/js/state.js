@@ -17,6 +17,7 @@ export const state = {
   playing: null,     // 지금 울리는 것 { mode: 'preview' | 'finale', at(ms), duration(s), ids }
   finaleDone: false, // 피날레를 끝까지 보았는가
   sound: true,
+  landing: null,    // 날아가는 중인 조각의 지역. 꽂히기 전까지 그 구간의 선은 켜지지 않는다(main.js pieceFly, dance.js)
   note: null,        // 방금 한 행동에 대한 한 줄 응답 { ok, text }
   mapReady: false,
   screen: 'opening', // 지금 화면: 'opening'(구름 문지르기) | 'night'(밤사진) | 'mission'(다섯 지역에서 직접 확인하기)
