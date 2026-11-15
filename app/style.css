@@ -1292,3 +1292,6 @@ body[data-screen=mission] #panel .found details.why[open] summary{font-size:0;co
   #film .acts [data-explore]{grid-row:2;justify-self:start}
   #film .acts .quiet{white-space:nowrap}
 }
+
+/* 근거 창: 아직 잠긴 지역이면 단추 위에 한 줄(jmj) */
+#proof .lock{margin:10px 0 0;font-size:12px;line-height:1.5;color:#ffd68c;text-align:right;word-break:keep-all}

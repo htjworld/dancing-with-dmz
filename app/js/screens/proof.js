@@ -3,6 +3,14 @@
 import { state, set, subscribe, data, fact } from '../state.js';
 import { evidence } from '../evidence.js';
 import { t, dateText, zoneName } from '../i18n.js';
+import { STOPS } from '../stops.js';
+
+// 미션은 순서대로 연다(게임 안 지역 줄과 같은 규칙): 앞 지역 조각을 다 받은 곳만 바로 들어가고, 아니면 다음 차례 지역으로 보낸다
+function missionTarget(id) {
+  const i = STOPS.findIndex(x => x.id === id);
+  if (i < 0 || STOPS.slice(0, i).every(x => state.fragments.includes(x.id))) return id;
+  return STOPS.find(x => !state.fragments.includes(x.id)).id;
+}
 
 const el = document.getElementById('proof');
 // 선 색은 밤하늘 둘러보기와 같은 뜻으로 칠한다(hdk): 그 지역에서 변동 폭이 가장 작은 땅 = 고요한 회청색,
@@ -86,6 +94,7 @@ function render() {
   const shared = (e.shared || []).map(x => (x.rain_mm_3day == null ? t('proof.rainUnknown', { day: dateText(x.date) })
     : t('proof.rain', { day: dateText(x.date), mm: x.rain_mm_3day < 10 ? x.rain_mm_3day.toFixed(1) : x.rain_mm_3day.toFixed(0) }))).join(', ');
   const h = headline(e), region = t('region.' + id);
+  const go = missionTarget(id), locked = go !== id;
   // 카드 없이 오른쪽 가장자리의 어둠 위에: 어디 → 결론 → 곡선(선 끝 이름) → 한 줄 설명 → 자료와 한계 · 미션
   el.innerHTML = `
     <button type="button" class="close" data-close>${t('common.close')}</button>
@@ -93,6 +102,7 @@ function render() {
     <h2>${h ?? t('proof.titleN', { region, n: e.lines.length })}</h2>
     ${chart(e, label)}
     <p class="foot">${t('proof.foot')}</p>
+    ${locked ? `<p class="lock">${t('proof.locked', { region })}</p>` : ''}
     <div class="row">
       <details class="more"><summary>${t('night.notes')}</summary>
         ${e.lines.map(l => `<p><b>${label(l)}</b>: ${where(l)}${cover(l) ? `, ${cover(l)}` : ''}</p>`).join('')}
@@ -100,14 +110,14 @@ function render() {
         ${e.excluded.length && shared ? `<p>${t('proof.shared', { list: shared })}</p>` : ''}
         ${e.caveats.map(k => `<p>${t('caveat.' + k, { passes: fact('passes'), prov: fact('passes_provisional') })}</p>`).join('')}
       </details>
-      <button type="button" class="next" data-mission>${t('proof.mission', { region }).replace(/\s*→\s*$/, '')}</button>
+      <button type="button" class="next" data-mission>${locked ? t('proof.missionNext', { region: t('region.' + go) }) : t('proof.mission', { region }).replace(/\s*→\s*$/, '')}</button>
     </div>`;
 }
 
 export function initProof() {
   el.addEventListener('click', e => {
     if (e.target.closest('[data-close]')) return set({ evidenceAt: null });
-    if (e.target.closest('[data-mission]')) set({ screen: 'mission', stop: state.evidenceAt });
+    if (e.target.closest('[data-mission]')) set({ screen: 'mission', stop: missionTarget(state.evidenceAt) });
   });
   subscribe((s, prev) => { if (s.evidenceAt !== prev.evidenceAt || s.screen !== prev.screen || s.lang !== prev.lang) render(); });
   render();
