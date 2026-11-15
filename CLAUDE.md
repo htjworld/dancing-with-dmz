@@ -19,6 +19,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] 대성동 팝업에서 출처 링크 줄 삭제(팀 피드백: 경기도 DMZ 안내 주소가 404). 출처는 README·팀 페이지에 남는다. 팀 페이지·`submission.md`·`section.json`의 그 주소는 아직 예전 것(새 주소: dmz.gg.go.kr/contents/contents.do?ciIdx=8&menuId=15) — hdk · `night.js`
 - [x] 팀 페이지 Project Details에서 시험하지 않은 학습 효과 두 문장('leaves able to read', 'leaves with five things they can read')을 'is walked through / meets five things to look for'로 바꿔 11/15 오후 다시 제출, 공개 페이지 반영 확인 — hdk · `submission.md`
 - [x] 문서 맞추기: 슬라이드 원고 2번 장 제목·7번 장 Impact 세 줄, README·submission 글꼴 출처에 Pretendard — hdk · `demo/slides.md`(htj 확인 요청은 `plan.md` 보드), `README.md`, `submission.md`
 - [x] 열려 있는 조각 알림도 언어 단추를 따라 바뀜(모바일 한·영 전 화면 점검 중 발견) — hdk · `main.js`(jmj 확인 요청은 `plan.md` 보드)
