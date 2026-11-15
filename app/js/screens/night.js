@@ -220,11 +220,12 @@ async function placeMarks() {
 function showPlace(p) {
   const m = window.__dmzMap; if (!m) return;
   const pc = x => Math.round(x * 100);
+  const own = p.id !== 'daeseong', k = own ? `night.ex.${p.id}` : 'night.ex';   // 대성동은 처음 문구 그대로, 나머지 지역의 한 곳씩은 장소별 문구(jmj)
   closePick();
   pick = new maplibregl.Popup({ closeButton: false, closeOnClick: false, className: 'glow-pick', offset: 12, maxWidth: '300px' })
-    .setLngLat(p.lonlat).setHTML(`<b>${t('night.ex.title')}</b><span>${t('night.ex.place')}</span>
-      <p class="body">${t('night.ex.body', { r: p.r_km, share: pc(p.share), west: pc(p.west_share), west_km: p.west_km ?? 35 })}</p>
-      <p class="fine">${t('night.ex.limit', { db: whole ? whole.strongDb.toFixed(2) : '0.66' })}</p>`).addTo(m);   // 출처 링크는 뺐다(팀 피드백, 11/15). 출처는 README·팀 페이지에 둔다
+    .setLngLat(p.lonlat).setHTML(`<b>${t(k + '.title')}</b><span>${t(k + '.place')}</span>
+      <p class="body">${t(k + '.body', { r: p.r_km, share: pc(p.share), west: pc(p.west_share ?? 0), west_km: p.west_km ?? 35, around: pc(p.around_share ?? 0), a0: p.around_km?.[0], a1: p.around_km?.[1] })}</p>
+      <p class="fine">${t(own ? 'night.ex.limit2' : 'night.ex.limit', { db: whole ? whole.strongDb.toFixed(2) : '0.66' })}</p>`).addTo(m);   // 출처 링크는 뺐다(팀 피드백, 11/15). 출처는 README·팀 페이지에 둔다
 }
 
 export function initNight() {

@@ -94,6 +94,25 @@ places = [{
     "sources": ["https://ggcf.kr/attachment/8614/download", "https://dmz.gg.go.kr/all-about-the-dmz/human-environment-of-the-dmz"],
 }]
 
+# 지역마다 한 곳씩 더(jmj, 2026-11-15): 연천·철원·화천·양구. 좌표는 OpenStreetMap(Nominatim 검색, 2026-11-15)의 그 대상 위치다.
+# 대성동과 달리 분계선 2 km 띠 밖이라, '표식 반경 R_KM 안'의 몫을 '그 바깥 AROUND_KM 고리'의 몫과 견준다(둘 다 기준 이상 화소의 비율, 값은 바꾸지 않는다).
+# 무엇이 있는 곳인지는 이름뿐이고, 왜 변했는지는 이 자료로 알 수 없다(화면의 한계 문구와 같다).
+AROUND_KM = (3, 12)
+MORE = [   # id, 경도, 위도, OpenStreetMap 대상
+    ("pilseung", 126.9608929, 38.1111185, "way/128946971"),    # 필승교(임진강)
+    ("sapseul", 127.2382800, 38.2855500, "node/10253017899"),  # 삽슬봉(철원평야 가운데의 낮은 봉우리)
+    ("peacedam", 127.8463418, 38.2101489, "way/200227266"),    # 평화의 댐
+    ("punchbowl", 128.1350583, 38.2837717, "relation/14361839"),  # 양구군 해안면(해안분지, 펀치볼)
+]
+for pid, plon, plat, osm in MORE:
+    d = np.hypot((lon - plon) * 111.32 * np.cos(np.radians(plat)), (lat - plat) * ky)
+    k = int(np.argmin(d))
+    places.append({
+        "id": pid, "lonlat": [plon, plat], "line_km": round(float(dist[k]), 2), "r_km": R_KM, "around_km": list(AROUND_KM),
+        "share": share(d < R_KM), "around_share": share((d >= AROUND_KM[0]) & (d < AROUND_KM[1])),
+        "sources": [f"https://www.openstreetmap.org/{osm}"],
+    })
+
 out = {
     "about": "Pixel counts of the corridor seasonal-swing value image, binned by position along the demarcation line and signed distance from it (north +). 'strong' = at or above the corridor's 80th percentile. East Sea pixels excluded. Counts only; values unchanged.",
     "source": "corridor.json value images (NISAR GCOV HH seasonal variability, khs); line from dmz.geojson (approximate, OpenStreetMap)",
