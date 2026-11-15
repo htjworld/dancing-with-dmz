@@ -1,3 +1,5 @@
+![NASA Space Apps Challenge 2026 Seoul](demo/nasa-space-apps.jpeg)
+
 # Dancing with DMZ
 
 ### ▶ [Open the app — htjworld.github.io/dancing-with-dmz](https://htjworld.github.io/dancing-with-dmz/)
