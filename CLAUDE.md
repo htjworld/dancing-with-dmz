@@ -17,6 +17,7 @@ NASA Space Apps 2026 · Dancing with the SARs · 대회 2026-11-14 ~ 11-15
 - (아직 없음. `decision.md`가 "확정"이 되면 한 줄씩 들어온다)
 
 ## 완료
+- [x] README를 현재 앱 흐름·제출 양식에 맞춰 개정(다섯 단계, SI 사용 고지에 Higgsfield 영상, 팀 NASSAFY, 라이선스, 화면 캡처 3장). 궤도 방향 표기와 띠 단면 숫자는 htj 확인 전이라 뺌 — jmj · `README.md`, `demo/screens/`
 - [x] `LICENSE` 추가(Apache License 2.0), 제출 원고 개정: Summary 199단어(누구나 레이더를 읽게 한다는 점을 앞에), Details에 효과·창의성 문단, 궤도 방향 표현 삭제 — jmj · `LICENSE`, `submission.md`, `demo/slides.md`
 - [x] 제출 원고를 현재 앱 흐름에 맞춰 다시 채움(Use of SI에 Higgsfield 생성 영상 공개), 7장 슬라이드 원고 — jmj · `submission.md`, `demo/slides.md`
 - [x] 소개 영상 오른쪽 아래에 "SI-generated video" 표시(생성 영상 표시 규정) — jmj · `app/js/main.js`, `i18n.js`, `style.css`
